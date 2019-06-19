@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'default/header.html.twig' %}
+
+    <div class="section" style="margin-top: 100px;">
+        <div class="container mt-5">
+            <div class="row mt-5">
+                <div class="col-12 col-lg-6 mt-5">
+                    <!-- Billing details -->
+                    <h4 class="margin-bottom-20 mb-5">Validation de la commande</h4>
+                    {{ form_start(personalinfo_form) }}
+                        <div class="row mt-3">
+                            <div class="col-12 col-sm-6">
+                                {{ form_label(personalinfo_form.customerFirstName) }}
+                                {{ form_widget(personalinfo_form.customerFirstName) }}
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                {{ form_label(personalinfo_form.customerLastName) }}
+                                {{ form_widget(personalinfo_form.customerLastName) }}
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            {{ form_label(personalinfo_form.customerEmail) }}
+                            {{ form_widget(personalinfo_form.customerEmail) }}
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 col-sm-6">
+                                {{ form_label(personalinfo_form.customerCity) }}
+                                {{ form_widget(personalinfo_form.customerCity) }}
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                {{ form_label(personalinfo_form.postalCode) }}
+                                {{ form_widget(personalinfo_form.postalCode) }}
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            {{ form_label(personalinfo_form.customerPhone) }}
+                            {{ form_widget(personalinfo_form.customerPhone) }}
+                        </div>
+                        <div class="mt-3">
+                            {{ form_label(personalinfo_form.customerAddress) }}
+                            {{ form_widget(personalinfo_form.customerAddress) }}
+                        </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-5 mt-5 mb-5 ml-lg-auto">
+                    <div class="order-details-confirmation">
+
+                        <div class="cart-page-heading">
+                            <h5>Votre Commande</h5>
+                            <p>Facture</p>
+                        </div>
+
+                        <ul class="order-details-form mb-4">
+                            <li><span>Products</span> <span>Total</span></li>
+                            {% set subTotal=0 %}
+                            {% for item in items1 %}
+                                {% set total = item.quantity*item.product.price %}
+                                {% set subTotal = subTotal + total %}
+                                <li><span>{{ item.product.name }}</span> <span>{{ total }} DT</span></li>
+                            {% endfor %}
+                            <li><span>Subtotal</span> <span>{{ subTotal }} DT</span></li>
+                            <li><span>Shipping</span> <span>Free</span></li>
+                            <li><span>Total</span> <span>{{ subTotal }} DT</span></li>
+                        </ul>
+
+                        <div class="container mb-5">
+                            <div class="row justify-content-center mt-5 ">
+                                <div class="col-8 text-center">{{ form_widget(personalinfo_form.save) }}</div>
+                            </div>
+                        </div>
+                        {{ form_rest(personalinfo_form) }}
+                        {{ form_end(personalinfo_form) }}
+                    </div>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div>
+
+    {% include 'default/footer.html.twig' %}
+{% endblock %}

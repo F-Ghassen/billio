@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="{{ path('homepage') }}">
+        <img class="img-fuild" style="width: 40px; height: 40px;" src="{{ asset('assets/img/core-img/billio.jpg') }}" alt="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('index_products_page') }}">Tous les Produits</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Catégorie
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=T-Shirt">T-Shirts</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Jeans">Jeans</a>
+                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Chemises">Chemises</a>
+                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Polo">Polo</a>
+                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Mocassin">Mocassin</a>
+                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Casquettes">Casquettes</a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a id="nav-contact" class="nav-item-button nav-link" href="{{ path('contact_page') }}">CONTACT</a>
+            </li>
+        </ul>
+
+        <div class="text-right" style="margin-right: 70px; margin-top:10px;">
+            {% if cartLogo!=0 %}
+            <span>
+                <a href="{{ path('cart_page') }}">
+                    <span class="icon-shopping-cart custom-icon">
+                        <span class="shopping-cart">{{ cartLogo }}</span>
+                    </span>
+                </a>
+            </span>
+            {% endif %}
+            <span><a href=""><i class="fa fa-facebook custom-icon"></i></a></span>
+            <span><a href=""><i class="fa fa-instagram custom-icon"></i> </a></span>
+        </div>
+    </div>
+</nav>

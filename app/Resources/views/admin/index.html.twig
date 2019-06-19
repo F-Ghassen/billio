@@ -1,0 +1,71 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+
+    {{  parent() }}
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Page header -->
+        <div class="page-header">
+            <div class="page-header-content">
+                <div class="page-title">
+                    <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Home</span> - Dashboard</h4>
+                </div>
+            </div>
+
+            <div class="breadcrumb-line">
+                <ul class="breadcrumb">
+                    <li><a href="{{ path('index_admin_page') }}"><i class="icon-home2 position-left"></i> Home</a></li>
+                    <li class="active">Dashboard</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /page header -->
+
+        <!-- Content area -->
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="panel bg-purple-400">
+                        <div class="panel-body">
+                            <div class="col-lg-3" style="margin-top: 13px;"><i class="icon-envelop2"></i></div>
+                            <div class="col-lg-9">
+                                <h3 class="no-margin">{{ count_messages }}</h3>
+                                <div class="text-muted text-size-small">Nombre de messages</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <h2>Produits les plus demandés</h2>
+            <div class="row">
+                {% for prod in list %}
+                    <div class="col-lg-4">
+                        <div class="panel bg-green-400">
+                            <div class="panel-body">
+                                <div class="col-lg-3" style="margin-top: 13px;"><i class="icon-cart2"></i></div>
+                                <div class="col-lg-9">
+                                    <h3 class="no-margin">Produit: {{ prod[0].product.name }}</h3>
+                                    <div class="text-muted text-size-small">Nombre de demande devis: {{ prod['total_quantity'] }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% include 'admin/footer.html.twig' %}
+        </div>
+        <!-- /content area -->
+
+    </div>
+    <!-- /main content -->
+    </div>
+    <!-- /page content -->
+
+    </div>
+    <!-- /page container -->
+
+{% endblock %}

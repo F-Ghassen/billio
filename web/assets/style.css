@@ -1,0 +1,48 @@
+.custom-cart {
+    border: none;
+    padding: 10px 0 10px 0;
+    margin-top: 5px;
+    background: none;
+    font-weight: 700;
+    color: #ff084e;
+    display: block;
+}
+
+.custom-cart:hover {
+    color: #2a2a2a;
+}
+
+.mailing-input {
+    margin-bottom: 10px;
+}
+
+.mailing-btn button {
+    background-color: black;
+    border-color: black;
+    width: 100%;
+    color: whitesmoke;
+    border-radius: 0;
+    padding: 5px;
+}
+
+.karl-checkout-btn button {
+    border: none;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: #ff084e !important;
+}
+
+.karl-checkout-btn button:hover {
+    color: white;
+    background-color: black !important;
+}
+
+.icon-3xl i {
+    font-size: 32px
+}
+
+.send-button{
+    background-color: black;
+    color: white;
+}

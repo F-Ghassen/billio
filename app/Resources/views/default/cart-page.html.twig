@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+    {% include 'default/header.html.twig' %}
+
+    <!-- ****** Cart Area Start ****** -->
+    <div class="cart_area section_padding_100 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cart-footer d-flex mt-30">
+                        <div class="back-to-shop w-50">
+                            <a href="{{ path('index_products_page') }}">Continue shooping</a>
+                        </div>
+                    </div>
+                    <div class="cart-table clearfix mt-5">
+                        {{ form_start(commande_form) }}
+                        <table class="table table-responsive">
+                            <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in items1 %}
+                            <tr>
+                                <td class="cart_product_img d-flex align-items-center">
+                                    <a href="#"><img src="{{ vich_uploader_asset(item.product,'imageFile') }}" alt="Product"></a>
+                                    <h6>{{ item.product.name }}</h6>
+                                </td>
+                                <td>{{ item.size }}</td>
+                                <td class="price"><span>{{ item.product.price|number_format(2) }} DT</span></td>
+                                <td class="qty">
+                                    <div class="quantity">
+                                        <span class="custom-button-circle qty-minus" onclick="var effect = document.getElementById('devis_items_{{ loop.index0 }}_quantity'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                        {{ form_widget(commande_form.items[loop.index0].quantity) }}
+                                        <span class="custom-button-circle qty-plus" onclick="var effect = document.getElementById('devis_items_{{ loop.index0 }}_quantity'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    </div>
+                                </td>
+                                <td class="total_price cart-product-subtotal">
+                                    <span><span></span> DT</span>
+                                </td>
+                                <td class="cart-product-remove">
+                                    <a href="{{ path('delete_cart_item', {'id': item.id}) }}"><i class="ti-close"></i></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 offset-lg-8 col-lg-4">
+                    <div class="cart-total-area mt-70">
+                        <div class="cart-page-heading">
+                            <h5>Cart total</h5>
+                            <p>Final info</p>
+                        </div>
+
+                        <ul class="cart-total-chart payment-detail-box">
+                            <li><span>Subtotal</span> <span class="subt"></span></li>
+                            <li><span>Shipping</span> <span>Free</span></li>
+                            <li><span><strong>Total</strong></span> <span class="subt"><strong></strong></span></li>
+                        </ul>
+
+                        <div class="btn karl-checkout-btn">
+                            {{ form_widget(commande_form.save, { 'label': 'Proceed to Checkout' }) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ form_rest(commande_form) }}
+            {{ form_end(commande_form) }}
+        </div>
+    </div>
+    <!-- ****** Cart Area End ****** -->
+
+    {% include 'default/footer.html.twig' %}
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $( document ).ready(function() {
+            $('.product-quantity').find('input').removeClass('form-control');
+        });
+    </script>
+    <script>
+        $( document ).ready(function() {
+
+            var subtotal = parseFloat(0);
+            $('.cart-product-subtotal').each(function () {
+                var quantity = parseFloat($(this).prev('td.qty').find('input').val());
+                var price = parseFloat($(this).prev('td').prev('td').find('span').text());
+                var value = quantity*price;
+                subtotal = parseFloat(subtotal) + value;
+                $(this).find('span').find('span').text(parseFloat(value).toFixed(2));
+            });
+            $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " DT");
+
+            $('.custom-button-circle').on('click', function (e) {
+                var quantity = parseFloat($(this).siblings('input').val());
+                var price = parseFloat($(this).parent().parent().prev('td').find('span').text());
+                var value = quantity*price;
+
+                $(this).parent().parent().siblings('.cart-product-subtotal').find('span').find('span').text(parseFloat(value).toFixed(2));
+
+                var subtotal = parseFloat(0);
+                $('.cart-product-subtotal').each(function () {
+                    var quantity = parseFloat($(this).prev('td.qty').find('input').val());
+                    var price = parseFloat($(this).prev('td').prev('td').find('span').text());
+                    var value = quantity*price;
+                    subtotal = parseFloat(subtotal) + value;
+                });
+                $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2)  + " DT");
+            });
+        });
+    </script>
+{% endblock %}

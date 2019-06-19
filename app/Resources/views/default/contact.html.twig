@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include 'default/header.html.twig' %}
+
+    <div class="container mt-5">
+        <div class="row mt-5">
+            <div class="col-12 mt-5">
+                <div class="section_heading text-center mt-5">
+                    <h2>Contact</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Info section -->
+    <div class="section">
+        <div class="container mt-5">
+            <div class="row mt-5">
+                <div class="col-12 col-sm-6 col-md-3 icon-3xl">
+                    <i class="ti ti-email text-dark"></i>
+                    <h6 class="heading-uppercase no-margin mt-3">Email</h6>
+                    <p>Contact@billiorich.com</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 icon-3xl">
+                    <i class="ti ti-mobile text-dark"></i>
+                    <h6 class="heading-uppercase no-margin mt-3">Phone</h6>
+                    <p>+(216) 54 600 646</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 icon-3xl">
+                    <i class="ti ti-instagram text-dark"></i>
+                    <h6 class="heading-uppercase no-margin mt-3">Instagram</h6>
+                    <p>Instagram@billiorich</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 icon-3xl">
+                    <i class="ti ti-location-pin text-dark"></i>
+                    <h6 class="heading-uppercase no-margin mt-3">Address</h6>
+                    <p>676 INSAT Centre Urbain Nord BP، Tunis Cedex 1080</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end Contact Info section -->
+
+    <!-- Contact Form section -->
+    <div class="section no-padding-top">
+        <div class="container">
+            <div class="contact-form">
+                {{ form_start(contact_form) }}
+                    <div class="form-row mt-5 mb-5">
+                        <div class="col-12 col-sm-6">
+                            {{ form_widget(contact_form.name, { 'attr': {'placeholder': 'Name' } }) }}
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            {{ form_widget(contact_form.email, { 'attr': {'placeholder': 'E-Mail'} }) }}
+                        </div>
+                    </div>
+                    {{ form_widget(contact_form.message, { 'attr': {'placeholder': 'Message'} }) }}
+                    <div>{{ form_errors(contact_form) }}</div>
+
+                    <div class="row justify-content-center ">
+                        <div class="text-center mt-5 mb-5 col-4">
+                            {{ form_widget(contact_form.save, {'attr': {'class': 'btn send-button'}}) }}
+                        </div>
+                    </div>
+
+                    {{ form_rest(contact_form) }}
+                {{ form_end(contact_form) }}
+            </div><!-- end contact-form -->
+        </div><!-- end container -->
+    </div>
+    <!-- end Contact Form section -->
+
+    {% include 'default/footer.html.twig' %}
+{% endblock %}
