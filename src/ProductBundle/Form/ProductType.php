@@ -2,11 +2,12 @@
 
 namespace ProductBundle\Form;
 
-use ProductBundle\Entity\Brand;
+use CollectionBundle\Entity\Collection;
 use ProductBundle\Entity\Product;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -39,20 +40,17 @@ class ProductType extends AbstractType
                 'required'    => false,
                 'allow_delete' => false,
             ))
-            ->add('imageFile1', VichImageType::class, array(
-                'download_link'     => false,
+            ->add('collection', EntityType::class, array(
+                'class' => 'CollectionBundle\Entity\Collection',
                 'required'    => false,
-                'allow_delete' => false,
+                'choice_label' => 'name',
             ))
-            ->add('imageFile2', VichImageType::class, array(
-                'download_link'     => false,
-                'required'    => false,
-                'allow_delete' => false,
-            ))
-            ->add('imageFile3', VichImageType::class, array(
-                'download_link'     => false,
-                'required'    => false,
-                'allow_delete' => false,
+            ->add('variations', CollectionType::class, array(
+                'entry_type' => ProductVariationType::class,
+                'allow_add' => true,
+                'by_reference' => false,
+                'allow_delete' => true,
+                'label' => 'Variation'
             ))
             ->add('save',  SubmitType::class)
         ;

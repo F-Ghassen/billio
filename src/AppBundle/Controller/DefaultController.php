@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use CollectionBundle\Entity\Collection;
 use MessageBundle\Entity\MailingList;
 use MessageBundle\Entity\Message;
 use MessageBundle\Form\MailingListType;
@@ -13,6 +14,7 @@ use OrderBundle\Form\CommandeItemEditTypeClient1;
 use OrderBundle\Form\DevisType;
 use OrderBundle\Form\PersonalInfoType;
 use ProductBundle\Entity\Product;
+use ProductBundle\Entity\ProductVariation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -41,18 +43,11 @@ class DefaultController extends Controller
             $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
             $cartLogo = count($commande->getItems());
         }
-
-        $query = $this->getDoctrine()->getManager()->getRepository(Product::class)->createQueryBuilder('p')
-            ->select('p')
-            ->where('p.enabled = true')
-            ->andwhere('p.highlight = true')
-            ->setMaxResults(6);
-
-        $products = $query->getQuery()->getResult();
+        $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
         return $this->render('default/index.html.twig', array(
             'cartLogo' => $cartLogo,
             'mailing_form' => $mailing_form->createView(),
-            'products' => $products,
+            'collections' => $collections,
         ));
     }
 
@@ -63,10 +58,18 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $queryBuilder = $em->getRepository(Product::class)->createQueryBuilder('p');
+        $queryBuilder->leftJoin('p.variations', 'variations')
+            ->addSelect('variations');
         $queryBuilder->where('p.enabled = true');
         if($request->query->getAlnum('category')) {
             $queryBuilder->where('p.category = :category')
                 ->setParameter('category', $request->query->getAlnum('category'));
+        }
+        if($request->query->getAlnum('collection')) {
+            $queryBuilder->leftJoin('p.collection', 'collection')
+                ->addSelect('collection')
+                ->where('collection.name = :collection')
+                ->setParameter('collection', $request->query->getAlnum('collection'));
         }
 
         $query = $queryBuilder->getQuery();
@@ -94,22 +97,25 @@ class DefaultController extends Controller
             $em->flush();
             return $this->redirectToRoute('homepage');
         }
-
-        //dump($result);
+        $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
+        dump($result);
         return $this->render('default/list_products.html.twig', array(
             'products' => $result,
             'mailing_form' => $mailing_form->createView(),
             'cartLogo' => $cartLogo,
+            'collections' => $collections,
         ));
     }
 
     /**
-     * @Route("/products/{id}", name="product_details_page")
+     * @Route("/products/{id}-{v_id}", name="product_details_page")
      */
-    public function productDetailsAction(Request $request, $id)
+    public function productDetailsAction(Request $request, $id, $v_id)
     {
         $em = $this->getDoctrine()->getManager();
         $product = $em->getRepository(Product::class)->find($id);
+        $variation = $em->getRepository(ProductVariation::class)->find($v_id);
+        $variations = $em->getRepository(ProductVariation::class)->findBy(['product' => $product]);
 
         $serializer = $this->get('jms_serializer');
         $session = $this->get('session');
@@ -164,27 +170,32 @@ class DefaultController extends Controller
             $em->flush();
             return $this->redirectToRoute('homepage');
         }
-
+        $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
         return $this->render('default/detail_product.html.twig', array(
             'p' => $product,
             'cartLogo' => $cartLogo,
             'mailing_form' => $mailing_form->createView(),
             'cart_form' => $cart_form->createView(),
+            'collections' => $collections,
+            'variation' => $variation,
+            'variations' => $variations,
         ));
     }
 
     /**
-     * @Route("/add-to-cart/{id}", name="add_to_cart_page")
+     * @Route("/add-to-cart/{id}-{v_id}", name="add_to_cart_page")
      */
-    public function addCartAction(Request $request, $id)
+    public function addCartAction(Request $request, $id, $v_id)
     {
         $em = $this->getDoctrine()->getManager();
         $product = $em->getRepository(Product::class)->find($id);
+        $variation = $em->getRepository(ProductVariation::class)->find($v_id);
         $serializer = $this->get('jms_serializer');
 
         $devisItem = new DevisItem();
         if($request->isMethod('POST')) {
             $devisItem->setProduct($product);
+            $devisItem->setVariation($variation);
             $quantity = $request->request->get('quantity');
             if($quantity != null) {
                 $devisItem->setQuantity($quantity);
@@ -284,11 +295,14 @@ class DefaultController extends Controller
             return $this->redirectToRoute('homepage');
         }
 
+        //dump($data);
+        $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
         return $this->render('default/cart-page.html.twig', array(
             'commande_form' => $commande_form->createView(),
             'cartLogo' => $cartLogo,
             'mailing_form' => $mailing_form->createView(),
             'items1' => $data,
+            'collections' => $collections,
         ));
     }
 
@@ -346,8 +360,42 @@ class DefaultController extends Controller
             if ($request->isMethod('POST') && $personalinfo_form->handleRequest($request)->isValid()) {
                 $database_commande->setEnabled(true);
                 $em = $this->getDoctrine()->getManager();
+
+                foreach ($data as $devis_item) {
+                    $variation = $em->getRepository(ProductVariation::class)->find(($devis_item->getVariation()->getId()));
+                    switch ($devis_item->getSize()) {
+                        case 'S':
+                            $val = $variation->getS();
+                            $val = $val - 1;
+                            $variation->setS(strval($val));
+                            break;
+                        case 'M':
+                            $val = $variation->getM();
+                            $val = $val - 1;
+                            $variation->setM($val);
+                            break;
+                        case 'L':
+                            $val = $variation->getL();
+                            $val = $val - 1;
+                            $variation->setL($val);
+                            break;
+                        case 'XL':
+                            $val = $variation->getXL();
+                            $val = $val - 1;
+                            $variation->setXL($val);
+                            break;
+                        case 'XXL':
+                            $val = $variation->getXXL();
+                            $val = $val - 1;
+                            $variation->setXXL($val);
+                            break;
+                    }
+                }
+                $devis_item->setVariation($variation);
+                //die(dump($devis_item));
                 $em->flush();
-                return $this->redirectToRoute('homepage');
+                $session->clear();
+                return $this->redirectToRoute('after_checkout');
             }
         }
         else {
@@ -362,12 +410,13 @@ class DefaultController extends Controller
             $em->flush();
             return $this->redirectToRoute('homepage');
         }
-
+        $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
         return $this->render('default/validate_devis.html.twig', array(
             'personalinfo_form' => $personalinfo_form->createView(),
             'cartLogo' => $cartLogo,
             'mailing_form' => $mailing_form->createView(),
             'items1' => $data,
+            'collections' => $collections,
         ));
     }
 
@@ -403,11 +452,42 @@ class DefaultController extends Controller
             $em->flush();
             return $this->redirectToRoute('homepage');
         }
-
+        $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
         return $this->render('default/contact.html.twig', array(
             'contact_form' => $form->createView(),
             'cartLogo' => $cartLogo,
             'mailing_form' => $mailing_form->createView(),
+            'collections' => $collections,
+        ));
+    }
+
+    /**
+     * @Route("/checkout", name="after_checkout")
+     */
+    public function afterCheckoutAction(Request $request)
+    {
+        $serializer = $this->get('jms_serializer');
+        $session = $this->get('session');
+        $cartLogo = 0;
+        if ($session->has('cartElements')) {
+            $commandeJson = $session->get('cartElements');
+            $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
+            $cartLogo = count($commande->getItems());
+        }
+
+        $mailing = new MailingList();
+        $mailing_form = $this->get('form.factory')->create(MailingListType::class, $mailing);
+        if ($request->isMethod('POST') && $mailing_form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($mailing);
+            $em->flush();
+            return $this->redirectToRoute('homepage');
+        }
+        $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
+        return $this->render('default/after_checkout.html.twig', array(
+            'cartLogo' => $cartLogo,
+            'mailing_form' => $mailing_form->createView(),
+            'collections' => $collections,
         ));
     }
 }

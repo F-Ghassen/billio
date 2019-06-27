@@ -18,7 +18,7 @@ class CommandeItemEditTypeClient extends AbstractType
                     'min' => 1,
                     'max' => 99,
                     'step' => 1,
-                    'class' => 'qty-text'
+                    'class' => 'qty-text',
                 ),
                 'label' => false,
             ))

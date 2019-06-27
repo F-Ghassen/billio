@@ -1,0 +1,119 @@
+<!-- ****** Quick View Modal Area Start ****** -->
+<div class="modal fade" id="quickview{{ loop.index0 }}" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="row justify-content-end">
+                <button type="button" class="close btn mr-4" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="quickview_body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-lg-5">
+                                <div class="quickview_pro_img">
+                                    <img src="{{ vich_uploader_asset(v.images[0],'imageFile') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-7">
+                                <div class="quickview_pro_des">
+                                    <h4 class="title">{{ p.name }}</h4>
+                                    <div class="top_seller_product_rating mb-15">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <h5 class="price">{{ p.price }} DT</h5>
+                                    <p>{{ p.description }}</p>
+                                    <a href="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}">View Full Product Details</a>
+                                </div>
+
+                                <div class="widget size mb-50">
+                                    <h6 class="widget-title">Size</h6>
+                                    <div class="widget-desc">
+                                        <ul>
+                                            {# test for each size if available #}
+                                            {% if variation.s != 0 %}
+                                                <li><a class="size-option" data-size="S" href="#">S</a></li>
+                                            {% else %}
+                                                <li><a class="size-option disable-size" data-size="S" href="#">S</a></li>
+                                            {% endif %}
+                                            {% if variation.m != 0 %}
+                                                <li><a class="size-option" data-size="M" href="#">M</a></li>
+                                            {% else %}
+                                                <li><a class="size-option disable-size" data-size="M" href="#">M</a></li>
+                                            {% endif %}
+                                            {% if variation.l != 0 %}
+                                                <li><a class="size-option" data-size="L" href="#">L</a></li>
+                                            {% else %}
+                                                <li><a class="size-option disable-size" data-size="L" href="#">L</a></li>
+                                            {% endif %}
+                                            {% if variation.xl != 0 %}
+                                                <li><a class="size-option" data-size="XL" href="#">XL</a></li>
+                                            {% else %}
+                                                <li><a class="size-option disable-size" data-size="XL" href="#">XL</a></li>
+                                            {% endif %}
+                                            {% if variation.xxl != 0 %}
+                                                <li><a class="size-option" data-size="XXL" href="#">XL</a></li>
+                                            {% else %}
+                                                <li><a class="size-option disable-size" data-size="XXL" href="#">XXL</a></li>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Add to Cart Form -->
+                                <form action="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}" class="cart" method="post">
+                                    <select name="size-select" id="size-select" style="display: none;">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XL">XXL</option>
+                                    </select>
+                                    {#
+                                        <div class="quantity">
+                                            <span class="qty-minus" onclick="var effect = document.getElementById('qty{{ loop.index0 }}'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
+
+                                            <input type="number" class="qty-text" id="qty{{ loop.index0 }}" step="1" min="1" max="12" name="quantity" value="1">
+
+                                            <span class="qty-plus" onclick="var effect = document.getElementById('qty{{ loop.index0 }}'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                        </div>
+                                    #}
+                                    <input type="submit" name="addtocart" value="Acheter" class="cart-submit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ****** Quick View Modal Area End ****** -->
+
+<!-- Single gallery Item Start -->
+<div class="single_gallery_item wow fadeInUpBig" data-wow-delay="0.2s">
+    <!-- Product Image -->
+    <div class="product-img">
+        <img src="{{ vich_uploader_asset(v.images[0],'imageFile') }}" alt="">
+        <div class="product-quicview">
+            <a href="#" data-toggle="modal" data-target="#quickview{{ loop.index0 }}"><i class="ti-plus"></i></a>
+        </div>
+    </div>
+    <!-- Product Description -->
+    <div class="product-description">
+        <h4 class="product-price">{{ p.price }} DT</h4>
+        <p style="font-size:23px">{{ p.name }}</p>
+        <!-- Add to Cart -->
+        <form action="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}" class="cart" method="post">
+            <input type="submit" value="Acheter Maintenant" class="custom-cart">
+        </form>
+
+    </div>
+</div>
+<!-- Single gallery Item Start -->

@@ -29,6 +29,8 @@
         <script type="text/javascript" src="{{ asset('admin_assets/js/plugins/forms/selects/select2.min.js') }}"></script>
 
         <script type="text/javascript" src="{{ asset('admin_assets/js/core/app.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('admin_assets/js/product_variations.js') }}"></script>
+        {#<script type="text/javascript" src="{{ asset('admin_assets/js/product_images.js') }}"></script>#}
         <!-- /theme JS files -->
     {% endblock %}
 
@@ -111,6 +113,10 @@
 
                             <li {% if app.request.attributes.get('_route') == 'list_products_page' %} class="active"{% endif %}>
                                 <a href="{{ path('list_products_page') }}"><i class=" icon-home8"></i> <span>Produits</span></a>
+                            </li>
+
+                            <li {% if app.request.attributes.get('_route') == 'list_collections_page' %} class="active"{% endif %}>
+                                <a href="{{ path('list_collections_page') }}"><i class=" icon-cart"></i> <span>Collections</span></a>
                             </li>
 
                             <li {% if app.request.attributes.get('_route') == 'list_messages_page' %} class="active"{% endif %}>

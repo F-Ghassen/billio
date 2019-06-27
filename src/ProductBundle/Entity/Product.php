@@ -52,18 +52,10 @@ class Product
      */
     private $price;
 
-
     /**
-     * @ORM\Column(type="boolean", length=255, nullable=true)
-     * @var bool
+     * @ORM\OneToMany(targetEntity="ProductBundle\Entity\ProductVariation", mappedBy="product", cascade={"persist", "remove"})
      */
-    private $enabled;
-
-    /**
-     * @ORM\Column(type="boolean", length=255, nullable=true)
-     * @var bool
-     */
-    private $highlight;
+    private $variations;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -78,46 +70,26 @@ class Product
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @var string
-     */
-    private $image1;
-
-    /**
-     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image1")
-     * @var File
-     */
-    private $imageFile1;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @var string
-     */
-    private $image2;
-
-    /**
-     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image2")
-     * @var File
-     */
-    private $imageFile2;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @var string
-     */
-    private $image3;
-
-    /**
-     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image3")
-     * @var File
-     */
-    private $imageFile3;
-
-    /**
      * @ORM\Column(type="datetime", nullable=true)
      * @var \DateTime
      */
     private $updatedAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CollectionBundle\Entity\Collection")
+     */
+    private $collection;
+
+    /**
+     * @ORM\Column(type="boolean", length=255, nullable=true)
+     * @var bool
+     */
+    private $enabled;
+
+    public function __construct()
+    {
+        $this->variations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -178,6 +150,82 @@ class Product
     }
 
     /**
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param string $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    public function addVariation(ProductVariation $variation)
+    {
+        $variation->setProduct($this);
+        $this->variations[] = $variation;
+        return $this;
+    }
+
+    public function removeVariation(ProductVariation $variation)
+    {
+        return$this->variations->removeElement($variation);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVariations()
+    {
+        return $this->variations;
+    }
+
+    /**
+     * @param mixed $variations
+     */
+    public function setVariations($variations)
+    {
+        $this->variations = $variations;
+    }
+
+    /**
      * @return string
      */
     public function getImage()
@@ -231,163 +279,19 @@ class Product
     }
 
     /**
-     * @return bool
-     */
-    public function isEnabled()
-    {
-        return $this->enabled;
-    }
-
-    /**
-     * @param bool $enabled
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
-     * @param string $category
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-    }
-
-    /**
      * @return mixed
      */
-    public function getPrice()
+    public function getCollection()
     {
-        return $this->price;
+        return $this->collection;
     }
 
     /**
-     * @param mixed $price
+     * @param mixed $collection
      */
-    public function setPrice($price)
+    public function setCollection($collection)
     {
-        $this->price = $price;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isHighlight()
-    {
-        return $this->highlight;
-    }
-
-    /**
-     * @param bool $highlight
-     */
-    public function setHighlight($highlight)
-    {
-        $this->highlight = $highlight;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImage1()
-    {
-        return $this->image1;
-    }
-
-    /**
-     * @param string $image1
-     */
-    public function setImage1($image1)
-    {
-        $this->image1 = $image1;
-    }
-
-    /**
-     * @return File
-     */
-    public function getImageFile1()
-    {
-        return $this->imageFile1;
-    }
-
-    /**
-     * @param File $imageFile1
-     */
-    public function setImageFile1($imageFile1)
-    {
-        $this->imageFile1 = $imageFile1;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImage2()
-    {
-        return $this->image2;
-    }
-
-    /**
-     * @param string $image2
-     */
-    public function setImage2($image2)
-    {
-        $this->image2 = $image2;
-    }
-
-    /**
-     * @return File
-     */
-    public function getImageFile2()
-    {
-        return $this->imageFile2;
-    }
-
-    /**
-     * @param File $imageFile2
-     */
-    public function setImageFile2($imageFile2)
-    {
-        $this->imageFile2 = $imageFile2;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImage3()
-    {
-        return $this->image3;
-    }
-
-    /**
-     * @param string $image3
-     */
-    public function setImage3($image3)
-    {
-        $this->image3 = $image3;
-    }
-
-    /**
-     * @return File
-     */
-    public function getImageFile3()
-    {
-        return $this->imageFile3;
-    }
-
-    /**
-     * @param File $imageFile3
-     */
-    public function setImageFile3($imageFile3)
-    {
-        $this->imageFile3 = $imageFile3;
+        $this->collection = $collection;
     }
 }
 

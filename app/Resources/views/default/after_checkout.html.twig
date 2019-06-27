@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        {% include 'default/header.html.twig' %}
+
+        <!-- ****** Cart Area Start ****** -->
+        <div class="cart_area section_padding_100 clearfix">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center mt-5">
+                        <div class="section_heading text-center mt-5">
+                            <h3>Merci d'avoir choisi Billiorich</h3>
+                            <h3>Notre équipe vous contactera prochainement pour confirmer votre commande.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="cart-footer mt-5">
+                        <div class="back-to-shop">
+                            <a href="{{ path('index_products_page') }}">Continue shooping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ****** Cart Area End ****** -->
+
+        {% include 'default/footer.html.twig' %}
+    </div>
+{% endblock %}

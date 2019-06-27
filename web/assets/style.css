@@ -46,3 +46,16 @@
     background-color: black;
     color: white;
 }
+
+.qty-text::-webkit-inner-spin-button,
+.qty-text::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+}
+
+.disable-size, disable-size:hover {
+    background-color: rgba(33,33,33,0.5) !important;
+    border-color: rgba(33,33,33,0.5) !important;
+    color: black !important;
+}

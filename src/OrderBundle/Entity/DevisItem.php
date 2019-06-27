@@ -45,6 +45,11 @@ class DevisItem
     private $product;
 
     /**
+     * @ORM\ManyToOne(targetEntity="ProductBundle\Entity\ProductVariation")
+     */
+    private $variation;
+
+    /**
      * Get id
      *
      * @return int
@@ -116,6 +121,22 @@ class DevisItem
     public function setSize($size)
     {
         $this->size = $size;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVariation()
+    {
+        return $this->variation;
+    }
+
+    /**
+     * @param mixed $variation
+     */
+    public function setVariation($variation)
+    {
+        $this->variation = $variation;
     }
 }
 

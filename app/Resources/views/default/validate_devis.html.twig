@@ -61,13 +61,22 @@
                                 <li><span>{{ item.product.name }}</span> <span>{{ total }} DT</span></li>
                             {% endfor %}
                             <li><span>Subtotal</span> <span>{{ subTotal }} DT</span></li>
-                            <li><span>Shipping</span> <span>Free</span></li>
-                            <li><span>Total</span> <span>{{ subTotal }} DT</span></li>
+                            <li><span>Shipping</span>
+                                {% if subTotal > 200 %}
+                                    <span>Free</span>
+                                {% else %}
+                                    {% set subTotal = subTotal + 5 %}
+                                    <span>5 DT</span>
+                                {% endif %}
+                            </li>
+                            <li><span>Total</span>
+                                <span>{{ subTotal }} DT</span>
+                            </li>
                         </ul>
 
                         <div class="container mb-5">
                             <div class="row justify-content-center mt-5 ">
-                                <div class="col-8 text-center">{{ form_widget(personalinfo_form.save) }}</div>
+                                <div class="col-10 text-center">{{ form_widget(personalinfo_form.save) }}</div>
                             </div>
                         </div>
                         {{ form_rest(personalinfo_form) }}

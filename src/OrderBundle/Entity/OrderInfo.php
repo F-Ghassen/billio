@@ -66,7 +66,6 @@ class OrderInfo
      *
      * @Assert\Email(
      *     message = "'{{ value }}' is not a valid email.",
-     *     checkMX = true,
      * )
      *
      * @ORM\Column(name="customerEmail", type="string", length=255)
@@ -83,8 +82,6 @@ class OrderInfo
      * @ORM\Column(name="customer_city", type="string", length=255, nullable=true)
      */
     private $customerCity;
-
-    public $customerCompany = 'test';
 
     /**
      * @var string

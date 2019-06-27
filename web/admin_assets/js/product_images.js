@@ -1,12 +1,12 @@
 var $collectionHolder;
 
 // setup an "add a tag" link
-var $addTagLink = $('<a href="#" class="btn btn-default" style="margin: 10px;">Add Item</a>');
+var $addTagLink = $('<a href="#" class="btn btn-default add_tag_link" style="margin: 10px;">Add Image</a>');
 var $newLinkLi = $('<li></li>').append($addTagLink);
 
 jQuery(document).ready(function() {
     // Get the ul that holds the collection of tags
-    $collectionHolder = $('ul.tags');
+    $collectionHolder = $('ul.tags_images');
 
     // add a delete link to all of the existing tag form li elements
     $collectionHolder.find('li').each(function() {
@@ -50,7 +50,7 @@ function addTagForm($collectionHolder, $newLinkLi) {
     $collectionHolder.data('index', index + 1);
 
     // Display the form in the page in an li, before the "Add a tag" link li
-    var $newFormLi = $('<li class="row" style="margin-top: 20px;"></li>').append(newForm);
+    var $newFormLi = $('<li class="row"></li>').append(newForm);
 
     $newLinkLi.before($newFormLi);
     

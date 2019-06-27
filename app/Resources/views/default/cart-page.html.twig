@@ -21,6 +21,7 @@
                             <tr>
                                 <th>Product</th>
                                 <th>Size</th>
+                                <th>Color</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
@@ -35,6 +36,7 @@
                                     <h6>{{ item.product.name }}</h6>
                                 </td>
                                 <td>{{ item.size }}</td>
+                                <td>{{ item.variation.color }}</td>
                                 <td class="price"><span>{{ item.product.price|number_format(2) }} DT</span></td>
                                 <td class="qty">
                                     <div class="quantity">
@@ -44,7 +46,7 @@
                                     </div>
                                 </td>
                                 <td class="total_price cart-product-subtotal">
-                                    <span><span></span> DT</span>
+                                    <span><span id="local_tot"></span> DT</span>
                                 </td>
                                 <td class="cart-product-remove">
                                     <a href="{{ path('delete_cart_item', {'id': item.id}) }}"><i class="ti-close"></i></a>
@@ -68,8 +70,8 @@
 
                         <ul class="cart-total-chart payment-detail-box">
                             <li><span>Subtotal</span> <span class="subt"></span></li>
-                            <li><span>Shipping</span> <span>Free</span></li>
-                            <li><span><strong>Total</strong></span> <span class="subt"><strong></strong></span></li>
+                            <li><span>Shipping</span> <span id="shipping-val">Free</span></li>
+                            <li><span><strong>Total</strong></span> <span class="total"><strong></strong></span></li>
                         </ul>
 
                         <div class="btn karl-checkout-btn">
@@ -106,8 +108,25 @@
                 $(this).find('span').find('span').text(parseFloat(value).toFixed(2));
             });
             $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " DT");
+            if(subtotal > 200) {
+                $('#shipping-val').text('Free');
+                $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " DT");
+            } else {
+                $('#shipping-val').text(Number(5).toFixed(2) + " DT");
+                var value = subtotal+5;
+                $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " DT");
+            }
 
             $('.custom-button-circle').on('click', function (e) {
+                calcul();
+            });
+
+            $('.qty-text').on('input', function (e) {
+                this.value = Math.abs(this.value);
+                calcul();
+            });
+
+            function calcul() {
                 var quantity = parseFloat($(this).siblings('input').val());
                 var price = parseFloat($(this).parent().parent().prev('td').find('span').text());
                 var value = quantity*price;
@@ -120,9 +139,18 @@
                     var price = parseFloat($(this).prev('td').prev('td').find('span').text());
                     var value = quantity*price;
                     subtotal = parseFloat(subtotal) + value;
+                    $(this).find('span').find('span').text(parseFloat(value).toFixed(2));
                 });
-                $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2)  + " DT");
-            });
+                $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " DT");
+                if(subtotal > 200) {
+                    $('#shipping-val').text('Free');
+                    $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " DT");
+                } else {
+                    $('#shipping-val').text(Number(5).toFixed(2) + " DT");
+                    var value = subtotal+5;
+                    $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " DT");
+                }
+            }
         });
     </script>
 {% endblock %}

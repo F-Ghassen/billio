@@ -22,37 +22,33 @@
                         <div id="product_details_slider" class="carousel slide" data-ride="carousel">
 
                             <ol class="carousel-indicators">
-                                <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url({{ vich_uploader_asset(p,'imageFile') }});">
+
+                                <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url({{ vich_uploader_asset(variation.images[0],'imageFile') }});">
                                 </li>
-                                <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url({{ vich_uploader_asset(p,'imageFile1') }});">
-                                </li>
-                                <li data-target="#product_details_slider" data-slide-to="2" style="background-image: url({{ vich_uploader_asset(p,'imageFile2') }});">
-                                </li>
-                                <li data-target="#product_details_slider" data-slide-to="3" style="background-image: url({{ vich_uploader_asset(p,'imageFile3') }});">
-                                </li>
+                                {% for img in variation.images %}
+                                    {% if false == loop.first %}
+                                    <li data-target="#product_details_slider" data-slide-to="{{ loop.index0 }}" style="background-image: url({{ vich_uploader_asset(img,'imageFile') }});">
+                                    </li>
+                                    {% endif %}
+                                {% endfor %}
+
                             </ol>
 
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <a class="gallery_img" href="{{ vich_uploader_asset(p,'imageFile') }}">
-                                        <img class="d-block w-100" src="{{ vich_uploader_asset(p,'imageFile') }}" alt="First slide">
+                                    <a class="gallery_img" href="{{ vich_uploader_asset(variation.images[0],'imageFile') }}">
+                                        <img class="d-block w-100" src="{{ vich_uploader_asset(variation.images[0],'imageFile') }}" alt="slide">
                                     </a>
                                 </div>
-                                <div class="carousel-item">
-                                    <a class="gallery_img" href="{{ vich_uploader_asset(p,'imageFile1') }}">
-                                        <img class="d-block w-100" src="{{ vich_uploader_asset(p,'imageFile1') }}" alt="Second slide">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="gallery_img" href="{{ vich_uploader_asset(p,'imageFile2') }}">
-                                        <img class="d-block w-100" src="{{ vich_uploader_asset(p,'imageFile2') }}" alt="Third slide">
-                                    </a>
-                                </div>
-                                <div class="carousel-item">
-                                    <a class="gallery_img" href="{{ vich_uploader_asset(p,'imageFile3') }}">
-                                        <img class="d-block w-100" src="{{ vich_uploader_asset(p,'imageFile3') }}" alt="Fourth slide">
-                                    </a>
-                                </div>
+                                {% for img in variation.images %}
+                                    {% if false == loop.first %}
+                                    <div class="carousel-item">
+                                        <a class="gallery_img" href="{{ vich_uploader_asset(img,'imageFile') }}">
+                                            <img class="d-block w-100" src="{{ vich_uploader_asset(img,'imageFile') }}" alt="slide">
+                                        </a>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -79,35 +75,57 @@
                             <h6 class="widget-title">Size</h6>
                             <div class="widget-desc">
                                 <ul>
-                                    <li><a class="size-option" data-size="XS" href="#">XS</a></li>
-                                    <li><a class="size-option" data-size="S" href="#">S</a></li>
-                                    <li><a class="size-option" data-size="M" href="#">M</a></li>
-                                    <li><a class="size-option" data-size="L" href="#">L</a></li>
-                                    <li><a class="size-option" data-size="XL" href="#">XL</a></li>
+                                    {% if variation.s != 0 %}
+                                        <li><a class="size-option" data-size="S" href="#">S</a></li>
+                                    {% else %}
+                                        <li><a class="size-option disable-size" data-size="S" href="#">S</a></li>
+                                    {% endif %}
+                                    {% if variation.m != 0 %}
+                                        <li><a class="size-option" data-size="M" href="#">M</a></li>
+                                    {% else %}
+                                        <li><a class="size-option disable-size" data-size="M" href="#">M</a></li>
+                                    {% endif %}
+                                    {% if variation.l != 0 %}
+                                        <li><a class="size-option" data-size="L" href="#">L</a></li>
+                                    {% else %}
+                                        <li><a class="size-option disable-size" data-size="L" href="#">L</a></li>
+                                    {% endif %}
+                                    {% if variation.xl != 0 %}
+                                        <li><a class="size-option" data-size="XL" href="#">XL</a></li>
+                                    {% else %}
+                                        <li><a class="size-option disable-size" data-size="XL" href="#">XL</a></li>
+                                    {% endif %}
+                                    {% if variation.xxl != 0 %}
+                                        <li><a class="size-option" data-size="XXL" href="#">XL</a></li>
+                                    {% else %}
+                                        <li><a class="size-option disable-size" data-size="XXL" href="#">XXL</a></li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
 
                         <!-- Add to Cart Form -->
-                        <form action="{{ path('add_to_cart_page', {'id': p.id}) }}" class="cart" method="post">
-                            <select name="size-select" id="size-select" style="display: none;">
-                                <option value="XS">XS</option>
+                        <form action="{{ path('add_to_cart_page', {'id': p.id, 'v_id': variation.id}) }}" class="cart" method="post">
+                            <select name="size-select" id="size-select" style="display: none;" required>
                                 <option value="S">S</option>
                                 <option value="M">M</option>
                                 <option value="L">L</option>
                                 <option value="XL">XL</option>
+                                <option value="XL">XXL</option>
                             </select>
-                            <div class="quantity">
-                                <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                            {#
+                                <div class="quantity">
+                                    <span class="qty-minus" onclick="var effect = document.getElementById('qty{{ loop.index0 }}'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
 
-                                <input type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="quantity" value="1">
+                                    <input type="number" class="qty-text" id="qty{{ loop.index0 }}" step="1" min="1" max="12" name="quantity" value="1">
 
-                                <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                            </div>
-                            <input type="submit" name="addtocart" value="Add to cart" class="cart-submit">
+                                    <span class="qty-plus" onclick="var effect = document.getElementById('qty{{ loop.index0 }}'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                </div>
+                            #}
+                            <input type="submit" name="addtocart" id="submit-btn" value="Add to cart" class="cart-submit">
                         </form>
 
-                        <div id="accordion" role="tablist">
+                        <div id="accordion" class="mt-5" role="tablist">
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingOne">
                                     <h6 class="mb-0">
@@ -138,6 +156,23 @@
 
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center mt-5">
+                    <div class="section_heading text-center mt-5">
+                        <h3>Other Variations</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-around">
+                {% for v in variations %}
+                    <div class="col-3 row justify-content-center mt-5">
+                        {% include 'default/single-product.html.twig' %}
+                    </div>
+                {% endfor %}
             </div>
         </div>
 

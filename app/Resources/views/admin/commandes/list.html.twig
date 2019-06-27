@@ -117,6 +117,8 @@
                                     <thead>
                                     <tr>
                                         <th>Description</th>
+                                        <th class="col-sm-1">Size</th>
+                                        <th class="col-sm-1">Color</th>
                                         <th class="col-sm-1">Quantity</th>
                                         <th class="col-sm-1">Total</th>
                                     </tr>
@@ -127,6 +129,8 @@
                                             <td>
                                                 <h6 class="no-margin">{{ item.product.name }}</h6>
                                             </td>
+                                            <td>{{ item.color }}</td>
+                                            <td>{{ item.size }}</td>
                                             <td>{{ item.quantity }}</td>
                                             <td><span class="text-semibold">{{ item.quantity*item.product.price }} DT</span></td>
                                         </tr>

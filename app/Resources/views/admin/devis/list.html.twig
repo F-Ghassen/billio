@@ -47,6 +47,10 @@
                                         {% for item in c.items %}
                                             {% set sum1 = sum1 + item.quantity*item.product.price %}
                                         {% endfor %}
+                                        {% if sum1 < 200 %}
+                                            {% set sum1 = sum1 + 5 %}
+                                        {% endif %}
+                                        <span class="text-semibold">
                                         <h6 class="text-semibold text-right no-margin-top">{{ sum1 }} DT</h6>
                                         <div class="text-right">
                                             Status: &nbsp;
@@ -96,7 +100,7 @@
                                             <span class="text-muted">Invoice To:</span>
                                             <ul class="list-condensed list-unstyled">
                                                 <li><h5>{{ c.orderInfo.getCustomerFirstName }} {{ c.orderInfo.getCustomerLastName }}</h5></li>
-                                                <li><span class="text-semibold">{{ c.orderInfo.customerCompany }}</span></li>
+                                                <li><span class="text-semibold">{{ c.orderInfo.customerAddress }}</span></li>
                                                 <li>{{ c.orderInfo.customerPhone }}</li>
                                                 <li>{{ c.orderInfo.customerEmail }}</li>
                                             </ul>
@@ -109,6 +113,8 @@
                                         <thead>
                                         <tr>
                                             <th>Description</th>
+                                            <th class="col-sm-1">Size</th>
+                                            <th class="col-sm-1">Color</th>
                                             <th class="col-sm-1">Quantity</th>
                                             <th class="col-sm-1">Total</th>
                                         </tr>
@@ -119,8 +125,15 @@
                                                 <td>
                                                     <h6 class="no-margin">{{ item.product.name }}</h6>
                                                 </td>
+                                                <td>{{ item.variation.color }}</td>
+                                                <td>{{ item.size }}</td>
                                                 <td>{{ item.quantity }}</td>
-                                                <td><span class="text-semibold">{{ item.quantity*item.product.price }} DT</span></td>
+                                                <td>
+                                                    <span class="text-semibold">
+                                                        {% set total = item.quantity*item.product.price %}
+                                                        {{ total }} DT
+                                                    </span>
+                                                </td>
                                             </tr>
                                         {% endfor %}
                                         </tbody>

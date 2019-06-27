@@ -37,23 +37,33 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
+                            <th>#</th>
                             <th>Nom</th>
                             <th>Price</th>
                             <th>Description</th>
                             <th>Image</th>
+                            <th>Visible</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for p in products %}
                             <tr>
+                                <td>{{ "%04d"|format(p.id) }}</td>
                                 <td>{{ p.name }}</td>
                                 <td>{{ p.price }}</td>
                                 <td style="max-width: 200px !important;word-wrap: break-word;">{{ p.description }}</td>
                                 <td><img src="{{ vich_uploader_asset(p,'imageFile') }}" alt="" style="width: 150px;height: 150px;object-fit: cover;"></td>
                                 <td>
+                                    {% if p.enabled %}
+                                        <span class="label bg-success-400">Visible</span>
+                                    {% else %}
+                                        <span class="label bg-danger-400">Disabled</span>
+                                    {% endif %}
+                                </td>
+                                <td>
                                     <ul class="icons-list mt-15">
-                                        <li><a href="{{ path('highlight_product_page', {'id': p.id}) }}" data-popup="tooltip" title="Highlight Product"><i class="icon-check"></i></a></li>
+                                        <li><a href="{{ path('list_variations_page', {'id': p.id}) }}" data-popup="tooltip" title="Edit Product Variations"><i class="icon-pencil-ruler"></i></a></li>
                                         <li><a href="{{ path('edit_products_page', {'id': p.id}) }}" data-popup="tooltip" title="Edit Product"><i class="icon-pencil5"></i></a></li>
                                         <li><a href="{{ path('delete_product_page', {'id': p.id}) }}" data-popup="tooltip" title="Delete Product" onclick="return confirm('Are you sure you want to Delete this Product?')"><i class="icon-trash"></i></a></li>
                                     </ul>
