@@ -28,6 +28,7 @@ class DefaultController extends Controller
     {
         $collection = new Collection();
         $form = $this->get('form.factory')->create(CollectionType::class, $collection);
+        $collection->setEnabled(true);
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($collection);

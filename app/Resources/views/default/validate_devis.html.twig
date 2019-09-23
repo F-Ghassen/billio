@@ -53,24 +53,24 @@
                         </div>
 
                         <ul class="order-details-form mb-4">
-                            <li><span>Products</span> <span>Total</span></li>
+                            <li><span  style="font-size: 25px !important;">Products</span> <span style="font-size: 25px !important;">Total</span></li>
                             {% set subTotal=0 %}
                             {% for item in items1 %}
                                 {% set total = item.quantity*item.product.price %}
                                 {% set subTotal = subTotal + total %}
-                                <li><span>{{ item.product.name }}</span> <span>{{ total }} DT</span></li>
+                                <li><b style="font-size: 15px !important;">{{ item.product.name }}</b> <span style="font-size: 15px !important;">{{ total }} DT</span></li>
                             {% endfor %}
-                            <li><span>Subtotal</span> <span>{{ subTotal }} DT</span></li>
-                            <li><span>Shipping</span>
+                            <li><b style="font-size: 15px !important;">Subtotal</b> <span style="font-size: 15px !important;">{{ subTotal }} DT</span></li>
+                            <li><b style="font-size: 15px !important;">Shipping</b>
                                 {% if subTotal > 200 %}
-                                    <span>Free</span>
+                                    <b style="font-size: 15px !important;">Free</b>
                                 {% else %}
                                     {% set subTotal = subTotal + 5 %}
-                                    <span>5 DT</span>
+                                    <span style="font-size: 15px !important;">5 DT</span>
                                 {% endif %}
                             </li>
-                            <li><span>Total</span>
-                                <span>{{ subTotal }} DT</span>
+                            <li><b style="font-size: 15px !important;">Total</b>
+                                <b style="font-size: 20px !important;">{{ subTotal }} DT</b>
                             </li>
                         </ul>
 

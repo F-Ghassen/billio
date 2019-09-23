@@ -1092,13 +1092,13 @@ img {
     overflow: hidden
 }
 
-.product-img > img {
+.product-img > a > img {
     width: 100%;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
 }
 
-.single_gallery_item:hover .product-img > img {
+.single_gallery_item:hover .product-img > a > img {
     -webkit-transform: scale(1.15);
     transform: scale(1.15);
 }
