@@ -43,6 +43,10 @@ class PersonalInfoType extends AbstractType
                 'required' => true,
                 'label' => 'Code postal',
             ))
+            ->add('promo', TextType::class, array(
+                'required' => false,
+                'label' => 'Promo Code'
+            ))
             ->add('save',  SubmitType::class, array(
                 'label' => 'Valider la Commande',
                 'attr' => array(

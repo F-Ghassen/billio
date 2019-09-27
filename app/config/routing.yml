@@ -1,3 +1,8 @@
+promo_code:
+    resource: "@PromoCodeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 collection:
     resource: "@CollectionBundle/Controller/"
     type:     annotation
@@ -30,3 +35,6 @@ product:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

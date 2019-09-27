@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 
             new AppBundle\AppBundle(),
             new ProductBundle\ProductBundle(),
@@ -28,6 +29,7 @@ class AppKernel extends Kernel
             new MessageBundle\MessageBundle(),
             new OrderBundle\OrderBundle(),
             new CollectionBundle\CollectionBundle(),
+            new PromoCodeBundle\PromoCodeBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

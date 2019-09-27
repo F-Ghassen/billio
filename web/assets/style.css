@@ -59,3 +59,27 @@
     border-color: rgba(33,33,33,0.5) !important;
     color: black !important;
 }
+
+.input-danger {
+    outline: none !important;
+    border:1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.input-success {
+    outline: none !important;
+    border:1px solid limegreen;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.input-danger:focus {
+    outline: none !important;
+    border:1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.input-success:focus {
+    outline: none !important;
+    border:1px solid limegreen;
+    box-shadow: 0 0 10px #719ECE;
+}

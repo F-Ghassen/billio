@@ -112,11 +112,15 @@
                             </li>
 
                             <li {% if app.request.attributes.get('_route') == 'list_products_page' %} class="active"{% endif %}>
-                                <a href="{{ path('list_products_page') }}"><i class=" icon-home8"></i> <span>Produits</span></a>
+                                <a href="{{ path('list_products_page') }}"><i class="icon-home8"></i> <span>Produits</span></a>
                             </li>
 
                             <li {% if app.request.attributes.get('_route') == 'list_collections_page' %} class="active"{% endif %}>
-                                <a href="{{ path('list_collections_page') }}"><i class=" icon-cart"></i> <span>Collections</span></a>
+                                <a href="{{ path('list_collections_page') }}"><i class="icon-cart"></i> <span>Collections</span></a>
+                            </li>
+
+                            <li {% if app.request.attributes.get('_route') == 'list_code_page' %} class="active"{% endif %}>
+                                <a href="{{ path('list_code_page') }}"><i class="icon-key"></i> <span>Codes</span></a>
                             </li>
 
                             <li {% if app.request.attributes.get('_route') == 'list_messages_page' %} class="active"{% endif %}>
@@ -139,6 +143,5 @@
         </div>
         <!-- /main sidebar -->
         {% endblock %}
-
 </body>
 </html>

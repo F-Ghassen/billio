@@ -107,6 +107,12 @@ class OrderInfo
      */
     private $postalCode;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="promo", type="string", length=255, nullable=true)
+     */
+    private $promo;
 
     /**
      * Get id
@@ -260,6 +266,22 @@ class OrderInfo
     public function setPostalCode($postalCode)
     {
         $this->postalCode = $postalCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPromo()
+    {
+        return $this->promo;
+    }
+
+    /**
+     * @param string $promo
+     */
+    public function setPromo($promo)
+    {
+        $this->promo = $promo;
     }
 }
 
