@@ -56,6 +56,8 @@ class DefaultController extends Controller
      */
     public function productAction(Request $request)
     {
+        $test = $request->query->get('collection');
+
         $em = $this->getDoctrine()->getManager();
         $queryBuilder = $em->getRepository(Product::class)->createQueryBuilder('p');
         $queryBuilder->leftJoin('p.variations', 'variations')
@@ -69,7 +71,7 @@ class DefaultController extends Controller
             $queryBuilder->leftJoin('p.collection', 'collection')
                 ->addSelect('collection')
                 ->where('collection.name = :collection')
-                ->setParameter('collection', $request->query->getAlnum('collection'));
+                ->setParameter('collection', $test);
         }
 
         $query = $queryBuilder->getQuery();
@@ -98,7 +100,6 @@ class DefaultController extends Controller
             return $this->redirectToRoute('homepage');
         }
         $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
-        dump($result);
         return $this->render('default/list_products.html.twig', array(
             'products' => $result,
             'mailing_form' => $mailing_form->createView(),
@@ -490,4 +491,34 @@ class DefaultController extends Controller
             'collections' => $collections,
         ));
     }
+
+    /**
+     * @Route("/about-us", name="about-us")
+     */
+    public function aboutUs(Request $request)
+    {
+        $serializer = $this->get('jms_serializer');
+        $session = $this->get('session');
+        $cartLogo = 0;
+        if ($session->has('cartElements')) {
+            $commandeJson = $session->get('cartElements');
+            $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
+            $cartLogo = count($commande->getItems());
+        }
+        $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
+        $mailing = new MailingList();
+        $mailing_form = $this->get('form.factory')->create(MailingListType::class, $mailing);
+        if ($request->isMethod('POST') && $mailing_form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($mailing);
+            $em->flush();
+            return $this->redirectToRoute('homepage');
+        }
+        return $this->render('default/about-us.html.twig', array(
+            'cartLogo' => $cartLogo,
+            'mailing_form' => $mailing_form->createView(),
+            'collections' => $collections,
+        ));
+    }
+
 }

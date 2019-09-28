@@ -57,24 +57,24 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $product = $em->getRepository(Product::class)->find($id);
 
-        $originalImages = new ArrayCollection();
+        /*$originalImages = new ArrayCollection();
         foreach ($product->getVariations() as $variation) {
             foreach ($variation->getImages() as $image)
             {
                 $originalImages->add($image);
             }
-        }
+        }*/
 
         $form = $this->createForm(ProductType::class, $product);
         if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
         {
-            foreach ($originalImages as $image)
+           /* foreach ($originalImages as $image)
             {
                 if(false === $product->getImages()->contains($image))
                 {
                     $em->remove($image);
                 }
-            }
+            }*/
             $em->flush();
             return $this->redirectToRoute('list_products_page');
         }

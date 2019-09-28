@@ -150,6 +150,12 @@
                                                 <div class="table-responsive no-border">
                                                     <table class="table">
                                                         <tbody>
+                                                        {% if c.orderInfo.promo != null %}
+                                                        <tr>
+                                                            <th>Promo Code : <span class="label bg-success-400">Actif</span></th>
+                                                            <td class="text-right text-primary"><h5 class="text-semibold">c.orderInfo.promo</h5></td>
+                                                        </tr>
+                                                        {% endif %}
                                                         <tr>
                                                             <th>Total:</th>
                                                             <td class="text-right text-primary"><h5 class="text-semibold">{{ sum1 }} DT</h5></td>

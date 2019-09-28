@@ -42,6 +42,25 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/admin/code/{code}", name="get_code_page", options = { "expose" = true })
+     */
+    public function getAction($code)
+    {
+        $promo = $this->getDoctrine()->getManager()->getRepository(PromoCode::class)->findOneBy(['code' => $code, 'enabled' => true]);
+        if($promo != null) {
+            if($promo->isEnabled()) {
+                $serializer = $this->get('jms_serializer');
+                $data = $serializer->serialize($promo, 'json');
+                return new JsonResponse($data);
+            } else {
+                return new JsonResponse("null");
+            }
+        } else {
+            return new JsonResponse("null");
+        }
+    }
+
+    /**
      * @Route("/admin/code/add", name="add_code_page")
      */
     public function addAction(Request $request)

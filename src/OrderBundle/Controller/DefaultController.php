@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use OrderBundle\Entity\Commande;
 use OrderBundle\Entity\Devis;
 use OrderBundle\Form\FullCommande;
+use PromoCodeBundle\Entity\PromoCode;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
