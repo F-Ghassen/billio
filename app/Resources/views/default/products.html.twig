@@ -1,5 +1,5 @@
 <!-- ****** New Arrivals Area Start ****** -->
-<section class="new_arrivals_area section_padding_100_0 clearfix">
+<section class="new_arrivals_area section_padding_100_0 clearfix" style="margin-top: -105px;">
 
     <div class="container">
         <div class="row karl-new-arrivals">
@@ -20,7 +20,7 @@
                     <p style="font-size:23px">{{ p.name }}</p>
                     <!-- Add to Cart -->
                     <form action="{{ path('product_details_page', {'id': p.id, 'v_id': p.variations[0].id}) }}" class="cart" method="post">
-                        <input type="submit" value="Acheter Maintenant" class="custom-cart">
+                        <button type="submit" class="btn btn-dark mt-2 btn-acheter">Acheter maintenant</button>
                     </form>
 
                 </div>

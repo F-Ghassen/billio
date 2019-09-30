@@ -68,7 +68,7 @@ class OrderInfo
      *     message = "'{{ value }}' is not a valid email.",
      * )
      *
-     * @ORM\Column(name="customerEmail", type="string", length=255)
+     * @ORM\Column(name="customerEmail", type="string", length=255, nullable=true)
      */
     private $customerEmail;
 
@@ -97,10 +97,10 @@ class OrderInfo
     /**
      * @var string
      *
-     * @Assert\NotBlank()
+     *
      * @Assert\Regex(
      *     pattern="/\d{4}/",
-     *     message="Invalic Code",
+     *     message="Invalid Code",
      * )
      *
      * @ORM\Column(name="customer_postal_code", type="string", length=255, nullable=true)

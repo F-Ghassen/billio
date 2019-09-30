@@ -24,7 +24,7 @@ class PersonalInfoType extends AbstractType
                 'label' => 'Prenom',
             ))
             ->add('customerEmail', TextType::class, array(
-                'required' => true,
+                'required' => false,
                 'label' => 'Email',
             ))
             ->add('customerPhone', NumberType::class, array(
@@ -40,7 +40,7 @@ class PersonalInfoType extends AbstractType
                 'label' => 'Adresse',
             ))
             ->add('postalCode', NumberType::class, array(
-                'required' => true,
+                'required' => false,
                 'label' => 'Code postal',
             ))
             ->add('promo', TextType::class, array(
