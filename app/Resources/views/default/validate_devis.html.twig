@@ -102,7 +102,6 @@
 
             $('#personal_info_promo').on('change paste keyup', promo);
             function promo(){
-                $('#personal_info_promo').unbind('change paste keyup', promo);
                 var code = $('#personal_info_promo').val();
                 var path = Routing.generate('check_code_page', {'code': code});
                 $.ajax({
@@ -115,7 +114,7 @@
                         $('#personal_info_promo').addClass('input-danger');
                     } else {
                         //console.log(data);
-                        //$('#personal_info_promo').unbind('keyup', promo);
+                        $('#personal_info_promo').unbind('change paste keyup', promo);
                         $('#personal_info_promo').removeClass('input-danger');
                         $('#personal_info_promo').addClass('input-success');
 
@@ -123,7 +122,6 @@
                         var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
                         $("#total").html(news + " DT");
                     }
-                    $('#personal_info_promo').on('change paste keyup', promo);
                 });
             }
         });

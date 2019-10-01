@@ -51,7 +51,7 @@
                                             {% set sum1 = sum1 + 5 %}
                                         {% endif %}
                                         <span class="text-semibold">
-                                            <h6 class="text-semibold text-right no-margin-top">{{ sum1 }} DT</h6>
+                                            <h6 class="text-semibold text-right no-margin-top" id="total1{{ loop.index0 }}">{{ sum1 }} DT</h6>
                                         </span>
                                         <div class="text-right">
                                             Status: &nbsp;
@@ -184,27 +184,31 @@
     </div>
     </div>
 {% endblock %}
-{% block javascripts %}
+{% block stylesheets %}
     {{ parent() }}
     <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script>
         $(document).ready(function() {
-            console.log($('.panel invoice-grid').length);
-            for (let i = 0; i < 10; i++) {
+            let panels = $('.invoice-grid').length;
+            for (let i = 0; i < panels; i++) {
                 promo(i);
             }
-            function promo(){
-                var code = $('#code'+i).val();
-                console.log(code);
-                var path = Routing.generate('check_code_page', {'code': code});
-                $.ajax({
-                    url: path,
-                }).done(function(data) {
-                        var s = $("#total").html();
+            function promo(i){
+                var code = $('#code'+i).html();
+                //console.log(code);
+                if(code != null) {
+                    var path = Routing.generate('check_code_page', {'code': code});
+                    $.ajax({
+                        url: path,
+                    }).done(function(data) {
+                        var s = $("#total"+i).html();
                         var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
                         $("#total"+i).html(news + " DT");
-                });
+                        $("#total1"+i).html(news + " DT");
+                        //console.log(s)
+                    });
+                }
             }
         });
     </script>

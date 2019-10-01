@@ -7,24 +7,26 @@
             {% for p in products %}
             {% if p.collection!=null and p.collection.enabled==true %}
             <!-- Single gallery Item Start -->
-            <div class="col-12 col-sm-6 col-md-4 single_gallery_item {{ p.category }} wow fadeInUpBig" data-wow-delay="0.2s">
-                <!-- Product Image -->
-                <div class="product-img">
-                    <a href="{{ path('product_details_page', {'id': p.id, 'v_id': p.variations[0].id}) }}">
-                        <img src="{{ vich_uploader_asset(p,'imageFile') }}" alt="">
-                    </a>
-                </div>
-                <!-- Product Description -->
-                <div class="product-description">
-                    <h4 class="product-price">{{ p.price }} DT</h4>
-                    <p style="font-size:23px">{{ p.name }}</p>
-                    <!-- Add to Cart -->
-                    <form action="{{ path('product_details_page', {'id': p.id, 'v_id': p.variations[0].id}) }}" class="cart" method="post">
-                        <button type="submit" class="btn btn-dark mt-2 btn-acheter">Acheter maintenant</button>
-                    </form>
+                {% for v in p.variations %}
+                    <div class="col-12 col-sm-6 col-md-4 single_gallery_item {{ p.category }} wow fadeInUpBig" data-wow-delay="0.2s">
+                        <!-- Product Image -->
+                        <div class="product-img">
+                            <a href="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}">
+                                <img src="{{ vich_uploader_asset(v.images[0],'imageFile') }}" alt="">
+                            </a>
+                        </div>
+                        <!-- Product Description -->
+                        <div class="product-description">
+                            <h4 class="product-price">{{ p.price }} DT</h4>
+                            <p style="font-size:23px">{{ p.name }}</p>
+                            <!-- Add to Cart -->
+                            <form action="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}" class="cart" method="post">
+                                <button type="submit" class="btn btn-dark mt-2 btn-acheter">Acheter maintenant</button>
+                            </form>
 
-                </div>
-            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             <!-- Single gallery Item Start -->
             {% endif %}
             {% endfor %}
