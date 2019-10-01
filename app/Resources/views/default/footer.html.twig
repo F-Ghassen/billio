@@ -1,5 +1,5 @@
 <!-- ****** Footer Area Start ****** -->
-<footer class="footer_area">
+<footer class="footer_area " style="background-color: black">
     <div class="container">
         <div class="row">
             <!-- Single Footer Area Start -->
@@ -9,7 +9,7 @@
                         <img src="img/core-img/logo.png" alt="">
                     </div>
                     <div class="copywrite_text d-flex align-items-center">
-                        <p>
+                        <p style="color: ghostwhite">
                             Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Billiorich
                         </p>
                     </div>
@@ -19,9 +19,9 @@
             <div class="col-12 col-sm-6 col-md-3 col-lg-2">
                 <div class="single_footer_area">
                     <ul class="footer_widget_menu">
-                        <li><a href="{{ path('about-us') }}">About</a></li>
-                        <li><a href="{{ path('index_products_page') }}">All products</a></li>
-                        <li><a href="{{ path('contact_page') }}">Contact</a></li>
+                        <li><a href="{{ path('about-us') }}" style="text-transform: uppercase; color: white">à Propos</a></li>
+                        <li><a href="{{ path('index_products_page') }}" style="text-transform: uppercase; color: white">tous les produits</a></li>
+                        <li><a href="{{ path('contact_page') }}" style="text-transform: uppercase;  color: white">Contacts</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <div class="offset-12 offset-sm-6 offset-md-3 offset-lg-2 col-12 col-lg-5">
                 <div class="single_footer_area">
                     <div class="footer_heading mb-30">
-                        <h6>Abonnez-vous à notre newsletter</h6>
+                        <h6 style="color: gainsboro">Abonnez-vous à notre newsletter</h6>
                     </div>
                     <div class="subscribtion_form">
                         {{ form_start(mailing_form) }}
@@ -61,8 +61,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer_social_area text-center">
-                        <a href="https://www.facebook.com/billiorich96/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="https://www.instagram.com/billiorich/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/billiorich96/" target="_blank"><i class="fa fa-facebook" style="color: white" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/billiorich/" target="_blank"><i class="fa fa-instagram" style="color: white" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>

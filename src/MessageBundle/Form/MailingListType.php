@@ -24,6 +24,9 @@ class MailingListType extends AbstractType
             ))
             ->add('save',  SubmitType::class, array(
                 'label' => 'Send',
+                'attr' => array (
+                    'style' => 'background-color: white; color: black'
+                )
             ))
         ;
     }
