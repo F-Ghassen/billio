@@ -123,6 +123,10 @@
                                 <a href="{{ path('list_code_page') }}"><i class="icon-key"></i> <span>Codes</span></a>
                             </li>
 
+                            <li {% if app.request.attributes.get('_route') == 'list_mails_page' %} class="active"{% endif %}>
+                                <a href="{{ path('list_mails_page') }}"><i class="icon-mailbox"></i> <span>Mailing List</span></a>
+                            </li>
+
                             <li {% if app.request.attributes.get('_route') == 'list_messages_page' %} class="active"{% endif %}>
                                 <a href="{{ path('list_messages_page') }}"><i class=" icon-mail5"></i> <span>Messages</span></a>
                             </li>

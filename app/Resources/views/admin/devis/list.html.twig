@@ -51,7 +51,8 @@
                                             {% set sum1 = sum1 + 5 %}
                                         {% endif %}
                                         <span class="text-semibold">
-                                        <h6 class="text-semibold text-right no-margin-top">{{ sum1 }} DT</h6>
+                                            <h6 class="text-semibold text-right no-margin-top">{{ sum1 }} DT</h6>
+                                        </span>
                                         <div class="text-right">
                                             Status: &nbsp;
                                             <span class="label bg-warning-300 dropdown-toggle" data-toggle="dropdown">Pending</span>
@@ -153,12 +154,12 @@
                                                         {% if c.orderInfo.promo != null %}
                                                         <tr>
                                                             <th>Promo Code : <span class="label bg-success-400">Actif</span></th>
-                                                            <td class="text-right text-primary"><h5 class="text-semibold">c.orderInfo.promo</h5></td>
+                                                            <td class="text-right text-primary"><h5 class="text-semibold" id="code{{ loop.index0 }}">{{ c.orderInfo.promo }}</h5></td>
                                                         </tr>
                                                         {% endif %}
                                                         <tr>
                                                             <th>Total:</th>
-                                                            <td class="text-right text-primary"><h5 class="text-semibold">{{ sum1 }} DT</h5></td>
+                                                            <td class="text-right text-primary"><h5 class="text-semibold" id="total{{ loop.index0 }}">{{ sum1 }} DT</h5></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -177,18 +178,34 @@
                     <!-- /modal with invoice -->
                 {% endfor %}
             </div>
-
             {{ include('admin/footer.html.twig') }}
-
         </div>
-        <!-- /content area -->
     </div>
-    <!-- /main content -->
-
     </div>
-    <!-- /page content -->
-
     </div>
-    <!-- /page container -->
-
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script>
+        $(document).ready(function() {
+            console.log($('.panel invoice-grid').length);
+            for (let i = 0; i < 10; i++) {
+                promo(i);
+            }
+            function promo(){
+                var code = $('#code'+i).val();
+                console.log(code);
+                var path = Routing.generate('check_code_page', {'code': code});
+                $.ajax({
+                    url: path,
+                }).done(function(data) {
+                        var s = $("#total").html();
+                        var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
+                        $("#total"+i).html(news + " DT");
+                });
+            }
+        });
+    </script>
 {% endblock %}
