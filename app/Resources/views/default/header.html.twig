@@ -2,15 +2,6 @@
     <a class="navbar-brand" href="{{ path('homepage') }}">
         <img class="img-fuild billio-logo" style="width: 40px; height: 40px;" src="{{ asset('assets/img/core-img/billio.jpg') }}" alt="logo">
     </a>
-    {% if cartLogo!=0 %}
-        <span>
-                <a href="{{ path('cart_page') }}">
-                    <span class="icon-shopping-cart custom-icon">
-                        <span class="shopping-cart">{{ cartLogo }}</span>
-                    </span>
-                </a>
-            </span>
-    {% endif %}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
