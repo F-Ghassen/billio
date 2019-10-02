@@ -5,7 +5,7 @@
         <div class="row karl-new-arrivals">
 
             {% for p in products %}
-            {% if p.collection!=null and p.collection.enabled==true %}
+            {% if p.collection.enabled==true %}
             <!-- Single gallery Item Start -->
                 {% for v in p.variations %}
                     <div class="col-12 col-sm-6 col-md-4 single_gallery_item {{ p.category }} wow fadeInUpBig" data-wow-delay="0.2s">
