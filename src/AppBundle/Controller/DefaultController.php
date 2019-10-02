@@ -64,13 +64,13 @@ class DefaultController extends Controller
             ->addSelect('variations');
         $queryBuilder->where('p.enabled = true');
         if($request->query->getAlnum('category')) {
-            $queryBuilder->where('p.category = :category')
+            $queryBuilder->andWhere('p.category = :category')
                 ->setParameter('category', $request->query->getAlnum('category'));
         }
         if($request->query->getAlnum('collection')) {
             $queryBuilder->leftJoin('p.collection', 'collection')
                 ->addSelect('collection')
-                ->where('collection.name = :collection')
+                ->andWhere('collection.name = :collection')
                 ->setParameter('collection', $test);
         }
 
