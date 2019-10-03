@@ -20,7 +20,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findAll();
+        $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findBy(array(), array('updatedAt' => 'DESC'));
         return $this->render('admin/products/list.html.twig', array(
             'products' => $products,
         ));

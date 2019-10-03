@@ -73,13 +73,13 @@ class DefaultController extends Controller
                 ->andWhere('collection.name = :collection')
                 ->setParameter('collection', $test);
         }
-
+        $queryBuilder->orderBy('p.updatedAt', 'DESC');
         $query = $queryBuilder->getQuery();
         $paginator = $this->get('knp_paginator');
         $result = $paginator->paginate(
             $query,
-            $request->query->getInt('page', 1),
-            $request->query->getInt('limit', 9)
+            $request->query->getInt('page', 1)
+            //$request->query->getInt('limit', 9)
         );
 
         $serializer = $this->get('jms_serializer');
