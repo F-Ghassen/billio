@@ -75,30 +75,106 @@
                             <h6 class="widget-title">Size</h6>
                             <div class="widget-desc">
                                 <ul>
-                                    {% if variation.s != 0 %}
-                                        <li><a class="size-option" data-size="S" href="#">S</a></li>
+                                    {% if p.category == "Jeans" %}
+                                        {% if variation.sizeJean29 != 0 %}
+                                            <li><a class="size-option" data-size="29" href="#">29</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="29" href="#">29</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeJean30 != 0 %}
+                                            <li><a class="size-option" data-size="30" href="#">30</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="30" href="#">30</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeJean31 != 0 %}
+                                            <li><a class="size-option" data-size="31" href="#">31</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="31" href="#">31</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeJean32 != 0 %}
+                                            <li><a class="size-option" data-size="32" href="#">32</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="32" href="#">32</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeJean33 != 0 %}
+                                            <li><a class="size-option" data-size="33" href="#">33</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="33" href="#">33</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeJean34 != 0 %}
+                                            <li><a class="size-option" data-size="34" href="#">34</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="34" href="#">34</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeJean36 != 0 %}
+                                            <li><a class="size-option" data-size="36" href="#">36</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="36" href="#">36</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeJean38 != 0 %}
+                                            <li><a class="size-option" data-size="38" href="#">38</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="38" href="#">38</a></li>
+                                        {% endif %}
+
+                                    {% elseif p.category == "Mocassin" %}
+                                        {% if variation.sizeMoc40 != 0 %}
+                                            <li><a class="size-option" data-size="40" href="#">40</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="40" href="#">40</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeMoc41 != 0 %}
+                                            <li><a class="size-option" data-size="41" href="#">41</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="41" href="#">41</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeMoc42 != 0 %}
+                                            <li><a class="size-option" data-size="42" href="#">42</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="42" href="#">42</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeMoc43 != 0 %}
+                                            <li><a class="size-option" data-size="43" href="#">43</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="43" href="#">43</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeMoc44 != 0 %}
+                                            <li><a class="size-option" data-size="44" href="#">44</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="44" href="#">44</a></li>
+                                        {% endif %}
+                                        {% if variation.sizeMoc45 != 0 %}
+                                            <li><a class="size-option" data-size="45" href="#">45</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="45" href="#">45</a></li>
+                                        {% endif %}
+
                                     {% else %}
-                                        <li><a class="size-option disable-size" data-size="S" href="#">S</a></li>
-                                    {% endif %}
-                                    {% if variation.m != 0 %}
-                                        <li><a class="size-option" data-size="M" href="#">M</a></li>
-                                    {% else %}
-                                        <li><a class="size-option disable-size" data-size="M" href="#">M</a></li>
-                                    {% endif %}
-                                    {% if variation.l != 0 %}
-                                        <li><a class="size-option" data-size="L" href="#">L</a></li>
-                                    {% else %}
-                                        <li><a class="size-option disable-size" data-size="L" href="#">L</a></li>
-                                    {% endif %}
-                                    {% if variation.xl != 0 %}
-                                        <li><a class="size-option" data-size="XL" href="#">XL</a></li>
-                                    {% else %}
-                                        <li><a class="size-option disable-size" data-size="XL" href="#">XL</a></li>
-                                    {% endif %}
-                                    {% if variation.xxl != 0 %}
-                                        <li><a class="size-option" data-size="XXL" href="#">XXL</a></li>
-                                    {% else %}
-                                        <li><a class="size-option disable-size" data-size="XXL" href="#">XXL</a></li>
+                                        {% if variation.s != 0 %}
+                                            <li><a class="size-option" data-size="S" href="#">S</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="S" href="#">S</a></li>
+                                        {% endif %}
+                                        {% if variation.m != 0 %}
+                                            <li><a class="size-option" data-size="M" href="#">M</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="M" href="#">M</a></li>
+                                        {% endif %}
+                                        {% if variation.l != 0 %}
+                                            <li><a class="size-option" data-size="L" href="#">L</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="L" href="#">L</a></li>
+                                        {% endif %}
+                                        {% if variation.xl != 0 %}
+                                            <li><a class="size-option" data-size="XL" href="#">XL</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="XL" href="#">XL</a></li>
+                                        {% endif %}
+                                        {% if variation.xxl != 0 %}
+                                            <li><a class="size-option" data-size="XXL" href="#">XXL</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="XXL" href="#">XXL</a></li>
+                                        {% endif %}
                                     {% endif %}
                                 </ul>
                             </div>
@@ -112,6 +188,20 @@
                                 <option value="L">L</option>
                                 <option value="XL">XL</option>
                                 <option value="XXL">XXL</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="36">36</option>
+                                <option value="38">38</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
                             </select>
                             {#
                                 <div class="quantity">

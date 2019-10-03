@@ -20,7 +20,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findBy(array(), array('updatedAt' => 'DESC'));
+        $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findBy(array(), array('id' => 'DESC'));
         return $this->render('admin/products/list.html.twig', array(
             'products' => $products,
         ));
@@ -32,7 +32,7 @@ class DefaultController extends Controller
     public function addAction(Request $request)
     {
         $product = new Product();
-        $product->setEnabled(true);
+        $product->setEnabled(false);
         $form = $this->get('form.factory')->create(ProductType::class, $product);
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -91,6 +91,22 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $product = $em->getRepository(Product::class)->find($id);
         $product->setEnabled(false);
+        $em->flush();
+        return $this->redirectToRoute('list_products_page');
+    }
+
+    /**
+     * @Route("/admin/products/toggle/{id}", name="toggle_product_page")
+     */
+    public function toggleAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $product = $em->getRepository(Product::class)->find($id);
+        if($product->isEnabled()) {
+            $product->setEnabled(false);
+        } else {
+            $product->setEnabled(true);
+        }
         $em->flush();
         return $this->redirectToRoute('list_products_page');
     }

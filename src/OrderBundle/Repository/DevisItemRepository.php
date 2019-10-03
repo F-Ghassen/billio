@@ -15,7 +15,10 @@ class DevisItemRepository extends \Doctrine\ORM\EntityRepository
         $qb = $this->createQueryBuilder('devis_item')
             ->leftJoin('devis_item.product', 'p')
             ->addSelect('p as prod')
+            ->leftJoin('devis_item.devis', 'devis')
+            ->addSelect('devis')
             ->addSelect('SUM(devis_item.quantity) as total_quantity')
+            ->where("devis.enabled = true")
             ->groupBy('p.name')
             ->orderBy('total_quantity', 'desc');
 

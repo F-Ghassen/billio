@@ -53,6 +53,20 @@
                                     {{ form_row(tag.l) }}
                                     {{ form_row(tag.xl) }}
                                     {{ form_row(tag.xxl) }}
+                                    {{ form_row(tag.sizeJean29) }}
+                                    {{ form_row(tag.sizeJean30) }}
+                                    {{ form_row(tag.sizeJean31) }}
+                                    {{ form_row(tag.sizeJean32) }}
+                                    {{ form_row(tag.sizeJean33) }}
+                                    {{ form_row(tag.sizeJean34) }}
+                                    {{ form_row(tag.sizeJean36) }}
+                                    {{ form_row(tag.sizeJean38) }}
+                                    {{ form_row(tag.sizeMoc40) }}
+                                    {{ form_row(tag.sizeMoc41) }}
+                                    {{ form_row(tag.sizeMoc42) }}
+                                    {{ form_row(tag.sizeMoc43) }}
+                                    {{ form_row(tag.sizeMoc44) }}
+                                    {{ form_row(tag.sizeMoc45) }}
                                 </li>
                             {% endfor %}
                         </ul>
@@ -78,4 +92,100 @@
     </div>
     <!-- /page container -->
 
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script>
+        $(document).ready(function() {
+            function filter() {
+                //console.log($('#product_category').val());
+                var category = $('#product_category').val();
+                if(category === 'Jeans') {
+                    let rows = $('.tags').children('li.row').length;
+                    //console.log(rows);
+                    for (let i = 0; i < rows; i++) {
+                        //console.log($('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean29'));
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_s').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_m').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_l').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xl').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xxl').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc40').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc41').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc42').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc43').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc44').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc45').parent().hide();
+
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean29').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean30').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean31').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean32').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean33').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean34').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean36').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean38').parent().show();
+                    }
+                } else if(category === 'Mocassin') {
+                    let rows = $('.tags').children('li.row').length;
+                    //console.log(rows);
+                    for (let i = 0; i < rows; i++) {
+                        //console.log($('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean29'));
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_s').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_m').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_l').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xl').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xxl').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean29').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean30').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean31').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean32').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean33').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean34').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean36').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean38').parent().hide();
+
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc40').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc41').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc42').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc43').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc44').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc45').parent().show();
+                    }
+                } else {
+                    let rows = $('.tags').children('li.row').length;
+                    //console.log(rows);
+                    for (let i = 0; i < rows; i++) {
+                        //console.log($('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean29'));
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean29').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean30').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean31').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean32').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean33').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean34').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean36').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean38').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc40').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc41').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc42').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc43').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc44').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc45').parent().hide();
+
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_s').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_m').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_l').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xl').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xxl').parent().show();
+                    }
+                }
+            }
+            filter();
+            $('#product_category').on('change', filter);
+            $('.add_tag_link').on('click', filter);
+        });
+    </script>
 {% endblock %}

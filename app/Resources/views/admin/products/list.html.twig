@@ -27,8 +27,6 @@
 
         <!-- Content area -->
         <div class="content">
-
-            <!-- Table -->
             <div class="panel panel-flat">
                 <div class="row" style="margin: 20px">
                     <a href="{{ path('add_product_page') }}" class="btn btn-success"><i class="icon-plus3 position-left"></i>Ajouter Produit</a>
@@ -58,11 +56,12 @@
                                     {% if p.enabled %}
                                         <span class="label bg-success-400">Visible</span>
                                     {% else %}
-                                        <span class="label bg-danger-400">Disabled</span>
+                                        <span class="label bg-danger-400">Non Visible</span>
                                     {% endif %}
                                 </td>
                                 <td>
                                     <ul class="icons-list mt-15">
+                                        <li><a href="{{ path('toggle_product_page', {'id': p.id}) }}" data-popup="tooltip" title="Visible"><i class="icon-checkbox-checked"></i></a></li>
                                         <li><a href="{{ path('list_variations_page', {'id': p.id}) }}" data-popup="tooltip" title="Edit Product Variations"><i class="icon-pencil-ruler"></i></a></li>
                                         <li><a href="{{ path('edit_products_page', {'id': p.id}) }}" data-popup="tooltip" title="Edit Product"><i class="icon-pencil5"></i></a></li>
                                         <li><a href="{{ path('delete_product_page', {'id': p.id}) }}" data-popup="tooltip" title="Delete Product" onclick="return confirm('Are you sure you want to Delete this Product?')"><i class="icon-trash"></i></a></li>
@@ -73,21 +72,10 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
-            <!-- /table -->
-
             {{ include('admin/footer.html.twig') }}
-
         </div>
-        <!-- /content area -->
     </div>
-    <!-- /main content -->
-
     </div>
-    <!-- /page content -->
-
     </div>
-    <!-- /page container -->
-
 {% endblock %}

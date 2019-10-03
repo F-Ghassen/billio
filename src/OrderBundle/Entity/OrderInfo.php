@@ -115,6 +115,20 @@ class OrderInfo
     private $promo;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="pays", type="string", length=255, nullable=true)
+     */
+    private $pays;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="payment_method", type="string", length=255, nullable=true)
+     */
+    private $payment_method;
+
+    /**
      * Get id
      *
      * @return int
@@ -282,6 +296,38 @@ class OrderInfo
     public function setPromo($promo)
     {
         $this->promo = $promo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
+     * @param string $pays
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPaymentMethod()
+    {
+        return $this->payment_method;
+    }
+
+    /**
+     * @param string $payment_method
+     */
+    public function setPaymentMethod($payment_method)
+    {
+        $this->payment_method = $payment_method;
     }
 }
 
