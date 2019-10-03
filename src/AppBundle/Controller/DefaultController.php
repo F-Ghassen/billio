@@ -78,8 +78,8 @@ class DefaultController extends Controller
         $paginator = $this->get('knp_paginator');
         $result = $paginator->paginate(
             $query,
-            $request->query->getInt('page', 1)
-            //$request->query->getInt('limit', 9)
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit', 999999)
         );
 
         $serializer = $this->get('jms_serializer');
