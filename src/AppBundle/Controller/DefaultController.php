@@ -346,7 +346,7 @@ class DefaultController extends Controller
             $cartLogo = count($commande->getItems());
 
             $data = $commande->getItems();
-            dump($data);
+            //dump($data);
 
             $database_commande = $this->getDoctrine()->getManager()->getRepository(Devis::class)->find($commande->getId());
             if($database_commande->getOrderInfo()) {
