@@ -2,6 +2,15 @@
     <a class="navbar-brand" href="{{ path('homepage') }}">
         <img class="img-fuild billio-logo" style="width: 40px; height: 40px;" src="{{ asset('assets/img/core-img/billio.jpg') }}" alt="logo">
     </a>
+    {% if cartLogo!=0 %}
+        <span id="cart-show-small-screen" style="margin-left: 120px">
+                <a href="{{ path('cart_page') }}">
+                    <span class="icon-shopping-cart custom-icon">
+                        <span class="shopping-cart">{{ cartLogo }}</span>
+                    </span>
+                </a>
+            </span>
+    {% endif %}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -41,7 +50,7 @@
 
         <div class="text-right" style="margin-right: 70px; margin-top:10px;">
             {% if cartLogo!=0 %}
-            <span>
+            <span id="cart-hide-in-small-screen">
                 <a href="{{ path('cart_page') }}">
                     <span class="icon-shopping-cart custom-icon">
                         <span class="shopping-cart">{{ cartLogo }}</span>
