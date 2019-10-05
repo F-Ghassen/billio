@@ -36,11 +36,29 @@
                         <tr>
                             <th>#</th>
                             <th>Color</th>
-                            <th>Stock S</th>
-                            <th>Stock M</th>
-                            <th>Stock L</th>
-                            <th>Stock XL</th>
-                            <th>Stock XXL</th>
+                            {% if p.category == 'Jeans' %}
+                                <th>Stock Taille 29</th>
+                                <th>Stock Taille 30</th>
+                                <th>Stock Taille 31</th>
+                                <th>Stock Taille 32</th>
+                                <th>Stock Taille 33</th>
+                                <th>Stock Taille 34</th>
+                                <th>Stock Taille 36</th>
+                                <th>Stock Taille 38</th>
+                            {% elseif p.category == 'Mocassin' %}
+                                <th>Stock Taille 40</th>
+                                <th>Stock Taille 41</th>
+                                <th>Stock Taille 42</th>
+                                <th>Stock Taille 43</th>
+                                <th>Stock Taille 44</th>
+                                <th>Stock Taille 45</th>
+                            {% else %}
+                                <th>Stock S</th>
+                                <th>Stock M</th>
+                                <th>Stock L</th>
+                                <th>Stock XL</th>
+                                <th>Stock XXL</th>
+                            {% endif %}
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -49,11 +67,29 @@
                             <tr>
                                 <td>{{ "%04d"|format(v.id) }}</td>
                                 <td>{{ v.color }}</td>
-                                <td>{{ v.s }}</td>
-                                <td>{{ v.m }}</td>
-                                <td>{{ v.l }}</td>
-                                <td>{{ v.xl }}</td>
-                                <td>{{ v.xxl }}</td>
+                                {% if p.category == 'Jeans' %}
+                                    <td>{{ v.sizeJean29 }}</td>
+                                    <td>{{ v.sizeJean30 }}</td>
+                                    <td>{{ v.sizeJean31 }}</td>
+                                    <td>{{ v.sizeJean32 }}</td>
+                                    <td>{{ v.sizeJean33 }}</td>
+                                    <td>{{ v.sizeJean34 }}</td>
+                                    <td>{{ v.sizeJean36 }}</td>
+                                    <td>{{ v.sizeJean38 }}</td>
+                                {% elseif p.category == 'Mocassin' %}
+                                    <td>{{ v.sizeMoc40 }}</td>
+                                    <td>{{ v.sizeMoc41 }}</td>
+                                    <td>{{ v.sizeMoc42 }}</td>
+                                    <td>{{ v.sizeMoc43 }}</td>
+                                    <td>{{ v.sizeMoc44 }}</td>
+                                    <td>{{ v.sizeMoc45 }}</td>
+                                {% else %}
+                                    <td>{{ v.s }}</td>
+                                    <td>{{ v.m }}</td>
+                                    <td>{{ v.l }}</td>
+                                    <td>{{ v.xl }}</td>
+                                    <td>{{ v.xxl }}</td>
+                                {% endif %}
                                 {% for img in v.images %}
 
                                 {% endfor %}

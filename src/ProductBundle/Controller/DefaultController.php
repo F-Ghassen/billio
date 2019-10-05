@@ -120,6 +120,7 @@ class DefaultController extends Controller
         $variations = $this->getDoctrine()->getManager()->getRepository(ProductVariation::class)->findBy(array('product' => $product));
         return $this->render('admin/products/list_var.html.twig', array(
             'variations' => $variations,
+            'p' => $product
         ));
     }
 
