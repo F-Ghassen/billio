@@ -40,7 +40,7 @@ function addTagForm($collectionHolder, $newLinkLi) {
     var newForm = prototype;
     newForm = newForm.replace(/__name__/g, index);
     $collectionHolder.data('index', index + 1);
-    var $newFormLi = $('<li class="row"></li>').append(newForm);
+    var $newFormLi = $('<li class="list-group-item row"></li>').append(newForm);
     $newLinkLi.before($newFormLi);
     addTagFormDeleteLink($newFormLi);
 }

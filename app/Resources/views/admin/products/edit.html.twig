@@ -45,13 +45,27 @@
 
                         <ul class="tags list-group" style="padding: 20px;margin: 20px" data-prototype="{{ form_widget(form.variations.vars.prototype)|e('html_attr') }}">
                             {% for tag in form.variations %}
-                                <li class="list-group-item">
+                                <li class="list-group-item row">
                                     {{ form_row(tag.color) }}
                                     {{ form_row(tag.s) }}
                                     {{ form_row(tag.m) }}
                                     {{ form_row(tag.l) }}
                                     {{ form_row(tag.xl) }}
                                     {{ form_row(tag.xxl) }}
+                                    {{ form_row(tag.sizeJean29) }}
+                                    {{ form_row(tag.sizeJean30) }}
+                                    {{ form_row(tag.sizeJean31) }}
+                                    {{ form_row(tag.sizeJean32) }}
+                                    {{ form_row(tag.sizeJean33) }}
+                                    {{ form_row(tag.sizeJean34) }}
+                                    {{ form_row(tag.sizeJean36) }}
+                                    {{ form_row(tag.sizeJean38) }}
+                                    {{ form_row(tag.sizeMoc40) }}
+                                    {{ form_row(tag.sizeMoc41) }}
+                                    {{ form_row(tag.sizeMoc42) }}
+                                    {{ form_row(tag.sizeMoc43) }}
+                                    {{ form_row(tag.sizeMoc44) }}
+                                    {{ form_row(tag.sizeMoc45) }}
                                 </li>
                             {% endfor %}
                         </ul>
@@ -77,4 +91,37 @@
     </div>
     <!-- /page container -->
 
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function() {
+            function filter() {
+                //console.log($('#product_category').val());
+                var category = $('#product_category').val();
+                if(category === 'Jeans') {
+                    myarray = ['Size jean29', 'Size jean30', 'Size jean31', 'Size jean32', 'Size jean33', 'Size jean34', 'Size jean36', 'Size jean38'];
+                } else if(category === 'Mocassin') {
+                    myarray = ['Size moc40', 'Size moc41', 'Size moc42', 'Size moc43', 'Size moc44', 'Size moc45'];
+                } else {
+                    myarray = ['S', 'M', 'L', 'Xl', 'Xxl'];
+                }
+                $.each($('.list-group-item'), function(index, value) {
+                    //console.log($(value).find('div.form-group').length);
+                    $.each($(value).find('div.form-group').slice(1), function(index, value) {
+                        console.log($(value).children('label').html());
+                        if(jQuery.inArray($(value).children('label').html(), myarray) === -1) {
+                            $(value).hide();
+                        } else {
+                            $(value).show();
+                        }
+                    });
+                });
+            }
+            filter();
+            $('#product_category').on('change', filter);
+            $('.add_tag_link').on('click', filter);
+        });
+    </script>
 {% endblock %}
