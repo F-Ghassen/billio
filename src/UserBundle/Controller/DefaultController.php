@@ -4,6 +4,7 @@ namespace UserBundle\Controller;
 
 use MessageBundle\Entity\Message;
 use OrderBundle\Entity\DevisItem;
+use PromoCodeBundle\Entity\PromoCode;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -14,12 +15,23 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $list = $this->getDoctrine()->getManager()->getRepository(DevisItem::class)->countprods();
-        $count_messages = $this->getDoctrine()->getManager()->getRepository(Message::class)->countMessages();
+        $em = $this->getDoctrine()->getManager();
+        $list = $em->getRepository(DevisItem::class)->countprods();
+        $count_messages = $em->getRepository(Message::class)->countMessages();
+        $promo_codes = $em->getRepository(PromoCode::class)->findBy(['enabled' => true]);
+        $code_stats = array();
+        foreach ($promo_codes as $value) {
+            $items = $em->getRepository(DevisItem::class)->getItemsByCode($value->getCode());
+            $i[] = $value;
+            $i[] = $items;
+            $code_stats[] = $i;
+        }
+        dump($code_stats);
 
         return $this->render('admin/index.html.twig', array(
             'list' => $list,
             'count_messages' => $count_messages,
+            'codes' => $code_stats,
         ));
     }
 }

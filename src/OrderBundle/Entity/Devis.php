@@ -49,6 +49,12 @@ class Devis
      */
     private $enabled;
 
+    /**
+     * @ORM\Column(type="boolean", length=255, nullable=true)
+     * @var bool
+     */
+    private $archived;
+
 
     /**
      * Get id
@@ -134,6 +140,22 @@ class Devis
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isArchived()
+    {
+        return $this->archived;
+    }
+
+    /**
+     * @param bool $archived
+     */
+    public function setArchived($archived)
+    {
+        $this->archived = $archived;
     }
 }
 

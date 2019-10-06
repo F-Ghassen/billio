@@ -39,4 +39,21 @@ class DefaultController extends Controller
         $em->flush();
         return $this->redirectToRoute('list_devis_page');
     }
+
+    /**
+     * @Route("/admin/devis/archive/{id}", name="archive_devis_page")
+     */
+    public function archiveDevisAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $order = $em->getRepository(Devis::class)->find($id);
+        if($order->isEnabled())
+        {
+            $order->setArchived(false);
+        } else {
+            $order->setArchived(true);
+        }
+        $em->flush();
+        return $this->redirectToRoute('list_devis_page');
+    }
 }

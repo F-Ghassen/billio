@@ -24,4 +24,18 @@ class DevisItemRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    public function getItemsByCode($code)
+    {
+        $qb = $this->createQueryBuilder('devis_item')
+            ->leftJoin('devis_item.devis', 'd')
+            ->addSelect('d')
+            ->leftJoin('devis_item.product', 'p')
+            ->addSelect('p')
+            ->leftJoin('d.orderInfo', 'info')
+            ->addSelect('info')
+            ->where("info.promo = '".$code."'");
+            //->andWhere('d.enabled = true');
+        return $qb->getQuery()->getResult();
+    }
 }
