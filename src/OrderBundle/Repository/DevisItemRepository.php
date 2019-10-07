@@ -35,7 +35,7 @@ class DevisItemRepository extends \Doctrine\ORM\EntityRepository
             ->leftJoin('d.orderInfo', 'info')
             ->addSelect('info')
             ->where("info.promo = '".$code."'");
-            //->andWhere('d.enabled = true');
+            ->andWhere('d.enabled = true');
         return $qb->getQuery()->getResult();
     }
 }

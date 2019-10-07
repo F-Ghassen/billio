@@ -26,7 +26,7 @@ class DefaultController extends Controller
             $i[] = $items;
             $code_stats[] = $i;
         }
-        dump($code_stats);
+        //dump($code_stats);
 
         return $this->render('admin/index.html.twig', array(
             'list' => $list,
