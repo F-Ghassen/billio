@@ -53,6 +53,25 @@
                     })*/
                 });
             </script>
+            <script>
+                $(window).scroll(function() {
+                    var scrollTop = $(window).scrollTop()*4;
+                    var height = $(window).height();
+
+                    $('.nav-2').css({
+                        'opacity': ((height - scrollTop) / height)
+                    });
+                    /*if ($(this).scrollTop() > 300) {
+                        $('.nav-2').css({
+                            'display': 'none'
+                        });
+                    } else {
+                        $('.nav-2').css({
+                            'display': 'block'
+                        });
+                    }*/
+                });
+            </script>
         {% endblock %}
     </body>
 </html>

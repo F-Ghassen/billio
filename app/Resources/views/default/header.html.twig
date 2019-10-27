@@ -1,22 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<div class="fixed-top billio-navbar-text">
+    <div class="text-center">
+        <span style="color: white !important; text-transform: uppercase;">BILLIORICH</span>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="margin-top: 50px !important; padding: 0 5px 5px 5px !important;">
     <a class="navbar-brand" href="{{ path('homepage') }}">
         <img class="img-fuild billio-logo" style="width: 40px; height: 40px;" src="{{ asset('assets/img/core-img/billio.jpg') }}" alt="logo">
     </a>
     {% if cartLogo!=0 %}
-        <span id="cart-show-small-screen" style="margin-left: 120px">
-                <a href="{{ path('cart_page') }}">
-                    <span class="icon-shopping-cart custom-icon">
-                        <span class="shopping-cart">{{ cartLogo }}</span>
-                    </span>
-                </a>
-            </span>
+        <span class="cart-show-small-screen">
+            <a href="{{ path('cart_page') }}">
+                <span class="icon-shopping-cart custom-icon">
+                    <span class="shopping-cart">{{ cartLogo }}</span>
+                </span>
+            </a>
+        </span>
     {% endif %}
+    <span class="cart-show-small-screen"><a href="{{ path('contact_page') }}"><i class="fa fa-phone custom-icon"></i></a></span>
+    <span class="cart-show-small-screen"><a href="https://www.facebook.com/billiorich96/" target="_blank"> <i class="fa fa-facebook custom-icon"></i></a></span>
+    <span class="cart-show-small-screen"><a href="https://www.instagram.com/billiorich/" target="_blank"><i class="fa fa-instagram custom-icon"></i> </a></span>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <i class="fa fa-bars"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            {#
             <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownA" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Tous les Produits
@@ -29,12 +40,14 @@
                     {% endfor %}
                 </div>
             </li>
+            #}
 
             <li class="nav-item dropdown active">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle custom-nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Catégorie
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('index_products_page') }}">All</a>
                     <a class="dropdown-item" href="{{ path('index_products_page') }}?category=T-Shirt">T-Shirts</a>
                     <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Jeans">Jeans</a>
                     <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Chemises">Chemises</a>
@@ -43,28 +56,20 @@
                     <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Casquettes">Casquettes</a>
                 </div>
             </li>
-            <li class="nav-item active">
-                <a id="nav-contact" class="nav-item-button nav-link" href="{{ path('contact_page') }}">CONTACT</a>
-            </li>
         </ul>
 
-        <div class="text-right" style="margin-right: 70px; margin-top:10px;">
+        <div class="text-right" style="margin-right: 70px;">
             {% if cartLogo!=0 %}
-            <span id="cart-hide-in-small-screen">
-                <a href="{{ path('cart_page') }}">
-                    <span class="icon-shopping-cart custom-icon">
-                        <span class="shopping-cart">{{ cartLogo }}</span>
-                    </span>
-                </a>
-            </span>
+            <span class="cart-show-large-screen"><a href="{{ path('cart_page') }}"><i class="icon-shopping-cart custom-icon"><span class="shopping-cart">{{ cartLogo }}</span></i></a></span>
             {% endif %}
-            <span><a href="https://www.facebook.com/billiorich96/" target="_blank"> <i class="fa fa-facebook custom-icon"></i></a></span>
-            <span><a href="https://www.instagram.com/billiorich/" target="_blank"><i class="fa fa-instagram custom-icon"></i> </a></span>
+            <span class="cart-show-large-screen"><a href="{{ path('contact_page') }}"><i class="fa fa-phone custom-icon"></i></a></span>
+            <span class="cart-show-large-screen"><a href="https://www.facebook.com/billiorich96/" target="_blank"> <i class="fa fa-facebook custom-icon"></i></a></span>
+            <span class="cart-show-large-screen"><a href="https://www.instagram.com/billiorich/" target="_blank"><i class="fa fa-instagram custom-icon"></i> </a></span>
         </div>
     </div>
 </nav>
 
-<div class="fixed-top" style="background: rgba(0, 0, 0, 0.4); width: 100%;margin-top: 80px; z-index: 2;">
+<div class="fixed-top nav-2" style="background: rgba(0, 0, 0, 0.4); width: 100%;margin-top: 100px; z-index: 2;">
     <div class="text-center " style="padding:.8rem!important; padding-top: 20px !important;" >
         <span style="color: white !important; text-transform: uppercase;">Livraison <b>gratuite</b> sur les commandes de plus de <u><b>200dt</b></u></span>
     </div>

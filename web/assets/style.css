@@ -98,3 +98,14 @@
     font-weight: bold;
 }
 html, body { overflow-x: hidden; }
+
+.billio-navbar-text {
+    background: rgba(15, 14, 10, 1);
+    padding-top: 5px;
+    width: 100%;
+    z-index: 1050;
+    letter-spacing: 2vw;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2em;
+}

@@ -43,6 +43,20 @@ class Message
     private $message;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="reason", type="text")
+     */
+    private $reason;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="num_colis", type="text")
+     */
+    private $num_colis;
+
+    /**
      * @ORM\Column(type="boolean", length=255, nullable=true)
      * @var bool
      */
@@ -144,6 +158,38 @@ class Message
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->reason;
+    }
+
+    /**
+     * @param string $reason
+     */
+    public function setReason($reason)
+    {
+        $this->reason = $reason;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumColis()
+    {
+        return $this->num_colis;
+    }
+
+    /**
+     * @param string $num_colis
+     */
+    public function setNumColis($num_colis)
+    {
+        $this->num_colis = $num_colis;
     }
 }
 

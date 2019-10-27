@@ -4,6 +4,7 @@ namespace MessageBundle\Form;
 
 use MessageBundle\Entity\Message;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -38,6 +39,25 @@ class MessageType extends AbstractType
                     'rows' => 4,
                     'label' => 'Message',
                     'required' => true,
+                )
+            ))
+            ->add('reason', ChoiceType::class, array(
+                'attr' => array(
+                    'class' => 'form-control',
+                    'label' => 'Raison',
+                ),
+                'choices' => [
+                    'Réclamation' => 'Réclamation',
+                    'Information' => 'Information',
+                    'Collaboration' => 'Collaboration',
+                    'Livraison et retour' => 'Livraison et retour'
+                ]
+            ))
+            ->add('numColis', TextType::class, array(
+                'attr' => array(
+                    'class' => 'form-control',
+                    'label' => 'Numero de colis',
+                    'required' => false,
                 )
             ))
             ->add('save',  SubmitType::class, array(
