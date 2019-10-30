@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="" />
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/messages/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/messages/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/list_var.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/list_var.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Entity/ProductVariation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Entity/ProductVariation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Form/ProductVariationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Form/ProductVariationType.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +169,8 @@
       <workItem from="1570490208133" duration="715000" />
       <workItem from="1570493325292" duration="231000" />
       <workItem from="1572034626701" duration="8761000" />
-      <workItem from="1572129966303" duration="6318000" />
+      <workItem from="1572129966303" duration="6914000" />
+      <workItem from="1572474925407" duration="1651000" />
     </task>
     <servers />
   </component>

@@ -33,6 +33,7 @@ class ProductVariationType extends AbstractType
             ->add('sizeJean32', IntegerType::class, array('required' => false))
             ->add('sizeJean33', IntegerType::class, array('required' => false))
             ->add('sizeJean34', IntegerType::class, array('required' => false))
+            ->add('sizeJean35', IntegerType::class, array('required' => false))
             ->add('sizeJean36', IntegerType::class, array('required' => false))
             ->add('sizeJean38', IntegerType::class, array('required' => false))
             ->add('sizeMoc40', IntegerType::class, array('required' => false))

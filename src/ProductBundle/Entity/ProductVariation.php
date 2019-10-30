@@ -95,6 +95,11 @@ class ProductVariation
     private $size_jean_34;
 
     /**
+     * @ORM\Column(name="size_jean_35", type="string", length=255, nullable=true)
+     */
+    private $size_jean_35;
+
+    /**
      * @ORM\Column(name="size_jean_36", type="string", length=255, nullable=true)
      */
     private $size_jean_36;
@@ -522,6 +527,22 @@ class ProductVariation
     public function setSizeMoc45($size_moc_45)
     {
         $this->size_moc_45 = $size_moc_45;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSizeJean35()
+    {
+        return $this->size_jean_35;
+    }
+
+    /**
+     * @param mixed $size_jean_35
+     */
+    public function setSizeJean35($size_jean_35)
+    {
+        $this->size_jean_35 = $size_jean_35;
     }
 }
 
