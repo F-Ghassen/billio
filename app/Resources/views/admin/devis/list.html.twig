@@ -38,7 +38,7 @@
                                         <h6 class="text-semibold no-margin-top">{{ c.orderInfo.getCustomerFirstName }} {{ c.orderInfo.getCustomerLastName }}</h6>
                                         <ul class="list list-unstyled">
                                             <li>Devis #: &nbsp;{{ "%04d" | format(c.id) }}</li>
-                                            <li>Issued on: <span class="text-semibold">{{ c.saleDate |date('d/m/Y') }}</span></li>
+                                            <li>Issued on: <span class="text-semibold">{{ c.saleDate | date_modify("+2 hours") |date('d/m/Y - H:i') }}</span></li>
                                         </ul>
                                     </div>
 
@@ -67,7 +67,8 @@
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i> <span class="caret"></span></a>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="{{ path('archive_devis_page', {'id': c.id}) }}"><i class="icon-cross2" onclick="return confirm('Are you sure you want to Delete this Invoice?')"></i> Remove invoice</a></li>
+                                            <li><a href="{{ path('print_devis_page', {'id': c.id}) }}" target="_blank"><i class="icon-printer"></i> Print Devis</a></li>
+                                            <li><a href="{{ path('archive_devis_page', {'id': c.id}) }}"><i class="icon-cross2" onclick="return confirm('Are you sure you want to Delete this Invoice?')"></i> Remove Devis</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -90,7 +91,7 @@
                                             <div class="invoice-details">
                                                 <h5 class="text-uppercase text-semibold">Devis #: &nbsp;{{ "%04d" | format(c.id) }}</h5>
                                                 <ul class="list-condensed list-unstyled">
-                                                    <li>Date: <span class="text-semibold">{{ c.saleDate |date('d/m/Y') }}</span></li>
+                                                    <li>Date: <span class="text-semibold">{{ c.saleDate | date_modify("+2 hours") |date('d/m/Y - H:i') }}</span></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -126,7 +127,7 @@
                                         {% for item in c.items %}
                                             <tr>
                                                 <td>
-                                                    <h6 class="no-margin">{{ item.product.name }}</h6>
+                                                    <h6 class="no-margin"><a href="{{ path('product_details_page', {'id': item.product.id, 'v_id': item.variation.id}) }}" target="_blank">{{ item.product.name }}</a></h6>
                                                 </td>
                                                 <td>{{ item.size }}</td>
                                                 <td>{{ item.variation.color }}</td>

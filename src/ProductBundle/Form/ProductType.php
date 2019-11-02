@@ -25,8 +25,8 @@ class ProductType extends AbstractType
             ->add('category', ChoiceType::class, array(
                 'choices' => array(
                     'TShirt' => 'TShirt',
-                    'Casquettes' => 'Casquettes',
-                    'Mocassin' => 'Mocassin',
+                    //'Casquettes' => 'Casquettes',
+                    //'Mocassin' => 'Mocassin',
                     'Polo' => 'Polo',
                     'Chemises' => 'Chemises',
                     'Jeans' => 'Jeans',

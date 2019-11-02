@@ -53,10 +53,10 @@
                         <div class="mt-3">
                             {{ form_label(personalinfo_form.promo) }}
                             <div class="row justify-content-center">
-                                <div class="col-lg-10 col-md-8">
+                                <div class="col-lg-12 col-md-12">
                                     {{ form_widget(personalinfo_form.promo) }}
                                 </div>
-                                <div class="btn btn-success col-lg-2 col-md-2 w-75 mt-3 mt-sm-0" id="check-btn">Vérifier</div>
+                                <!--div class="btn btn-success col-lg-2 col-md-2 w-75 mt-3 mt-sm-0" id="check-btn">Vérifier</div-->
                             </div>
                         </div>
                 </div>
@@ -93,7 +93,7 @@
                         </ul>
 
                         <div class="container mb-5">
-                            <div class="row justify-content-center mt-5 ">
+                            <div class="row justify-content-center mt-5">
                                 <div class="col-10 text-center">{{ form_widget(personalinfo_form.save) }}</div>
                             </div>
                         </div>
@@ -112,7 +112,8 @@
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script>
         $(document).ready(function() {
-            $('#check-btn').on('click', promo);
+            //$('#check-btn').on('click', promo);
+            $('#personal_info_promo').on('change', promo);
 
             function promo(){
                 var code = $('#personal_info_promo').val();
@@ -121,14 +122,16 @@
                     url: path,
                     //async: false,
                     beforeSend: function() {
-                        $('#check-btn').unbind('click', promo);
+                        //$('#check-btn').unbind('click', promo);
+                        $('#personal_info_promo').unbind('change', promo);
                     },
                 }).done(function(data) {
                     if(data === 'false') {
                         //console.log(data);
                         $('#personal_info_promo').removeClass('input-success');
                         $('#personal_info_promo').addClass('input-danger');
-                        $('#check-btn').on('click', promo);
+                        //$('#check-btn').on('click', promo);
+                        $('#personal_info_promo').on('change', promo);
                     } else {
                         //console.log(data);
                         $('#personal_info_promo').removeClass('input-danger');

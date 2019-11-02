@@ -19,7 +19,7 @@
                         <!-- Product Description -->
                         <div class="product-description">
                             <h4 class="product-price">{{ p.price }} DT</h4>
-                            <p style="font-size:20px">{{ p.name }}</p>
+                            <p style="font-size:18px">{{ p.name }}</p>
                             <!-- Add to Cart -->
                             <form action="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}" class="cart" method="post">
                                 <button type="submit" class="btn btn-dark mt-2 btn-acheter">Acheter maintenant</button>

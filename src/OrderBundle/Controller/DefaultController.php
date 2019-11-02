@@ -2,7 +2,6 @@
 
 namespace OrderBundle\Controller;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use OrderBundle\Entity\Commande;
 use OrderBundle\Entity\Devis;
 use OrderBundle\Form\FullCommande;
@@ -55,5 +54,17 @@ class DefaultController extends Controller
         }
         $em->flush();
         return $this->redirectToRoute('list_devis_page');
+    }
+
+    /**
+     * @Route("/admin/devis/print/{id}", name="print_devis_page")
+     */
+    public function printDevisAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $order = $em->getRepository(Devis::class)->find($id);
+        return $this->render('admin/devis/print_devis.html.twig', [
+            'c' => $order
+        ]);
     }
 }

@@ -1,0 +1,143 @@
+{% extends 'admin/base.html.twig' %}
+{% block body %}
+
+    <div class="content-wrapper">
+        <div class="content">
+            {% set sum1 = 0 %}
+            {% set sum1 = 0 %}
+            {% for item in c.items %}
+                {% set sum1 = sum1 + item.quantity*item.product.price %}
+            {% endfor %}
+            <div class="modal-content">
+                <div class="panel-body no-padding-bottom">
+                    <div class="row">
+                        <div class="col-md-offset-6 col-md-6 content-group">
+                            <div class="invoice-details">
+                                <h5 class="text-uppercase text-semibold">Devis #: &nbsp;{{ "%04d" | format(c.id) }}</h5>
+                                <ul class="list-condensed list-unstyled">
+                                    <li>Date: <span class="text-semibold">{{ c.saleDate | date_modify("+2 hours") |date('d/m/Y - H:i') }}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-lg-9 content-group">
+                            <span class="text-muted">Invoice To:</span>
+                            <ul class="list-condensed list-unstyled">
+                                <li><h5>{{ c.orderInfo.getCustomerFirstName }} {{ c.orderInfo.getCustomerLastName }}</h5></li>
+                                <li>{{ c.orderInfo.customerPhone }}</li>
+                                <li>{{ c.orderInfo.customerEmail }}</li>
+                                <li>{{ c.orderInfo.customerCity }}, {{ c.orderInfo.postalCode }}</li>
+                                <li><span class="text-semibold">{{ c.orderInfo.customerAddress }}</span></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-lg">
+                        <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th class="col-sm-1">Size</th>
+                            <th class="col-sm-1">Color</th>
+                            <th class="col-sm-1">Quantity</th>
+                            <th class="col-sm-1">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody id="items">
+                        {% for item in c.items %}
+                            <tr>
+                                <td>
+                                    <h6 class="no-margin">{{ item.product.name }}</h6>
+                                </td>
+                                <td>{{ item.size }}</td>
+                                <td>{{ item.variation.color }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>
+                                    <span class="text-semibold">
+                                        {% set total = item.quantity*item.product.price %}
+                                        {{ total }} DT
+                                    </span>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row invoice-payment">
+                        <div class="col-sm-offset-7 col-sm-5">
+                            <div class="content-group">
+                                <h6>Total due</h6>
+                                <div class="table-responsive no-border">
+                                    <table class="table">
+                                        <tbody>
+                                        {% if c.orderInfo.promo != null %}
+                                            <tr>
+                                                <th>Promo Code : <span class="label bg-success-400">Actif</span></th>
+                                                <td class="text-right text-primary"><h5 class="text-semibold" id="code">{{ c.orderInfo.promo }}</h5></td>
+                                            </tr>
+                                        {% endif %}
+                                        <tr>
+                                            <th>Total:</th>
+                                            <td class="text-right text-primary"><h5 class="text-semibold" id="total">{{ sum1 }} DT</h5></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block stylesheets %}
+    <style>
+        @page { size: auto;  margin: 0mm;}
+        .content-wrapper { display: block !important;}
+    </style>
+    {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script>
+        $(document).ready(function() {
+            promo();
+            function promo(){
+                var code = $('#code').html();
+                var initialTotal = $("#total").html();
+                //console.log(initialTotal);
+                if(parseFloat(initialTotal) < 200) {
+                    $('#items').append('<tr>' +
+                        '<td><h6 class="no-margin">Livraison</h6></td>' +
+                        '<td></td>'+
+                        '<td></td>' +
+                        '<td>1</td>' +
+                        '<td class="text-semibold">5 DT</td>' +
+                        '</tr>');
+                    initialTotal = parseFloat(initialTotal) + parseFloat(5);
+                }
+                //console.log(code);
+                if(code != null) {
+                    var path = Routing.generate('check_code_page', {'code': code});
+                    $.ajax({
+                        url: path,
+                    }).done(function(data) {
+                        var s = initialTotal;
+                        //console.log(data);
+                        var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
+                        $("#total").html(news + " DT");
+                        $('#code').html(JSON.parse(data).montant + "%");
+                        window.print();
+                        //console.log(s);
+                    });
+                }
+            }
+        });
+    </script>
+{% endblock %}

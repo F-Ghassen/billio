@@ -30,12 +30,14 @@
     width: 100%;
     height: 100%;
     color: white;
-    background-color: #ff084e !important;
+    background-color: black !important;
+    border-radius: 0px;
 }
 
 .karl-checkout-btn button:hover {
-    color: white;
-    background-color: black !important;
+    color: black;
+    background-color: white !important;
+    border: 2px solid black;
 }
 
 .icon-3xl i {
@@ -104,8 +106,8 @@ html, body { overflow-x: hidden; }
     padding-top: 5px;
     width: 100%;
     z-index: 1050;
-    letter-spacing: 2vw;
-    font-weight: 700;
+    letter-spacing: 3vw;
+    font-weight: 900;
     font-family: 'Open Sans', sans-serif;
-    font-size: 2em;
+    font-size: 2.2em;
 }

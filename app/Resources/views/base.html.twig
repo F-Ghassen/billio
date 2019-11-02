@@ -18,7 +18,6 @@
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}
-            <!-- Global site tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149376675-1"></script>
             <script>
                 window.dataLayer = window.dataLayer || [];
@@ -37,20 +36,9 @@
                     $('.size-option').on('click',function () {
                         if($(this).hasClass("disable-size") == false) {
                             clickedSize = $(this).attr('data-size');
-                            //console.log(clickedSize);
                             $('#size-select').val(clickedSize);
                         }
                     });
-                    /*$('#submit-btn').on('click', function (event) {
-                        event.preventDefault();
-                        $.each($(".size-option"), function (item) {
-                            if($(this).is(":focus"))
-                            console.log("focused")
-                            else {
-                                console.log("focusedno")
-                            }
-                        });
-                    })*/
                 });
             </script>
             <script>
@@ -61,15 +49,6 @@
                     $('.nav-2').css({
                         'opacity': ((height - scrollTop) / height)
                     });
-                    /*if ($(this).scrollTop() > 300) {
-                        $('.nav-2').css({
-                            'display': 'none'
-                        });
-                    } else {
-                        $('.nav-2').css({
-                            'display': 'block'
-                        });
-                    }*/
                 });
             </script>
         {% endblock %}

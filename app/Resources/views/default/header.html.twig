@@ -1,6 +1,6 @@
 <div class="fixed-top billio-navbar-text">
     <div class="text-center">
-        <span style="color: white !important; text-transform: uppercase;">BILLIORICH</span>
+        <span><a style="color: white !important; text-transform: uppercase; text-decoration: none;" href="{{ path('homepage') }}">BILLIORICH</a></span>
     </div>
 </div>
 
@@ -42,19 +42,20 @@
             </li>
             #}
 
-            <li class="nav-item dropdown active">
-                <a class="nav-link dropdown-toggle custom-nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Catégorie
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ path('index_products_page') }}">All</a>
-                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=T-Shirt">T-Shirts</a>
-                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Jeans">Jeans</a>
-                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Chemises">Chemises</a>
-                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Polo">Polo</a>
-                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Mocassin">Mocassin</a>
-                    <a class="dropdown-item" href="{{ path('index_products_page') }}?category=Casquettes">Casquettes</a>
-                </div>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('index_products_page') }}">All</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('index_products_page') }}?category=T-Shirt">T-Shirts</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('index_products_page') }}?category=Jeans">Jeans</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('index_products_page') }}?category=Chemises">Chemises</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('index_products_page') }}?category=Polo">Polo</a>
             </li>
         </ul>
 
