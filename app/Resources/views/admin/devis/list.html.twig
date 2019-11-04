@@ -47,11 +47,8 @@
                                         {% for item in c.items %}
                                             {% set sum1 = sum1 + item.quantity*item.product.price %}
                                         {% endfor %}
-                                        {% if sum1 < 200 %}
-                                            {% set sum1 = sum1 + 5 %}
-                                        {% endif %}
                                         <span class="text-semibold">
-                                            <h6 class="text-semibold text-right no-margin-top" id="total1{{ loop.index0 }}">{{ sum1 }} DT</h6>
+                                            <h6 class="text-semibold text-right no-margin-top" id="total1_{{ loop.index0 }}">{{ sum1 }} DT</h6>
                                         </span>
                                         <div class="text-right">
                                             Status: &nbsp;
@@ -123,7 +120,7 @@
                                             <th class="col-sm-1">Total</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="items{{ loop.index0 }}">
                                         {% for item in c.items %}
                                             <tr>
                                                 <td>
@@ -160,7 +157,7 @@
                                                         {% endif %}
                                                         <tr>
                                                             <th>Total:</th>
-                                                            <td class="text-right text-primary"><h5 class="text-semibold" id="total{{ loop.index0 }}">{{ sum1 }} DT</h5></td>
+                                                            <td class="text-right text-primary"><h5 class="text-semibold" id="total_{{ loop.index0 }}">{{ sum1 }} DT</h5></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -197,17 +194,38 @@
             }
             function promo(i){
                 var code = $('#code'+i).html();
+                console.log(code);
+                var initialTotal = $("#total_"+i).html();
+                //console.log(initialTotal);
+                if(parseFloat(initialTotal) < parseFloat(200)) {
+                    //console.log(i);
+                    //console.log(initialTotal);
+                    $('#items'+i).append('<tr>' +
+                        '<td><h6 class="no-margin">Livraison</h6></td>' +
+                        '<td></td>'+
+                        '<td></td>' +
+                        '<td>1</td>' +
+                        '<td class="text-semibold">5 DT</td>' +
+                        '</tr>');
+                    //console.log(initialTotal);
+                    initialTotal = parseFloat(initialTotal) + parseFloat(5);
+                    $("#total_"+i).html(initialTotal + " DT");
+                    $("#total1_"+i).html(initialTotal + " DT");
+                }
                 //console.log(code);
                 if(code != null) {
                     var path = Routing.generate('check_code_page', {'code': code});
                     $.ajax({
                         url: path,
                     }).done(function(data) {
-                        var s = $("#total"+i).html();
-                        var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
-                        $("#total"+i).html(news + " DT");
-                        $("#total1"+i).html(news + " DT");
-                        //console.log(s)
+                        if(data != "false") {
+                            var s = initialTotal;
+                            var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
+                            $("#total_"+i).html(news + " DT");
+                            $("#total1_"+i).html(news + " DT");
+                            $('#code'+i).html(JSON.parse(data).montant + "%");
+                            //console.log(s)
+                        }
                     });
                 }
             }
