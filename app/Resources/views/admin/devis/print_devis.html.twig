@@ -121,6 +121,7 @@
                         '<td class="text-semibold">5 DT</td>' +
                         '</tr>');
                     initialTotal = parseFloat(initialTotal) + parseFloat(5);
+                    $("#total").html(initialTotal + " DT");
                 }
                 //console.log(code);
                 if(code != null) {
@@ -128,14 +129,18 @@
                     $.ajax({
                         url: path,
                     }).done(function(data) {
-                        var s = initialTotal;
-                        //console.log(data);
-                        var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
-                        $("#total").html(news + " DT");
-                        $('#code').html(JSON.parse(data).montant + "%");
+                        if(data != "false") {
+                            var s = initialTotal;
+                            //console.log(data);
+                            var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
+                            $("#total").html(news + " DT");
+                            $('#code').html(JSON.parse(data).montant + "%");
+                            //console.log(s);
+                        }
                         window.print();
-                        //console.log(s);
                     });
+                } else {
+                    window.print();
                 }
             }
         });
