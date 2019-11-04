@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Entity/OrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Entity/OrderInfo.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -169,7 +169,8 @@
       <workItem from="1572711998964" duration="15252000" />
       <workItem from="1572816303586" duration="181000" />
       <workItem from="1572816629159" duration="595000" />
-      <workItem from="1572864537467" duration="5521000" />
+      <workItem from="1572864537467" duration="5923000" />
+      <workItem from="1572878401527" duration="1776000" />
     </task>
     <servers />
   </component>

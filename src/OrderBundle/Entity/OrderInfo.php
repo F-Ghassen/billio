@@ -27,7 +27,7 @@ class OrderInfo
      *
      * @Assert\NotBlank()
      * @Assert\Regex(
-     *     pattern="/^[a-zA-Z]*$/",
+     *     pattern="/^[a-zA-Z\s\u0621-\u064A\u0660-\u0669]*$/",
      *     message="Invalid Name",
      *     )
      *
@@ -40,7 +40,7 @@ class OrderInfo
      *
      * @Assert\NotBlank()
      * @Assert\Regex(
-     *     pattern="/^[a-zA-Z]*$/",
+     *     pattern="/^[a-zA-Z\s\u0621-\u064A\u0660-\u0669]*$/",
      *     message="Invalid Last Name",
      * )
      *
