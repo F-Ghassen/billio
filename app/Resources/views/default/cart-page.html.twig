@@ -37,7 +37,17 @@
                                 </td>
                                 <td>{{ item.size }}</td>
                                 <td>{{ item.variation.color }}</td>
-                                <td class="price"><span>{{ item.product.price|number_format(2) }} DT</span></td>
+                                <td class="price">
+                                    {% if item.promo %}
+                                        <s style='color: dimgrey; font-size: 80%'>{{ item.product.price }}</s>
+                                        <span>
+                                            {{ (item.quantity*(item.product.price - item.product.price*item.promo/100)) | number_format(2) }}
+                                        </span>
+                                    {% else %}
+                                        <span>{{ (item.quantity*item.product.price) | number_format(2) }}</span>
+                                    {% endif %}
+                                    DT
+                                </td>
                                 <td class="qty">
                                     <div class="quantity">
                                         <span class="custom-button-circle qty-minus" onclick="var effect = document.getElementById('devis_items_{{ loop.index0 }}_quantity'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
@@ -46,7 +56,15 @@
                                     </div>
                                 </td>
                                 <td class="total_price cart-product-subtotal">
-                                    <span><span id="local_tot"></span> DT</span>
+                                    <span>
+                                        <span id="local_tot">
+                                            {% if item.promo %}
+                                                {{ (item.quantity*(item.product.price - item.product.price*item.promo/100)) | number_format(2) }}
+                                            {% else %}
+                                                {{ (item.quantity*item.product.price) | number_format(2) }}
+                                            {% endif %}
+                                        </span> DT
+                                    </span>
                                 </td>
                                 <td class="cart-product-remove">
                                     <a href="{{ path('delete_cart_item', {'id': item.id}) }}"><i class="ti-close"></i></a>
@@ -105,7 +123,7 @@
                 var price = parseFloat($(this).prev('td').prev('td').find('span').text());
                 var value = quantity*price;
                 subtotal = parseFloat(subtotal) + value;
-                $(this).find('span').find('span').text(parseFloat(value).toFixed(2));
+                //$(this).find('span').find('span').text(parseFloat(value).toFixed(2));
             });
             $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " DT");
             if(subtotal > 200) {

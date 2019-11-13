@@ -45,7 +45,11 @@
                                     <div class="col-sm-6">
                                         {% set sum1 = 0 %}
                                         {% for item in c.items %}
-                                            {% set sum1 = sum1 + item.quantity*item.product.price %}
+                                            {% if item.promo %}
+                                                {% set sum1 = sum1 + item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                            {% else %}
+                                                {% set sum1 = sum1 + item.quantity*item.product.price %}
+                                            {% endif %}
                                         {% endfor %}
                                         <span class="text-semibold">
                                             <h6 class="text-semibold text-right no-margin-top" id="total1_{{ loop.index0 }}">{{ sum1 }} DT</h6>
@@ -79,7 +83,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h5 class="modal-title">Devis #: &nbsp;{{ "%04d" | format(c.id) }}</h5>
                                 </div>
 
                                 <div class="panel-body no-padding-bottom">
@@ -125,13 +128,20 @@
                                             <tr>
                                                 <td>
                                                     <h6 class="no-margin"><a href="{{ path('product_details_page', {'id': item.product.id, 'v_id': item.variation.id}) }}" target="_blank">{{ item.product.name }}</a></h6>
+                                                    {% if item.promo %}
+                                                        (Promo {{ item.promo }} %)
+                                                    {% endif %}
                                                 </td>
                                                 <td>{{ item.size }}</td>
                                                 <td>{{ item.variation.color }}</td>
                                                 <td>{{ item.quantity }}</td>
                                                 <td>
                                                     <span class="text-semibold">
-                                                        {% set total = item.quantity*item.product.price %}
+                                                        {% if item.promo %}
+                                                            {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                                        {% else %}
+                                                            {% set total = item.quantity*item.product.price %}
+                                                        {% endif %}
                                                         {{ total }} DT
                                                     </span>
                                                 </td>

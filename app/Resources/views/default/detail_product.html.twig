@@ -59,7 +59,15 @@
 
                         <h4 class="title">{{ p.name }}</h4>
 
-                        <h4 class="price">{{ p.price }} DT</h4>
+                        <h4 class="price">
+                            {% if p.promoEnabled %}
+                                <s style='color: dimgrey; font-size: 80%'>{{ p.price }}</s>
+                                {{ (p.price - p.price*p.promoMontant/100) }}
+                            {% else %}
+                                {{ p.price }}
+                            {% endif %}
+                            DT
+                        </h4>
 
                         <p class="available">Available: <span class="text-muted">In Stock</span></p>
 

@@ -86,6 +86,18 @@ class Product
      */
     private $enabled;
 
+    /**
+     * @ORM\Column(type="integer", length=255, nullable=true)
+     * @var integer
+     */
+    private $promo_montant;
+
+    /**
+     * @ORM\Column(type="boolean", length=255, nullable=true)
+     * @var bool
+     */
+    private $promo_enabled;
+
     public function __construct()
     {
         $this->variations = new \Doctrine\Common\Collections\ArrayCollection();
@@ -292,6 +304,38 @@ class Product
     public function setCollection($collection)
     {
         $this->collection = $collection;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPromoEnabled()
+    {
+        return $this->promo_enabled;
+    }
+
+    /**
+     * @param bool $promo_enabled
+     */
+    public function setPromoEnabled($promo_enabled)
+    {
+        $this->promo_enabled = $promo_enabled;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPromoMontant()
+    {
+        return $this->promo_montant;
+    }
+
+    /**
+     * @param int $promo_montant
+     */
+    public function setPromoMontant($promo_montant)
+    {
+        $this->promo_montant = $promo_montant;
     }
 }
 

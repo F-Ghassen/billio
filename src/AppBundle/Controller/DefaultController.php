@@ -132,6 +132,9 @@ class DefaultController extends Controller
         if($request->isMethod('POST') && $cart_form->handleRequest($request)->isValid()) {
 
             $devisItem->setProduct($product);
+            if($product->isPromoEnabled()) {
+                $devisItem->setPromo($product->getPromoMontant());
+            }
             $session = $this->get('session');
 
             if ($session->has('cartElements')) {
@@ -196,6 +199,9 @@ class DefaultController extends Controller
         $devisItem = new DevisItem();
         if($request->isMethod('POST')) {
             $devisItem->setProduct($product);
+            if($product->isPromoEnabled()) {
+                $devisItem->setPromo($product->getPromoMontant());
+            }
             $devisItem->setVariation($variation);
             $quantity = $request->request->get('quantity');
             if($quantity != null) {

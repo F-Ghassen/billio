@@ -6,6 +6,7 @@ use CollectionBundle\Entity\Collection;
 use ProductBundle\Entity\Product;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -34,6 +35,10 @@ class ProductType extends AbstractType
                 'placeholder' => 'Select',
             ))
             ->add('price', IntegerType::class)
+            ->add('promoMontant', IntegerType::class)
+            ->add('promoEnabled', CheckboxType::class, [
+                'label'    => 'Activer Promo',
+            ])
             ->add('description', TextareaType::class)
             ->add('imageFile', VichImageType::class, array(
                 'download_link'     => false,

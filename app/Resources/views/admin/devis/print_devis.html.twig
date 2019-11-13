@@ -6,7 +6,11 @@
             {% set sum1 = 0 %}
             {% set sum1 = 0 %}
             {% for item in c.items %}
-                {% set sum1 = sum1 + item.quantity*item.product.price %}
+                {% if item.promo %}
+                    {% set sum1 = sum1 + item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                {% else %}
+                    {% set sum1 = sum1 + item.quantity*item.product.price %}
+                {% endif %}
             {% endfor %}
             <div class="modal-content">
                 <div class="panel-body no-padding-bottom">
@@ -58,7 +62,11 @@
                                 <td>{{ item.quantity }}</td>
                                 <td>
                                     <span class="text-semibold">
-                                        {% set total = item.quantity*item.product.price %}
+                                        {% if item.promo %}
+                                            {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                        {% else %}
+                                            {% set total = item.quantity*item.product.price %}
+                                        {% endif %}
                                         {{ total }} DT
                                     </span>
                                 </td>

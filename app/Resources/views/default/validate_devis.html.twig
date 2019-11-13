@@ -73,9 +73,18 @@
                             <li><span  style="font-size: 25px !important;">Products</span> <span style="font-size: 25px !important;">Total</span></li>
                             {% set subTotal=0 %}
                             {% for item in items1 %}
-                                {% set total = item.quantity*item.product.price %}
+                                {% if item.promo %}
+                                    {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                {% else %}
+                                    {% set total = item.quantity*item.product.price %}
+                                {% endif %}
                                 {% set subTotal = subTotal + total %}
-                                <li><b style="font-size: 15px !important;">{{ item.product.name }}</b> <span style="font-size: 15px !important;">{{ total }} DT</span></li>
+                                <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
+                                    <span style="font-size: 15px !important;">
+                                        <s style='color: dimgrey; font-size: 80%'>{{ item.quantity*item.product.price }}</s>
+                                        {{ total }} DT
+                                    </span>
+                                </li>
                             {% endfor %}
                             <li><b style="font-size: 15px !important;">Subtotal</b> <span style="font-size: 15px !important;" id="subtotal">{{ subTotal }} DT</span></li>
                             <li id="shipping">

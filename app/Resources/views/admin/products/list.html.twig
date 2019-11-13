@@ -40,6 +40,7 @@
                             <th>Price</th>
                             <th>Description</th>
                             <th>Image</th>
+                            <th>Promotion</th>
                             <th>Visible</th>
                             <th>Actions</th>
                         </tr>
@@ -52,6 +53,13 @@
                                 <td>{{ p.price }}</td>
                                 <td style="max-width: 200px !important;word-wrap: break-word;">{{ p.description }}</td>
                                 <td><img src="{{ vich_uploader_asset(p,'imageFile') }}" alt="" style="width: 150px;height: 150px;object-fit: cover;"></td>
+                                <td>
+                                    {% if p.promoEnabled %}
+                                        <span class="label bg-success-400">{{ p.promoMontant }} %</span>
+                                    {% else %}
+                                        <span class="label bg-danger-400">Non</span>
+                                    {% endif %}
+                                </td>
                                 <td>
                                     {% if p.enabled %}
                                         <span class="label bg-success-400">Visible</span>

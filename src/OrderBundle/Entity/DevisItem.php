@@ -35,6 +35,12 @@ class DevisItem
     private $size;
 
     /**
+     *
+     * @ORM\Column(name="promo", type="text", nullable=true)
+     */
+    private $promo;
+
+    /**
      * @ORM\ManyToOne(targetEntity="OrderBundle\Entity\Devis", inversedBy="items")
      */
     private $devis;
@@ -137,6 +143,22 @@ class DevisItem
     public function setVariation($variation)
     {
         $this->variation = $variation;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPromo()
+    {
+        return $this->promo;
+    }
+
+    /**
+     * @param mixed $promo
+     */
+    public function setPromo($promo)
+    {
+        $this->promo = $promo;
     }
 }
 

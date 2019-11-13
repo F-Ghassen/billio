@@ -8,7 +8,15 @@
     </div>
     <!-- Product Description -->
     <div class="product-description">
-        <h4 class="product-price">{{ p.price }} DT</h4>
+        <h4 class="product-price">
+            {% if p.promoEnabled %}
+                <s style='color: dimgrey; font-size: 80%'>{{ p.price }}</s>
+                {{ (p.price - p.price*p.promoMontant/100) }}
+            {% else %}
+                {{ p.price }}
+            {% endif %}
+            DT
+        </h4>
         <p style="font-size:23px">{{ p.name }}</p>
         <!-- Add to Cart -->
         <form action="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}" class="cart" method="post">
