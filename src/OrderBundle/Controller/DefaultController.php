@@ -30,7 +30,7 @@ class DefaultController extends Controller
     public function enabledevisAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $order = $em->getRepository(Devis::class)->find($id);
+        $order = $em->getRepository(Devis::class)->findBy(['id' => $id, 'enabed' => true]);
         if($order->isEnabled())
         {
             $order->setEnabled(false);
@@ -66,5 +66,17 @@ class DefaultController extends Controller
         return $this->render('admin/devis/print_devis.html.twig', [
             'c' => $order
         ]);
+    }
+
+    /**
+     * @Route("/admin/devis/state/{id}/{state}", name="state_devis_page")
+     */
+    public function updateState($id, $state)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $order = $em->getRepository(Devis::class)->find($id);
+        $order->setState($state);
+        $em->flush();
+        return $this->redirectToRoute('list_devis_page');
     }
 }

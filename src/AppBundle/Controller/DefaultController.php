@@ -151,7 +151,8 @@ class DefaultController extends Controller
                 $session->set('cartElements', $jsonDevis);
             } else {
                 $devis = new Devis();
-                $devis->setEnabled(false);
+                $devis->setEnabled(true);
+                $devis->setState('Pending');
                 $devis->setSaleDate(new \DateTime());
                 $em->persist($devis);
                 $em->flush();
@@ -236,7 +237,8 @@ class DefaultController extends Controller
             }
             else{
                 $devis = new Devis();
-                $devis->setEnabled(false);
+                $devis->setEnabled(true);
+                $devis->setState('Pending');
                 $devis->setSaleDate(new \DateTime());
                 $em->persist($devis);
                 $em->flush();

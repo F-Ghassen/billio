@@ -37,7 +37,8 @@ class ProductType extends AbstractType
             ->add('price', IntegerType::class)
             ->add('promoMontant', IntegerType::class)
             ->add('promoEnabled', CheckboxType::class, [
-                'label'    => 'Activer Promo',
+                'label' => 'Activer Promo',
+                'required' => false,
             ])
             ->add('description', TextareaType::class)
             ->add('imageFile', VichImageType::class, array(

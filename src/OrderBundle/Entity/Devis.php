@@ -55,6 +55,12 @@ class Devis
      */
     private $archived;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $state;
+
 
     /**
      * Get id
@@ -156,6 +162,22 @@ class Devis
     public function setArchived($archived)
     {
         $this->archived = $archived;
+    }
+
+    /**
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param string $state
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
     }
 }
 

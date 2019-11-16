@@ -56,7 +56,13 @@
                                         </span>
                                         <div class="text-right">
                                             Status: &nbsp;
-                                            <span class="label bg-warning-300 dropdown-toggle" data-toggle="dropdown">Pending</span>
+                                            {% if c.state == 'Pending' %}
+                                                <span class="label bg-warning-300 dropdown-toggle" data-toggle="dropdown">{{c.state}}</span>
+                                            {% elseif c.state == 'Livré' %}
+                                                <span class="label bg-success-300 dropdown-toggle" data-toggle="dropdown">{{c.state}}</span>
+                                            {% else %}
+                                                <span class="label bg-danger-300 dropdown-toggle" data-toggle="dropdown">Canceled</span>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -178,6 +184,9 @@
                                 </div>
 
                                 <div class="modal-footer">
+                                    <a class="btn btn-warning" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Pending'}) }}">Pending</a>
+                                    <a class="btn btn-success" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Livré'}) }}">Livré</a>
+                                    <a class="btn btn-danger" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Canceled'}) }}">Canceled</a>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
