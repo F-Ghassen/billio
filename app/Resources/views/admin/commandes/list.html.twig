@@ -35,51 +35,52 @@
             <div class="row">
                 {% set sum1 = 0 %}
                 {% for c in commandes %}
-                <div class="col-md-6">
-                    <div class="panel invoice-grid">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h6 class="text-semibold no-margin-top">{{ c.orderInfo.getCustomerFirstName }} {{ c.orderInfo.getCustomerLastName }}</h6>
-                                    <ul class="list list-unstyled">
-                                        <li>Invoice #: &nbsp;{{ "%04d" | format(c.id) }}</li>
-                                        <li>Issued on: <span class="text-semibold">{{ c.saleDate |date('d/m/Y') }}</span></li>
-                                    </ul>
+                    {% if c.items is not empty or c.orderInfo != null %}
+                        <div class="col-md-6">
+                            <div class="panel invoice-grid">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h6 class="text-semibold no-margin-top">{{ c.orderInfo.getCustomerFirstName }} {{ c.orderInfo.getCustomerLastName }}</h6>
+                                            <ul class="list list-unstyled">
+                                                <li>Invoice #: &nbsp;{{ "%04d" | format(c.id) }}</li>
+                                                <li>Issued on: <span class="text-semibold">{{ c.saleDate |date('d/m/Y') }}</span></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            {% set sum1 = 0 %}
+                                            {% for item in c.items %}
+                                                {% set sum1 = sum1 + item.quantity*item.product.price %}
+                                            {% endfor %}
+                                            <h6 class="text-semibold text-right no-margin-top">{{ sum1 }} DT</h6>
+                                            <div class="text-right">
+                                                Status: &nbsp;
+                                                <span class="label bg-warning-300 dropdown-toggle" data-toggle="dropdown">Pending</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="col-sm-6">
-                                    {% set sum1 = 0 %}
-                                    {% for item in c.items %}
-                                        {% set sum1 = sum1 + item.quantity*item.product.price %}
-                                    {% endfor %}
-                                    <h6 class="text-semibold text-right no-margin-top">{{ sum1 }} DT</h6>
-                                    <div class="text-right">
-                                        Status: &nbsp;
-                                        <span class="label bg-warning-300 dropdown-toggle" data-toggle="dropdown">Pending</span>
-                                    </div>
+                                <div class="panel-footer">
+                                    <ul class="pull-right">
+                                        <li><a href="#" data-toggle="modal" data-target="#invoice{{ loop.index0 }}"><i class="icon-eye8"></i></a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i> <span class="caret"></span></a>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="{{ path('edit_orders_page', {'id': c.id}) }}"><i class="icon-file-plus"></i> Edit invoice</a></li>
+                                                <li><a href="{{ path('enable_orders_page', {'id': c.id}) }}"><i class="icon-cross2" onclick="return confirm('Are you sure you want to Delete this Invoice?')"></i> Remove invoice</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="{{ path('archive_orders_page', {'id': c.id}) }}"><i class="icon-folder-plus2"></i> Archive invoice</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="panel-footer">
-                            <ul class="pull-right">
-                                <li><a href="#" data-toggle="modal" data-target="#invoice{{ loop.index0 }}"><i class="icon-eye8"></i></a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i> <span class="caret"></span></a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="{{ path('edit_orders_page', {'id': c.id}) }}"><i class="icon-file-plus"></i> Edit invoice</a></li>
-                                        <li><a href="{{ path('enable_orders_page', {'id': c.id}) }}"><i class="icon-cross2" onclick="return confirm('Are you sure you want to Delete this Invoice?')"></i> Remove invoice</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="{{ path('archive_orders_page', {'id': c.id}) }}"><i class="icon-folder-plus2"></i> Archive invoice</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modal with invoice -->
-                <div id="invoice{{ loop.index0 }}" class="modal fade">
+                        <!-- Modal with invoice -->
+                        <div id="invoice{{ loop.index0 }}" class="modal fade">
                     <div class="modal-dialog modal-full">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -166,7 +167,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- /modal with invoice -->
+                        <!-- /modal with invoice -->
+                    {% endif %}
                 {% endfor %}
             </div>
 

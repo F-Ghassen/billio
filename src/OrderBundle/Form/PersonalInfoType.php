@@ -63,7 +63,7 @@ class PersonalInfoType extends AbstractType
                     return $value;
                 },
             ])
-            ->add('save',  SubmitType::class, array(
+            ->add('save', SubmitType::class, array(
                 'label' => 'Valider la Commande',
                 'attr' => array(
                     'class' => 'btn karl-checkout-btn'

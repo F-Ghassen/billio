@@ -30,7 +30,8 @@
             <div class="row">
                 {% set sum1 = 0 %}
                 {% for c in commandes %}
-                    <div class="col-md-6">
+                    {% if (c.items is not empty and c.orderInfo is not null)  %}
+                        <div class="col-md-6">
                         <div class="panel invoice-grid">
                             <div class="panel-body">
                                 <div class="row">
@@ -83,8 +84,8 @@
                         </div>
                     </div>
 
-                    <!-- Modal with invoice -->
-                    <div id="invoice{{ loop.index0 }}" class="modal fade">
+                        <!-- Modal with invoice -->
+                        <div id="invoice{{ loop.index0 }}" class="modal fade">
                         <div class="modal-dialog modal-full">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -192,7 +193,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /modal with invoice -->
+                        <!-- /modal with invoice -->
+                    {% endif %}
                 {% endfor %}
             </div>
             {{ include('admin/footer.html.twig') }}
