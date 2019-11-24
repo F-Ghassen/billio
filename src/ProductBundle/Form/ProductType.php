@@ -25,17 +25,20 @@ class ProductType extends AbstractType
             ->add('name', TextType::class)
             ->add('category', ChoiceType::class, array(
                 'choices' => array(
-                    'TShirt' => 'TShirt',
+                    'T-Shirt' => 'TShirt',
                     //'Casquettes' => 'Casquettes',
                     //'Mocassin' => 'Mocassin',
                     'Polo' => 'Polo',
                     'Chemises' => 'Chemises',
                     'Jeans' => 'Jeans',
+                    'Sweat & Pull' => 'SweatPull',
                 ),
                 'placeholder' => 'Select',
             ))
             ->add('price', IntegerType::class)
-            ->add('promoMontant', IntegerType::class)
+            ->add('promoMontant', IntegerType::class, [
+                'required' => false,
+            ])
             ->add('promoEnabled', CheckboxType::class, [
                 'label' => 'Activer Promo',
                 'required' => false,
