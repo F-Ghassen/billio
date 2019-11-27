@@ -185,9 +185,11 @@
                                 </div>
 
                                 <div class="modal-footer">
+                                    {% if c.state != "Canceled" %}
                                     <a class="btn btn-warning" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Pending'}) }}">Pending</a>
                                     <a class="btn btn-success" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Livré'}) }}">Livré</a>
                                     <a class="btn btn-danger" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Canceled'}) }}">Canceled</a>
+                                    {% endif %}
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </div>

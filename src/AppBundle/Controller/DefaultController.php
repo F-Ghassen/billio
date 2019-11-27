@@ -428,6 +428,11 @@ class DefaultController extends Controller
                             $val = $val - 1;
                             $variation->setSizeJean34($val);
                             break;
+                        case '35':
+                            $val = $variation->getSizeJean35();
+                            $val = $val - 1;
+                            $variation->setSizeJean35($val);
+                            break;
                         case '36':
                             $val = $variation->getSizeJean36();
                             $val = $val - 1;

@@ -19,6 +19,7 @@ class DevisItemRepository extends \Doctrine\ORM\EntityRepository
             ->addSelect('devis')
             ->addSelect('SUM(devis_item.quantity) as total_quantity')
             ->where("devis.enabled = true")
+            ->andWhere("devis.state = 'Livré'")
             ->groupBy('p.name')
             ->orderBy('total_quantity', 'desc');
 
