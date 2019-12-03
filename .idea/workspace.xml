@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/bilioriche.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bilioriche.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +188,7 @@
       <workItem from="1574893299825" duration="2820000" />
       <workItem from="1575380346385" duration="190000" />
       <workItem from="1575380800623" duration="37000" />
-      <workItem from="1575380864159" duration="2965000" />
+      <workItem from="1575380864159" duration="3187000" />
     </task>
     <servers />
   </component>
