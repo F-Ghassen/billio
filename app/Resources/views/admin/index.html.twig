@@ -32,7 +32,7 @@
                             <div class="col-lg-3" style="margin-top: 13px;"><i class="icon-envelop2"></i></div>
                             <div class="col-lg-9">
                                 <h3 class="no-margin">{{ count_messages }}</h3>
-                                <div class="text-muted text-size-small">Nombre de messages</div>
+                                <div class="text-muted text-size-small">Promo Code Stats de messages</div>
                             </div>
                         </div>
                     </div>
@@ -67,23 +67,23 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <div>Code : <b>{{ obj[0].code }}</b></div>
-                                        <div>Name : <b>{{ obj[0].name }}</b></div>
-                                        <div>Promo : <b>{{ obj[0].montant }} %</b></div>
+                                        <div>Code : <b>{{ obj.value.code }}</b></div>
+                                        <div>Name : <b>{{ obj.value.name }}</b></div>
+                                        <div>Promo : <b>{{ obj.value.montant }} %</b></div>
                                     </div>
 
                                     <div class="col-sm-6">
                                         {% set sum1 = 0 %}
-                                        {% for item in obj[1] %}
+                                        {% for item in obj.items %}
                                             {% set sum1 = sum1 + item.quantity*item.product.price %}
                                         {% endfor %}
                                         <span class="text-semibold">
-                                            {% set sum2 = sum1 - sum1*obj[0].montant/100  %}
+                                            {% set sum2 = sum1 - sum1*obj.value.montant/100  %}
                                             <h6 class="text-semibold text-right no-margin-top" id="total1{{ loop.index0 }}">{{ sum2 }} DT</h6>
                                         </span>
                                         <div class="text-right">
                                             Status: &nbsp;
-                                            {% if obj[0].enabled %}
+                                            {% if obj.value.enabled %}
                                                 <span class="label bg-success-300 dropdown-toggle" data-toggle="dropdown">Active</span>
                                             {% else %}
                                                 <span class="label bg-danger-300 dropdown-toggle" data-toggle="dropdown">Inavtive</span>
@@ -107,7 +107,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h5 class="modal-title">Code #: &nbsp;{{ "%04d" | format(obj[0].id) }}</h5>
+                                    <h5 class="modal-title">Code #: &nbsp;{{ "%04d" | format(obj.value.id) }}</h5>
                                 </div>
 
                                 <div class="panel-body no-padding-bottom">
@@ -115,10 +115,10 @@
                                         <div class="col-md-6 col-lg-9 content-group">
                                             <span class="text-muted">Code To:</span>
                                             <ul class="list-condensed list-unstyled">
-                                                <li><h5><b>Name : </b>{{ obj[0].name }}</h5></li>
-                                                <li><b>Link : </b>{{ obj[0].link }}</li>
-                                                <li><b>Code : </b>{{ obj[0].code }}</li>
-                                                <li><b>Montant : </b>{{ obj[0].montant }}%</li>
+                                                <li><h5><b>Name : </b>{{ obj.value.name }}</h5></li>
+                                                <li><b>Link : </b>{{ obj.value.link }}</li>
+                                                <li><b>Code : </b>{{ obj.value.code }}</li>
+                                                <li><b>Montant : </b>{{ obj.value.montant }}%</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -136,7 +136,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for item in obj[1] %}
+                                        {% for item in obj.items %}
                                             <tr>
                                                 <td>
                                                     <h6 class="no-margin">{{ item.product.name }}</h6>
@@ -147,7 +147,7 @@
                                                 <td>
                                                     <span class="text-semibold">
                                                         {% set total = item.quantity*item.product.price %}
-                                                        {% set total2 = total - total*obj[0].montant/100 %}
+                                                        {% set total2 = total - total*obj.value.montant/100 %}
                                                         {{ total2 }} DT
                                                     </span>
                                                 </td>

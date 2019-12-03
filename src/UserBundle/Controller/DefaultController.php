@@ -19,14 +19,20 @@ class DefaultController extends Controller
         $list = $em->getRepository(DevisItem::class)->countprods();
         $count_messages = $em->getRepository(Message::class)->countMessages();
         $promo_codes = $em->getRepository(PromoCode::class)->findBy(['enabled' => true]);
+        dump($promo_codes);
         $code_stats = array();
         foreach ($promo_codes as $value) {
             $items = $em->getRepository(DevisItem::class)->getItemsByCode($value->getCode());
-            $i[] = $value;
-            $i[] = $items;
-            $code_stats[] = $i;
+            //$i[] = $value;
+            //$i[] = $items;
+
+            $json['value'] = $value;
+            $json['items'] = $items;
+            //$i[] = $json;
+
+            $code_stats[] = $json;
         }
-        //dump($code_stats);
+        dump($code_stats);
 
         return $this->render('admin/index.html.twig', array(
             'list' => $list,
