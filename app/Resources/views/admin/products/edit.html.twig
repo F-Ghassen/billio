@@ -103,7 +103,7 @@
             function filter() {
                 //console.log($('#product_category').val());
                 var category = $('#product_category').val();
-                if(category === 'Jeans') {
+                if(category === 'Jeans' || category === 'SweatPants') {
                     myarray = ['Size jean29', 'Size jean30', 'Size jean31', 'Size jean32', 'Size jean33', 'Size jean34', 'Size jean35', 'Size jean36', 'Size jean38'];
                 } else if(category === 'Mocassin') {
                     myarray = ['Size moc40', 'Size moc41', 'Size moc42', 'Size moc43', 'Size moc44', 'Size moc45'];
@@ -113,7 +113,7 @@
                 $.each($('.list-group-item'), function(index, value) {
                     //console.log($(value).find('div.form-group').length);
                     $.each($(value).find('div.form-group').slice(1), function(index, value) {
-                        console.log($(value).children('label').html());
+                        //console.log($(value).children('label').html());
                         if(jQuery.inArray($(value).children('label').html(), myarray) === -1) {
                             $(value).hide();
                         } else {

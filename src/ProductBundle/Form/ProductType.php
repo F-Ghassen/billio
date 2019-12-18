@@ -31,7 +31,9 @@ class ProductType extends AbstractType
                     'Polo' => 'Polo',
                     'Chemises' => 'Chemises',
                     'Jeans' => 'Jeans',
-                    'Sweat & Pull' => 'SweatPull',
+                    'SweatShirt' => 'SweatShirt',
+                    'SweatPants' => 'SweatPants',
+                    'Veste' => 'Veste',
                 ),
                 'placeholder' => 'Select',
             ))

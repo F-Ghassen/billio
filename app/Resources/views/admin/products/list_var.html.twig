@@ -36,7 +36,7 @@
                         <tr>
                             <th>#</th>
                             <th>Color</th>
-                            {% if p.category == 'Jeans' %}
+                            {% if p.category == 'Jeans' or p.category == 'SweatPants' %}
                                 <th>Stock Taille 29</th>
                                 <th>Stock Taille 30</th>
                                 <th>Stock Taille 31</th>
@@ -68,7 +68,7 @@
                             <tr>
                                 <td>{{ "%04d"|format(v.id) }}</td>
                                 <td>{{ v.color }}</td>
-                                {% if p.category == 'Jeans' %}
+                                {% if p.category == 'Jeans' or p.category == 'SweatPants' %}
                                     <td>{{ v.sizeJean29 }}</td>
                                     <td>{{ v.sizeJean30 }}</td>
                                     <td>{{ v.sizeJean31 }}</td>
