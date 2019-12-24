@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/list_var.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/list_var.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/list_products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/list_products.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/slides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/slides.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/active.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/js/active.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,6 +193,8 @@
       <workItem from="1575380800623" duration="37000" />
       <workItem from="1575380864159" duration="3187000" />
       <workItem from="1576685787180" duration="4248000" />
+      <workItem from="1577119200729" duration="6230000" />
+      <workItem from="1577219605261" duration="5148000" />
     </task>
     <servers />
   </component>

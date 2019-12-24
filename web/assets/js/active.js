@@ -35,12 +35,12 @@
     if ($.fn.owlCarousel) {
         welcomeSlide.owlCarousel({
             items: 1,
+            video:true,
             margin: 0,
             loop: true,
             nav: false,
             dots: true,
-            autoplay: true,
-            autoplayTimeout: 7000,
+            autoplay: false,
             smartSpeed: 1000
         });
     }
