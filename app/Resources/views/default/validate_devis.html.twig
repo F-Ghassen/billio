@@ -82,22 +82,22 @@
                                 <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
                                     <span style="font-size: 15px !important;">
                                         <s style='color: dimgrey; font-size: 80%'>{{ item.quantity*item.product.price }}</s>
-                                        {{ total }} DT
+                                        {{ total }} $
                                     </span>
                                 </li>
                             {% endfor %}
-                            <li><b style="font-size: 15px !important;">Subtotal</b> <span style="font-size: 15px !important;" id="subtotal">{{ subTotal }} DT</span></li>
+                            <li><b style="font-size: 15px !important;">Subtotal</b> <span style="font-size: 15px !important;" id="subtotal">{{ subTotal }} $</span></li>
                             <li id="shipping">
                                 <b style="font-size: 15px !important;">Shipping</b>
                                 {% if subTotal > 200 %}
                                     <b style="font-size: 15px !important;">Free</b>
                                 {% else %}
                                     {% set subTotal = subTotal + 5 %}
-                                    <span style="font-size: 15px !important;">5 DT</span>
+                                    <span style="font-size: 15px !important;">5 $</span>
                                 {% endif %}
                             </li>
                             <li><b style="font-size: 15px !important;">Total</b>
-                                <b style="font-size: 20px !important;" id="total">{{ subTotal }} DT</b>
+                                <b style="font-size: 20px !important;" id="total">{{ subTotal }} $</b>
                             </li>
                         </ul>
 
@@ -148,7 +148,7 @@
 
                         var s = $("#total").html();
                         var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
-                        $("#total").html("<s style='color: dimgrey; font-size: 80%'>" + parseFloat(s) + "</s>&nbsp;&nbsp;<span style='outline: 2px green'>" + news + " DT</span>");
+                        $("#total").html("<s style='color: dimgrey; font-size: 80%'>" + parseFloat(s) + "</s>&nbsp;&nbsp;<span style='outline: 2px green'>" + news + " $</span>");
                         //console.log($("#total").html());
                     }
                 });
