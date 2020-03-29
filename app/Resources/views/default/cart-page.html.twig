@@ -46,7 +46,7 @@
                                     {% else %}
                                         <span>{{ (item.quantity*item.product.price) | number_format(2) }}</span>
                                     {% endif %}
-                                    DT
+                                    $
                                 </td>
                                 <td class="qty">
                                     <div class="quantity">
@@ -63,7 +63,7 @@
                                             {% else %}
                                                 {{ (item.quantity*item.product.price) | number_format(2) }}
                                             {% endif %}
-                                        </span> DT
+                                        </span> $
                                     </span>
                                 </td>
                                 <td class="cart-product-remove">
@@ -125,14 +125,14 @@
                 subtotal = parseFloat(subtotal) + value;
                 //$(this).find('span').find('span').text(parseFloat(value).toFixed(2));
             });
-            $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " DT");
+            $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " $");
             if(subtotal > 200) {
                 $('#shipping-val').text('Free');
-                $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " DT");
+                $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " $");
             } else {
-                $('#shipping-val').text(Number(5).toFixed(2) + " DT");
+                $('#shipping-val').text(Number(5).toFixed(2) + " $");
                 var value = subtotal+5;
-                $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " DT");
+                $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " $");
             }
 
             $('.custom-button-circle').on('click', function (e) {
@@ -159,14 +159,14 @@
                     subtotal = parseFloat(subtotal) + value;
                     $(this).find('span').find('span').text(parseFloat(value).toFixed(2));
                 });
-                $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " DT");
+                $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " $");
                 if(subtotal > 200) {
                     $('#shipping-val').text('Free');
-                    $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " DT");
+                    $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " $");
                 } else {
-                    $('#shipping-val').text(Number(5).toFixed(2) + " DT");
+                    $('#shipping-val').text(Number(5).toFixed(2) + " $");
                     var value = subtotal+5;
-                    $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " DT");
+                    $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " $");
                 }
             }
         });
