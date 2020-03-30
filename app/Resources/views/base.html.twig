@@ -86,6 +86,19 @@
                     }*/
                 });
             </script>
+
+            <!-- Criteo Homepage Tag -->
+            <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+            <script type="text/javascript">
+                window.criteo_q = window.criteo_q || [];
+                var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+                window.criteo_q.push(
+                    { event: "setAccount", account: 70191}, // You should never update this line
+                    { event: "setEmail", email: "fathallah.ghassen97@gmail.com" }, // Can be an empty string
+                    { event: "setSiteType", type: deviceType},
+                    { event: "viewHome"});
+            </script>
+            <!-- END Criteo Home Page Tag -->
         {% endblock %}
     </body>
 </html>
