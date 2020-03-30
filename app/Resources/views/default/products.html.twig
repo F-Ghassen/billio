@@ -88,12 +88,12 @@
                     $.map($entryElements, item => $(item).data('entryId'));
 
                 // You'll now have array containing string values
-                console.log($entryIds); // eg: ["1", "2", "3"]
+                //console.log($entryIds); // eg: ["1", "2", "3"]
         window.criteo_q = window.criteo_q || [];
         var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
         window.criteo_q.push(
             { event: "setAccount", account: 70191}, // You should never update this line
-            { event: "setEmail", email: "##Email Address of user##" }, // Can be an empty string
+            { event: "setEmail", email: "" }, // Can be an empty string
             { event: "setSiteType", type: deviceType},
             { event: "viewList", item: $entryIds });
             });
