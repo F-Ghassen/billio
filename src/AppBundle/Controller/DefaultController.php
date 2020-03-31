@@ -352,7 +352,7 @@ class DefaultController extends Controller
             $commandeJson = $session->get('cartElements');
             $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
             $cartLogo = count($commande->getItems());
-
+            // dump($commande);
             $data = $commande->getItems();
             //dump($data);
 
@@ -500,6 +500,7 @@ class DefaultController extends Controller
             'cartLogo' => $cartLogo,
             'mailing_form' => $mailing_form->createView(),
             'items1' => $data,
+            'commande' => $commande,
             'collections' => $collections,
         ));
     }

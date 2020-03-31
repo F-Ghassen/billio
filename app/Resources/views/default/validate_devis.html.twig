@@ -74,33 +74,28 @@
                             {% set subTotal=0 %}
                             {% for item in items1 %}
 
-                            {% set entryInfo = {
-                                id: item.product.id,
-                                price: (item.product.price-item.product.price*item.promo/100),
-                                quantity: item.quantity
-                            } %}
-                            <div data-entry-info='{{ entryInfo|json_encode|replace("'", "&#39;")|raw }}'>
-
-                            {% set entryInfo = {
-                                id: item.product.id,
-                                price: (item.product.price-item.product.price*item.promo/100),
-                                quantity: item.quantity
-                            } %}
-                            <div data-entry-info='{{ entryInfo|json_encode|replace("'", "&#39;")|raw }}'>
-                                {% if item.promo %}
-                                    {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
-                                {% else %}
-                                    {% set total = item.quantity*item.product.price %}
-                                {% endif %}
-                                {% set subTotal = subTotal + total %}
-                                <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
-                                    <span style="font-size: 15px !important;">
-                                        <s style='color: dimgrey; font-size: 80%'>{{ item.quantity*item.product.price }}</s>
-                                        {{ total }} <span>$</span>
-                                    </span>
-                                </li>
-                            </div>
-                            </div>
+                                {% set entryInfo = {
+                                    id: item.product.id,
+                                    name: item.product.name,
+                                    color: item.variation.color,
+                                    size: item.size,
+                                    price: (item.product.price-item.product.price*item.promo/100),
+                                    quantity: item.quantity
+                                } %}
+                                <div data-entry-info='{{ entryInfo|json_encode|replace("'", "&#39;")|raw }}'>
+                                    {% if item.promo %}
+                                        {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                    {% else %}
+                                        {% set total = item.quantity*item.product.price %}
+                                    {% endif %}
+                                    {% set subTotal = subTotal + total %}
+                                    <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
+                                        <span style="font-size: 15px !important;">
+                                            <s style='color: dimgrey; font-size: 80%'>{{ item.quantity*item.product.price }}</s>
+                                            {{ total }} <span>$</span>
+                                        </span>
+                                    </li>
+                                </div>
                             {% endfor %}
                             <li><b style="font-size: 15px !important;">Subtotal</b> <span style="font-size: 15px !important;" id="subtotal">{{ subTotal }} $</span></li>
                             <li id="shipping">
@@ -116,7 +111,8 @@
                                 <b style="font-size: 20px !important;" id="total">{{ subTotal }} $</b>
                             </li>
                         </ul>
-
+                        {{ form_rest(personalinfo_form) }}
+                        {{ form_end(personalinfo_form) }}
                         <div class="container mb-5">
                             <div class="row justify-content-center mt-5">
                                 <div class="col-10 text-center">{{ form_widget(personalinfo_form.save) }}</div>
@@ -124,22 +120,22 @@
                             <FORM name="paiement" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
                                 <input type="hidden" name="NumSite" value="MAR788">
                                 <input type="hidden" name="Password" value="ro#ybG30">
-                                <input type="hidden" name="orderID" value="<?php echo $orderId ;?>">
-                                <input type="hidden" name="Amount" value="<?php echo $Amount;?>">
-                                <input type="hidden" name="Currency" value="<?php echo $Devise;?>">
+                                <input type="hidden" name="orderID" value="">
+                                <input type="hidden" name="Amount" value="">
+                                <input type="hidden" name="Currency" value="USD">
                                 <input type="hidden" name="Language" value="fr">
-                                <input type="hidden" name="EMAIL" value="contact@gpgcheckout.com">
-                                <input type="hidden" name="CustLastName" value="nom">
-                                <input type="hidden" name="CustFirstName" value="prenom">
-                                <input type="hidden" name="CustAddress" value="ariana">
-                                <input type="hidden" name="CustZIP" value="2080">
-                                <input type="hidden" name="CustCity" value="ariana">
-                                <input type="hidden" name="CustCountry" value="tunisie">
-                                <input type="hidden" name="CustTel" value="26547852">
+                                <input type="hidden" name="EMAIL" value="">
+                                <input type="hidden" name="CustLastName" value="">
+                                <input type="hidden" name="CustFirstName" value="">
+                                <input type="hidden" name="CustAddress" value="">
+                                <input type="hidden" name="CustZIP" value="">
+                                <input type="hidden" name="CustCity" value="">
+                                <input type="hidden" name="CustCountry" value="">
+                                <input type="hidden" name="CustTel" value="">
                                 <input type="hidden" name="PayementType" value="1">
-                                <input type="hidden" name="MerchandSession" value="">
-                                <input type="hidden" name="orderProducts" value="2* jeans(Rouge,L) , 2*Robe(Noir,XL)">
-                                <input type="hidden" name="signature" value="<?php echo $signture;?>">
+                                <input type="hidden" name="MerchandSession" value="http://billiorich.com/checkout">
+                                <input type="hidden" name="orderProducts" value="">
+                                <input type="hidden" name="signature" value="">
                                 <input type="hidden" name="AmountSecond" value="">
                                 <input type="hidden" name="vad" value="815600003">
                                 <input type="hidden" name="Terminal" value="004">
@@ -149,13 +145,11 @@
                                 <input type="hidden" name="Reccu_Num" value="">
                                 <input type="hidden" name="Reccu_ExpiryDate " value="">
                                 <input type="hidden" name="Reccu_Frecuency " value="">
-                                <div class="row justify-content-center mt-3">
+                                <div class="row justify-content-center">
                                     <div class="col-10 text-center"><input type="submit" class="btn karl-checkout-btn" name="Valider" value="GPG CHECKOUT"></div>
                                 </div>
                             </FORM>
                         </div>
-                        {{ form_rest(personalinfo_form) }}
-                        {{ form_end(personalinfo_form) }}
                     </div>
                 </div>
             </div><!-- end row -->
@@ -203,13 +197,6 @@
             }
         });
     </script>
-    <script>
-        $(document).ready(function() {
-
-        });
-    </script>
-
-
 
     <!-- Criteo Basket/Cart Tag -->
     <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
@@ -233,7 +220,7 @@
                     );
 
                 // You'll now have an array of objects to work with
-                console.log(entryInfoObjects);
+                // console.log(entryInfoObjects);
                 // eg: [{id: 1, subheading: "...", title: "..."}]
             });
 
@@ -250,7 +237,7 @@
                     $.map($entryInfoElements, item => $(item).data('entryInfo'));
 
                 // You'll now have array of objects to work with
-                //console.log($entryInfoObjects); // eg: [{id: 1, subheading: "...", title: "..."}
+                // console.log($entryInfoObjects); // eg: [{id: 1, subheading: "...", title: "..."}
 
                 window.criteo_q = window.criteo_q || [];
                 var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
@@ -260,6 +247,205 @@
                     { event: "setSiteType", type: deviceType},
                     { event: "viewBasket", item: $entryInfoObjects}
                 );
+
+                let totalPrice = 0;
+                let orderProducts = "";
+                for (let i=0; i<$entryInfoObjects.length; i++) {
+                    // console.log($entryInfoObjects[i]);
+                    orderProducts += $entryInfoObjects[i].quantity + " * " + $entryInfoObjects[i].name + "(" + $entryInfoObjects[i].color + "," + $entryInfoObjects[i].size + "),";
+                    totalPrice += parseFloat($entryInfoObjects[i].price);
+                }
+                // console.log(orderProducts);
+                // console.log(totalPrice);
+                // console.log(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
+                $("input[name*='orderID']").val({{commande.id}});
+                $("input[name*='Amount']").val(totalPrice);
+                $("input[name*='AmountSecond']").val(totalPrice * 3);
+                $("input[name*='TauxConversion']").val("3");
+                $("input[name*='CustLastName']").val($("input[name*='personal_info[customerFirstName]']"));
+                $("input[name*='CustFirstName']").val($("input[name*='personal_info[customerLastName]']"));
+                $("input[name*='CustAddress']").val($("input[name*='personal_info[customerAddress]']"));
+                $("input[name*='CustZIP']").val($("input[name*='personal_info[postalCode]']"));
+                $("input[name*='CustCity']").val($("input[name*='personal_info[customerCity]']"));
+                $("input[name*='CustCountry']").val($("input[name*='personal_info[pays]']"));
+                $("input[name*='CustTel']").val($("input[name*='personal_info[customerPhone]']"));
+                $("input[name*='orderProducts']").val("has man in it!");
+                $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
+
+                /**
+                 *
+                 *  Secure Hash Algorithm (SHA1)
+                 *  http://www.webtoolkit.info/
+                 *
+                 **/
+
+                function SHA1 (msg) {
+
+                    function rotate_left(n,s) {
+                        var t4 = ( n<<s ) | (n>>>(32-s));
+                        return t4;
+                    };
+
+                    function lsb_hex(val) {
+                        var str="";
+                        var i;
+                        var vh;
+                        var vl;
+
+                        for( i=0; i<=6; i+=2 ) {
+                            vh = (val>>>(i*4+4))&0x0f;
+                            vl = (val>>>(i*4))&0x0f;
+                            str += vh.toString(16) + vl.toString(16);
+                        }
+                        return str;
+                    };
+
+                    function cvt_hex(val) {
+                        var str="";
+                        var i;
+                        var v;
+
+                        for( i=7; i>=0; i-- ) {
+                            v = (val>>>(i*4))&0x0f;
+                            str += v.toString(16);
+                        }
+                        return str;
+                    };
+
+
+                    function Utf8Encode(string) {
+                        string = string.replace(/\r\n/g,"\n");
+                        var utftext = "";
+
+                        for (var n = 0; n < string.length; n++) {
+
+                            var c = string.charCodeAt(n);
+
+                            if (c < 128) {
+                                utftext += String.fromCharCode(c);
+                            }
+                            else if((c > 127) && (c < 2048)) {
+                                utftext += String.fromCharCode((c >> 6) | 192);
+                                utftext += String.fromCharCode((c & 63) | 128);
+                            }
+                            else {
+                                utftext += String.fromCharCode((c >> 12) | 224);
+                                utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                                utftext += String.fromCharCode((c & 63) | 128);
+                            }
+
+                        }
+
+                        return utftext;
+                    };
+
+                    var blockstart;
+                    var i, j;
+                    var W = new Array(80);
+                    var H0 = 0x67452301;
+                    var H1 = 0xEFCDAB89;
+                    var H2 = 0x98BADCFE;
+                    var H3 = 0x10325476;
+                    var H4 = 0xC3D2E1F0;
+                    var A, B, C, D, E;
+                    var temp;
+
+                    msg = Utf8Encode(msg);
+
+                    var msg_len = msg.length;
+
+                    var word_array = new Array();
+                    for( i=0; i<msg_len-3; i+=4 ) {
+                        j = msg.charCodeAt(i)<<24 | msg.charCodeAt(i+1)<<16 |
+                            msg.charCodeAt(i+2)<<8 | msg.charCodeAt(i+3);
+                        word_array.push( j );
+                    }
+
+                    switch( msg_len % 4 ) {
+                        case 0:
+                            i = 0x080000000;
+                            break;
+                        case 1:
+                            i = msg.charCodeAt(msg_len-1)<<24 | 0x0800000;
+                            break;
+
+                        case 2:
+                            i = msg.charCodeAt(msg_len-2)<<24 | msg.charCodeAt(msg_len-1)<<16 | 0x08000;
+                            break;
+
+                        case 3:
+                            i = msg.charCodeAt(msg_len-3)<<24 | msg.charCodeAt(msg_len-2)<<16 | msg.charCodeAt(msg_len-1)<<8	| 0x80;
+                            break;
+                    }
+
+                    word_array.push( i );
+
+                    while( (word_array.length % 16) != 14 ) word_array.push( 0 );
+
+                    word_array.push( msg_len>>>29 );
+                    word_array.push( (msg_len<<3)&0x0ffffffff );
+
+
+                    for ( blockstart=0; blockstart<word_array.length; blockstart+=16 ) {
+
+                        for( i=0; i<16; i++ ) W[i] = word_array[blockstart+i];
+                        for( i=16; i<=79; i++ ) W[i] = rotate_left(W[i-3] ^ W[i-8] ^ W[i-14] ^ W[i-16], 1);
+
+                        A = H0;
+                        B = H1;
+                        C = H2;
+                        D = H3;
+                        E = H4;
+
+                        for( i= 0; i<=19; i++ ) {
+                            temp = (rotate_left(A,5) + ((B&C) | (~B&D)) + E + W[i] + 0x5A827999) & 0x0ffffffff;
+                            E = D;
+                            D = C;
+                            C = rotate_left(B,30);
+                            B = A;
+                            A = temp;
+                        }
+
+                        for( i=20; i<=39; i++ ) {
+                            temp = (rotate_left(A,5) + (B ^ C ^ D) + E + W[i] + 0x6ED9EBA1) & 0x0ffffffff;
+                            E = D;
+                            D = C;
+                            C = rotate_left(B,30);
+                            B = A;
+                            A = temp;
+                        }
+
+                        for( i=40; i<=59; i++ ) {
+                            temp = (rotate_left(A,5) + ((B&C) | (B&D) | (C&D)) + E + W[i] + 0x8F1BBCDC) & 0x0ffffffff;
+                            E = D;
+                            D = C;
+                            C = rotate_left(B,30);
+                            B = A;
+                            A = temp;
+                        }
+
+                        for( i=60; i<=79; i++ ) {
+                            temp = (rotate_left(A,5) + (B ^ C ^ D) + E + W[i] + 0xCA62C1D6) & 0x0ffffffff;
+                            E = D;
+                            D = C;
+                            C = rotate_left(B,30);
+                            B = A;
+                            A = temp;
+                        }
+
+                        H0 = (H0 + A) & 0x0ffffffff;
+                        H1 = (H1 + B) & 0x0ffffffff;
+                        H2 = (H2 + C) & 0x0ffffffff;
+                        H3 = (H3 + D) & 0x0ffffffff;
+                        H4 = (H4 + E) & 0x0ffffffff;
+
+                    }
+
+                    var temp = cvt_hex(H0) + cvt_hex(H1) + cvt_hex(H2) + cvt_hex(H3) + cvt_hex(H4);
+
+                    return temp.toLowerCase();
+
+                }
             });
         });
 
