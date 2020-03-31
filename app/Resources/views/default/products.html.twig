@@ -5,11 +5,12 @@
         <div class="row karl-new-arrivals">
 
             {% for p in products %}
-
             {% if p.collection == null or p.collection.enabled==true %}
             <!-- Single gallery Item Start -->
                 {% for v in p.variations %}
-                    <div class="col-6 col-lg-4 single_gallery_item {{ p.category }} wow fadeInUpBig" data-wow-delay="0.2s">
+                 <div data-entry-id="{{ p.id }}">
+
+            <div class="col-6 col-lg-4 single_gallery_item {{ p.category }} wow fadeInUpBig" data-wow-delay="0.2s">
                         <!-- Product Image -->
                         <div class="product-img">
                             <a href="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}">
@@ -40,6 +41,7 @@
 
                         </div>
                     </div>
+                 </div>
                 {% endfor %}
             <!-- Single gallery Item Start -->
             {% endif %}
@@ -48,3 +50,56 @@
     </div>
 </section>
 <!-- ****** New Arrivals Area End ****** -->
+{% block javascripts %}
+    <script src="{{ asset('assets/js/jquery/jquery-2.2.4.min.js') }}"></script>
+    <!-- Criteo Category / Listing Tag -->
+    <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            /**
+             * Grab data attributes with vanilla JavaScript (ES6)
+             */
+            document.addEventListener('DOMContentLoaded', () => {
+
+                // Select elements by their data attribute
+                const entryElements =
+                    document.querySelectorAll('[data-entry-id]');
+
+                // Map over each element and extract the data value
+                const entryIds =
+                    Array.from(entryElements).map(
+                        item => item.dataset.entryId
+                    );
+
+                // You'll now have an array containing string values
+                console.log(entryIds); // eg: ["1", "2", "3"]
+            });
+
+            /**
+             * Grab data attributes with JQuery
+             */
+            $(() => {
+
+                // Select elements by their data attribute
+                const $entryElements = $('[data-entry-id]');
+
+                // Map over each element and extract the data value
+                var $entryIds =
+                    $.map($entryElements, item => $(item).data('entryId'));
+
+                // You'll now have array containing string values
+                //console.log($entryIds); // eg: ["1", "2", "3"]
+        window.criteo_q = window.criteo_q || [];
+        var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+        window.criteo_q.push(
+            { event: "setAccount", account: 70191}, // You should never update this line
+            { event: "setEmail", email: "" }, // Can be an empty string
+            { event: "setSiteType", type: deviceType},
+            { event: "viewList", item: $entryIds });
+            });
+
+
+        });
+    </script>
+    <!-- END Criteo Category / Listing Tag -->
+{% endblock %}

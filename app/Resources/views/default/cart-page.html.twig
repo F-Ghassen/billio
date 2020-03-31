@@ -30,6 +30,14 @@
                             </thead>
                             <tbody>
                             {% for item in items1 %}
+                                {% set entryInfo = {
+                                    id: item.product.id,
+                                    price: (item.product.price-item.product.price*item.promo/100),
+                                    quantity: item.quantity
+                                } %}
+                                <div data-entry-info='{{ entryInfo|json_encode|replace("'", "&#39;")|raw }}'>
+
+
                             <tr>
                                 <td class="cart_product_img d-flex align-items-center">
                                     <a href="#"><img src="{{ vich_uploader_asset(item.product,'imageFile') }}" alt="Product"></a>
@@ -70,6 +78,7 @@
                                     <a href="{{ path('delete_cart_item', {'id': item.id}) }}"><i class="ti-close"></i></a>
                                 </td>
                             </tr>
+                                </div>
                             {% endfor %}
                             </tbody>
                         </table>
@@ -171,4 +180,60 @@
             }
         });
     </script>
+
+    <!-- Criteo Basket/Cart Tag -->
+    <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            /**
+             * Grab data attribute objects with vanilla JavaScript (ES6)
+             */
+            document.addEventListener('DOMContentLoaded', () => {
+
+                // Select elements by their data attribute
+                var entryInfoElements =
+                    document.querySelectorAll('[data-entry-info]');
+
+                // Map over each element and extract the data value
+                var entryInfoObjects =
+                    Array.from(entryInfoElements).map(
+                        item => JSON.parse(item.dataset.entryInfo)
+                    );
+
+                // You'll now have an array of objects to work with
+                console.log(entryInfoObjects);
+                // eg: [{id: 1, subheading: "...", title: "..."}]
+            });
+
+            /**
+             * Grab data attribute objects with JQuery
+             */
+            $(() => {
+
+                // Select elements by their data attribute
+                var $entryInfoElements = $('[data-entry-info]');
+
+                // Map over each element and extract the data value
+                var $entryInfoObjects =
+                    $.map($entryInfoElements, item => $(item).data('entryInfo'));
+
+                // You'll now have array of objects to work with
+                //console.log($entryInfoObjects); // eg: [{id: 1, subheading: "...", title: "..."}
+
+                window.criteo_q = window.criteo_q || [];
+                var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
+                window.criteo_q.push(
+                    { event: "setAccount", account: 70191}, // You should never update this line
+                    { event: "setEmail", email: "" }, // Can be an empty string
+                    { event: "setSiteType", type: deviceType},
+                    { event: "viewBasket", item: $entryInfoObjects }
+                );
+            });
+        });
+
+    </script>
+    <!-- END Criteo Basket/Cart Tag -->
+
 {% endblock %}
