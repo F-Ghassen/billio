@@ -477,9 +477,9 @@ class DefaultController extends Controller
                 }
                 $devis_item->setVariation($variation);
                 //die(dump($devis_item));
-                $em->flush();
-                $session->clear();
-                return $this->redirectToRoute('after_checkout');
+                //$em->flush();
+                //$session->clear();
+                //return $this->redirectToRoute('after_checkout');
             }
         }
         else {

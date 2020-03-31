@@ -52,6 +52,7 @@ class PersonalInfoType extends AbstractType
                 'label' => 'Méthode de paiement',
                 'choices'  => [
                     'Paiement à la livraison' => 'Paiement à la livraison',
+                    'GPG Checkout' => 'GPG Checkout',
                 ],
             ])
             ->add('pays', ChoiceType::class, [

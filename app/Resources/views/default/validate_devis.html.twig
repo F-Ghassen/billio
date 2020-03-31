@@ -105,6 +105,38 @@
                             <div class="row justify-content-center mt-5">
                                 <div class="col-10 text-center">{{ form_widget(personalinfo_form.save) }}</div>
                             </div>
+                            <FORM name="paiement" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
+                                <input type="hidden" name="NumSite" value="MAR788">
+                                <input type="hidden" name="Password" value="ro#ybG30">
+                                <input type="hidden" name="orderID" value="<?php echo $orderId ;?>">
+                                <input type="hidden" name="Amount" value="<?php echo $Amount;?>">
+                                <input type="hidden" name="Currency" value="<?php echo $Devise;?>">
+                                <input type="hidden" name="Language" value="fr">
+                                <input type="hidden" name="EMAIL" value="contact@gpgcheckout.com">
+                                <input type="hidden" name="CustLastName" value="nom">
+                                <input type="hidden" name="CustFirstName" value="prenom">
+                                <input type="hidden" name="CustAddress" value="ariana">
+                                <input type="hidden" name="CustZIP" value="2080">
+                                <input type="hidden" name="CustCity" value="ariana">
+                                <input type="hidden" name="CustCountry" value="tunisie">
+                                <input type="hidden" name="CustTel" value="26547852">
+                                <input type="hidden" name="PayementType" value="1">
+                                <input type="hidden" name="MerchandSession" value="">
+                                <input type="hidden" name="orderProducts" value="2* jeans(Rouge,L) , 2*Robe(Noir,XL)">
+                                <input type="hidden" name="signature" value="<?php echo $signture;?>">
+                                <input type="hidden" name="AmountSecond" value="">
+                                <input type="hidden" name="vad" value="815600003">
+                                <input type="hidden" name="Terminal" value="004">
+                                <input type="hidden" name="TauxConversion" value="">
+                                <input type="hidden" name="BatchNumber" value="">
+                                <input type="hidden" name="MerchantReference" value="">
+                                <input type="hidden" name="Reccu_Num" value="">
+                                <input type="hidden" name="Reccu_ExpiryDate " value="">
+                                <input type="hidden" name="Reccu_Frecuency " value="">
+                                <div class="row justify-content-center mt-3">
+                                    <div class="col-10 text-center"><input type="submit" class="btn karl-checkout-btn" name="Valider" value="GPG CHECKOUT"></div>
+                                </div>
+                            </FORM>
                         </div>
                         {{ form_rest(personalinfo_form) }}
                         {{ form_end(personalinfo_form) }}
@@ -153,6 +185,11 @@
                     }
                 });
             }
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+
         });
     </script>
 {% endblock %}
