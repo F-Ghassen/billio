@@ -4,155 +4,407 @@
     {% include 'default/header.html.twig' %}
 
     <div class="section" style="margin-top: 200px;">
-        <div class="container mt-5">
-            <div class="row mt-5">
+        <div-- class="container mt-5">
+            <form id="payment_form" class="m-5 row justify-content-center" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php">
                 <div class="col-12 col-lg-6 mt-5">
                     <!-- Billing details -->
                     <h4 class="margin-bottom-20 mb-5">Validation de la commande</h4>
-                    {{ form_start(personalinfo_form) }}
-                        <div class="row mt-3">
-                            <div class="col-12 col-sm-6">
-                                {{ form_label(personalinfo_form.customerFirstName) }}
-                                {{ form_widget(personalinfo_form.customerFirstName) }}
+                    {#{{ form_start(personalinfo_form) }}#}
+                    <div class="row mt-3">
+                        <div class="col-12 col-sm-6">
+                            {#{{ form_label(personalinfo_form.customerFirstName) }}
+                            {{ form_widget(personalinfo_form.customerFirstName) }}#}
+                            <label>Nom</label>
+                            <input type="text" id="CustFirstName" name="CustFirstName" required="required" class="form-control">
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            {#{{ form_label(personalinfo_form.customerLastName) }}
+                            {{ form_widget(personalinfo_form.customerLastName) }}#}
+                            <label>Prenom</label>
+                            <input type="text" id="CustLastName" name="CustLastName" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        {#{{ form_label(personalinfo_form.customerEmail) }}
+                        {{ form_widget(personalinfo_form.customerEmail) }}#}
+                        <label>Email</label>
+                        <input type="email" id="EMAIL" name="EMAIL" required="required" class="form-control">
+                    </div>
+                    <div class="mt-3">
+                        {#{{ form_label(personalinfo_form.pays) }}
+                        {{ form_widget(personalinfo_form.pays) }}#}
+                        <label>Pays</label>
+                        <select id="CustCountry" name="CustCountry" class="form-control">
+                            <option value="Afganistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="American Samoa">American Samoa</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Anguilla">Anguilla</option>
+                            <option value="Antigua & Barbuda">Antigua & Barbuda</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Aruba">Aruba</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bermuda">Bermuda</option>
+                            <option value="Bhutan">Bhutan</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Bonaire">Bonaire</option>
+                            <option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+                            <option value="Brunei">Brunei</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Burundi">Burundi</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Canary Islands">Canary Islands</option>
+                            <option value="Cape Verde">Cape Verde</option>
+                            <option value="Cayman Islands">Cayman Islands</option>
+                            <option value="Central African Republic">Central African Republic</option>
+                            <option value="Chad">Chad</option>
+                            <option value="Channel Islands">Channel Islands</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Christmas Island">Christmas Island</option>
+                            <option value="Cocos Island">Cocos Island</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Comoros">Comoros</option>
+                            <option value="Congo">Congo</option>
+                            <option value="Cook Islands">Cook Islands</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Cote DIvoire">Cote DIvoire</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Curaco">Curacao</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Djibouti">Djibouti</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Dominican Republic">Dominican Republic</option>
+                            <option value="East Timor">East Timor</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Equatorial Guinea">Equatorial Guinea</option>
+                            <option value="Eritrea">Eritrea</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Falkland Islands">Falkland Islands</option>
+                            <option value="Faroe Islands">Faroe Islands</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="French Guiana">French Guiana</option>
+                            <option value="French Polynesia">French Polynesia</option>
+                            <option value="French Southern Ter">French Southern Ter</option>
+                            <option value="Gabon">Gabon</option>
+                            <option value="Gambia">Gambia</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Gibraltar">Gibraltar</option>
+                            <option value="Great Britain">Great Britain</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Greenland">Greenland</option>
+                            <option value="Grenada">Grenada</option>
+                            <option value="Guadeloupe">Guadeloupe</option>
+                            <option value="Guam">Guam</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guinea">Guinea</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Hawaii">Hawaii</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="India">India</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Isle of Man">Isle of Man</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kiribati">Kiribati</option>
+                            <option value="Korea North">Korea North</option>
+                            <option value="Korea Sout">Korea South</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                            <option value="Laos">Laos</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Liberia">Liberia</option>
+                            <option value="Libya">Libya</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Macau">Macau</option>
+                            <option value="Macedonia">Macedonia</option>
+                            <option value="Madagascar">Madagascar</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Malawi">Malawi</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Marshall Islands">Marshall Islands</option>
+                            <option value="Martinique">Martinique</option>
+                            <option value="Mauritania">Mauritania</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="Mayotte">Mayotte</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Midway Islands">Midway Islands</option>
+                            <option value="Moldova">Moldova</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mongolia">Mongolia</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Myanmar">Myanmar</option>
+                            <option value="Nambia">Nambia</option>
+                            <option value="Nauru">Nauru</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherland Antilles">Netherland Antilles</option>
+                            <option value="Netherlands">Netherlands (Holland, Europe)</option>
+                            <option value="Nevis">Nevis</option>
+                            <option value="New Caledonia">New Caledonia</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Niue">Niue</option>
+                            <option value="Norfolk Island">Norfolk Island</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Palau Island">Palau Island</option>
+                            <option value="Palestine">Palestine</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Papua New Guinea">Papua New Guinea</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Phillipines">Philippines</option>
+                            <option value="Pitcairn Island">Pitcairn Island</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Puerto Rico">Puerto Rico</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Republic of Montenegro">Republic of Montenegro</option>
+                            <option value="Republic of Serbia">Republic of Serbia</option>
+                            <option value="Reunion">Reunion</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="St Barthelemy">St Barthelemy</option>
+                            <option value="St Eustatius">St Eustatius</option>
+                            <option value="St Helena">St Helena</option>
+                            <option value="St Kitts-Nevis">St Kitts-Nevis</option>
+                            <option value="St Lucia">St Lucia</option>
+                            <option value="St Maarten">St Maarten</option>
+                            <option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+                            <option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
+                            <option value="Saipan">Saipan</option>
+                            <option value="Samoa">Samoa</option>
+                            <option value="Samoa American">Samoa American</option>
+                            <option value="San Marino">San Marino</option>
+                            <option value="Sao Tome & Principe">Sao Tome & Principe</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Seychelles">Seychelles</option>
+                            <option value="Sierra Leone">Sierra Leone</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Solomon Islands">Solomon Islands</option>
+                            <option value="Somalia">Somalia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Suriname">Suriname</option>
+                            <option value="Swaziland">Swaziland</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Syria">Syria</option>
+                            <option value="Tahiti">Tahiti</option>
+                            <option value="Taiwan">Taiwan</option>
+                            <option value="Tajikistan">Tajikistan</option>
+                            <option value="Tanzania">Tanzania</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Tokelau">Tokelau</option>
+                            <option value="Tonga">Tonga</option>
+                            <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+                            <option value="Tunisia" selected>Tunisia</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Turkmenistan">Turkmenistan</option>
+                            <option value="Turks & Caicos Is">Turks & Caicos Is</option>
+                            <option value="Tuvalu">Tuvalu</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Erimates">United Arab Emirates</option>
+                            <option value="United States of America">United States of America</option>
+                            <option value="Uraguay">Uruguay</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Vanuatu">Vanuatu</option>
+                            <option value="Vatican City State">Vatican City State</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+                            <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+                            <option value="Wake Island">Wake Island</option>
+                            <option value="Wallis & Futana Is">Wallis & Futana Is</option>
+                            <option value="Yemen">Yemen</option>
+                            <option value="Zaire">Zaire</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                        </select>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 col-sm-6">
+                            <label>Ville</label>
+                            <input type="text" id="CustCity" name="CustCity" required="required" class="form-control">
+                            {#{{ form_label(personalinfo_form.customerCity) }}
+                            {{ form_widget(personalinfo_form.customerCity) }}#}
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <label>Code postal</label>
+                            <input type="text" id="CustZIP" name="CustZIP" required="required" class="form-control">
+                            {#{{ form_label(personalinfo_form.postalCode) }}
+                            {{ form_widget(personalinfo_form.postalCode) }}#}
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <label>Téléphone</label>
+                        <input type="text" id="CustTel" name="CustTel" required="required" class="form-control">
+                        {#{{ form_label(personalinfo_form.customerPhone) }}
+                        {{ form_widget(personalinfo_form.customerPhone) }}#}
+                    </div>
+                    <div class="mt-3">
+                        <label>Adresse</label>
+                        <input type="text" id="CustAddress" name="CustAddress" required="required" class="form-control">
+                        {#{{ form_label(personalinfo_form.customerAddress) }}
+                        {{ form_widget(personalinfo_form.customerAddress) }}#}
+                    </div>
+                    <!--div class="mt-3">
+                        <label>Méthode de paiement</label>
+                        <select id="paymentMethod" name="paymentMethod" class="form-control">
+                            <option value="Credit card">Credit card</option>
+                        </select>
+                        {#{{ form_label(personalinfo_form.paymentMethod) }}
+                        {{ form_widget(personalinfo_form.paymentMethod) }}#}
+                    </div-->
+                    <!--div class="mt-3">
+                        <label>Code promo</label>
+                        {#{{ form_label(personalinfo_form.promo) }}#}
+                        <div class="row justify-content-center">
+                            <div class="col-lg-12 col-md-12">
+                                <input type="text" id="personal_info_promo" name="personal_info[promo]" class="form-control">
+                                {#{{ form_widget(personalinfo_form.promo) }}#}
                             </div>
-                            <div class="col-12 col-sm-6">
-                                {{ form_label(personalinfo_form.customerLastName) }}
-                                {{ form_widget(personalinfo_form.customerLastName) }}
-                            </div>
                         </div>
-                        <div class="mt-3">
-                            {{ form_label(personalinfo_form.customerEmail) }}
-                            {{ form_widget(personalinfo_form.customerEmail) }}
-                        </div>
-                        <div class="mt-3">
-                            {{ form_label(personalinfo_form.pays) }}
-                            {{ form_widget(personalinfo_form.pays) }}
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12 col-sm-6">
-                                {{ form_label(personalinfo_form.customerCity) }}
-                                {{ form_widget(personalinfo_form.customerCity) }}
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                {{ form_label(personalinfo_form.postalCode) }}
-                                {{ form_widget(personalinfo_form.postalCode) }}
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            {{ form_label(personalinfo_form.customerPhone) }}
-                            {{ form_widget(personalinfo_form.customerPhone) }}
-                        </div>
-                        <div class="mt-3">
-                            {{ form_label(personalinfo_form.customerAddress) }}
-                            {{ form_widget(personalinfo_form.customerAddress) }}
-                        </div>
-                        <div class="mt-3">
-                             {{ form_label(personalinfo_form.paymentMethod) }}
-                             {{ form_widget(personalinfo_form.paymentMethod) }}
-                        </div>
-                        <div class="mt-3">
-                            {{ form_label(personalinfo_form.promo) }}
-                            <div class="row justify-content-center">
-                                <div class="col-lg-12 col-md-12">
-                                    {{ form_widget(personalinfo_form.promo) }}
-                                </div>
-                                <!--div class="btn btn-success col-lg-2 col-md-2 w-75 mt-3 mt-sm-0" id="check-btn">Vérifier</div-->
-                            </div>
-                        </div>
+                    </div-->
+                    <input type="hidden" name="NumSite" value="MAR788">
+                    <input type="hidden" name="Password" value="ro#ybG30">
+                    <input type="hidden" name="orderID" value="">
+                    <input type="hidden" name="Amount" value="">
+                    <input type="hidden" name="Currency" value="USD">
+                    <input type="hidden" name="Language" value="fr">
+                    <input type="hidden" name="PayementType" value="1">
+                    <input type="hidden" name="MerchandSession" value="http://billiorich.com/checkout">
+                    <input type="hidden" name="orderProducts" value="">
+                    <input type="hidden" name="signature" value="">
+                    <input type="hidden" name="AmountSecond" value="">
+                    <input type="hidden" name="vad" value="815600003">
+                    <input type="hidden" name="Terminal" value="004">
+                    <input type="hidden" name="TauxConversion" value="3">
                 </div>
-
                 <div class="col-12 col-md-6 col-lg-5 mt-5 mb-5 ml-lg-auto">
-                    <div class="order-details-confirmation">
+                <div class="order-details-confirmation">
 
-                        <div class="cart-page-heading">
-                            <h5>Votre Commande</h5>
-                            <p>Facture</p>
-                        </div>
+                    <div class="cart-page-heading">
+                        <h5>Votre Commande</h5>
+                        <p>Facture</p>
+                    </div>
 
-                        <ul class="order-details-form mb-4">
-                            <li><span  style="font-size: 25px !important;">Products</span> <span style="font-size: 25px !important;">Total</span></li>
-                            {% set subTotal=0 %}
-                            {% for item in items1 %}
+                    <ul class="order-details-form mb-4">
+                        <li><span  style="font-size: 25px !important;">Products</span> <span style="font-size: 25px !important;">Total</span></li>
+                        {% set subTotal=0 %}
+                        {% for item in items1 %}
 
-                                {% set entryInfo = {
-                                    id: item.product.id,
-                                    name: item.product.name,
-                                    color: item.variation.color,
-                                    size: item.size,
-                                    price: (item.product.price-item.product.price*item.promo/100),
-                                    quantity: item.quantity
-                                } %}
-                                <div data-entry-info='{{ entryInfo|json_encode|replace("'", "&#39;")|raw }}'>
-                                    {% if item.promo %}
-                                        {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
-                                    {% else %}
-                                        {% set total = item.quantity*item.product.price %}
-                                    {% endif %}
-                                    {% set subTotal = subTotal + total %}
-                                    <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
-                                        <span style="font-size: 15px !important;">
-                                            <s style='color: dimgrey; font-size: 80%'>{{ item.quantity*item.product.price }}</s>
-                                            {{ total }} <span>$</span>
-                                        </span>
-                                    </li>
-                                </div>
-                            {% endfor %}
-                            <li><b style="font-size: 15px !important;">Subtotal</b> <span style="font-size: 15px !important;" id="subtotal">{{ subTotal }} $</span></li>
-                            <li id="shipping">
-                                <b style="font-size: 15px !important;">Shipping</b>
-                                {% if subTotal > 200 %}
-                                    <b style="font-size: 15px !important;">Free</b>
+                            {% set entryInfo = {
+                                id: item.product.id,
+                                name: item.product.name,
+                                color: item.variation.color,
+                                size: item.size,
+                                price: (item.product.price-item.product.price*item.promo/100),
+                                quantity: item.quantity
+                            } %}
+                            <div data-entry-info='{{ entryInfo|json_encode|replace("'", "&#39;")|raw }}'>
+                                {% if item.promo %}
+                                    {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
                                 {% else %}
-                                    {% set subTotal = subTotal + 5 %}
-                                    <span style="font-size: 15px !important;">5 $</span>
+                                    {% set total = item.quantity*item.product.price %}
                                 {% endif %}
-                            </li>
-                            <li><b style="font-size: 15px !important;">Total</b>
-                                <b style="font-size: 20px !important;" id="total">{{ subTotal }} $</b>
-                            </li>
-                        </ul>
-                        {{ form_rest(personalinfo_form) }}
-                        {{ form_end(personalinfo_form) }}
-                        <div class="container mb-5">
-                            <div class="row justify-content-center mt-5">
-                                <div class="col-10 text-center">{{ form_widget(personalinfo_form.save) }}</div>
+                                {% set subTotal = subTotal + total %}
+                                <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
+                                    <span style="font-size: 15px !important;">
+                                        <s style='color: dimgrey; font-size: 80%'>{{ item.quantity*item.product.price }}</s>
+                                        {{ total }} <span>$</span>
+                                    </span>
+                                </li>
                             </div>
-                            <FORM name="paiement" method="POST" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php" >
-                                <input type="hidden" name="NumSite" value="MAR788">
-                                <input type="hidden" name="Password" value="ro#ybG30">
-                                <input type="hidden" name="orderID" value="">
-                                <input type="hidden" name="Amount" value="">
-                                <input type="hidden" name="Currency" value="USD">
-                                <input type="hidden" name="Language" value="fr">
-                                <input type="hidden" name="EMAIL" value="">
-                                <input type="hidden" name="CustLastName" value="">
-                                <input type="hidden" name="CustFirstName" value="">
-                                <input type="hidden" name="CustAddress" value="">
-                                <input type="hidden" name="CustZIP" value="">
-                                <input type="hidden" name="CustCity" value="">
-                                <input type="hidden" name="CustCountry" value="">
-                                <input type="hidden" name="CustTel" value="">
-                                <input type="hidden" name="PayementType" value="1">
-                                <input type="hidden" name="MerchandSession" value="http://billiorich.com/checkout">
-                                <input type="hidden" name="orderProducts" value="">
-                                <input type="hidden" name="signature" value="">
-                                <input type="hidden" name="AmountSecond" value="">
-                                <input type="hidden" name="vad" value="815600003">
-                                <input type="hidden" name="Terminal" value="004">
-                                <input type="hidden" name="TauxConversion" value="">
-                                <input type="hidden" name="BatchNumber" value="">
-                                <input type="hidden" name="MerchantReference" value="">
-                                <input type="hidden" name="Reccu_Num" value="">
-                                <input type="hidden" name="Reccu_ExpiryDate " value="">
-                                <input type="hidden" name="Reccu_Frecuency " value="">
-                                <div class="row justify-content-center">
-                                    <div class="col-10 text-center"><input type="submit" class="btn karl-checkout-btn" name="Valider" value="GPG CHECKOUT"></div>
-                                </div>
-                            </FORM>
+                        {% endfor %}
+                        <li><b style="font-size: 15px !important;">Subtotal</b> <span style="font-size: 15px !important;" id="subtotal">{{ subTotal }} $</span></li>
+                        <li id="shipping">
+                            <b style="font-size: 15px !important;">Shipping</b>
+                            {% if subTotal > 200 %}
+                                <b style="font-size: 15px !important;">Free</b>
+                            {% else %}
+                                {% set subTotal = subTotal + 5 %}
+                                <span style="font-size: 15px !important;">5 $</span>
+                            {% endif %}
+                        </li>
+                        <li><b style="font-size: 15px !important;">Total</b>
+                            <b style="font-size: 20px !important;" id="total">{{ subTotal }} $</b>
+                        </li>
+                    </ul>
+                    {#{{ form_rest(personalinfo_form) }}
+                    {{ form_end(personalinfo_form) }}#}
+                    <div class="container mb-5">
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-10 text-center">
+                                {#{{ form_widget(personalinfo_form.save) }}#}
+                                <button type="submit" id="personal_info_save" name="save" class="btn karl-checkout-btn btn">CREDIT CARD</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div><!-- end row -->
+            </div>
+            </form>
         </div><!-- end container -->
     </div>
     {% include 'default/footer.html.twig' %}
@@ -197,48 +449,20 @@
             }
         });
     </script>
-
     <!-- Criteo Basket/Cart Tag -->
     <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
-
     <script type="text/javascript">
         $(document).ready(function(){
-
-            /**
-             * Grab data attribute objects with vanilla JavaScript (ES6)
-             */
             document.addEventListener('DOMContentLoaded', () => {
-
-                // Select elements by their data attribute
-                var entryInfoElements =
-                    document.querySelectorAll('[data-entry-info]');
-
-                // Map over each element and extract the data value
+                var entryInfoElements = document.querySelectorAll('[data-entry-info]');
                 var entryInfoObjects =
                     Array.from(entryInfoElements).map(
                         item => JSON.parse(item.dataset.entryInfo)
                     );
-
-                // You'll now have an array of objects to work with
-                // console.log(entryInfoObjects);
-                // eg: [{id: 1, subheading: "...", title: "..."}]
             });
-
-            /**
-             * Grab data attribute objects with JQuery
-             */
             $(() => {
-
-                // Select elements by their data attribute
                 var $entryInfoElements = $('[data-entry-info]');
-
-                // Map over each element and extract the data value
-                var $entryInfoObjects =
-                    $.map($entryInfoElements, item => $(item).data('entryInfo'));
-
-                // You'll now have array of objects to work with
-                // console.log($entryInfoObjects); // eg: [{id: 1, subheading: "...", title: "..."}
-
+                var $entryInfoObjects = $.map($entryInfoElements, item => $(item).data('entryInfo'));
                 window.criteo_q = window.criteo_q || [];
                 var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
                 window.criteo_q.push(
@@ -261,15 +485,7 @@
                 $("input[name*='orderID']").val({{commande.id}});
                 $("input[name*='Amount']").val(totalPrice);
                 $("input[name*='AmountSecond']").val(totalPrice * 3);
-                $("input[name*='TauxConversion']").val("3");
-                $("input[name*='CustLastName']").val($("input[name*='personal_info[customerFirstName]']"));
-                $("input[name*='CustFirstName']").val($("input[name*='personal_info[customerLastName]']"));
-                $("input[name*='CustAddress']").val($("input[name*='personal_info[customerAddress]']"));
-                $("input[name*='CustZIP']").val($("input[name*='personal_info[postalCode]']"));
-                $("input[name*='CustCity']").val($("input[name*='personal_info[customerCity]']"));
-                $("input[name*='CustCountry']").val($("input[name*='personal_info[pays]']"));
-                $("input[name*='CustTel']").val($("input[name*='personal_info[customerPhone]']"));
-                $("input[name*='orderProducts']").val("has man in it!");
+                $("input[name*='orderProducts']").val(orderProducts);
                 $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
 
                 /**
@@ -278,7 +494,6 @@
                  *  http://www.webtoolkit.info/
                  *
                  **/
-
                 function SHA1 (msg) {
 
                     function rotate_left(n,s) {
@@ -449,5 +664,13 @@
             });
         });
 
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#payment_form").on('submit', function ($event) {
+                console.log($('#payment_form').serializeArray());
+                // $event.preventDefault();
+            });
+        });
     </script>
 {% endblock %}
