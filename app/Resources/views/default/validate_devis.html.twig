@@ -479,6 +479,9 @@
                     orderProducts += $entryInfoObjects[i].quantity + " * " + $entryInfoObjects[i].name + "(" + $entryInfoObjects[i].color + "," + $entryInfoObjects[i].size + "),";
                     totalPrice += parseFloat($entryInfoObjects[i].price);
                 }
+                if(totalPrice < 200) {
+                    totalPrice+=10;
+                }
                 // console.log(orderProducts);
                 // console.log(totalPrice);
                 // console.log(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
