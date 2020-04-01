@@ -231,10 +231,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="change to dollar" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1585510930318">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1585764986415">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585510930318" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585764986415" />
+    <state x="511" y="76" key="RollbackChangesDialog" timestamp="1585764995538">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="511" y="76" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1585764995538" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585682740667">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
