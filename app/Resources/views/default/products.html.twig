@@ -8,40 +8,58 @@
             {% if p.collection == null or p.collection.enabled==true %}
             <!-- Single gallery Item Start -->
                 {% for v in p.variations %}
-                 <div data-entry-id="{{ p.id }}">
+                <div data-entry-id="{{ p.id }}">
 
-            <div class="col-6 col-lg-4 single_gallery_item {{ p.category }} wow fadeInUpBig" data-wow-delay="0.2s">
-                        <!-- Product Image -->
-                        <div class="product-img">
-                            <a href="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}">
-                                <img src="{{ vich_uploader_asset(v.images[0],'imageFile') }}" alt="">
-                                {% if p.promoEnabled %}
-                                    <div class="product-sale">
-                                        <h6 class="heading-uppercase">-{{ p.promoMontant }}%</h6>
+                <div class="col-6 col-lg-4 single_gallery_item {{ p.category }} wow fadeInUpBig" data-wow-delay="0.2s">
+                    <!-- Product Image -->
+                    <div class="product-img">
+                        <a href="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}">
+                            <img src="{{ vich_uploader_asset(v.images[0],'imageFile') }}" alt="">
+                            {% if p.promoEnabled %}
+                                <div class="product-sale">
+                                    <h6 class="heading-uppercase">-{{ p.promoMontant }}%</h6>
+                                </div>
+                            {% endif %}
+                            {% if p.category == "Jeans" %}
+                                {% if v.sizeJean29 == 0 and v.sizeJean30 == 0 and v.sizeJean31 == 0 and v.sizeJean32 == 0 and v.sizeJean33 == 0 and v.sizeJean34 == 0 and v.sizeJean35 == 0 and v.sizeJean36 == 0 and v.sizeJean38 == 0 %}
+                                <div class="product-stock">
+                                    <h6 class="heading-uppercase">Out of stock</h6>
+                                </div>
+                                {% endif %}
+                            {% elseif p.category == "Mocassin" %}
+                                {% if v.sizeMoc40 == 0 and v.sizeMoc41 == 0 and v.sizeMoc42 == 0 and v.sizeMoc43 == 0 and v.sizeMoc44 == 0 and v.sizeMoc45 == 0 %}
+                                    <div class="product-stock">
+                                        <h6 class="heading-uppercase">Out of stock</h6>
                                     </div>
                                 {% endif %}
-                            </a>
-                        </div>
-                        <!-- Product Description -->
-                        <div class="product-description">
-                            <h4 class="product-price">
-                                {% if p.promoEnabled %}
-                                    <s style='color: dimgrey; font-size: 80%'>{{ p.price }}</s>
-                                    {{ (p.price - p.price*p.promoMontant/100) }}
-                                {% else %}
-                                    {{ p.price }}
+                            {% else %}
+                                {% if v.s == 0 and v.m == 0 and v.l == 0 and v.xl == 0 and v.xxl == 0 %}
+                                    <div class="product-stock">
+                                        <h6 class="heading-uppercase">Out of stock</h6>
+                                    </div>
                                 {% endif %}
-                                $
-                            </h4>
-                            <p style="font-size:18px">{{ p.name }}</p>
-                            <!-- Add to Cart -->
-                            <form action="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}" class="cart" method="post">
-                                <button type="submit" class="btn btn-dark mt-2 btn-acheter">Acheter maintenant</button>
-                            </form>
-
-                        </div>
+                            {% endif %}
+                        </a>
                     </div>
-                 </div>
+                    <!-- Product Description -->
+                    <div class="product-description">
+                        <h4 class="product-price">
+                            {% if p.promoEnabled %}
+                                <s style='color: dimgrey; font-size: 80%'>{{ p.price }}</s>
+                                {{ (p.price - p.price*p.promoMontant/100) }}
+                            {% else %}
+                                {{ p.price }}
+                            {% endif %}
+                            $
+                        </h4>
+                        <div style="min-height: 50px;">{{ p.name }}</div>
+                        <!-- Add to Cart -->
+                        <form action="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}" class="cart" method="post">
+                            <button type="submit" class="btn btn-dark mt-2 btn-acheter">Acheter maintenant</button>
+                        </form>
+                    </div>
+                </div>
+                </div>
                 {% endfor %}
             <!-- Single gallery Item Start -->
             {% endif %}

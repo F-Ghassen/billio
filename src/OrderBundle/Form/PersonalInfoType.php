@@ -67,13 +67,6 @@ class PersonalInfoType extends AbstractType
                     return $value;
                 },
             ])
-            /*->add('NumSite', HiddenType::class, [
-                'data' => 'MAR788',
-            ])
-            ->add('Password', HiddenType::class, [
-                'data' => 'ro#ybG30',
-            ])
-            ->add('orderID', HiddenType::class)*/
             ->add('save', SubmitType::class, array(
                 'label' => 'CREDIT CARDS',
                 'attr' => array(

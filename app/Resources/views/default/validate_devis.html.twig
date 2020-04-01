@@ -4,23 +4,23 @@
     {% include 'default/header.html.twig' %}
 
     <div class="section" style="margin-top: 200px;">
-        <div-- class="container mt-5">
-            <form id="payment_form" class="m-5 row justify-content-center" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php">
+        <div class="container mt-5">
+            <form id="payment_form" class="mt-5 row justify-content-center" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php">
                 <div class="col-12 col-lg-6 mt-5">
                     <!-- Billing details -->
-                    <h4 class="margin-bottom-20 mb-5">Validation de la commande</h4>
+                    <h4 class="margin-bottom-20 mb-5">Checkout</h4>
                     {#{{ form_start(personalinfo_form) }}#}
                     <div class="row mt-3">
                         <div class="col-12 col-sm-6">
                             {#{{ form_label(personalinfo_form.customerFirstName) }}
                             {{ form_widget(personalinfo_form.customerFirstName) }}#}
-                            <label>Nom</label>
+                            <label>Last name</label>
                             <input type="text" id="CustFirstName" name="CustFirstName" required="required" class="form-control">
                         </div>
                         <div class="col-12 col-sm-6">
                             {#{{ form_label(personalinfo_form.customerLastName) }}
                             {{ form_widget(personalinfo_form.customerLastName) }}#}
-                            <label>Prenom</label>
+                            <label>First name</label>
                             <input type="text" id="CustLastName" name="CustLastName" required="required" class="form-control">
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                     <div class="mt-3">
                         {#{{ form_label(personalinfo_form.pays) }}
                         {{ form_widget(personalinfo_form.pays) }}#}
-                        <label>Pays</label>
+                        <label>Country</label>
                         <select id="CustCountry" name="CustCountry" class="form-control">
                             <option value="Afganistan">Afghanistan</option>
                             <option value="Albania">Albania</option>
@@ -285,26 +285,26 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-12 col-sm-6">
-                            <label>Ville</label>
+                            <label>City</label>
                             <input type="text" id="CustCity" name="CustCity" required="required" class="form-control">
                             {#{{ form_label(personalinfo_form.customerCity) }}
                             {{ form_widget(personalinfo_form.customerCity) }}#}
                         </div>
                         <div class="col-12 col-sm-6">
-                            <label>Code postal</label>
+                            <label>Zip code</label>
                             <input type="text" id="CustZIP" name="CustZIP" required="required" class="form-control">
                             {#{{ form_label(personalinfo_form.postalCode) }}
                             {{ form_widget(personalinfo_form.postalCode) }}#}
                         </div>
                     </div>
                     <div class="mt-3">
-                        <label>Adresse</label>
+                        <label>Address</label>
                         <input type="text" id="CustAddress" name="CustAddress" required="required" class="form-control">
                         {#{{ form_label(personalinfo_form.customerAddress) }}
                         {{ form_widget(personalinfo_form.customerAddress) }}#}
                     </div>
                     <div class="mt-3">
-                        <label>Téléphone</label>
+                        <label>Phone</label>
                         <input type="text" id="CustTel" name="CustTel" required="required" class="form-control">
                         {#{{ form_label(personalinfo_form.customerPhone) }}
                         {{ form_widget(personalinfo_form.customerPhone) }}#}
@@ -343,13 +343,10 @@
                     <input type="hidden" name="TauxConversion" value="3">
                 </div>
                 <div class="col-12 col-md-6 col-lg-5 mt-5 mb-5 ml-lg-auto">
-                <div class="order-details-confirmation">
-
+                    <div class="order-details-confirmation">
                     <div class="cart-page-heading">
-                        <h5>Votre Commande</h5>
-                        <p>Facture</p>
+                        <h5>Your order</h5>
                     </div>
-
                     <ul class="order-details-form mb-4">
                         <li><span  style="font-size: 25px !important;">Products</span> <span style="font-size: 25px !important;">Total</span></li>
                         {% set subTotal=0 %}
@@ -403,10 +400,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
             </form>
-        </div><!-- end container -->
-    </div>
+        </div>
+    </div><!-- end container -->
     {% include 'default/footer.html.twig' %}
 {% endblock %}
 {% block javascripts %}

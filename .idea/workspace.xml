@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="" />
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Form/PersonalInfoType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Form/PersonalInfoType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/core-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/css/core-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -244,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585766612465</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added cart page delivery cost">
+      <created>1585766721760</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1585766721760</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,13 +286,14 @@
     <MESSAGE value="integration gpg" />
     <MESSAGE value="changes" />
     <MESSAGE value="added delivery cost" />
-    <option name="LAST_COMMIT_MESSAGE" value="added delivery cost" />
+    <MESSAGE value="added cart page delivery cost" />
+    <option name="LAST_COMMIT_MESSAGE" value="added cart page delivery cost" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1585766611870">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1585766721232">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585766611870" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585766721232" />
     <state x="511" y="76" key="RollbackChangesDialog" timestamp="1585764995538">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

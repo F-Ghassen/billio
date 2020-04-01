@@ -123,6 +123,17 @@ html, body { overflow-x: hidden; }
 }
 .product-sale h6{margin:0;color:#fff}
 
+.product-stock{
+    position:absolute;
+    top:0;
+    right:0;
+    z-index:2;
+    background:#141414;
+    padding:8px 15px;
+    color:#fff;
+}
+.product-stock h6{margin:0;color:#fff}
+
 .video-container{
     position: relative;
     height: 100vh;
