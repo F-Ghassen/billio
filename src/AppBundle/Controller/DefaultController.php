@@ -356,7 +356,7 @@ class DefaultController extends Controller
             $data = $commande->getItems();
             //dump($data);
 
-            $database_commande = $this->getDoctrine()->getManager()->getRepository(Devis::class)->find($commande->getId());
+            /*$database_commande = $this->getDoctrine()->getManager()->getRepository(Devis::class)->find($commande->getId());
             if($database_commande->getOrderInfo()) {
                 $personalinfo_form = $this->get('form.factory')->create(PersonalInfoType::class, $database_commande->getOrderInfo());
             }
@@ -480,7 +480,7 @@ class DefaultController extends Controller
                 //$em->flush();
                 //$session->clear();
                 //return $this->redirectToRoute('after_checkout');
-            }
+            }*/
         }
         else {
             return $this->redirectToRoute('homepage');
@@ -496,7 +496,7 @@ class DefaultController extends Controller
         }
         $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
         return $this->render('default/validate_devis.html.twig', array(
-            'personalinfo_form' => $personalinfo_form->createView(),
+            // 'personalinfo_form' => $personalinfo_form->createView(),
             'cartLogo' => $cartLogo,
             'mailing_form' => $mailing_form->createView(),
             'items1' => $data,

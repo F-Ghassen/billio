@@ -128,6 +128,10 @@ class OrderInfo
      */
     private $payment_method;
 
+    public $NumSite;
+    public $Password;
+    public $orderID;
+
     /**
      * Get id
      *
