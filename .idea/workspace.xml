@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Form/PersonalInfoType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Form/PersonalInfoType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/assets/css/core-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/css/core-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +88,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../workflow/flow_back" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -205,6 +199,8 @@
       <workItem from="1577225136443" duration="788000" />
       <workItem from="1585419341156" duration="3984000" />
       <workItem from="1585501264687" duration="15127000" />
+      <workItem from="1585841306032" duration="1022000" />
+      <workItem from="1585879249210" duration="2845000" />
     </task>
     <task id="LOCAL-00001" summary="change to dollar">
       <created>1585510931012</created>
@@ -262,7 +258,21 @@
       <option name="project" value="LOCAL" />
       <updated>1585766721760</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="todo list changes">
+      <created>1585775377322</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1585775377322</updated>
+    </task>
+    <task id="LOCAL-00010" summary="phone logo">
+      <created>1585775545058</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1585775545058</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,17 +297,27 @@
     <MESSAGE value="changes" />
     <MESSAGE value="added delivery cost" />
     <MESSAGE value="added cart page delivery cost" />
-    <option name="LAST_COMMIT_MESSAGE" value="added cart page delivery cost" />
+    <MESSAGE value="todo list changes" />
+    <MESSAGE value="phone logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="phone logo" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1585775376615">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1585882184239">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585775376615" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585882184239" />
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1585841723501">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585841723501" />
     <state x="511" y="76" key="RollbackChangesDialog" timestamp="1585764995538">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="511" y="76" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1585764995538" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1585879486986">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1585879486986" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585682740667">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
