@@ -488,7 +488,7 @@
                 $("input[name*='Amount']").val(totalPrice * 1000 * 3);
                 $("input[name*='AmountSecond']").val(totalPrice * 100);
                 $("input[name*='orderProducts']").val(orderProducts);
-                $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
+                $("input[name*='signature']").val(SHA1("MAR788" + "311ca077709871c0a7ba9720ef9f7e46" + {{ commande.id }} + totalPrice + "USD"));
             });
         });
 
