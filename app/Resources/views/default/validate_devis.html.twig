@@ -5,7 +5,7 @@
 
     <div class="section" style="margin-top: 200px;">
         <div class="container mt-5">
-            <form id="payment_form" class="mt-5 row justify-content-center" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php">
+            <form id="payment_form" class="mt-5 row justify-content-center" method="post" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php">
                 <div class="col-12 col-lg-6 mt-5">
                     <!-- Billing details -->
                     <h4 class="margin-bottom-20 mb-5">Checkout</h4>
@@ -488,7 +488,8 @@
                 $("input[name*='Amount']").val(totalPrice * 1000 * 3);
                 $("input[name*='AmountSecond']").val(totalPrice * 100);
                 $("input[name*='orderProducts']").val(orderProducts);
-                $("input[name*='signature']").val(SHA1("MAR788" + "311ca077709871c0a7ba9720ef9f7e46" + {{ commande.id }} + totalPrice + "USD"));
+                $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 3 + "USD"));
+                // console.log(("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 3 + "USD"));
             });
         });
 
