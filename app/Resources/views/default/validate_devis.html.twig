@@ -328,8 +328,8 @@
                         </div>
                     </div-->
                     <input type="hidden" name="NumSite" value="MAR788">
-                    <input type="hidden" name="Password" value="">
-                    <input type="hidden" name="orderID" value="">
+                    <input type="hidden" name="Password" value="311ca077709871c0a7ba9720ef9f7e46P4Lx4pqwrNa5n8nR5kVAkg==">
+                    <input type="hidden" name="orderID" value="{{commande.id}}">
                     <input type="hidden" name="Amount" value="">
                     <input type="hidden" name="Currency" value="USD">
                     <input type="hidden" name="Language" value="fr">
@@ -395,7 +395,7 @@
                         <div class="row justify-content-center mt-5">
                             <div class="col-10 text-center">
                                 {#{{ form_widget(personalinfo_form.save) }}#}
-                                <button type="submit" id="personal_info_save" name="save" class="btn karl-checkout-btn btn">CONTINUE TO BILLING</button>
+                                <button type="submit" id="personal_info_save" name="Valider" class="btn karl-checkout-btn btn">CONTINUE TO BILLING</button>
                             </div>
                         </div>
                     </div>
@@ -483,8 +483,6 @@
                 // console.log(orderProducts);
                 // console.log(totalPrice);
                 // console.log(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
-                $("input[name*='Password']").val('311ca077709871c0a7ba9720ef9f7e46');
-                $("input[name*='orderID']").val({{commande.id}});
                 $("input[name*='Amount']").val(totalPrice * 1000 * 3);
                 $("input[name*='AmountSecond']").val(totalPrice * 100);
                 $("input[name*='orderProducts']").val(orderProducts);
