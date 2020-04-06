@@ -12,6 +12,8 @@
     </div>
 {% endblock %}
 {% block javascripts %}
+    {{ parent() }}
+
     <!-- Criteo Homepage Tag -->
     <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
     <script type="text/javascript">
