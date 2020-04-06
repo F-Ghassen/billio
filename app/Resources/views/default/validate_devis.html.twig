@@ -480,7 +480,7 @@
                     { event: "setAccount", account: 70191}, // You should never update this line
                     { event: "setEmail", email: "" }, // Can be an empty string
                     { event: "setSiteType", type: deviceType},
-                    { event: "viewBasket", id: {{ commande.id }}, item: obj1}
+                    { event: "trackTransaction", id: {{ commande.id }}, item: obj1}
                 );
 
                 let totalPrice = 0;
