@@ -47,27 +47,6 @@
             <script src="{{ asset('assets/js/plugins.js') }}"></script>
             <script src="{{ asset('assets/js/active.js') }}"></script>
             <script>
-                $(document).ready(function() {
-                    $('.size-option').on('click',function () {
-                        if($(this).hasClass("disable-size") == false) {
-                            clickedSize = $(this).attr('data-size');
-                            //console.log(clickedSize);
-                            $('#size-select').val(clickedSize);
-                        }
-                    });
-                    /*$('#submit-btn').on('click', function (event) {
-                        event.preventDefault();
-                        $.each($(".size-option"), function (item) {
-                            if($(this).is(":focus"))
-                            console.log("focused")
-                            else {
-                                console.log("focusedno")
-                            }
-                        });
-                    })*/
-                });
-            </script>
-            <script>
                 $(window).scroll(function() {
                     var scrollTop = $(window).scrollTop()*4;
                     var height = $(window).height();

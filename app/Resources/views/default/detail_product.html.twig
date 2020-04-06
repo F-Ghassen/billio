@@ -218,7 +218,7 @@
                                     <span class="qty-plus" onclick="var effect = document.getElementById('qty{{ loop.index0 }}'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                 </div>
                             #}
-                            <input type="submit" name="addtocart" id="submit-btn" value="Add to cart" class="cart-submit">
+                            <input type="submit" name="addtocart" id="submit-btn" value="Add to cart" class="cart-submit" disabled="true">
                         </form>
 
                         <div id="accordion" class="mt-5" role="tablist">
@@ -252,7 +252,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -280,6 +279,29 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
+    <script>
+        $(document).ready(function() {
+            let clickedSize;
+            $('.size-option').on('click',function () {
+                if ($(this).hasClass("disable-size") === false) {
+                    clickedSize = $(this).attr('data-size');
+                    // console.log(clickedSize);
+                    $('#size-select').val(clickedSize);
+                    $('#submit-btn').attr('disabled', false);
+                }
+            });
+            /*$('#submit-btn').on('click', function (event) {
+                event.preventDefault();
+                $.each($(".size-option"), function (item) {
+                    if($(this).is(":focus"))
+                    console.log("focused")
+                    else {
+                        console.log("focusedno")
+                    }
+                });
+            })*/
+        });
+    </script>
     <script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
     <script type="text/javascript">
         $( document ).ready(function() {
@@ -330,6 +352,4 @@
 
         });
     </script>
-
-
 {% endblock %}

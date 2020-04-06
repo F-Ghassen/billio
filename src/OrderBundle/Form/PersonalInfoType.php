@@ -5,6 +5,7 @@ namespace OrderBundle\Form;
 use OrderBundle\Entity\OrderInfo;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -16,6 +17,8 @@ class PersonalInfoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            /*->setAction("https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php")
+            ->setMethod('POST')*/
             ->add('customerFirstName', TextType::class, array(
                 'required' => true,
                 'label' => 'Nom',
@@ -51,7 +54,8 @@ class PersonalInfoType extends AbstractType
             ->add('paymentMethod', ChoiceType::class, [
                 'label' => 'Méthode de paiement',
                 'choices'  => [
-                    'Paiement à la livraison' => 'Paiement à la livraison',
+                    // 'Paiement à la livraison' => 'Paiement à la livraison',
+                    'Credit card' => 'Credit card',
                 ],
             ])
             ->add('pays', ChoiceType::class, [
@@ -64,7 +68,7 @@ class PersonalInfoType extends AbstractType
                 },
             ])
             ->add('save', SubmitType::class, array(
-                'label' => 'Valider la Commande',
+                'label' => 'CREDIT CARDS',
                 'attr' => array(
                     'class' => 'btn karl-checkout-btn'
                 )

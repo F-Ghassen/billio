@@ -2,11 +2,23 @@
 <section class="welcome_area" style="margin-top: 100px;">
     <div class="welcome_slides owl-carousel">
 
-        <div class="single_slide height-800 bg-img background-overlay video-container" style="object-fit: cover; background-color: black">
+        <!--div class="single_slide height-800 bg-img background-overlay video-container" style="object-fit: cover; background-color: black">
             <video id="video" autoplay muted loop>
                 <source src="{{ asset('assets/img/bg-img/1D9FBA77-4979-4CC5-899C-B8BC46F791A3.MP4') }}" type="video/mp4"/>
                 Your browser does not support the video.
             </video>
+        </div-->
+
+        <div class="single_slide height-800 bg-img background-overlay" style="object-fit: cover; background-image: url({{ asset('assets/img/bg-img/bg-8.jpg') }});">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <div class="welcome_slide_text">
+                            <a href="{{ path('index_products_page') }}" class="btn billio-slide" data-animation="fadeInLeftBig" data-delay="1s" data-duration="500ms">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="single_slide height-800 bg-img background-overlay" style="object-fit: cover; background-image: url({{ asset('assets/img/bg-img/bg-8.jpg') }});">
@@ -21,12 +33,12 @@
             </div>
         </div>
 
-        <div class="single_slide height-800 bg-img background-overlay" style="object-fit: cover; background-image: url({{ asset('assets/img/bg-img/image00001.jpeg') }});">
+        <div class="single_slide height-800 bg-img background-overlay" style="object-fit: cover; background-image: url({{ asset('assets/img/bg-img/bg-8.jpg') }});">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12">
                         <div class="welcome_slide_text">
-                            <a href="{{ path('index_products_page') }}" class="btn billio-slide" data-animation="fadeInRightBig" data-delay="1s" data-duration="500ms">Shop Now</a>
+                            <a href="{{ path('index_products_page') }}" class="btn billio-slide" data-animation="fadeInLeftBig" data-delay="1s" data-duration="500ms">Shop Now</a>
                         </div>
                     </div>
                 </div>

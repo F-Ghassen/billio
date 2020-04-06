@@ -192,4 +192,67 @@ class DefaultController extends Controller
             'form' => $form->createView()
         ));
     }
+
+    /**
+     * @Route("/products-feed", name="product_feed")
+     */
+    public function feed()
+    {
+        $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findBy(['enabled' =>  true]);
+        $feed = "";
+        foreach ($products as $p) {
+            foreach ($p->getVariations() as $v) {
+                // dump($p);
+                $feed .= $v->getId() . ";";
+                $feed .= $p->getName() . ";";
+                $feed .= $p->getDescription() . ";";
+                $feed .= $p->getCategory() . ";";
+                $feed .= "https://www.billiorich.com/products/" . $p->getId() . "&#8209;" . $v->getId() . ";";
+                $feed .= "https://www.billiorich.com/uploads/product_images/" . $p->getImage() . ";";
+                $feed .= "https://www.billiorich.com/uploads/product_images/" . $p->getImage() . ";";
+                if ($p->getCategory() == "Jeans") {
+                    if ($v->getSizeJean29() == 0 && $v->getSizeJean30() == 0 && $v->getSizeJean31() == 0 && $v->getSizeJean32() == 0 && $v->getSizeJean33() == 0 && $v->getSizeJean34() == 0 && $v->getSizeJean35() == 0 && $v->getSizeJean36() == 0 && $v->getSizeJean38() == 0) {
+                        $feed .= "Out of stock;";
+                    } else {
+                        $feed .= "In stock;";
+                    }
+                } else if ($p->getCategory() == "Mocassin") {
+                    if ($v->getSizeMoc40() == 0 && $v->getSizeMoc41() == 0 && $v->getSizeMoc42() == 0 && $v->getSizeMoc43() == 0 && $v->getSizeMoc44() == 0 && $v->getSizeMoc45() == 0) {
+                        $feed .= "Out of stock;";
+                    } else {
+                        $feed .= "In stock;";
+                    }
+                } else {
+                    if ($v->getS() == 0 && $v->getM() == 0 && $v->getL() == 0 && $v->getXl() == 0 && $v->getXxl() == 0) {
+                        $feed .= "Out of stock;";
+                    } else {
+                        $feed .= "In stock;";
+                    }
+                }
+                $feed .= $p->getPrice() . ";";
+                if ($p->isPromoEnabled()) {
+                    $feed .= ($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)) . ";";
+                } else {
+                    $feed .= $p->getPrice() . ";";
+                }
+                //gtin?
+                $feed .= ";";
+                $feed .= "Billiorich;";
+                $feed .= "TRUE;";
+                $feed .= $p->getCategory() . ";";
+                $feed .= "https://www.billiorich.com/products/" . $p->getId() . "&hyphen;" . $v->getId() . ";";
+                $feed .= "new;";
+                $feed .= ";";
+                $feed .= $v->getColor() . ";";
+                $feed .= "male;";
+                $feed .= "adult;";
+                $feed .= ";;;INTERNATIONAL::Standard:10.00 USD;";
+                $feed .= ";FALSE;;";
+                $feed .= "<br><br>";
+            }
+        }
+        return $this->render('admin/products/product-feed.html.twig', array(
+            'flux' => $feed
+        ));
+    }
 }
