@@ -203,7 +203,7 @@ class DefaultController extends Controller
         foreach ($products as $p) {
             foreach ($p->getVariations() as $v) {
                 // dump($p);
-                $feed .= $v->getId() . ";";
+                $feed .= $p->getId()."-".$v->getId() . ";";
                 $feed .= $p->getName() . ";";
                 $feed .= $p->getDescription() . ";";
                 $feed .= $p->getCategory() . ";";
