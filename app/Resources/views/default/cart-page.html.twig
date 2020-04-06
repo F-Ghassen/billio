@@ -32,6 +32,7 @@
                             {% for item in items1 %}
                                 {% set entryInfo = {
                                     id: item.product.id,
+                                    idv: item.variation.id,
                                     price: (item.product.price-item.product.price*item.promo/100),
                                     quantity: item.quantity
                                 } %}
@@ -220,15 +221,21 @@
                     $.map($entryInfoElements, item => $(item).data('entryInfo'));
 
                 // You'll now have array of objects to work with
-                //console.log($entryInfoObjects); // eg: [{id: 1, subheading: "...", title: "..."}
+               // console.log($entryInfoObjects); // eg: [{id: 1, subheading: "...", title: "..."}
+                for (let i=0; i<$entryInfoObjects.length; i++) {
+                    var $id = ($entryInfoObjects[i].id + "-" + $entryInfoObjects[i].idv);
+                    $entryInfoObjects[i].id = $id;
+                    delete $entryInfoObjects[i].idv;
+                }
 
+                //console.log ($entryInfoObjects);
                 window.criteo_q = window.criteo_q || [];
                 var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
                 window.criteo_q.push(
                     { event: "setAccount", account: 70191}, // You should never update this line
                     { event: "setEmail", email: "" }, // Can be an empty string
                     { event: "setSiteType", type: deviceType},
-                    { event: "viewBasket", item: $entryInfoObjects }
+                    { event: "trackTransaction", item: $entryInfoObjects }
                 );
             });
         });

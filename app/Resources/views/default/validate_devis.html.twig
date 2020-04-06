@@ -354,6 +354,7 @@
 
                             {% set entryInfo = {
                                 id: item.product.id,
+                                idv: item.variation.id,
                                 name: item.product.name,
                                 color: item.variation.color,
                                 size: item.size,
@@ -461,13 +462,25 @@
             $(() => {
                 var $entryInfoElements = $('[data-entry-info]');
                 var $entryInfoObjects = $.map($entryInfoElements, item => $(item).data('entryInfo'));
+                var obj1 = $entryInfoObjects.slice();
+                for (let i=0; i<obj1.length; i++) {
+                    var $id = (obj1[i].id + "-" + obj1[i].idv);
+                    obj1[i].id = $id;
+                    delete obj1[i].idv;
+                    delete obj1[i].name;
+                    delete obj1[i].color;
+                    delete obj1[i].size;
+                }
+
+               // console.log(obj1);
+
                 window.criteo_q = window.criteo_q || [];
                 var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
                 window.criteo_q.push(
                     { event: "setAccount", account: 70191}, // You should never update this line
                     { event: "setEmail", email: "" }, // Can be an empty string
                     { event: "setSiteType", type: deviceType},
-                    { event: "viewBasket", item: $entryInfoObjects}
+                    { event: "viewBasket", id: {{ commande.id }}, item: obj1}
                 );
 
                 let totalPrice = 0;
