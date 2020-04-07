@@ -199,11 +199,11 @@ class DefaultController extends Controller
     public function feed()
     {
         $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findBy(['enabled' =>  true]);
-        $feed = "";
+        $feed = "id;title;description;google_product_category;link;image_link;additional_image_link;availability;price;sale_price;gtin;brand;adult;product_type;mobile_link;condition;item_group_id;color;gender;age_group;material;pattern;size;shipping;multipack;is_bundle;custom_label_0\n";
         foreach ($products as $p) {
             foreach ($p->getVariations() as $v) {
                 // dump($p);
-                $feed .= $p->getId()."-".$v->getId() . ";";
+                $feed .= $p->getId()."&#8209;".$v->getId() . ";";
                 $feed .= $p->getName() . ";";
                 $feed .= $p->getDescription() . ";";
                 $feed .= $p->getCategory() . ";";
@@ -235,22 +235,23 @@ class DefaultController extends Controller
                 } else {
                     $feed .= $p->getPrice() . ";";
                 }
-                //gtin?
                 $feed .= ";";
                 $feed .= "Billiorich;";
                 $feed .= "TRUE;";
                 $feed .= $p->getCategory() . ";";
-                $feed .= "https://www.billiorich.com/products/" . $p->getId() . "&hyphen;" . $v->getId() . ";";
+                $feed .= "https://www.billiorich.com/products/" . $p->getId() . "&#8209;" . $v->getId() . ";";
                 $feed .= "new;";
                 $feed .= ";";
                 $feed .= $v->getColor() . ";";
                 $feed .= "male;";
                 $feed .= "adult;";
                 $feed .= ";;;INTERNATIONAL::Standard:10.00 USD;";
-                $feed .= ";FALSE;;";
-                $feed .= "<br><br>";
+                $feed .= ";FALSE;";
+                $feed .= "\n";
             }
         }
+        $feed = str_replace(' ', '&nbsp', $feed);
+        $feed = str_replace('-', '&#8209;', $feed);
         return $this->render('admin/products/product-feed.html.twig', array(
             'flux' => $feed
         ));
