@@ -229,11 +229,11 @@ class DefaultController extends Controller
                         $feed .= "In stock;";
                     }
                 }
-                $feed .= $p->getPrice() . " USD;";
+                $feed .= number_format($p->getPrice(), 2, '.', '') . " USD;";
                 if ($p->isPromoEnabled()) {
-                    $feed .= ($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)) . " USD;";
+                    $feed .= number_format(($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)), 2, '.', '') . " USD;";
                 } else {
-                    $feed .= $p->getPrice() . " USD;";
+                    $feed .= number_format($p->getPrice(), 2, '.', '') . " USD;";
                 }
                 $feed .= $v->getColor() . ";";
                 $feed .= "INTERNATIONAL::Standard:10.00 USD\n";
