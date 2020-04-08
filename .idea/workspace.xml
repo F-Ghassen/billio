@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="changed password">
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/product-feed.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/product-feed.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" afterDir="false" />
@@ -199,7 +199,16 @@
       <workItem from="1585419341156" duration="3984000" />
       <workItem from="1585501264687" duration="2367000" />
       <workItem from="1585511520868" duration="16350000" />
+      <workItem from="1586387106881" duration="1638000" />
     </task>
+    <task id="LOCAL-00001" summary="changed feed">
+      <created>1586272719325</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586272719325</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -227,7 +236,15 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changed feed" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed feed" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1586272718603">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586272718603" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1585520513365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

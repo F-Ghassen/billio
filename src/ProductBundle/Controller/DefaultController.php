@@ -199,7 +199,7 @@ class DefaultController extends Controller
     public function feed()
     {
         $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findBy(['enabled' =>  true]);
-        $feed = "id;title;description;google_product_category;link;image_link;additional_image_link;availability;price;sale_price;gtin;brand;adult;product_type;mobile_link;condition;item_group_id;color;gender;age_group;material;pattern;size;shipping;multipack;is_bundle;custom_label_0\n";
+        $feed = "id;title;description;google_product_category;link;image_link;additional_image_link;availability;price;sale_price;color;shipping\n";
         foreach ($products as $p) {
             foreach ($p->getVariations() as $v) {
                 // dump($p);
@@ -229,25 +229,14 @@ class DefaultController extends Controller
                         $feed .= "In stock;";
                     }
                 }
-                $feed .= $p->getPrice() . ";";
+                $feed .= $p->getPrice() . " USD;";
                 if ($p->isPromoEnabled()) {
-                    $feed .= ($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)) . ";";
+                    $feed .= ($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)) . " USD;";
                 } else {
-                    $feed .= $p->getPrice() . ";";
+                    $feed .= $p->getPrice() . " USD;";
                 }
-                $feed .= ";";
-                $feed .= "Billiorich;";
-                $feed .= "TRUE;";
-                $feed .= $p->getCategory() . ";";
-                $feed .= "https://www.billiorich.com/products/" . $p->getId() . "&#8209;" . $v->getId() . ";";
-                $feed .= "new;";
-                $feed .= ";";
                 $feed .= $v->getColor() . ";";
-                $feed .= "male;";
-                $feed .= "adult;";
-                $feed .= ";;;INTERNATIONAL::Standard:10.00 USD;";
-                $feed .= ";FALSE;";
-                $feed .= "\n";
+                $feed .= "INTERNATIONAL::Standard:10.00 USD\n";
             }
         }
         $feed = str_replace(' ', '&nbsp', $feed);
