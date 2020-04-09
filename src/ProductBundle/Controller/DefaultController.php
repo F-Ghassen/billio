@@ -208,8 +208,8 @@ class DefaultController extends Controller
                 $feed .= $p->getDescription() . ";";
                 $feed .= $p->getCategory() . ";";
                 $feed .= "https://www.billiorich.com/products/" . $p->getId() . "-" . $v->getId() . ";";
-                $feed .= "https://www.billiorich.com/uploads/product_images/" . $p->getImage() . ";";
-                $feed .= "https://www.billiorich.com/uploads/product_images/" . $p->getImage() . ";";
+                $feed .= "https://www.billiorich.com/uploads/product_images/" . $v->getImages()[0] . ";";
+                $feed .= "https://www.billiorich.com/uploads/product_images/" . $v->getImages()[0] . ";";
                 if ($p->getCategory() == "Jeans") {
                     if ($v->getSizeJean29() == 0 && $v->getSizeJean30() == 0 && $v->getSizeJean31() == 0 && $v->getSizeJean32() == 0 && $v->getSizeJean33() == 0 && $v->getSizeJean34() == 0 && $v->getSizeJean35() == 0 && $v->getSizeJean36() == 0 && $v->getSizeJean38() == 0) {
                         $feed .= "Out of stock;";
