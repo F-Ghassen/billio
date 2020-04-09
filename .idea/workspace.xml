@@ -200,7 +200,7 @@
       <workItem from="1586387106881" duration="1688000" />
       <workItem from="1586389271664" duration="438000" />
       <workItem from="1586389766478" duration="98000" />
-      <workItem from="1586390010804" duration="1957000" />
+      <workItem from="1586390010804" duration="2732000" />
     </task>
     <task id="LOCAL-00001" summary="changed feed">
       <created>1586272719325</created>
@@ -244,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586394629063</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fixed variation image">
+      <created>1586395027335</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1586395027335</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -279,10 +286,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="fixed variation image" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2" timestamp="1586394628447">
+    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2" timestamp="1586395026751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586394628447" />
+    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586395026751" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1585520513365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
