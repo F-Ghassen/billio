@@ -203,11 +203,11 @@ class DefaultController extends Controller
         foreach ($products as $p) {
             foreach ($p->getVariations() as $v) {
                 // dump($p);
-                $feed .= $p->getId()."&#8209;".$v->getId() . ";";
+                $feed .= $p->getId()."-".$v->getId() . ";";
                 $feed .= $p->getName() . ";";
                 $feed .= $p->getDescription() . ";";
                 $feed .= $p->getCategory() . ";";
-                $feed .= "https://www.billiorich.com/products/" . $p->getId() . "&#8209;" . $v->getId() . ";";
+                $feed .= "https://www.billiorich.com/products/" . $p->getId() . "-" . $v->getId() . ";";
                 $feed .= "https://www.billiorich.com/uploads/product_images/" . $p->getImage() . ";";
                 $feed .= "https://www.billiorich.com/uploads/product_images/" . $p->getImage() . ";";
                 if ($p->getCategory() == "Jeans") {
@@ -239,8 +239,8 @@ class DefaultController extends Controller
                 $feed .= "INTERNATIONAL::Standard:10.00 USD\n";
             }
         }
-        $feed = str_replace(' ', '&nbsp', $feed);
-        $feed = str_replace('-', '&#8209;', $feed);
+        // $feed = str_replace(' ', '&nbsp', $feed);
+        // $feed = str_replace('-', '&#8209;', $feed);
         return $this->render('admin/products/product-feed.html.twig', array(
             'flux' => $feed
         ));
