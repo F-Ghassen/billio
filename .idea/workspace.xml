@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="" />
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/after_checkout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/after_checkout.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/list_products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/list_products.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,6 +207,8 @@
       <workItem from="1586389766478" duration="98000" />
       <workItem from="1586390010804" duration="2732000" />
       <workItem from="1586439618174" duration="157000" />
+      <workItem from="1586439834139" duration="633000" />
+      <workItem from="1586644263355" duration="1445000" />
     </task>
     <task id="LOCAL-00001" summary="changed feed">
       <created>1586272719325</created>
@@ -257,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586439749909</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="merchant session link">
+      <created>1586439857047</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1586439857047</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -289,13 +305,14 @@
     <MESSAGE value="changed feed" />
     <MESSAGE value="update feed" />
     <MESSAGE value="fixed variation image" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed variation image" />
+    <MESSAGE value="merchant session link" />
+    <option name="LAST_COMMIT_MESSAGE" value="merchant session link" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2" timestamp="1586439748656">
+    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2" timestamp="1586439855916">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586439748656" />
+    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586439855916" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1585520513365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
