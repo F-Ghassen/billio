@@ -481,6 +481,7 @@ class DefaultController extends Controller
                 //$session->clear();
                 //return $this->redirectToRoute('after_checkout');
             }*/
+            $session->clear();
         }
         else {
             return $this->redirectToRoute('homepage');
