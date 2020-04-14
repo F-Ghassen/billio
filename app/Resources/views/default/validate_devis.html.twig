@@ -334,7 +334,7 @@
                     <input type="hidden" name="Currency" value="USD">
                     <input type="hidden" name="Language" value="fr">
                     <input type="hidden" name="PayementType" value="1">
-                    <input type="hidden" name="MerchandSession" value="{{commande |json_encode}}">
+                    <input type="hidden" name="MerchandSession" value="">
                     <input type="hidden" name="orderProducts" value="">
                     <input type="hidden" name="signature" value="">
                     <input type="hidden" name="AmountSecond" value="">
@@ -500,7 +500,7 @@
                 $("input[name*='Amount']").val(totalPrice * 1000 * 2.9);
                 $("input[name*='AmountSecond']").val(totalPrice * 100);
                 $("input[name*='orderProducts']").val(orderProducts);
-                $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 3 + "USD"));
+                $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 100 + "USD"));
                 // console.log(("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 3 + "USD"));
             });
         });
