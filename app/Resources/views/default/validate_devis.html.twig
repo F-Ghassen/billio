@@ -334,13 +334,14 @@
                     <input type="hidden" name="Currency" value="USD">
                     <input type="hidden" name="Language" value="fr">
                     <input type="hidden" name="PayementType" value="1">
-                    <input type="hidden" name="MerchandSession" value="https://www.billiorich.com/checkout">
+                    <input type="hidden" name="MerchandSession" value="{{commande}}">
                     <input type="hidden" name="orderProducts" value="">
                     <input type="hidden" name="signature" value="">
                     <input type="hidden" name="AmountSecond" value="">
                     <input type="hidden" name="vad" value="815600003">
                     <input type="hidden" name="Terminal" value="004">
                     <input type="hidden" name="TauxConversion" value="3">
+                    <input type="hidden" name="urlok" value="https://billiorich.com/checkout">
                 </div>
                 <div class="col-12 col-md-6 col-lg-5 mt-5 mb-5 ml-lg-auto">
                     <div class="order-details-confirmation">
@@ -496,7 +497,7 @@
                 // console.log(orderProducts);
                 // console.log(totalPrice);
                 // console.log(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
-                $("input[name*='Amount']").val(totalPrice * 1000 * 3);
+                $("input[name*='Amount']").val(totalPrice * 1000 * 2.9);
                 $("input[name*='AmountSecond']").val(totalPrice * 100);
                 $("input[name*='orderProducts']").val(orderProducts);
                 $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 3 + "USD"));
