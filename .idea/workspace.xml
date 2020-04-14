@@ -205,7 +205,7 @@
       <workItem from="1586439834139" duration="633000" />
       <workItem from="1586644263355" duration="1639000" />
       <workItem from="1586646095003" duration="50000" />
-      <workItem from="1586878781055" duration="1851000" />
+      <workItem from="1586878781055" duration="2093000" />
     </task>
     <task id="LOCAL-00001" summary="changed feed">
       <created>1586272719325</created>
@@ -284,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586881380640</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="passed command as json">
+      <created>1586881771558</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1586881771558</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -319,17 +326,18 @@
     <MESSAGE value="merchant session link" />
     <MESSAGE value="changes some text to english" />
     <MESSAGE value="changed url redirect" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed url redirect" />
+    <MESSAGE value="passed command as json" />
+    <option name="LAST_COMMIT_MESSAGE" value="passed command as json" />
   </component>
   <component name="WindowStateProjectService">
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586878790300">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1586878790300" />
-    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2" timestamp="1586881379554">
+    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2" timestamp="1586881770289">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586881379554" />
+    <state x="95" y="36" width="749" height="665" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586881770289" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1585520513365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
