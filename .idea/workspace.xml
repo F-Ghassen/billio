@@ -207,7 +207,7 @@
       <workItem from="1586644263355" duration="1639000" />
       <workItem from="1586646095003" duration="50000" />
       <workItem from="1586878781055" duration="5841000" />
-      <workItem from="1586948654517" duration="2213000" />
+      <workItem from="1586948654517" duration="2839000" />
     </task>
     <task id="LOCAL-00001" summary="changed feed">
       <created>1586272719325</created>
@@ -356,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586949959696</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="clear session in checkout">
+      <created>1586950889822</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1586950889822</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -395,17 +402,18 @@
     <MESSAGE value="cleared session" />
     <MESSAGE value="dumping req" />
     <MESSAGE value="dump data" />
-    <option name="LAST_COMMIT_MESSAGE" value="dump data" />
+    <MESSAGE value="clear session in checkout" />
+    <option name="LAST_COMMIT_MESSAGE" value="clear session in checkout" />
   </component>
   <component name="WindowStateProjectService">
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586878790300">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1586878790300" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1586949958784">
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1586950888813">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586949958784" />
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586950888813" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1585520513365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
