@@ -571,21 +571,14 @@ class DefaultController extends Controller
             $cartLogo = count($commande->getItems());
             // dump($commande);
             $data = $commande->getItems();
-            //dump($data);
+            dump($data);
 
             $database_commande = $this->getDoctrine()->getManager()->getRepository(Devis::class)->find($commande->getId());
-            if($database_commande->getOrderInfo()) {
-                $personalinfo_form = $this->get('form.factory')->create(PersonalInfoType::class, $database_commande->getOrderInfo());
-            }
-            else {
-                $personal_info = new OrderInfo();
-                $database_commande->setOrderInfo($personal_info);
-                $personalinfo_form = $this->get('form.factory')->create(PersonalInfoType::class, $personal_info);
-            }
-
+            $personal_info = new OrderInfo();
+            $database_commande->setOrderInfo($personal_info);
             $database_commande->setEnabled(true);
-            $em = $this->getDoctrine()->getManager();
 
+            $em = $this->getDoctrine()->getManager();
             foreach ($data as $devis_item) {
                 $variation = $em->getRepository(ProductVariation::class)->find(($devis_item->getVariation()->getId()));
                 switch ($devis_item->getSize()) {
@@ -693,7 +686,8 @@ class DefaultController extends Controller
             }
             $devis_item->setVariation($variation);
             //die(dump($devis_item));
-            //$em->flush();
+            dump($request->get('merchandSession'));
+            $em->flush();
             $session->clear();
             //return $this->redirectToRoute('after_checkout');
         }
