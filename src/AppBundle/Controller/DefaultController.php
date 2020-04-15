@@ -569,6 +569,8 @@ class DefaultController extends Controller
             return $this->redirectToRoute('homepage');
         }
         $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
+
+        dump($request);
         return $this->render('default/after_checkout.html.twig', array(
             'cartLogo' => $cartLogo,
             'mailing_form' => $mailing_form->createView(),
