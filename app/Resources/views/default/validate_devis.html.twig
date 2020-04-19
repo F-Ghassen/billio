@@ -514,6 +514,7 @@
                 $.ajax({
                     type: "post",
                     url: '{{ path('personal_info_endpoint') }}',
+                    async:false,
                     data: $('#payment_form').serialize(),
                 }).done( function(response) {
                     // console.log(response);
