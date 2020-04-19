@@ -509,7 +509,7 @@
     <script>
         $(document).ready(function(){
             $("#payment_form").on('submit', function ($event) {
-                /*console.log($('#payment_form').serializeArray());
+                console.log($('#payment_form').serializeArray());
                 $.ajax({
                     type: "post",
                     url: '{{ path('personal_info_endpoint') }}',
@@ -519,8 +519,7 @@
                 }).fail(function(jxh,textmsg,errorThrown){
                     console.log(textmsg);
                     console.log(errorThrown);
-                });*/
-
+                });
                 // $event.preventDefault();
             });
         });

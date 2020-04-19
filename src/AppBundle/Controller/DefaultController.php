@@ -707,7 +707,7 @@ class DefaultController extends Controller
      */
     public function setPersonalInfoAction(Request $request)
     {
-        dump(json_decode($request->getContent()));
+        // dump(json_decode($request->getContent()));
         $serializer = $this->get('jms_serializer');
         $session = $this->get('session');
         if ($session->has('cartElements')) {
