@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +199,7 @@
       <workItem from="1586878781055" duration="5841000" />
       <workItem from="1586948654517" duration="5381000" />
       <workItem from="1587315762153" duration="408000" />
-      <workItem from="1587316262967" duration="3925000" />
+      <workItem from="1587316262967" duration="4609000" />
     </task>
     <task id="LOCAL-00001" summary="changed feed">
       <created>1586272719325</created>
@@ -371,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586953628097</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="dump request data">
+      <created>1587328175464</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1587328175464</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">
@@ -412,17 +417,18 @@
     <MESSAGE value="clear session in checkout" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="dump session" />
-    <option name="LAST_COMMIT_MESSAGE" value="dump session" />
+    <MESSAGE value="dump request data" />
+    <option name="LAST_COMMIT_MESSAGE" value="dump request data" />
   </component>
   <component name="WindowStateProjectService">
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587315834637">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1586953626823">
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1587328174714">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586953626823" />
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587328174714" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1587316327044">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
