@@ -341,7 +341,6 @@
                     <input type="hidden" name="vad" value="815600003">
                     <input type="hidden" name="Terminal" value="004">
                     <input type="hidden" name="TauxConversion" value="3">
-                    <input type="hidden" name="urlOK" value="https://billiorich.com/checkout">
                 </div>
                 <div class="col-12 col-md-6 col-lg-5 mt-5 mb-5 ml-lg-auto">
                     <div class="order-details-confirmation">
@@ -463,7 +462,7 @@
             $(() => {
                 var $entryInfoElements = $('[data-entry-info]');
                 var $entryInfoObjects = $.map($entryInfoElements, item => $(item).data('entryInfo'));
-                var obj1 = $entryInfoObjects.slice();
+                var obj1 = JSON.parse(JSON.stringify($entryInfoObjects));
                 for (let i=0; i<obj1.length; i++) {
                     var $id = (obj1[i].id + "-" + obj1[i].idv);
                     obj1[i].id = $id;
@@ -508,17 +507,20 @@
     </script>
     <script>
         $(document).ready(function(){
+            let arr = $('#payment_form').serializeArray();
+            console.log(arr);
             $("#payment_form").on('submit', function ($event) {
                 console.log($('#payment_form').serializeArray());
                 $.ajax({
                     type: "post",
                     url: '{{ path('personal_info_endpoint') }}',
-                    context: $('#payment_form').serializeArray(),
+                    data: $('#payment_form').serialize(),
                 }).done( function(response) {
-                    console.log(response)
-                }).fail(function(jxh,textmsg,errorThrown){
-                    console.log(textmsg);
-                    console.log(errorThrown);
+                    // console.log(response);
+                }).fail(function(xhr,textmsg,errorThrown){
+                    /*console.log(xhr.status);
+                    console.log(xhr.responseText);
+                    console.log(errorThrown);*/
                 });
                 // $event.preventDefault();
             });

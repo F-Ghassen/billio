@@ -4,6 +4,7 @@
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +202,7 @@
       <workItem from="1586878781055" duration="5841000" />
       <workItem from="1586948654517" duration="5381000" />
       <workItem from="1587315762153" duration="408000" />
-      <workItem from="1587316262967" duration="5815000" />
+      <workItem from="1587316262967" duration="12130000" />
     </task>
     <task id="LOCAL-00001" summary="changed feed">
       <created>1586272719325</created>
@@ -385,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587328965075</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="endpoint">
+      <created>1587330093328</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1587330093328</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -428,17 +436,18 @@
     <MESSAGE value="dump session" />
     <MESSAGE value="dump request data" />
     <MESSAGE value="bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug" />
+    <MESSAGE value="endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="endpoint" />
   </component>
   <component name="WindowStateProjectService">
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587315834637">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1587328964445">
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1587330092677">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587328964445" />
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587330092677" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1587316327044">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -451,10 +460,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1585511524404" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586881342384">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587332076960">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1586881342384" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587332076960" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
