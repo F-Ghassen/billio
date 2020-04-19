@@ -510,7 +510,18 @@
         $(document).ready(function(){
             $("#payment_form").on('submit', function ($event) {
                 console.log($('#payment_form').serializeArray());
-                // $event.preventDefault();
+                $.ajax({
+                    type: "post",
+                    url: '{{ path('personal_info_endpoint') }}',
+                    context: $('#payment_form').serializeArray(),
+                }).done( function(response) {
+                    console.log(response)
+                }).fail(function(jxh,textmsg,errorThrown){
+                    console.log(textmsg);
+                    console.log(errorThrown);
+                });
+
+                $event.preventDefault();
             });
         });
     </script>
