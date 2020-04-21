@@ -552,7 +552,7 @@ class DefaultController extends Controller
      */
     public function afterCheckoutAction(Request $request)
     {
-        dump($request->getContent());
+        // dump($request->getContent());
         $cartLogo = 0;
 
         $mailing = new MailingList();
@@ -564,18 +564,7 @@ class DefaultController extends Controller
             return $this->redirectToRoute('homepage');
         }
         $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
-        return $this->render('default/after_checkout.html.twig', array(
-            'cartLogo' => $cartLogo,
-            'mailing_form' => $mailing_form->createView(),
-            'collections' => $collections,
-        ));
-    }
 
-    /**
-     * @Route("/api/personal-info", name="personal_info_endpoint", methods={"POST"})),
-     */
-    public function setPersonalInfoAction(Request $request)
-    {
         $serializer = $this->get('jms_serializer');
         $session = $this->get('session');
         if ($session->has('cartElements')) {
@@ -583,32 +572,9 @@ class DefaultController extends Controller
             $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
             // dump($commande);
             $data = $commande->getItems();
-            //dump($data);
 
             $database_commande = $this->getDoctrine()->getManager()->getRepository(Devis::class)->find($commande->getId());
-
-            $personal_info = new OrderInfo();
-            // $personal_info = json_decode($request->getContent());
-            // dump($serializer->serialize($request->getContent(), 'json'));
-            $data_array = explode('&', $request->getContent());
-            $personal_info_json = [];
-            foreach ($data_array as $value) {
-                $element = explode('=', $value);
-                $personal_info_json[$element[0]] = urldecode(html_entity_decode($element[1]));
-            }
-            $personal_info->setCustomerFirstName($personal_info_json['CustFirstName']);
-            $personal_info->setCustomerLastName($personal_info_json['CustLastName']);
-            $personal_info->setCustomerEmail($personal_info_json['EMAIL']);
-            $personal_info->setCustomerAddress($personal_info_json['CustAddress']);
-            $personal_info->setCustomerCity($personal_info_json['CustCity']);
-            $personal_info->setCustomerPhone($personal_info_json['CustTel']);
-            $personal_info->setPays($personal_info_json['CustCountry']);
-            $personal_info->setPostalCode($personal_info_json['CustZIP']);
-            $personal_info->setPaymentMethod('GPG');
-
-            $database_commande->setOrderInfo($personal_info);
             $database_commande->setEnabled(true);
-
             $em = $this->getDoctrine()->getManager();
             foreach ($data as $devis_item) {
                 $variation = $em->getRepository(ProductVariation::class)->find(($devis_item->getVariation()->getId()));
@@ -715,14 +681,55 @@ class DefaultController extends Controller
                         break;
                 }
             }
-            $devis_item->setVariation($variation);
-            //die(dump($devis_item));
-            // dump($request->get('merchandSession'));
-
             $em->flush();
             $session->clear();
+        } else {
+
+        }
+
+        return $this->render('default/after_checkout.html.twig', array(
+            'cartLogo' => $cartLogo,
+            'mailing_form' => $mailing_form->createView(),
+            'collections' => $collections,
+        ));
+    }
+
+    /**
+     * @Route("/api/personal-info", name="personal_info_endpoint", methods={"POST"})),
+     */
+    public function setPersonalInfoAction(Request $request)
+    {
+        $serializer = $this->get('jms_serializer');
+        $session = $this->get('session');
+        if ($session->has('cartElements')) {
+            $commandeJson = $session->get('cartElements');
+            $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
+            $data = $commande->getItems();
+            $database_commande = $this->getDoctrine()->getManager()->getRepository(Devis::class)->find($commande->getId());
+
+            $personal_info = new OrderInfo();
+            $data_array = explode('&', $request->getContent());
+            $personal_info_json = [];
+            foreach ($data_array as $value) {
+                $element = explode('=', $value);
+                $personal_info_json[$element[0]] = urldecode(html_entity_decode($element[1]));
+            }
+            $personal_info->setCustomerFirstName($personal_info_json['CustFirstName']);
+            $personal_info->setCustomerLastName($personal_info_json['CustLastName']);
+            $personal_info->setCustomerEmail($personal_info_json['EMAIL']);
+            $personal_info->setCustomerAddress($personal_info_json['CustAddress']);
+            $personal_info->setCustomerCity($personal_info_json['CustCity']);
+            $personal_info->setCustomerPhone($personal_info_json['CustTel']);
+            $personal_info->setPays($personal_info_json['CustCountry']);
+            $personal_info->setPostalCode($personal_info_json['CustZIP']);
+            $personal_info->setPaymentMethod('GPG');
+
+            $database_commande->setOrderInfo($personal_info);
+            $database_commande->setEnabled(true);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
             return new JsonResponse('command saved');
-            //return $this->redirectToRoute('after_checkout');
         }
         return new JsonResponse('no data');
     }

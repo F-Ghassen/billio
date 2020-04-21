@@ -378,7 +378,7 @@
                         {% endfor %}
                         <li><b style="font-size: 15px !important;">Subtotal</b> <span style="font-size: 15px !important;" id="subtotal">{{ subTotal }} $</span></li>
                         <li id="shipping">
-                            <b style="font-size: 15px !important;">Shipping</b>
+                            <b style="font-size: 15px !important;">Express shipping</b>
                             {% if subTotal > 200 %}
                                 <b style="font-size: 15px !important;">Free</b>
                             {% else %}
@@ -477,7 +477,7 @@
                 window.criteo_q = window.criteo_q || [];
                 var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
                 window.criteo_q.push(
-                    { event: "setAccount", account: 70191}, // You should never update this line
+                    { event: "setAccount", account: 70871}, // You should never update this line
                     { event: "setEmail", email: "" }, // Can be an empty string
                     { event: "setSiteType", type: deviceType},
                     { event: "trackTransaction", id: {{ commande.id }}, item: obj1}
