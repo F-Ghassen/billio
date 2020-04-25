@@ -735,7 +735,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/api/validate-payment", name="add_to_cart_page")
+     * @Route("/api/validate-payment", name="validate-payment")
      */
     public function validatePaymentAction(Request $request)
     {
@@ -745,6 +745,7 @@ class DefaultController extends Controller
         $session = $this->get('session');
         $json = $serializer->serialize($request->getContent(), 'json');
         $session->set('testAPI', $json);
+        return new JsonResponse('Payment validated');
     }
 
     /**
