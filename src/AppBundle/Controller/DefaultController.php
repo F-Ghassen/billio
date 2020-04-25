@@ -735,6 +735,19 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/api/validate-payment", name="add_to_cart_page")
+     */
+    public function validatePaymentAction(Request $request)
+    {
+        // $em = $this->getDoctrine()->getManager();
+        $serializer = $this->get('jms_serializer');
+        // $quantity = $request->request->get('quantity');
+        $session = $this->get('session');
+        $json = $serializer->serialize($request->getContent(), 'json');
+        $session->set('testAPI', $json);
+    }
+
+    /**
      * @Route("/about-us", name="about-us")
      */
     public function aboutUs(Request $request)
@@ -762,5 +775,4 @@ class DefaultController extends Controller
             'collections' => $collections,
         ));
     }
-
 }
