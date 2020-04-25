@@ -682,7 +682,7 @@ class DefaultController extends Controller
                 }
             }
             $em->flush();
-            // $session->clear();
+            $session->clear();
         }
 
         return $this->render('default/after_checkout.html.twig', array(
