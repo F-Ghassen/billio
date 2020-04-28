@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="" />
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,6 +207,7 @@
       <workItem from="1587737479393" duration="4387000" />
       <workItem from="1587873072695" duration="208000" />
       <workItem from="1587873946822" duration="157000" />
+      <workItem from="1588007060675" duration="1386000" />
     </task>
     <task id="LOCAL-00001" summary="changed feed">
       <created>1586272719325</created>
@@ -465,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587874077622</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="changed feed">
+      <created>1588007337214</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1588007337214</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView">
@@ -493,7 +503,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed feed" />
     <MESSAGE value="update feed" />
     <MESSAGE value="fixed variation image" />
     <MESSAGE value="merchant session link" />
@@ -516,17 +525,18 @@
     <MESSAGE value="endpoint validate payment test" />
     <MESSAGE value="gpg prod" />
     <MESSAGE value="change to prod" />
-    <option name="LAST_COMMIT_MESSAGE" value="change to prod" />
+    <MESSAGE value="changed feed" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed feed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587315834637">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1587874076906">
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1588007336486">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587874076906" />
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588007336486" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1587489855403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
