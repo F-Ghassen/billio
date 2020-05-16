@@ -494,7 +494,7 @@ class DefaultController extends Controller
         $serializer = $this->get('jms_serializer');
         $session = $this->get('session');
 
-        $json = $serializer->serialize($request->getContent(), 'json');
+        $json = $serializer->serialize($request, 'json');
 
         $mailing = new MailingList();
         $mailing->setEmail($json."hrllo@hrllo.coù");

@@ -212,7 +212,7 @@
       <workItem from="1588042826469" duration="3298000" />
       <workItem from="1588080464127" duration="12000" />
       <workItem from="1589599756686" duration="262000" />
-      <workItem from="1589600064288" duration="9744000" />
+      <workItem from="1589600064288" duration="10506000" />
     </task>
     <task id="LOCAL-00001" summary="changed feed">
       <created>1586272719325</created>
@@ -543,7 +543,21 @@
       <option name="project" value="LOCAL" />
       <updated>1589610646191</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="test new">
+      <created>1589611043444</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1589611043444</updated>
+    </task>
+    <task id="LOCAL-00049" summary="check return">
+      <created>1589611322387</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1589611322387</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,8 +576,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cleared session" />
-    <MESSAGE value="dumping req" />
     <MESSAGE value="dump data" />
     <MESSAGE value="clear session in checkout" />
     <MESSAGE value="fix bug" />
@@ -587,7 +599,9 @@
     <MESSAGE value="test reach endpoint" />
     <MESSAGE value="test2" />
     <MESSAGE value="another test" />
-    <option name="LAST_COMMIT_MESSAGE" value="another test" />
+    <MESSAGE value="test new" />
+    <MESSAGE value="check return" />
+    <option name="LAST_COMMIT_MESSAGE" value="check return" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -598,10 +612,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1589610644841">
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1589611320625">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589610644841" />
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589611320625" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1588080473347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
