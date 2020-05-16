@@ -494,13 +494,13 @@ class DefaultController extends Controller
         $serializer = $this->get('jms_serializer');
         $session = $this->get('session');
 
-        $json = $serializer->serialize($request, 'json');
+        $json = $serializer->serialize($request->getContent(), 'json');
 
-        $mailing = new MailingList();
+        /*$mailing = new MailingList();
         $mailing->setEmail($json."hrllo@hrllo.coù");
         $em = $this->getDoctrine()->getManager();
         $em->persist($mailing);
-        $em->flush();
+        $em->flush();*/
 
         // $quantity = $request->request->get('quantity');
 
@@ -627,7 +627,8 @@ class DefaultController extends Controller
             return new JsonResponse('command saved');
         }*/
 
-        return new JsonResponse($json.'Payment validated');
+        return new JsonResponse(json_decode($request->getContent()));
+        // return new JsonResponse($json.'Payment validated');
     }
 
     /**
