@@ -491,17 +491,16 @@ class DefaultController extends Controller
      */
     public function validatePaymentAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $test = $em->getRepository(MailingListRepository::class)->find(1);
+        $test = $this->getDoctrine()->getManager()->getRepository(MailingListRepository::class)->findBy(['id' => 1]);
         $test->setEmail("hrllo@hello.com");
-        $em->flush();
-        $serializer = $this->get('jms_serializer');
+        $this->getDoctrine()->getManager()->flush();
+        // $serializer = $this->get('jms_serializer');
         // $quantity = $request->request->get('quantity');
-        $session = $this->get('session');
+        /*$session = $this->get('session');
         $json = $serializer->serialize($request->getContent(), 'json');
-        $session->set('testAPI', $json);
+        $session->set('testAPI', $json);*/
 
-        if ($session->has('cartElements')) {
+        /*if ($session->has('cartElements')) {
             $commandeJson = $session->get('cartElements');
             $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
             $data = $commande->getItems();
@@ -617,10 +616,11 @@ class DefaultController extends Controller
                         break;
                 }
             }*/
+            /*$em = $this->getDoctrine()->getManager();
             $em->flush();
             // $session->clear();
             return new JsonResponse('command saved');
-        }
+        }*/
 
         return new JsonResponse('Payment validated');
     }
