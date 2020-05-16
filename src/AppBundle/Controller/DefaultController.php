@@ -491,9 +491,11 @@ class DefaultController extends Controller
      */
     public function validatePaymentAction(Request $request)
     {
-        $test = $this->getDoctrine()->getManager()->getRepository(MailingListRepository::class)->findBy(['id' => 1]);
-        $test->setEmail("hrllo@hello.com");
-        $this->getDoctrine()->getManager()->flush();
+        $mailing = new MailingList();
+        $mailing->setEmail("hrllo@hrllo.coù");
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($mailing);
+        $em->flush();
         // $serializer = $this->get('jms_serializer');
         // $quantity = $request->request->get('quantity');
         /*$session = $this->get('session');
