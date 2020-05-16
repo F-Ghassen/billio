@@ -493,7 +493,7 @@ class DefaultController extends Controller
     {
         $serializer = $this->get('jms_serializer');
         $session = $this->get('session');
-
+        $session->set("testAPI", $request->getContent());
         $json = $serializer->serialize($request->getContent(), 'json');
 
         /*$mailing = new MailingList();
