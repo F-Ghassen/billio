@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="" />
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -209,14 +212,7 @@
       <workItem from="1588042826469" duration="3298000" />
       <workItem from="1588080464127" duration="12000" />
       <workItem from="1589599756686" duration="262000" />
-      <workItem from="1589600064288" duration="11187000" />
-    </task>
-    <task id="LOCAL-00003" summary="update feed">
-      <created>1586389706512</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1586389706512</updated>
+      <workItem from="1589600064288" duration="12012000" />
     </task>
     <task id="LOCAL-00004" summary="update feed">
       <created>1586390039468</created>
@@ -554,7 +550,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589612357127</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="test with session">
+      <created>1589612700612</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1589612700613</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,7 +576,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix bug" />
     <MESSAGE value="dump session" />
     <MESSAGE value="dump request data" />
     <MESSAGE value="bug" />
@@ -598,7 +600,8 @@
     <MESSAGE value="check return" />
     <MESSAGE value="print all request" />
     <MESSAGE value="content display" />
-    <option name="LAST_COMMIT_MESSAGE" value="content display" />
+    <MESSAGE value="test with session" />
+    <option name="LAST_COMMIT_MESSAGE" value="test with session" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -609,10 +612,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1589612355397">
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1589612699117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589612355397" />
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589612699117" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1588080473347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -629,6 +632,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1585511524404" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1589612622090">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1589612622090" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587427264364">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

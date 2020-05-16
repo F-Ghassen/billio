@@ -493,14 +493,14 @@ class DefaultController extends Controller
     {
         $serializer = $this->get('jms_serializer');
         $session = $this->get('session');
-        $session->set("testAPI", $request->getContent());
+        $session->set("cartElements", $request->getContent());
         $json = $serializer->serialize($request->getContent(), 'json');
 
-        /*$mailing = new MailingList();
-        $mailing->setEmail($json."hrllo@hrllo.coù");
+        $mailing = new MailingList();
+        $mailing->setEmail("test@test.com");
         $em = $this->getDoctrine()->getManager();
         $em->persist($mailing);
-        $em->flush();*/
+        $em->flush();
 
         // $quantity = $request->request->get('quantity');
 
