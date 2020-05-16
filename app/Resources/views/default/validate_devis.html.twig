@@ -5,7 +5,8 @@
 
     <div class="section" style="margin-top: 200px">
         <div class="container mt-5">
-            <form id="payment_form" class="mt-5 row justify-content-center" method="post" action="https://www.gpgcheckout.com/Paiement/Validation_paiement.php">
+            <!--form id="payment_form" class="mt-5 row justify-content-center" method="post" action="https://www.gpgcheckout.com/Paiement/Validation_paiement.php"-->
+            <form id="payment_form" class="mt-5 row justify-content-center" method="post" action="https://preprod.gpgcheckout.com/Paiement/Validation_paiement.php">
                 <div class="col-12 col-lg-6 mt-5">
                     <!-- Billing details -->
                     <h4 class="margin-bottom-20 mb-5">Checkout</h4>
@@ -327,8 +328,10 @@
                             </div>
                         </div>
                     </div-->
-                    <input type="hidden" name="NumSite" value="MAR747">
-                    <input type="hidden" name="Password" value="d245c88cb5d63df70192d96afb1c4297">
+                    <!--input type="hidden" name="NumSite" value="MAR747"-->
+                    <!--input type="hidden" name="Password" value="d245c88cb5d63df70192d96afb1c4297"-->
+                    <input type="hidden" name="NumSite" value="MAR788">
+                    <input type="hidden" name="Password" value="311ca077709871c0a7ba9720ef9f7e46">
                     <input type="hidden" name="orderID" value="{{commande.id}}">
                     <input type="hidden" name="Amount" value="">
                     <input type="hidden" name="Currency" value="USD">
@@ -338,7 +341,8 @@
                     <input type="hidden" name="orderProducts" value="">
                     <input type="hidden" name="signature" value="">
                     <input type="hidden" name="AmountSecond" value="">
-                    <input type="hidden" name="vad" value="767400003">
+                    <!--input type="hidden" name="vad" value="767400003"-->
+                    <input type="hidden" name="vad" value="815600003">
                     <input type="hidden" name="Terminal" value="004">
                     <input type="hidden" name="TauxConversion" value="3">
                 </div>
@@ -499,7 +503,9 @@
                 $("input[name*='Amount']").val(totalPrice * 1000 * 2.9);
                 $("input[name*='AmountSecond']").val(totalPrice * 100);
                 $("input[name*='orderProducts']").val(orderProducts);
-                $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 * 2.9 + "USD"));
+                // TODO prod
+                // $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 * 2.9 + "USD"));
+                $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 2.9 + "USD"));
                 // console.log(("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 3 + "USD"));
             });
         });

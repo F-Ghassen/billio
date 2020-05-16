@@ -238,7 +238,7 @@ class DefaultController extends Controller
             }
             else{
                 $devis = new Devis();
-                $devis->setEnabled(true);
+                $devis->setEnabled(false);
                 $devis->setState('Pending');
                 $devis->setSaleDate(new \DateTime());
                 $em->persist($devis);
@@ -565,7 +565,7 @@ class DefaultController extends Controller
         }
         $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
 
-        $serializer = $this->get('jms_serializer');
+        /*$serializer = $this->get('jms_serializer');
         $session = $this->get('session');
         if ($session->has('cartElements')) {
             $commandeJson = $session->get('cartElements');
@@ -683,7 +683,7 @@ class DefaultController extends Controller
             }
             $em->flush();
             $session->clear();
-        }
+        }*/
 
         return $this->render('default/after_checkout.html.twig', array(
             'cartLogo' => $cartLogo,
@@ -743,6 +743,129 @@ class DefaultController extends Controller
         $session = $this->get('session');
         $json = $serializer->serialize($request->getContent(), 'json');
         $session->set('testAPI', $json);
+
+        if ($session->has('cartElements')) {
+            $commandeJson = $session->get('cartElements');
+            $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
+            $data = $commande->getItems();
+            $database_commande = $this->getDoctrine()->getManager()->getRepository(Devis::class)->find($commande->getId());
+
+            // $data_array = explode('&', $request->getContent());
+            $personal_info = $database_commande->getPersonalInfo();
+            $personal_info->setCustomerFirstName($json);
+
+            $database_commande->setEnabled(true);
+            $em = $this->getDoctrine()->getManager();
+            /*foreach ($data as $devis_item) {
+                $variation = $em->getRepository(ProductVariation::class)->find(($devis_item->getVariation()->getId()));
+                switch ($devis_item->getSize()) {
+                    case 'S':
+                        $val = $variation->getS();
+                        $val = $val - 1;
+                        $variation->setS(strval($val));
+                        break;
+                    case 'M':
+                        $val = $variation->getM();
+                        $val = $val - 1;
+                        $variation->setM($val);
+                        break;
+                    case 'L':
+                        $val = $variation->getL();
+                        $val = $val - 1;
+                        $variation->setL($val);
+                        break;
+                    case 'XL':
+                        $val = $variation->getXL();
+                        $val = $val - 1;
+                        $variation->setXL($val);
+                        break;
+                    case 'XXL':
+                        $val = $variation->getXXL();
+                        $val = $val - 1;
+                        $variation->setXXL($val);
+                        break;
+                    case '29':
+                        $val = $variation->getSizeJean29();
+                        $val = $val - 1;
+                        $variation->setSizeJean29($val);
+                        break;
+                    case '30':
+                        $val = $variation->getSizeJean30();
+                        $val = $val - 1;
+                        $variation->setSizeJean30($val);
+                        break;
+                    case '31':
+                        $val = $variation->getSizeJean31();
+                        $val = $val - 1;
+                        $variation->setSizeJean31($val);
+                        break;
+                    case '32':
+                        $val = $variation->getSizeJean32();
+                        $val = $val - 1;
+                        $variation->setSizeJean32($val);
+                        break;
+                    case '33':
+                        $val = $variation->getSizeJean33();
+                        $val = $val - 1;
+                        $variation->setSizeJean33($val);
+                        break;
+                    case '34':
+                        $val = $variation->getSizeJean34();
+                        $val = $val - 1;
+                        $variation->setSizeJean34($val);
+                        break;
+                    case '35':
+                        $val = $variation->getSizeJean35();
+                        $val = $val - 1;
+                        $variation->setSizeJean35($val);
+                        break;
+                    case '36':
+                        $val = $variation->getSizeJean36();
+                        $val = $val - 1;
+                        $variation->setSizeJean36($val);
+                        break;
+                    case '38':
+                        $val = $variation->getSizeJean38();
+                        $val = $val - 1;
+                        $variation->setSizeJean38($val);
+                        break;
+                    case '40':
+                        $val = $variation->getSizeMoc40();
+                        $val = $val - 1;
+                        $variation->setSizeMoc40($val);
+                        break;
+                    case '41':
+                        $val = $variation->getSizeMoc41();
+                        $val = $val - 1;
+                        $variation->setSizeMoc41($val);
+                        break;
+                    case '42':
+                        $val = $variation->getSizeMoc42();
+                        $val = $val - 1;
+                        $variation->setSizeMoc42($val);
+                        break;
+                    case '43':
+                        $val = $variation->getSizeMoc43();
+                        $val = $val - 1;
+                        $variation->setSizeMoc43($val);
+                        break;
+                    case '44':
+                        $val = $variation->getSizeMoc44();
+                        $val = $val - 1;
+                        $variation->setSizeMoc44($val);
+                        break;
+                    case '45':
+                        $val = $variation->getSizeMoc45();
+                        $val = $val - 1;
+                        $variation->setSizeMoc45($val);
+                        break;
+                }
+            }*/
+            $em->flush();
+            // $session->clear();
+            return new JsonResponse('command saved');
+        }
+
         return new JsonResponse('Payment validated');
     }
 
