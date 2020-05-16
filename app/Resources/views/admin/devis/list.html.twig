@@ -39,7 +39,7 @@
                                         <h6 class="text-semibold no-margin-top">{{ c.orderInfo.getCustomerFirstName }} {{ c.orderInfo.getCustomerLastName }}</h6>
                                         <ul class="list list-unstyled">
                                             <li>Devis #: &nbsp;{{ "%04d" | format(c.id) }}</li>
-                                            <li>Issued on: <span class="text-semibold">{{ c.saleDate | date_modify("+2 hours") |date('d/m/Y - H:i') }}</span></li>
+                                            <li>Issued on: <span class="text-semibold">{{ c.saleDate | date_modify("+1 hours") |date('d/m/Y - H:i') }}</span></li>
                                         </ul>
                                     </div>
 
@@ -98,7 +98,7 @@
                                             <div class="invoice-details">
                                                 <h5 class="text-uppercase text-semibold">Devis #: &nbsp;{{ "%04d" | format(c.id) }}</h5>
                                                 <ul class="list-condensed list-unstyled">
-                                                    <li>Date: <span class="text-semibold">{{ c.saleDate | date_modify("+2 hours") |date('d/m/Y - H:i') }}</span></li>
+                                                    <li>Date: <span class="text-semibold">{{ c.saleDate | date_modify("+1 hours") |date('d/m/Y - H:i') }}</span></li>
                                                 </ul>
                                             </div>
                                         </div>
