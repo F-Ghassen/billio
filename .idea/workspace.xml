@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="check if notif works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,14 +211,7 @@
       <workItem from="1588042826469" duration="3298000" />
       <workItem from="1588080464127" duration="12000" />
       <workItem from="1589599756686" duration="262000" />
-      <workItem from="1589600064288" duration="14501000" />
-    </task>
-    <task id="LOCAL-00005" summary="update feed">
-      <created>1586391533740</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1586391533740</updated>
+      <workItem from="1589600064288" duration="16228000" />
     </task>
     <task id="LOCAL-00006" summary="fixed variation image">
       <created>1586394629063</created>
@@ -557,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589668789894</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="check if notif works">
+      <created>1589849417870</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1589849417870</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +575,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dump request data" />
     <MESSAGE value="bug" />
     <MESSAGE value="endpoint" />
     <MESSAGE value="payment works" />
@@ -601,7 +599,8 @@
     <MESSAGE value="content display" />
     <MESSAGE value="test with session" />
     <MESSAGE value="test notif" />
-    <option name="LAST_COMMIT_MESSAGE" value="test notif" />
+    <MESSAGE value="check if notif works" />
+    <option name="LAST_COMMIT_MESSAGE" value="check if notif works" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -612,11 +611,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1589668788118">
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1589852243543">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="69" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1589668788118" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589612699117" />
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589852243543" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1588080473347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
