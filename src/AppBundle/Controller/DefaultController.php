@@ -7,13 +7,12 @@ use MessageBundle\Entity\MailingList;
 use MessageBundle\Entity\Message;
 use MessageBundle\Form\MailingListType;
 use MessageBundle\Form\MessageType;
-use MessageBundle\Repository\MailingListRepository;
+use Psr\Log\LoggerInterface;
 use OrderBundle\Entity\Devis;
 use OrderBundle\Entity\DevisItem;
 use OrderBundle\Entity\OrderInfo;
 use OrderBundle\Form\CommandeItemEditTypeClient1;
 use OrderBundle\Form\DevisType;
-use OrderBundle\Repository\OrderInfoRepository;
 use ProductBundle\Entity\Product;
 use ProductBundle\Entity\ProductVariation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -496,9 +495,12 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $mailing = new MailingList();
-        $mailing->setEmail("log@test.com");
+        $mailing->setEmail(json_decode($request->getContent())."@test.com");
         $em->persist($mailing);
         $em->flush();
+
+        $logger = $this->get('logger');
+        $logger->error(json_decode($request->getContent()));
 
         if(json_decode($request->getContent())->TransStatus == '00') {
             if ($session->has('cartElements')) {
