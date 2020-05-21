@@ -503,7 +503,7 @@ class DefaultController extends Controller
         $logger->error($request->request->all());
         $logger->error($_POST);
 
-        if($request->getContent()->TransStatus == '00') {
+        /*if($request->getContent()->TransStatus == '00') {
             if ($session->has('cartElements')) {
                 $commandeJson = $session->get('cartElements');
                 $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
@@ -620,7 +620,7 @@ class DefaultController extends Controller
                 $session->clear();
                 return new JsonResponse('command saved');
             }
-        }
+        }*/
 
         return new JsonResponse(json_decode($request->getContent()));
         // return new JsonResponse('Payment validated');
