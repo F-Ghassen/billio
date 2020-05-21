@@ -494,10 +494,10 @@ class DefaultController extends Controller
         $serializer = $this->get('jms_serializer');
         $em = $this->getDoctrine()->getManager();
 
-        $mailing = new MailingList();
+        /*$mailing = new MailingList();
         $mailing->setEmail("fff@test.com");
         $em->persist($mailing);
-        $em->flush();
+        $em->flush();*/
 
         $logger = $this->get('logger');
         $logger->error($request->request->all());
