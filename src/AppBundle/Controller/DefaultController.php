@@ -500,7 +500,8 @@ class DefaultController extends Controller
         $em->flush();
 
         $logger = $this->get('logger');
-        $logger->error($request->request->add());
+        $logger->error($request->request->all());
+        $logger->error($_POST);
 
         if($request->getContent()->TransStatus == '00') {
             if ($session->has('cartElements')) {
