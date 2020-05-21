@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/uploads/product_images/J71A7467.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/web/uploads/product_images/J71A7467.JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/uploads/product_images/J71A7467.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/web/uploads/product_images/J71A7467.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,14 +212,7 @@
       <workItem from="1588080464127" duration="12000" />
       <workItem from="1589599756686" duration="262000" />
       <workItem from="1589600064288" duration="17472000" />
-      <workItem from="1590018506903" duration="7243000" />
-    </task>
-    <task id="LOCAL-00009" summary="merchant session link">
-      <created>1586439857047</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1586439857047</updated>
+      <workItem from="1590018506903" duration="8109000" />
     </task>
     <task id="LOCAL-00010" summary="changes some text to english">
       <created>1586646025301</created>
@@ -559,7 +550,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590041229604</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="log req">
+      <created>1590045955574</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1590045955574</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +576,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="async false" />
     <MESSAGE value="changes in payment" />
     <MESSAGE value="criteo tags" />
     <MESSAGE value="endpoint validate payment test" />
@@ -603,7 +600,8 @@
     <MESSAGE value="heyo" />
     <MESSAGE value="log request" />
     <MESSAGE value="compressed images" />
-    <option name="LAST_COMMIT_MESSAGE" value="compressed images" />
+    <MESSAGE value="log req" />
+    <option name="LAST_COMMIT_MESSAGE" value="log req" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -614,15 +612,19 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1590041205620">
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1590045954858">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="69" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1589668788118" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590041205620" />
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590045954858" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1588080473347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1588080473347" />
+    <state x="437" y="66" key="RollbackChangesDialog" timestamp="1590045964963">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="437" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1590045964963" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1587316327044">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

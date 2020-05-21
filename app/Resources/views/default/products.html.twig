@@ -20,9 +20,9 @@
                                 {% endif %}
                                 {% if p.category == "Jeans" %}
                                     {% if v.sizeJean29 == 0 and v.sizeJean30 == 0 and v.sizeJean31 == 0 and v.sizeJean32 == 0 and v.sizeJean33 == 0 and v.sizeJean34 == 0 and v.sizeJean35 == 0 and v.sizeJean36 == 0 and v.sizeJean38 == 0 %}
-                                    <div class="product-stock">
-                                        <h6 class="heading-uppercase">Out of stock</h6>
-                                    </div>
+                                        <div class="product-stock">
+                                            <h6 class="heading-uppercase">Out of stock</h6>
+                                        </div>
                                     {% endif %}
                                 {% elseif p.category == "Mocassin" %}
                                     {% if v.sizeMoc40 == 0 and v.sizeMoc41 == 0 and v.sizeMoc42 == 0 and v.sizeMoc43 == 0 and v.sizeMoc44 == 0 and v.sizeMoc45 == 0 %}
@@ -56,7 +56,6 @@
                                 <button type="submit" class="btn btn-dark mt-2 btn-acheter">Add to cart</button>
                             </form>
                         </div>
-                    </div>
                     </div>
                 {% endfor %}
             <!-- Single gallery Item Start -->
