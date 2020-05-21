@@ -495,12 +495,12 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $mailing = new MailingList();
-        $mailing->setEmail("qsdqs@test.com");
+        $mailing->setEmail("fff@test.com");
         $em->persist($mailing);
         $em->flush();
 
         $logger = $this->get('logger');
-        $logger->error($request);
+        $logger->error($request->request->add());
 
         if($request->getContent()->TransStatus == '00') {
             if ($session->has('cartElements')) {
