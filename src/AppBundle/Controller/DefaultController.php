@@ -495,14 +495,14 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $mailing = new MailingList();
-        $mailing->setEmail(json_decode($request->getContent())."@test.com");
+        $mailing->setEmail("qsdqs@test.com");
         $em->persist($mailing);
         $em->flush();
 
         $logger = $this->get('logger');
-        $logger->error(json_decode($request->getContent()));
+        $logger->error($request->getContent());
 
-        if(json_decode($request->getContent())->TransStatus == '00') {
+        if($request->getContent()->TransStatus == '00') {
             if ($session->has('cartElements')) {
                 $commandeJson = $session->get('cartElements');
                 $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
@@ -621,7 +621,7 @@ class DefaultController extends Controller
             }
         }
 
-        return new JsonResponse(json_decode($request->getContent())->TransStatus);
+        return new JsonResponse(json_decode($request->getContent()));
         // return new JsonResponse('Payment validated');
     }
 
