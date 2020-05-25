@@ -494,16 +494,11 @@ class DefaultController extends Controller
         $serializer = $this->get('jms_serializer');
         $em = $this->getDoctrine()->getManager();
 
-        /*$mailing = new MailingList();
-        $mailing->setEmail("fff@test.com");
-        $em->persist($mailing);
-        $em->flush();*/
-
         $logger = $this->get('logger');
-        $logger->error($request->get('query'));
-        $logger->error($request->get('_route'));
+        $logger->error($request->query->get('TransStatus'));
         $logger->error($request->get('TransStatus'));
-        $logger->error($request);
+        $logger->error($request->query->get('TransStatus') == '00');
+        $logger->error($request->query->get('TransStatus') == '00');
 
         /*if($request->getContent()->TransStatus == '00') {
             if ($session->has('cartElements')) {
