@@ -5,35 +5,26 @@
 
     <div class="section" style="margin-top: 200px">
         <div class="container mt-5">
-            <!--form id="payment_form" class="mt-5 row justify-content-center" method="post" action="https://www.gpgcheckout.com/Paiement/Validation_paiement.php"-->
-            <form id="payment_form" class="mt-5 row justify-content-center" method="post" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php">
+            <form id="payment_form" class="mt-5 row justify-content-center" method="post" action="https://www.gpgcheckout.com/Paiement/Validation_paiement.php">
+            <!--form id="payment_form" class="mt-5 row justify-content-center" method="post" action="https://preprod.gpgcheckout.com/Paiement_test/Validation_paiement.php"-->
                 <div class="col-12 col-lg-6 mt-5">
                     <!-- Billing details -->
                     <h4 class="margin-bottom-20 mb-5">Checkout</h4>
-                    {#{{ form_start(personalinfo_form) }}#}
                     <div class="row mt-3">
                         <div class="col-12 col-sm-6">
-                            {#{{ form_label(personalinfo_form.customerFirstName) }}
-                            {{ form_widget(personalinfo_form.customerFirstName) }}#}
                             <label>Last name</label>
                             <input type="text" id="CustFirstName" name="CustFirstName" required="required" class="form-control">
                         </div>
                         <div class="col-12 col-sm-6">
-                            {#{{ form_label(personalinfo_form.customerLastName) }}
-                            {{ form_widget(personalinfo_form.customerLastName) }}#}
                             <label>First name</label>
                             <input type="text" id="CustLastName" name="CustLastName" required="required" class="form-control">
                         </div>
                     </div>
                     <div class="mt-3">
-                        {#{{ form_label(personalinfo_form.customerEmail) }}
-                        {{ form_widget(personalinfo_form.customerEmail) }}#}
                         <label>Email</label>
                         <input type="email" id="EMAIL" name="EMAIL" required="required" class="form-control">
                     </div>
                     <div class="mt-3">
-                        {#{{ form_label(personalinfo_form.pays) }}
-                        {{ form_widget(personalinfo_form.pays) }}#}
                         <label>Country</label>
                         <select id="CustCountry" name="CustCountry" class="form-control">
                             <option value="Afganistan">Afghanistan</option>
@@ -288,36 +279,20 @@
                         <div class="col-12 col-sm-6">
                             <label>City</label>
                             <input type="text" id="CustCity" name="CustCity" required="required" class="form-control">
-                            {#{{ form_label(personalinfo_form.customerCity) }}
-                            {{ form_widget(personalinfo_form.customerCity) }}#}
                         </div>
                         <div class="col-12 col-sm-6">
                             <label>Zip code</label>
                             <input type="text" id="CustZIP" name="CustZIP" required="required" class="form-control">
-                            {#{{ form_label(personalinfo_form.postalCode) }}
-                            {{ form_widget(personalinfo_form.postalCode) }}#}
                         </div>
                     </div>
                     <div class="mt-3">
                         <label>Address</label>
                         <input type="text" id="CustAddress" name="CustAddress" required="required" class="form-control">
-                        {#{{ form_label(personalinfo_form.customerAddress) }}
-                        {{ form_widget(personalinfo_form.customerAddress) }}#}
                     </div>
                     <div class="mt-3">
                         <label>Phone</label>
                         <input type="text" id="CustTel" name="CustTel" required="required" class="form-control">
-                        {#{{ form_label(personalinfo_form.customerPhone) }}
-                        {{ form_widget(personalinfo_form.customerPhone) }}#}
                     </div>
-                    <!--div class="mt-3">
-                        <label>Méthode de paiement</label>
-                        <select id="paymentMethod" name="paymentMethod" class="form-control">
-                            <option value="Credit card">Credit card</option>
-                        </select>
-                        {#{{ form_label(personalinfo_form.paymentMethod) }}
-                        {{ form_widget(personalinfo_form.paymentMethod) }}#}
-                    </div-->
                     <!--div class="mt-3">
                         <label>Code promo</label>
                         {#{{ form_label(personalinfo_form.promo) }}#}
@@ -328,10 +303,17 @@
                             </div>
                         </div>
                     </div-->
-                    <!--input type="hidden" name="NumSite" value="MAR747"-->
-                    <!--input type="hidden" name="Password" value="d245c88cb5d63df70192d96afb1c4297"-->
-                    <input type="hidden" name="NumSite" value="MAR788">
-                    <input type="hidden" name="Password" value="311ca077709871c0a7ba9720ef9f7e46">
+                    <div class="mt-3">
+                        <label>Payment method</label>
+                        <select id="paymentMethod" name="paymentMethod" class="form-control">
+                            <option value="Cash on delivery">Cash on delivery</option>
+                            <option value="Credit card">Credit card</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="NumSite" value="MAR747">
+                    <input type="hidden" name="Password" value="d245c88cb5d63df70192d96afb1c4297">
+                    <!--input type="hidden" name="NumSite" value="MAR788"-->
+                    <!--input type="hidden" name="Password" value="311ca077709871c0a7ba9720ef9f7e46"-->
                     <input type="hidden" name="orderID" value="{{commande.id}}">
                     <input type="hidden" name="Amount" value="">
                     <input type="hidden" name="Currency" value="USD">
@@ -341,8 +323,8 @@
                     <input type="hidden" name="orderProducts" value="">
                     <input type="hidden" name="signature" value="">
                     <input type="hidden" name="AmountSecond" value="">
-                    <!--input type="hidden" name="vad" value="767400003"-->
-                    <input type="hidden" name="vad" value="815600003">
+                    <input type="hidden" name="vad" value="767400003">
+                    <!--input type="hidden" name="vad" value="815600003"-->
                     <input type="hidden" name="Terminal" value="004">
                     <input type="hidden" name="TauxConversion" value="3">
                 </div>
@@ -394,12 +376,9 @@
                             <b style="font-size: 20px !important;" id="total">{{ subTotal }} $</b>
                         </li>
                     </ul>
-                    {#{{ form_rest(personalinfo_form) }}
-                    {{ form_end(personalinfo_form) }}#}
                     <div class="container mb-5">
                         <div class="row justify-content-center mt-5">
                             <div class="col-10 text-center">
-                                {#{{ form_widget(personalinfo_form.save) }}#}
                                 <button type="submit" id="personal_info_save" name="Valider" class="btn karl-checkout-btn btn">CONTINUE TO BILLING</button>
                             </div>
                         </div>
@@ -408,7 +387,7 @@
                 </div>
             </form>
         </div>
-    </div><!-- end container -->
+    </div>
     {% include 'default/footer.html.twig' %}
 {% endblock %}
 {% block javascripts %}
@@ -468,8 +447,7 @@
                 var $entryInfoObjects = $.map($entryInfoElements, item => $(item).data('entryInfo'));
                 var obj1 = JSON.parse(JSON.stringify($entryInfoObjects));
                 for (let i=0; i<obj1.length; i++) {
-                    var $id = (obj1[i].id + "-" + obj1[i].idv);
-                    obj1[i].id = $id;
+                    obj1[i].id = (obj1[i].id + "-" + obj1[i].idv);
                     delete obj1[i].idv;
                     delete obj1[i].name;
                     delete obj1[i].color;
@@ -504,8 +482,8 @@
                 $("input[name*='AmountSecond']").val(totalPrice * 100);
                 $("input[name*='orderProducts']").val(orderProducts);
                 // TODO prod
-                // $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 * 2.9 + "USD"));
-                $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 2.9 + "USD"));
+                $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 * 2.9 + "USD"));
+                // $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 2.9 + "USD"));
                 // console.log(("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 3 + "USD"));
             });
         });
@@ -516,7 +494,6 @@
             let arr = $('#payment_form').serializeArray();
             // console.log(arr);
             $("#payment_form").on('submit', function ($event) {
-                console.log($('#payment_form').serializeArray());
                 $.ajax({
                     type: "post",
                     url: '{{ path('personal_info_endpoint') }}',
@@ -529,7 +506,15 @@
                     console.log(xhr.responseText);
                     console.log(errorThrown);*/
                 });
-                // $event.preventDefault();
+                if ($('#paymentMethod').val() === 'Cash on delivery') {
+                    $event.preventDefault();
+                    const url = '{{ path('checkout_page') }}';
+                    const form = $('<form action="' + url + '" method="post">' +
+                        '<input type="text" name="inp" value="inp" />' +
+                        '</form>');
+                    $('body').append(form);
+                    form.submit();
+                }
             });
         });
     </script>

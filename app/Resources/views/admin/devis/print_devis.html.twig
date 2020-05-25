@@ -67,7 +67,7 @@
                                         {% else %}
                                             {% set total = item.quantity*item.product.price %}
                                         {% endif %}
-                                        {{ total }} DT
+                                        {{ total }} USD - ({{ total*2.9 }} TND)
                                     </span>
                                 </td>
                             </tr>
@@ -92,7 +92,7 @@
                                         {% endif %}
                                         <tr>
                                             <th>Total:</th>
-                                            <td class="text-right text-primary"><h5 class="text-semibold" id="total">{{ sum1 }} DT</h5></td>
+                                            <td class="text-right text-primary"><h5 class="text-semibold" id="total">{{ sum1 }} USD - ({{ sum1*2.9 }} TND)</h5></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -126,10 +126,10 @@
                         '<td></td>'+
                         '<td></td>' +
                         '<td>1</td>' +
-                        '<td class="text-semibold">5 DT</td>' +
+                        '<td class="text-semibold">10 USD</td>' +
                         '</tr>');
-                    initialTotal = parseFloat(initialTotal) + parseFloat(5);
-                    $("#total").html(initialTotal + " DT");
+                    initialTotal = parseFloat(initialTotal) + parseFloat(10);
+                    $("#total").html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
                 }
                 //console.log(code);
                 if(code != null) {
@@ -141,7 +141,7 @@
                             var s = initialTotal;
                             //console.log(data);
                             var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
-                            $("#total").html(news + " DT");
+                            $("#total").html(news + " USD - (" + parseFloat(news * 2.9).toFixed(2) + " TND)");
                             $('#code').html(JSON.parse(data).montant + "%");
                             //console.log(s);
                         }

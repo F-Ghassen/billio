@@ -53,7 +53,7 @@
                                             {% endif %}
                                         {% endfor %}
                                         <span class="text-semibold">
-                                            <h6 class="text-semibold text-right no-margin-top" id="total1_{{ loop.index0 }}">{{ sum1 }} DT</h6>
+                                            <h6 class="text-semibold text-right no-margin-top" id="total1_{{ loop.index0 }}">{{ sum1 }} USD - ({{ sum1*2.9 }} TND)</h6>
                                         </span>
                                         <div class="text-right">
                                             Status: &nbsp;
@@ -149,7 +149,7 @@
                                                         {% else %}
                                                             {% set total = item.quantity*item.product.price %}
                                                         {% endif %}
-                                                        {{ total }} DT
+                                                        {{ total }} USD - ({{ total*2.9 }} TND)
                                                     </span>
                                                 </td>
                                             </tr>
@@ -174,7 +174,7 @@
                                                         {% endif %}
                                                         <tr>
                                                             <th>Total:</th>
-                                                            <td class="text-right text-primary"><h5 class="text-semibold" id="total_{{ loop.index0 }}">{{ sum1 }} DT</h5></td>
+                                                            <td class="text-right text-primary"><h5 class="text-semibold" id="total_{{ loop.index0 }}">{{ sum1 }} USD - ({{ sum1*2.9 }} TND)</h5></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -228,12 +228,12 @@
                         '<td></td>'+
                         '<td></td>' +
                         '<td>1</td>' +
-                        '<td class="text-semibold">5 DT</td>' +
+                        '<td class="text-semibold">10 USD</td>' +
                         '</tr>');
                     //console.log(initialTotal);
-                    initialTotal = parseFloat(initialTotal) + parseFloat(5);
-                    $("#total_"+i).html(initialTotal + " DT");
-                    $("#total1_"+i).html(initialTotal + " DT");
+                    initialTotal = parseFloat(initialTotal) + parseFloat(10);
+                    $("#total_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
+                    $("#total1_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
                 }
                 //console.log(code);
                 if(code != null) {
@@ -244,8 +244,8 @@
                         if(data != "false") {
                             var s = initialTotal;
                             var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
-                            $("#total_"+i).html(news + " DT");
-                            $("#total1_"+i).html(news + " DT");
+                            $("#total_"+i).html(news + " USD - (" + parseFloat(news * 2.9).toFixed(2) + " TND)");
+                            $("#total1_"+i).html(news + " USD - (" + parseFloat(news * 2.9).toFixed(2) + " TND)");
                             $('#code'+i).html(JSON.parse(data).montant + "%");
                             //console.log(s)
                         }
