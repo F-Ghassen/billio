@@ -427,7 +427,14 @@ class DefaultController extends Controller
      */
     public function afterCheckoutAction(Request $request)
     {
+        $serializer = $this->get('jms_serializer');
+        $session = $this->get('session');
         $cartLogo = 0;
+        if ($session->has('cartElements')) {
+            $commandeJson = $session->get('cartElements');
+            $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
+            $cartLogo = count($commande->getItems());
+        }
         $mailing = new MailingList();
         $mailing_form = $this->get('form.factory')->create(MailingListType::class, $mailing);
         if ($request->isMethod('POST') && $mailing_form->handleRequest($request)->isValid()) {
@@ -494,15 +501,11 @@ class DefaultController extends Controller
         $serializer = $this->get('jms_serializer');
         $em = $this->getDoctrine()->getManager();
 
-        $logger = $this->get('logger');
+        /*$logger = $this->get('logger');
         $logger->error($request->request->get('TransStatus'));
         $logger->error($request->get('TransStatus'));
-        $logger->error($request->get('TransStatus') == '00');
+        $logger->error($request->get('TransStatus') == '00');*/
         if ($request->get('TransStatus') == '00') {
-            $logger->error('payment worked');
-        }
-
-        /*if($request->getContent()->TransStatus == '00') {
             if ($session->has('cartElements')) {
                 $commandeJson = $session->get('cartElements');
                 $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
@@ -619,8 +622,7 @@ class DefaultController extends Controller
                 $session->clear();
                 return new JsonResponse('command saved');
             }
-        }*/
-
+        }
         return new JsonResponse(json_decode($request->getContent()));
         // return new JsonResponse('Payment validated');
     }
