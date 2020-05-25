@@ -501,18 +501,19 @@ class DefaultController extends Controller
         $serializer = $this->get('jms_serializer');
         $em = $this->getDoctrine()->getManager();
 
-        /*$logger = $this->get('logger');
-        $logger->error($request->request->get('TransStatus'));
+        $logger = $this->get('logger');
+        /*$logger->error($request->request->get('TransStatus'));
         $logger->error($request->get('TransStatus'));
         $logger->error($request->get('TransStatus') == '00');*/
         if ($request->get('TransStatus') == '00') {
             if ($session->has('cartElements')) {
+                $logger->error("entered");
                 $commandeJson = $session->get('cartElements');
                 $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
                 $data = $commande->getItems();
-                $database_commande = $this->getDoctrine()->getManager()->getRepository(Devis::class)->find($commande->getId());
-
+                $database_commande = $em->getRepository(Devis::class)->find($commande->getId());
                 $database_commande->setEnabled(true);
+                $logger->error($database_commande);
                 foreach ($data as $devis_item) {
                     $variation = $em->getRepository(ProductVariation::class)->find(($devis_item->getVariation()->getId()));
                     switch ($devis_item->getSize()) {
@@ -618,13 +619,13 @@ class DefaultController extends Controller
                             break;
                     }
                 }
+
                 $em->flush();
                 $session->clear();
                 return new JsonResponse('command saved');
             }
         }
-        return new JsonResponse(json_decode($request->getContent()));
-        // return new JsonResponse('Payment validated');
+        return new JsonResponse('Payment not valid');
     }
 
     /**
