@@ -506,6 +506,7 @@ class DefaultController extends Controller
         $logger->error($request->get('TransStatus'));
         $logger->error($request->get('TransStatus') == '00');*/
         if ($request->get('TransStatus') == '00') {
+            $logger->error($session->all());
             if ($session->has('cartElements')) {
                 $logger->error("entered");
                 $commandeJson = $session->get('cartElements');
