@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,14 +214,7 @@
       <workItem from="1589600064288" duration="17472000" />
       <workItem from="1590018506903" duration="9569000" />
       <workItem from="1590064584709" duration="1976000" />
-      <workItem from="1590416465516" duration="7758000" />
-    </task>
-    <task id="LOCAL-00022" summary="clear session in checkout">
-      <created>1586950889822</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1586950889822</updated>
+      <workItem from="1590416465516" duration="8205000" />
     </task>
     <task id="LOCAL-00023" summary="fix bug">
       <created>1586951509158</created>
@@ -560,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590424689359</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="fetch command id from notif">
+      <created>1590425202729</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1590425202729</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,7 +578,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed link" />
     <MESSAGE value="test reach endpoint" />
     <MESSAGE value="test2" />
     <MESSAGE value="another test" />
@@ -604,7 +602,8 @@
     <MESSAGE value="check session" />
     <MESSAGE value="print session" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="fetch command id from notif" />
+    <option name="LAST_COMMIT_MESSAGE" value="fetch command id from notif" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -615,11 +614,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1590424688227">
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1590425201501">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="69" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1589668788118" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590424688227" />
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590425201501" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1588080473347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -644,10 +643,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1589612622090" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590424437757">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590425480389">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590424437757" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590425480389" />
   </component>
   <component name="masterDetails">
     <states>

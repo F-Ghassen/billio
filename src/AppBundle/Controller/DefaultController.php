@@ -508,10 +508,10 @@ class DefaultController extends Controller
         if ($request->get('TransStatus') == '00') {
             $logger->error($request->get('PAYID'));
             $id_command = $request->get('PAYID');
-            $logger->error("entered");
             $database_commande = $em->getRepository(Devis::class)->find($id_command);
             $data = $database_commande->getItems();
             $database_commande->setEnabled(true);
+            $em->flush();
             $logger->error($database_commande);
             foreach ($data as $devis_item) {
                 $variation = $em->getRepository(ProductVariation::class)->find(($devis_item->getVariation()->getId()));
@@ -617,8 +617,8 @@ class DefaultController extends Controller
                         $variation->setSizeMoc45($val);
                         break;
                 }
+                $em->flush();
             }
-
             $em->flush();
             $session->clear();
             return new JsonResponse('command saved');
