@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -212,28 +218,9 @@
       <workItem from="1588080464127" duration="12000" />
       <workItem from="1589599756686" duration="262000" />
       <workItem from="1589600064288" duration="17472000" />
-      <workItem from="1590018506903" duration="8930000" />
-    </task>
-    <task id="LOCAL-00012" summary="passed command as json">
-      <created>1586881771558</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1586881771558</updated>
-    </task>
-    <task id="LOCAL-00013" summary="passed command as json">
-      <created>1586881920147</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1586881920147</updated>
-    </task>
-    <task id="LOCAL-00014" summary="cleared session">
-      <created>1586882490143</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1586882490143</updated>
+      <workItem from="1590018506903" duration="9569000" />
+      <workItem from="1590064584709" duration="1976000" />
+      <workItem from="1590416465516" duration="1020000" />
     </task>
     <task id="LOCAL-00015" summary="cleared session">
       <created>1586884537422</created>
@@ -557,7 +544,28 @@
       <option name="project" value="LOCAL" />
       <updated>1590048442960</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="notification not appearing">
+      <created>1590048857054</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1590048857054</updated>
+    </task>
+    <task id="LOCAL-00062" summary="test notif">
+      <created>1590049043804</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1590049043804</updated>
+    </task>
+    <task id="LOCAL-00063" summary="test notif">
+      <created>1590049078902</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1590049078902</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +584,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="endpoint validate payment test" />
     <MESSAGE value="gpg prod" />
     <MESSAGE value="change to prod" />
     <MESSAGE value="changed feed" />
@@ -593,7 +600,6 @@
     <MESSAGE value="print all request" />
     <MESSAGE value="content display" />
     <MESSAGE value="test with session" />
-    <MESSAGE value="test notif" />
     <MESSAGE value="check if notif works" />
     <MESSAGE value="heyo" />
     <MESSAGE value="log request" />
@@ -601,7 +607,9 @@
     <MESSAGE value="log req" />
     <MESSAGE value="fix prod allignement" />
     <MESSAGE value="another get request" />
-    <option name="LAST_COMMIT_MESSAGE" value="another get request" />
+    <MESSAGE value="notification not appearing" />
+    <MESSAGE value="test notif" />
+    <option name="LAST_COMMIT_MESSAGE" value="test notif" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -612,11 +620,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1590048442230">
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1590049078023">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="69" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1589668788118" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590048442230" />
+    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590049078023" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1588080473347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -641,10 +649,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1589612622090" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587427264364">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590416706574">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587427264364" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590416706574" />
   </component>
   <component name="masterDetails">
     <states>
