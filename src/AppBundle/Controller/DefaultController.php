@@ -495,10 +495,12 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $logger = $this->get('logger');
-        $logger->error($request->query->get('TransStatus'));
+        $logger->error($request->request->get('TransStatus'));
         $logger->error($request->get('TransStatus'));
-        $logger->error($request->query->get('TransStatus') == '00');
-        $logger->error($request->query->get('TransStatus') == '00');
+        $logger->error($request->get('TransStatus') == '00');
+        if ($request->get('TransStatus') == '00') {
+            $logger->error('payment worked');
+        }
 
         /*if($request->getContent()->TransStatus == '00') {
             if ($session->has('cartElements')) {
