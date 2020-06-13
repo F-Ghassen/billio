@@ -3,7 +3,6 @@
 // src/AppBundle/EventSubscriber/LocaleSubscriber.php
 namespace AppBundle\EventSubscriber;
 
-use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -17,7 +16,7 @@ class LocaleSubscriber implements EventSubscriberInterface
         $this->defaultLocale = 'en';
     }
 
-    public function onKernelRequest(GetResponseEvent $event, LoggerInterface $logger)
+    public function onKernelRequest(GetResponseEvent $event)
     {
         $request = $event->getRequest();
         if (!$request->hasPreviousSession()) {
@@ -26,8 +25,8 @@ class LocaleSubscriber implements EventSubscriberInterface
 
         // dump($request->getClientIp());
         $ip_data = json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=".$request->getClientIp()));
-        $logger->error($request->getClientIp());
-        $logger->error($ip_data);
+        dump($request->getClientIp());
+        dump($ip_data);
         if ($ip_data && $ip_data->geoplugin_countryName != null ) {
             if($ip_data->geoplugin_countryCode == 'TN') {
                 $this->defaultLocale = 'fr';

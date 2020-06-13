@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="" />
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/EventSubscriber/LocaleSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/EventSubscriber/LocaleSubscriber.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,20 +227,7 @@
       <workItem from="1590772247864" duration="95000" />
       <workItem from="1591800192201" duration="13634000" />
       <workItem from="1591916942784" duration="29920000" />
-    </task>
-    <task id="LOCAL-00027" summary="endpoint">
-      <created>1587330093328</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1587330093328</updated>
-    </task>
-    <task id="LOCAL-00028" summary="payment works">
-      <created>1587336413300</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1587336413300</updated>
+      <workItem from="1592046218737" duration="2056000" />
     </task>
     <task id="LOCAL-00029" summary="async false">
       <created>1587336949972</created>
@@ -567,7 +558,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592011022219</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="added event listener">
+      <created>1592046285795</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1592046285796</updated>
+    </task>
+    <task id="LOCAL-00077" summary="log ip">
+      <created>1592063807607</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1592063807607</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,7 +591,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="check return" />
     <MESSAGE value="print all request" />
     <MESSAGE value="content display" />
     <MESSAGE value="test with session" />
@@ -611,7 +615,8 @@
     <MESSAGE value="changed prices&#10;gpg back to prod" />
     <MESSAGE value="final patch" />
     <MESSAGE value="added event listener" />
-    <option name="LAST_COMMIT_MESSAGE" value="added event listener" />
+    <MESSAGE value="log ip" />
+    <option name="LAST_COMMIT_MESSAGE" value="log ip" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -626,11 +631,15 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592011020602">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592063639537">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592063639537" />
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592063806564">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="69" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1589668788118" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592011020602" />
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592063806564" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1590772341394">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
