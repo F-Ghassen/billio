@@ -67,7 +67,7 @@ class DefaultController extends Controller
             //~ Is AJAX Request
             $serializer = $this->get('jms_serializer');
             $offset = $request->getContent();
-            $logger->error($offset);
+            // $logger->error($offset);
             $em = $this->getDoctrine()
                 ->getEntityManager();
 

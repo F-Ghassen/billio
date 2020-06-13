@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="" />
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,14 +226,7 @@
       <workItem from="1590772247864" duration="95000" />
       <workItem from="1591800192201" duration="13634000" />
       <workItem from="1591916942784" duration="29920000" />
-      <workItem from="1592046218737" duration="2361000" />
-    </task>
-    <task id="LOCAL-00030" summary="changes in payment">
-      <created>1587432471024</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1587432471025</updated>
+      <workItem from="1592046218737" duration="7546000" />
     </task>
     <task id="LOCAL-00031" summary="criteo tags">
       <created>1587738000478</created>
@@ -568,7 +564,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592065127999</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="remove dump">
+      <created>1592065287064</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1592065287064</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +590,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="print all request" />
     <MESSAGE value="content display" />
     <MESSAGE value="test with session" />
     <MESSAGE value="check if notif works" />
@@ -612,7 +614,8 @@
     <MESSAGE value="final patch" />
     <MESSAGE value="added event listener" />
     <MESSAGE value="log ip" />
-    <option name="LAST_COMMIT_MESSAGE" value="log ip" />
+    <MESSAGE value="remove dump" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove dump" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -631,11 +634,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592063639537" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592065126852">
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592065285939">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="69" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1589668788118" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592065126852" />
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592065285939" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1590772341394">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -660,10 +663,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1591837580780" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1591922601064">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1592068490628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1591922601064" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1592068490628" />
   </component>
   <component name="masterDetails">
     <states>
