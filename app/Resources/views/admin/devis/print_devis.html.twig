@@ -32,7 +32,8 @@
                                 <li><h5>{{ c.orderInfo.getCustomerFirstName }} {{ c.orderInfo.getCustomerLastName }}</h5></li>
                                 <li>{{ c.orderInfo.customerPhone }}</li>
                                 <li>{{ c.orderInfo.customerEmail }}</li>
-                                <li>{{ c.orderInfo.customerCity }},{{ c.orderInfo.pays }} , {{ c.orderInfo.postalCode }}</li>
+                                <li id="country">{{ c.orderInfo.pays }}</li>
+                                <li>{{ c.orderInfo.customerCity }}, {{ c.orderInfo.postalCode }}</li>
                                 <li><span class="text-semibold">{{ c.orderInfo.customerAddress }}</span></li>
 
                             </ul>
@@ -120,16 +121,35 @@
                 var code = $('#code').html();
                 var initialTotal = $("#total").html();
                 //console.log(initialTotal);
-                if(parseFloat(initialTotal) < 200) {
-                    $('#items').append('<tr>' +
-                        '<td><h6 class="no-margin">Livraison</h6></td>' +
-                        '<td></td>'+
-                        '<td></td>' +
-                        '<td>1</td>' +
-                        '<td class="text-semibold">10 USD</td>' +
-                        '</tr>');
-                    initialTotal = parseFloat(initialTotal) + parseFloat(10);
-                    $("#total").html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
+                console.log($("#country").html())
+                if ($("#country").html() == 'Tunisie') {
+                    if(parseFloat(initialTotal)*2.9 < parseFloat(200)) {
+                        $('#items').append('<tr>' +
+                            '<td><h6 class="no-margin">Livraison</h6></td>' +
+                            '<td></td>'+
+                            '<td></td>' +
+                            '<td>1</td>' +
+                            '<td class="text-semibold">6 TND</td>' +
+                            '</tr>');
+                        //console.log(initialTotal);
+                        initialTotal = parseFloat(initialTotal);
+                        $("#total").html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9+6).toFixed(2) + " TND)");
+                    }
+                } else {
+                    if(parseFloat(initialTotal) < parseFloat(200)) {
+                        //console.log(i);
+                        //console.log(initialTotal);
+                        $('#items').append('<tr>' +
+                            '<td><h6 class="no-margin">Delivery</h6></td>' +
+                            '<td></td>'+
+                            '<td></td>' +
+                            '<td>1</td>' +
+                            '<td class="text-semibold">10 USD</td>' +
+                            '</tr>');
+                        //console.log(initialTotal);
+                        initialTotal = parseFloat(initialTotal) + parseFloat(10);
+                        $("#total").html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
+                    }
                 }
                 //console.log(code);
                 if(code != null) {

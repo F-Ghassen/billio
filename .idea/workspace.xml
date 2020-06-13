@@ -5,8 +5,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/list_products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/list_products.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/single-product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/single-product.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,9 +108,14 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hamza\projects\billio\src\AppBundle" />
+      <recent name="C:\Users\hamza\projects\billio\src" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\symfony\billio\app\Resources\views\admin\promo" />
       <recent name="C:\wamp64\www\symfony\billio\app\Resources\views\admin\collections" />
@@ -219,14 +230,12 @@
       <workItem from="1589600064288" duration="17472000" />
       <workItem from="1590018506903" duration="9569000" />
       <workItem from="1590064584709" duration="1976000" />
-      <workItem from="1590416465516" duration="17073000" />
-    </task>
-    <task id="LOCAL-00024" summary="dump session">
-      <created>1586953628097</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1586953628097</updated>
+      <workItem from="1590416465516" duration="17968000" />
+      <workItem from="1590461857252" duration="41000" />
+      <workItem from="1590543118179" duration="654000" />
+      <workItem from="1590772247864" duration="95000" />
+      <workItem from="1591800192201" duration="13634000" />
+      <workItem from="1591916942784" duration="29879000" />
     </task>
     <task id="LOCAL-00025" summary="dump request data">
       <created>1587328175464</created>
@@ -564,7 +573,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590425626176</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="changed prices&#10;gpg back to prod">
+      <created>1590437444127</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1590437444127</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,7 +599,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test2" />
     <MESSAGE value="another test" />
     <MESSAGE value="test new" />
     <MESSAGE value="check return" />
@@ -608,26 +623,31 @@
     <MESSAGE value="test" />
     <MESSAGE value="fetch command id from notif" />
     <MESSAGE value="added flush" />
-    <option name="LAST_COMMIT_MESSAGE" value="added flush" />
+    <MESSAGE value="changed prices&#10;gpg back to prod" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed prices&#10;gpg back to prod" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="7" key="#PHP/0.0.1366.728@0.0.1366.728" timestamp="1589610915307" />
+    <state x="423" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591807486048">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="423" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1591807486048" />
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587315834637">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2" timestamp="1590425625501">
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1590437442903">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="69" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1589668788118" />
-    <state x="91" y="69" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590425625501" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1588080473347">
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590437442903" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1590772341394">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1588080473347" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590772341394" />
     <state x="437" y="66" key="RollbackChangesDialog" timestamp="1590045964963">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -644,14 +664,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1585511524404" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1590426085357">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1591837580780">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1590426085357" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590425480389">
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1591837580780" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1591922601064">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590425480389" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1591922601064" />
   </component>
   <component name="masterDetails">
     <states>

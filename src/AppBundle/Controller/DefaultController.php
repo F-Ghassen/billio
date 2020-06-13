@@ -24,7 +24,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="index_page_nolocale", defaults={"_locale":"%locale%"})
+     * @Route("/{_locale}/", name="homepage", requirements={"_locale" = "%locales%"})
      */
     public function indexAction(Request $request)
     {
@@ -56,11 +57,34 @@ class DefaultController extends Controller
     /**
      * @Route("/products", name="index_products_page")
      */
-    public function productAction(Request $request)
+    public function productAction(Request $request, LoggerInterface $logger)
     {
         $test = $request->query->get('collection');
 
         $em = $this->getDoctrine()->getManager();
+
+        if ($request->isXmlHttpRequest()) {
+            //~ Is AJAX Request
+            $serializer = $this->get('jms_serializer');
+            $offset = $request->getContent();
+            $logger->error($offset);
+            $em = $this->getDoctrine()
+                ->getEntityManager();
+
+            $queryBuilder = $em->getRepository(Product::class)->createQueryBuilder('p');
+            $queryBuilder->where('p.enabled = true')->orderBy('p.id', 'DESC');
+            if($request->query->getAlnum('category')) {
+                $queryBuilder->andWhere('p.category = :category')
+                    ->setParameter('category', $request->query->getAlnum('category'));
+            }
+            $objects = $queryBuilder->getQuery()
+                ->setFirstResult($offset)
+                ->setMaxResults(10)
+                ->getResult();
+
+            return new JsonResponse($serializer->serialize($objects, 'json'));
+        }
+
         $queryBuilder = $em->getRepository(Product::class)->createQueryBuilder('p');
         $queryBuilder->leftJoin('p.variations', 'variations')
             ->addSelect('variations');
@@ -81,7 +105,7 @@ class DefaultController extends Controller
         $result = $paginator->paginate(
             $query,
             $request->query->getInt('page', 1),
-            $request->query->getInt('limit', 999999)
+            $request->query->getInt('limit', 10)
         );
 
         $serializer = $this->get('jms_serializer');

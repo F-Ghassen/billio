@@ -8,7 +8,7 @@
             <div class="row mt-5">
                 <div class="col-12 mt-5">
                     <div class="section_heading text-center mt-5">
-                        <h2>Product Details</h2>
+                        <h2>{{ 'translate.product_details'|trans }}</h2>
                     </div>
                 </div>
             </div>
@@ -61,12 +61,20 @@
 
                         <h4 class="price">
                             {% if p.promoEnabled %}
-                                <s style='color: dimgrey; font-size: 80%'>{{ p.price }}</s>
-                                {{ (p.price - p.price*p.promoMontant/100) }}
+                                {% if app.request.locale == 'en' %}
+                                    <s style='color: dimgrey; font-size: 80%'>{{ (p.price)|number_format(2) }}</s>
+                                    {{ (p.price - p.price*p.promoMontant/100)|number_format(2) }} $
+                                {% else %}
+                                    <s style='color: dimgrey; font-size: 80%'>{{ (p.price * 2.9)|number_format(2) }}</s>
+                                    {{ ((p.price - p.price*p.promoMontant/100) * 2.9)|number_format(2) }} TND
+                                {% endif %}
                             {% else %}
-                                {{ p.price }}
+                                {% if app.request.locale == 'en' %}
+                                    {{ (p.price)|number_format(2) }} $
+                                {% else %}
+                                    {{ (p.price * 2.9)|number_format(2) }} TND
+                                {% endif %}
                             {% endif %}
-                            $
                         </h4>
                         </div>
                         <p class="available">Available: <span class="text-muted">In Stock</span></p>
@@ -218,7 +226,7 @@
                                     <span class="qty-plus" onclick="var effect = document.getElementById('qty{{ loop.index0 }}'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                 </div>
                             #}
-                            <input type="submit" name="addtocart" id="submit-btn" value="Add to cart" class="cart-submit" disabled="true">
+                            <input type="submit" name="addtocart" id="submit-btn" value="{{ 'translate.add_cart'|trans }}" class="cart-submit" disabled="true">
                         </form>
 
                         <div id="accordion" class="mt-5" role="tablist">
@@ -243,11 +251,7 @@
                                 </div>
                                 <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
                                     <div class="card-body">
-                                        <p>
-                                            We will provide you with the Tracking Number of the parcel as soon as it is dispatched,
-                                            so you may follow the delivery on the DHL website. Returns can be requested within 30 days
-                                            from when you receive your order. Visit Customer Care section for further details.
-                                        </p>
+                                        <p>{{ 'translate.returns'|trans }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -261,7 +265,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 text-center mt-5">
                     <div class="section_heading text-center mt-5">
-                        <h3>Other Variations</h3>
+                        <h3>{{ 'translate.other_var'|trans }}</h3>
                     </div>
                 </div>
             </div>

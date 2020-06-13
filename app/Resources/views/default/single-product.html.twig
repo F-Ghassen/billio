@@ -10,17 +10,25 @@
     <div class="product-description">
         <h4 class="product-price">
             {% if p.promoEnabled %}
-                <s style='color: dimgrey; font-size: 80%'>{{ p.price }}</s>
-                {{ (p.price - p.price*p.promoMontant/100) }}
+                {% if app.request.locale == 'en' %}
+                    <s style='color: dimgrey; font-size: 80%'>{{ (p.price)|number_format(2) }}</s>
+                    {{ (p.price - p.price*p.promoMontant/100)|number_format(2) }} $
+                {% else %}
+                    <s style='color: dimgrey; font-size: 80%'>{{ (p.price * 2.9)|number_format(2) }}</s>
+                    {{ ((p.price - p.price*p.promoMontant/100) * 2.9)|number_format(2) }} TND
+                {% endif %}
             {% else %}
-                {{ p.price }}
+                {% if app.request.locale == 'en' %}
+                    {{ (p.price)|number_format(2) }} $
+                {% else %}
+                    {{ (p.price * 2.9)|number_format(2) }} TND
+                {% endif %}
             {% endif %}
-            $
         </h4>
         <p style="font-size:23px">{{ p.name }}</p>
         <!-- Add to Cart -->
         <form action="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}" class="cart" method="post">
-            <button type="submit" class="btn btn-dark mt-2 btn-acheter">Add to cart</button>
+            <button type="submit" class="btn btn-dark mt-2 btn-acheter">{{ 'translate.add_cart'|trans }}</button>
         </form>
 
     </div>

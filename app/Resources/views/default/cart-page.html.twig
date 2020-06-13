@@ -11,7 +11,7 @@
                 <div class="col-12">
                     <div class="cart-footer d-flex mt-30">
                         <div class="back-to-shop w-50">
-                            <a href="{{ path('index_products_page') }}">Continue shooping</a>
+                            <a href="{{ path('index_products_page') }}">{{ 'translate.continue_shopping'|trans }}</a>
                         </div>
                     </div>
                     <div class="cart-table clearfix mt-5">
@@ -19,11 +19,11 @@
                         <table class="table table-responsive">
                             <thead>
                             <tr>
-                                <th>Product</th>
-                                <th>Size</th>
-                                <th>Color</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
+                                <th>{{ 'translate.product'|trans }}</th>
+                                <th>{{ 'translate.size'|trans }}</th>
+                                <th>{{ 'translate.color'|trans }}</th>
+                                <th>{{ 'translate.price'|trans }}</th>
+                                <th>{{ 'translate.quantity'|trans }}</th>
                                 <th>Total</th>
                                 <th></th>
                             </tr>
@@ -48,14 +48,20 @@
                                 <td>{{ item.variation.color }}</td>
                                 <td class="price">
                                     {% if item.promo %}
-                                        <s style='color: dimgrey; font-size: 80%'>{{ item.product.price }}</s>
-                                        <span>
-                                            {{ (item.quantity*(item.product.price - item.product.price*item.promo/100)) | number_format(2) }}
-                                        </span>
+                                        {% if app.request.locale == 'en' %}
+                                            <s style='color: dimgrey; font-size: 80%'>{{ (item.product.price)|number_format(2) }}</s>
+                                            <span>{{ ((item.product.price - item.product.price*item.promo/100)) | number_format(2) }} </span>$
+                                        {% else %}
+                                            <s style='color: dimgrey; font-size: 80%'>{{ (item.product.price * 2.9)|number_format(2) }}</s>
+                                            <span>{{ ((item.product.price - item.product.price*item.promo/100) * 2.9) | number_format(2) }} </span>TND
+                                        {% endif %}
                                     {% else %}
-                                        <span>{{ (item.quantity*item.product.price) | number_format(2) }}</span>
+                                        {% if app.request.locale == 'en' %}
+                                            <span>{{ (item.product.price) | number_format(2) }}</span> $
+                                        {% else %}
+                                            <span>{{ (item.product.price*2.9) | number_format(2) }}</span> TND
+                                        {% endif %}
                                     {% endif %}
-                                    $
                                 </td>
                                 <td class="qty">
                                     <div class="quantity">
@@ -68,11 +74,19 @@
                                     <span>
                                         <span id="local_tot">
                                             {% if item.promo %}
-                                                {{ (item.quantity*(item.product.price - item.product.price*item.promo/100)) | number_format(2) }}
+                                                {% if app.request.locale == 'en' %}
+                                                    {{ (item.quantity*(item.product.price - item.product.price*item.promo/100)) | number_format(2) }} $
                                             {% else %}
-                                                {{ (item.quantity*item.product.price) | number_format(2) }}
+                                                {{ (item.quantity*(item.product.price - item.product.price*item.promo/100)*2.9) | number_format(2) }} TND
                                             {% endif %}
-                                        </span> $
+                                            {% else %}
+                                                {% if app.request.locale == 'en' %}
+                                                    {{ (item.quantity*item.product.price) | number_format(2) }} $
+                                                {% else %}
+                                                    {{ (item.quantity*item.product.price*2.9) | number_format(2) }} TND
+                                                {% endif %}
+                                            {% endif %}
+                                        </span>
                                     </span>
                                 </td>
                                 <td class="cart-product-remove">
@@ -92,8 +106,7 @@
                 <div class="col-12 offset-lg-8 col-lg-4">
                     <div class="cart-total-area mt-70">
                         <div class="cart-page-heading">
-                            <h5>Cart total</h5>
-                            <p>Final info</p>
+                            <h5>total</h5>
                         </div>
 
                         <ul class="cart-total-chart payment-detail-box">
@@ -133,17 +146,35 @@
                 var price = parseFloat($(this).prev('td').prev('td').find('span').text());
                 var value = quantity*price;
                 subtotal = parseFloat(subtotal) + value;
+                // console.log($(this).prev('td').prev('td').find('span').text())
                 //$(this).find('span').find('span').text(parseFloat(value).toFixed(2));
             });
-            $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " $");
-            if(subtotal > 200) {
-                $('#shipping-val').text('Free');
-                $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " $");
-            } else {
-                $('#shipping-val').text(Number(10).toFixed(2) + " $");
-                var value = subtotal+10;
-                $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " $");
-            }
+
+            {% if app.request.locale == 'en' %}
+                $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " $");
+            {% else %}
+                $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " TND");
+            {% endif %}
+
+            {% if app.request.locale == 'en' %}
+                if(subtotal > 200) {
+                    $('#shipping-val').text('Free');
+                    $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " $");
+                } else {
+                    $('#shipping-val').text(Number(10).toFixed(2) + " $");
+                    var value = subtotal + 10;
+                    $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " $");
+                }
+            {% else %}
+                if(subtotal > 200) {
+                    $('#shipping-val').text('Gratuite');
+                    $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " TND");
+                } else {
+                    $('#shipping-val').text(Number(6).toFixed(2) + " TND");
+                    var value = subtotal + 6;
+                    $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " TND");
+                }
+            {% endif %}
 
             $('.custom-button-circle').on('click', function (e) {
                 calcul();
@@ -159,27 +190,47 @@
                 var price = parseFloat($(this).parent().parent().prev('td').find('span').text());
                 var value = quantity*price;
 
-                $(this).parent().parent().siblings('.cart-product-subtotal').find('span').find('span').text(parseFloat(value).toFixed(2));
-
                 var subtotal = parseFloat(0);
                 $('.cart-product-subtotal').each(function () {
                     var quantity = parseFloat($(this).prev('td.qty').find('input').val());
                     var price = parseFloat($(this).prev('td').prev('td').find('span').text());
                     var value = quantity*price;
                     subtotal = parseFloat(subtotal) + value;
-                    $(this).find('span').find('span').text(parseFloat(value).toFixed(2));
+
+                    {% if app.request.locale == 'en' %}
+                        $(this).find('span').find('span').text(parseFloat(value).toFixed(2) + " $");
+                    {% else %}
+                        $(this).find('span').find('span').text(parseFloat(value).toFixed(2) + " TND");
+                    {% endif %}
                 });
-                $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " $");
-                if(subtotal > 200) {
-                    $('#shipping-val').text('Free');
-                    $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " $");
-                } else {
-                    $('#shipping-val').text(Number(10).toFixed(2) + " $");
-                    var value = subtotal+10;
-                    $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " $");
-                }
+
+                {% if app.request.locale == 'en' %}
+                    $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " $");
+                {% else %}
+                    $('.payment-detail-box').find('span.subt').text(subtotal.toFixed(2) + " TND");
+                {% endif %}
+
+                {% if app.request.locale == 'en' %}
+                    if(subtotal > 200) {
+                        $('#shipping-val').text('Free');
+                        $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " $");
+                    } else {
+                        $('#shipping-val').text(Number(10).toFixed(2) + " $");
+                        var value = subtotal + 10;
+                        $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " $");
+                    }
+                {% else %}
+                    if(subtotal > 200) {
+                        $('#shipping-val').text('Gratuite');
+                        $('.payment-detail-box').find('span.total').text(subtotal.toFixed(2) + " TND");
+                    } else {
+                        $('#shipping-val').text(Number(6).toFixed(2) + " TND");
+                        var value = subtotal + 6;
+                        $('.payment-detail-box').find('span.total').text(value.toFixed(2) + " TND");
+                    }
+                {% endif %}
             }
-        });
+        })
     </script>
 
     <!-- Criteo Basket/Cart Tag -->

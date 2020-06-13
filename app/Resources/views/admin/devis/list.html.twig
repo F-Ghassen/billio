@@ -111,7 +111,8 @@
                                                 <li><h5>{{ c.orderInfo.getCustomerFirstName }} {{ c.orderInfo.getCustomerLastName }}</h5></li>
                                                 <li>{{ c.orderInfo.customerPhone }}</li>
                                                 <li>{{ c.orderInfo.customerEmail }}</li>
-                                                <li>{{ c.orderInfo.customerCity }},{{ c.orderInfo.pays }} , {{ c.orderInfo.postalCode }}</li>
+                                                <li id="country_{{ loop.index0 }}">{{ c.orderInfo.pays }}</li>
+                                                <li>{{ c.orderInfo.customerCity }}, {{ c.orderInfo.postalCode }}</li>
                                                 <li><span class="text-semibold">{{ c.orderInfo.customerAddress }}</span></li>
 
                                             </ul>
@@ -217,24 +218,42 @@
             }
             function promo(i){
                 var code = $('#code'+i).html();
-                console.log(code);
+                // console.log(code);
                 var initialTotal = $("#total_"+i).html();
                 //console.log(initialTotal);
-                if(parseFloat(initialTotal) < parseFloat(200)) {
-                    //console.log(i);
-                    //console.log(initialTotal);
-                    $('#items'+i).append('<tr>' +
-                        '<td><h6 class="no-margin">Livraison</h6></td>' +
-                        '<td></td>'+
-                        '<td></td>' +
-                        '<td>1</td>' +
-                        '<td class="text-semibold">10 USD</td>' +
-                        '</tr>');
-                    //console.log(initialTotal);
-                    initialTotal = parseFloat(initialTotal) + parseFloat(10);
-                    $("#total_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
-                    $("#total1_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
+                // console.log($("#country_"+i).html())
+                if ($("#country_"+i).html() == 'Tunisie') {
+                    if(parseFloat(initialTotal)*2.9 < parseFloat(200)) {
+                        $('#items'+i).append('<tr>' +
+                            '<td><h6 class="no-margin">Livraison</h6></td>' +
+                            '<td></td>'+
+                            '<td></td>' +
+                            '<td>1</td>' +
+                            '<td class="text-semibold">6 TND</td>' +
+                            '</tr>');
+                        //console.log(initialTotal);
+                        initialTotal = parseFloat(initialTotal);
+                        $("#total_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9+6).toFixed(2) + " TND)");
+                        $("#total1_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9+6).toFixed(2) + " TND)");
+                    }
+                } else {
+                    if(parseFloat(initialTotal) < parseFloat(200)) {
+                        //console.log(i);
+                        //console.log(initialTotal);
+                        $('#items'+i).append('<tr>' +
+                            '<td><h6 class="no-margin">Delivery</h6></td>' +
+                            '<td></td>'+
+                            '<td></td>' +
+                            '<td>1</td>' +
+                            '<td class="text-semibold">10 USD</td>' +
+                            '</tr>');
+                        //console.log(initialTotal);
+                        initialTotal = parseFloat(initialTotal) + parseFloat(10);
+                        $("#total_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
+                        $("#total1_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
+                    }
                 }
+
                 //console.log(code);
                 if(code != null) {
                     var path = Routing.generate('check_code_page', {'code': code});

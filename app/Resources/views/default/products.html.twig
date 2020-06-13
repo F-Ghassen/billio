@@ -1,9 +1,7 @@
 <!-- ****** New Arrivals Area Start ****** -->
 <section class="new_arrivals_area section_padding_100_0 clearfix" style="margin-top: -105px;">
-
     <div class="container">
         <div class="row karl-new-arrivals">
-
             {% for p in products %}
             {% if p.collection == null or p.collection.enabled==true %}
             <!-- Single gallery Item Start -->
@@ -43,17 +41,26 @@
                         <div class="product-description">
                             <h4 class="product-price">
                                 {% if p.promoEnabled %}
-                                    <s style='color: dimgrey; font-size: 80%'>{{ p.price }}</s>
-                                    {{ (p.price - p.price*p.promoMontant/100) }}
+                                    {% if app.request.locale == 'en' %}
+                                        <s style='color: dimgrey; font-size: 80%'>{{ (p.price)|number_format(2) }}</s>
+                                        {{ (p.price - p.price*p.promoMontant/100)|number_format(2) }} $
+                                    {% else %}
+                                        <s style='color: dimgrey; font-size: 80%'>{{ (p.price * 2.9)|number_format(2) }}</s>
+                                        {{ ((p.price - p.price*p.promoMontant/100) * 2.9)|number_format(2) }} TND
+                                    {% endif %}
                                 {% else %}
-                                    {{ p.price }}
+                                    {% if app.request.locale == 'en' %}
+                                        {{ (p.price)|number_format(2) }} $
+                                    {% else %}
+                                        {{ (p.price * 2.9)|number_format(2) }} TND
+                                    {% endif %}
                                 {% endif %}
-                                $
+
                             </h4>
                             <div style="min-height: 50px;">{{ p.name }}</div>
                             <!-- Add to Cart -->
                             <form action="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}" class="cart" method="post">
-                                <button type="submit" class="btn btn-dark mt-2 btn-acheter">Add to cart</button>
+                                <button type="submit" class="btn btn-dark mt-2 btn-acheter">{{ 'translate.add_cart'|trans }}</button>
                             </form>
                         </div>
                     </div>
@@ -62,6 +69,7 @@
             {% endif %}
             {% endfor %}
         </div>
+        <div class="row" id="test"></div>
     </div>
 </section>
 <!-- ****** New Arrivals Area End ****** -->
@@ -87,7 +95,7 @@
                     );
 
                 // You'll now have an array containing string values
-                console.log(entryIds); // eg: ["1", "2", "3"]
+                // console.log(entryIds); // eg: ["1", "2", "3"]
             });
 
             /**
@@ -117,4 +125,98 @@
         });
     </script>
     <!-- END Criteo Category / Listing Tag -->
+
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            is_processing = false;
+            last_page = false;
+            offset = 10;
+
+            $(window).scroll(function() {
+                var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
+                var scrolltrigger = 0.80;
+                if (($(window).scrollTop() / (docheight - winheight)) > scrolltrigger) {
+                    if (last_page === false && is_processing === false) {
+                        addMoreElements();
+                    }
+                }
+            });
+
+            function addMoreElements() {
+                is_processing = true;
+                $.ajax({
+                    type: "post",
+                    url: '{{ path('index_products_page') }}',
+                    data: JSON.stringify(offset),
+                }).done( function(response) {
+                    response = JSON.parse(response);
+                    // console.log(response);
+                    if (response.length !== 0) {
+                        htmlData = '';
+                        $.each(response, function(k, product) {
+                            // console.log(htmlData)
+                            // console.log(product)
+                            $.each(product.variations, function(k, variation) {
+                                // console.log(variation)
+                                htmlData += '<div data-entry-id="' + product.id + '-' + variation.id + '" class="col-6 col-lg-4 single_gallery_item ' + product.category +
+                                ' wow fadeInUpBig" data-wow-delay="0.2s"><div class="product-img"><a href="https://billiorich.com/products/' + product.id + '-' + variation.id + '">' +
+                                '<img src="/uploads/product_images/' + variation.images[0].image + '" alt="">';
+                                if (product.promo_enabled) {
+                                    htmlData += '<div class="product-sale"><h6 class="heading-uppercase">-' + product.promo_montant + '%</h6></div>'
+                                }
+                                if (product.category == "Jeans") {
+                                    if (variation.size_jean29 == 0 && variation.size_jean30 == 0 && variation.size_jean31 == 0 && variation.size_jean32 == 0 &&
+                                    variation.size_jean33 == 0 && variation.size_jean34 == 0 && variation.size_jean35 == 0 && variation.size_jean36 == 0 && variation.size_jean38 == 0) {
+                                        htmlData += '<div class="product-stock"><h6 class="heading-uppercase">Out of stock</h6></div>';
+                                    }
+                                } else if (product.category == "Mocassin") {
+                                    if (variation.size_moc40 == 0 && variation.size_moc41 == 0 && variation.size_moc42 == 0 && variation.size_moc43 == 0 &&
+                                        variation.size_moc44 == 0 && variation.size_moc45 == 0) {
+                                        htmlData += '<div class="product-stock"><h6 class="heading-uppercase">Out of stock</h6></div>';
+                                    }
+                                } else {
+                                    if (variation._s == 0 && variation._m == 0 && variation._l == 0 && variation._x_l == 0 && variation._x_x_l == 0) {
+                                        htmlData += '<div class="product-stock"><h6 class="heading-uppercase">Out of stock</h6></div>';
+                                    }
+                                }
+                                htmlData += '</a></div><div class="product-description"><h4 class="product-price">';
+                                if (product.promo_enabled) {
+                                    {% if app.request.locale == "en" %}
+                                    htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price).toFixed(2) + '</s> ' +
+                                        parseFloat(product.price - product.price * product.promo_montant / 100).toFixed(2) + ' $';
+                                    {% else %}
+                                    htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price * 2.9).toFixed(2) + '</s> ' +
+                                        parseFloat(product.price - product.price * product.promo_montant / 100).toFixed(2) + ' TND';
+                                    {% endif %}
+                                }
+                                else {
+                                    {% if app.request.locale == "en" %}
+                                        parseFloat(product.price).toFixed(2) + ' $'
+                                    {% else %}
+                                        parseFloat(product.price * 2.9).toFixed(2) + ' TND'
+                                    {% endif %}
+                                }
+                                htmlData += '</h4><div style="min-height: 50px;" >' + product.name + '</div>' +
+                                    '<form action="https://billiorich.com/products/' + product.id + '-' + variation.id + '" class="cart" method="post">' +
+                                    '<button type="submit" class="btn btn-dark mt-2 btn-acheter">{{ "translate.add_cart"|trans }}</button></form></div></div>';
+                            });
+                        });
+                        // $('.karl-new-arrivals').append(htmlData);
+                        $(htmlData).hide().appendTo('#test').fadeIn();
+                        $(window).scrollTop($(window).scrollTop()-1);
+                        offset += 10;
+
+                    } else {
+                        last_page = true;
+                    }
+                    is_processing = false;
+                }).fail(function(xhr,textmsg,errorThrown){
+                    /*console.log(xhr.status);
+                    console.log(xhr.responseText);
+                    console.log(errorThrown);*/
+                    is_processing = false;
+                });
+            }
+        });
+    </script>
 {% endblock %}

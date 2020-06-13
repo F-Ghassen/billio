@@ -12,20 +12,25 @@
                     <h4 class="margin-bottom-20 mb-5">Checkout</h4>
                     <div class="row mt-3">
                         <div class="col-12 col-sm-6">
-                            <label>Last name</label>
-                            <input type="text" id="CustFirstName" name="CustFirstName" required="required" class="form-control">
+                            <label>{{ 'translate.lastname'|trans }}</label>
+                            <input type="text" id="CustFirstName" name="CustFirstName" required="required" class="form-control" placeholder="{{ 'translate.lastname'|trans }}">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <label>First name</label>
-                            <input type="text" id="CustLastName" name="CustLastName" required="required" class="form-control">
+                            <label>{{ 'translate.firstname'|trans }}</label>
+                            <input type="text" id="CustLastName" name="CustLastName" required="required" class="form-control" placeholder="{{ 'translate.firstname'|trans }}">
                         </div>
                     </div>
                     <div class="mt-3">
                         <label>Email</label>
-                        <input type="email" id="EMAIL" name="EMAIL" required="required" class="form-control">
+                        {% if app.request.locale == 'en' %}
+                            <input type="email" id="EMAIL" name="EMAIL" required="required" class="form-control" placeholder="Email">
+                        {% else %}
+                            <input type="email" id="EMAIL" name="EMAIL" class="form-control" placeholder="Email">
+                        {% endif %}
+
                     </div>
                     <div class="mt-3">
-                        <label>Country</label>
+                        <label>{{ 'translate.country'|trans }}</label>
                         <select id="CustCountry" name="CustCountry" class="form-control">
                             <option value="Afganistan">Afghanistan</option>
                             <option value="Albania">Albania</option>
@@ -277,21 +282,25 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-12 col-sm-6">
-                            <label>City</label>
-                            <input type="text" id="CustCity" name="CustCity" required="required" class="form-control">
+                            <label>{{ 'translate.city'|trans }}</label>
+                            <input type="text" id="CustCity" name="CustCity" required="required" class="form-control" placeholder="{{ 'translate.city'|trans }}">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <label>Zip code</label>
-                            <input type="text" id="CustZIP" name="CustZIP" required="required" class="form-control">
+                            <label>{{ 'translate.zipcode'|trans }}</label>
+                            {% if app.request.locale == 'en' %}
+                                <input type="text" id="CustZIP" name="CustZIP" required="required" class="form-control" placeholder="{{ 'translate.zipcode'|trans }}">
+                            {% else %}
+                                <input type="text" id="CustZIP" name="CustZIP" class="form-control" placeholder="{{ 'translate.zipcode'|trans }}">
+                            {% endif %}
                         </div>
                     </div>
                     <div class="mt-3">
-                        <label>Address</label>
-                        <input type="text" id="CustAddress" name="CustAddress" required="required" class="form-control">
+                        <label>{{ 'translate.address'|trans }}</label>
+                        <input type="text" id="CustAddress" name="CustAddress" required="required" class="form-control" placeholder="{{ 'translate.address'|trans }}">
                     </div>
                     <div class="mt-3">
-                        <label>Phone</label>
-                        <input type="text" id="CustTel" name="CustTel" required="required" class="form-control">
+                        <label>{{ 'translate.phone'|trans }}</label>
+                        <input type="text" id="CustTel" name="CustTel" required="required" class="form-control" placeholder="{{ 'translate.phone'|trans }}">
                     </div>
                     <!--div class="mt-3">
                         <label>Code promo</label>
@@ -304,10 +313,12 @@
                         </div>
                     </div-->
                     <div class="mt-3">
-                        <label>Payment method</label>
+                        <label>{{ 'translate.payment'|trans }}</label>
                         <select id="paymentMethod" name="paymentMethod" class="form-control">
-                            <option value="Cash on delivery">Cash on delivery</option>
-                            <option value="Credit card">Credit card</option>
+                            {% if app.request.locale == 'fr' %}
+                                <option value="Cash on delivery">{{ 'translate.cash'|trans }}</option>
+                            {% endif %}
+                            <option value="Credit card">{{ 'translate.card'|trans }}</option>
                         </select>
                     </div>
                     <input type="hidden" name="NumSite" value="MAR747">
@@ -331,7 +342,7 @@
                 <div class="col-12 col-md-6 col-lg-5 mt-5 mb-5 ml-lg-auto">
                     <div class="order-details-confirmation">
                     <div class="cart-page-heading">
-                        <h5>Your order</h5>
+                        <h5>{{ 'translate.order'|trans }}</h5>
                     </div>
                     <ul class="order-details-form mb-4">
                         <li><span  style="font-size: 25px !important;">Products</span> <span style="font-size: 25px !important;">Total</span></li>
@@ -350,36 +361,72 @@
                             <div data-entry-info='{{ entryInfo|json_encode|replace("'", "&#39;")|raw }}'>
                                 {% if item.promo %}
                                     {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                    <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
+                                        <span style="font-size: 15px !important;">
+                                            {% if app.request.locale == 'en' %}
+                                                <s style='color: dimgrey; font-size: 80%'>{{ (item.quantity*item.product.price)|number_format(2) }}</s>
+                                                {{ (total)|number_format(2) }} <span>$</span>
+                                            {% else %}
+                                                <s style='color: dimgrey; font-size: 80%'>{{ (item.quantity*item.product.price * 2.9)|number_format(2) }}</s>
+                                                {{ (total*2.9)|number_format(2) }} <span>TND</span>
+                                            {% endif %}
+                                        </span>
+                                    </li>
                                 {% else %}
                                     {% set total = item.quantity*item.product.price %}
+                                    <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
+                                        <span style="font-size: 15px !important;">
+                                            {% if app.request.locale == 'en' %}
+                                                {{ (total)|number_format(2) }} <span>$</span>
+                                            {% else %}
+                                                {{ (total*2.9)|number_format(2) }} <span>TND</span>
+                                            {% endif %}
+                                        </span>
+                                    </li>
                                 {% endif %}
                                 {% set subTotal = subTotal + total %}
-                                <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
-                                    <span style="font-size: 15px !important;">
-                                        <s style='color: dimgrey; font-size: 80%'>{{ item.quantity*item.product.price }}</s>
-                                        {{ total }} <span>$</span>
-                                    </span>
-                                </li>
+
                             </div>
                         {% endfor %}
-                        <li><b style="font-size: 15px !important;">Subtotal</b> <span style="font-size: 15px !important;" id="subtotal">{{ subTotal }} $</span></li>
+                        <li>
+                            <b style="font-size: 15px !important;">Subtotal</b>
+                            {% if app.request.locale == 'en' %}
+                                <span style="font-size: 15px !important;" id="subtotal">{{ (subTotal)|number_format(2) }} $</span>
+                            {% else %}
+                                <span style="font-size: 15px !important;" id="subtotal">{{ (subTotal * 2.9)|number_format(2) }} TND</span>
+                            {% endif %}
+
+                        </li>
                         <li id="shipping">
                             <b style="font-size: 15px !important;">Express shipping</b>
-                            {% if subTotal > 200 %}
-                                <b style="font-size: 15px !important;">Free</b>
+                            {% if app.request.locale == 'en' %}
+                                {% if subTotal > 200 %}
+                                    <b style="font-size: 15px !important;">{{ 'translate.free'|trans }}</b>
+                                {% else %}
+                                    {% set subTotal = subTotal + 10 %}
+                                    <span style="font-size: 15px !important;">{{ (10)|number_format(2) }} $</span>
+                                {% endif %}
                             {% else %}
-                                {% set subTotal = subTotal + 10 %}
-                                <span style="font-size: 15px !important;">10 $</span>
+                                {% if (subTotal * 2.9) > 200 %}
+                                    <b style="font-size: 15px !important;">{{ 'translate.free'|trans }}</b>
+                                {% else %}
+                                    {% set subTotal = subTotal + 6 %}
+                                    <span style="font-size: 15px !important;">{{ (6)|number_format(2) }} TND</span>
+                                {% endif %}
                             {% endif %}
                         </li>
                         <li><b style="font-size: 15px !important;">Total</b>
-                            <b style="font-size: 20px !important;" id="total">{{ subTotal }} $</b>
+                            {% if app.request.locale == 'en' %}
+                                <b style="font-size: 20px !important;" id="total">{{ subTotal|number_format(2) }} $</b>
+                            {% else %}
+                                <b style="font-size: 20px !important;" id="total">{{ (subTotal*2.9)|number_format(2) }} TND</b>
+                            {% endif %}
                         </li>
                     </ul>
                     <div class="container mb-5">
                         <div class="row justify-content-center mt-5">
                             <div class="col-10 text-center">
-                                <button type="submit" id="personal_info_save" name="Valider" class="btn karl-checkout-btn btn">CONTINUE TO BILLING</button>
+                                <button type="submit" id="personal_info_save" name="Valider" class="btn karl-checkout-btn btn">{{ 'translate.billing'|trans }}</button>
                             </div>
                         </div>
                     </div>
