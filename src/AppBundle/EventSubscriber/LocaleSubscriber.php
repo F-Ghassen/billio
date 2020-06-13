@@ -25,9 +25,9 @@ class LocaleSubscriber implements EventSubscriberInterface
 
         // dump($request->getClientIp());
         $ip_data = json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=".$request->getClientIp()));
-        dump($request->getClientIp());
-        dump($ip_data);
-        if ($ip_data && $ip_data->geoplugin_countryName != null ) {
+        // dump($request->getClientIp());
+        // dump($ip_data);
+        if ($ip_data) {
             if($ip_data->geoplugin_countryCode == 'TN') {
                 $this->defaultLocale = 'fr';
             } else {
