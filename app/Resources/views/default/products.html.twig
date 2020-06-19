@@ -132,6 +132,23 @@
             last_page = false;
             offset = 10;
 
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+            };
+
+            console.log('{{ path('index_products_page') }}' + '?category=' + getUrlParameter('category'));
+
             $(window).scroll(function() {
                 var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
                 var scrolltrigger = 0.80;
@@ -146,7 +163,7 @@
                 is_processing = true;
                 $.ajax({
                     type: "post",
-                    url: '{{ path('index_products_page') }}',
+                    url: '{{ path('index_products_page') }}' + '?category=' + getUrlParameter('category'),
                     data: JSON.stringify(offset),
                 }).done( function(response) {
                     response = JSON.parse(response);
@@ -186,7 +203,7 @@
                                         parseFloat(product.price - product.price * product.promo_montant / 100).toFixed(2) + ' $';
                                     {% else %}
                                     htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price * 2.9).toFixed(2) + '</s> ' +
-                                        parseFloat(product.price - product.price * product.promo_montant / 100).toFixed(2) + ' TND';
+                                        parseFloat(product.price * 2.9 - product.price * 2.9 * product.promo_montant / 100).toFixed(2) + ' TND';
                                     {% endif %}
                                 }
                                 else {

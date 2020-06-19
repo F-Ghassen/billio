@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MessageBundle/Form/MailingListType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageBundle/Form/MailingListType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,14 +233,9 @@
       <workItem from="1590772247864" duration="95000" />
       <workItem from="1591800192201" duration="13634000" />
       <workItem from="1591916942784" duration="29920000" />
-      <workItem from="1592046218737" duration="7546000" />
-    </task>
-    <task id="LOCAL-00031" summary="criteo tags">
-      <created>1587738000478</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1587738000478</updated>
+      <workItem from="1592046218737" duration="8360000" />
+      <workItem from="1592349920727" duration="100000" />
+      <workItem from="1592364130787" duration="4963000" />
     </task>
     <task id="LOCAL-00032" summary="endpoint validate payment test">
       <created>1587775963840</created>
@@ -571,7 +573,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592065287064</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="test fix">
+      <created>1592082270250</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1592082270250</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,7 +599,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="content display" />
     <MESSAGE value="test with session" />
     <MESSAGE value="check if notif works" />
     <MESSAGE value="heyo" />
@@ -615,7 +623,8 @@
     <MESSAGE value="added event listener" />
     <MESSAGE value="log ip" />
     <MESSAGE value="remove dump" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove dump" />
+    <MESSAGE value="test fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="test fix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -634,15 +643,15 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592063639537" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592065285939">
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592082269514">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="69" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1589668788118" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592065285939" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1590772341394">
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592082269514" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1592350018124">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590772341394" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592350018124" />
     <state x="437" y="66" key="RollbackChangesDialog" timestamp="1590045964963">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
