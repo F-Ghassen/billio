@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="added new tranlations">
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app_dev.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app_dev.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,14 +230,7 @@
       <workItem from="1591916942784" duration="29920000" />
       <workItem from="1592046218737" duration="8360000" />
       <workItem from="1592349920727" duration="100000" />
-      <workItem from="1592364130787" duration="7474000" />
-    </task>
-    <task id="LOCAL-00034" summary="endpoint validate payment test">
-      <created>1587828057426</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1587828057426</updated>
+      <workItem from="1592364130787" duration="8654000" />
     </task>
     <task id="LOCAL-00035" summary="gpg prod">
       <created>1587828565518</created>
@@ -572,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592573157276</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="added new tranlations">
+      <created>1592575510971</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1592575510971</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,9 +617,9 @@
     <MESSAGE value="log ip" />
     <MESSAGE value="remove dump" />
     <MESSAGE value="test fix" />
-    <MESSAGE value="added new tranlations" />
     <MESSAGE value="added ip" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ip" />
+    <MESSAGE value="added new tranlations" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new tranlations" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -635,11 +638,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592063639537" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592573156705">
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592575510359">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="69" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1589668788118" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592573156705" />
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592575510359" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1592350018124">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
