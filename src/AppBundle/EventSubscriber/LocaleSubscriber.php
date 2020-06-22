@@ -31,7 +31,7 @@ class LocaleSubscriber implements EventSubscriberInterface
             if($ip_data->geoplugin_countryCode == 'TN') {
                 $this->defaultLocale = 'fr';
             } else {
-                $this->defaultLocale = 'en';
+                $this->defaultLocale = 'fr';
             }
             // dump('ip locale: '. $this->defaultLocale);
         }
