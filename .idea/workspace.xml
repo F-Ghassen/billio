@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/app_dev.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app_dev.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,21 +229,7 @@
       <workItem from="1591916942784" duration="29920000" />
       <workItem from="1592046218737" duration="8360000" />
       <workItem from="1592349920727" duration="100000" />
-      <workItem from="1592364130787" duration="19271000" />
-    </task>
-    <task id="LOCAL-00039" summary="change vad">
-      <created>1588042925067</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1588042925067</updated>
-    </task>
-    <task id="LOCAL-00040" summary="change vad">
-      <created>1588043664760</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1588043664760</updated>
+      <workItem from="1592364130787" duration="21073000" />
     </task>
     <task id="LOCAL-00041" summary="changed signature">
       <created>1588044807363</created>
@@ -573,7 +560,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592911447753</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="my ip">
+      <created>1592912708690</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1592912708690</updated>
+    </task>
+    <task id="LOCAL-00089" summary="fixed tnu name">
+      <created>1592913181571</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1592913181571</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,8 +593,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="log req" />
-    <MESSAGE value="fix prod allignement" />
     <MESSAGE value="another get request" />
     <MESSAGE value="notification not appearing" />
     <MESSAGE value="test notif" />
@@ -617,7 +616,9 @@
     <MESSAGE value="changed locale" />
     <MESSAGE value="fixes" />
     <MESSAGE value="fixed translation" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed translation" />
+    <MESSAGE value="my ip" />
+    <MESSAGE value="fixed tnu name" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed tnu name" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -640,11 +641,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592063639537" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592911446948">
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592913180924">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="0" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1592784253490" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592911446948" />
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592913180924" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1592350018124">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

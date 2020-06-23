@@ -205,12 +205,12 @@
                                     }
                                 }
                                 htmlData += '</a></div><div class="product-description"><h4 class="product-price">';
-                                console.log(product.price)
-                                console.log(product.priceDollar)
+                                console.log(product)
+                                console.log(product.price_dollar)
                                 if (product.promo_enabled) {
                                     {% if app.request.locale == "en" %}
-                                    htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.priceDollar).toFixed(2) + '</s> ' +
-                                        parseFloat(product.priceDollar - product.priceDollar * product.promo_montant / 100).toFixed(2) + ' $';
+                                    htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price_dollar).toFixed(2) + '</s> ' +
+                                        parseFloat(product.price_dollar - product.price_dollar * product.promo_montant / 100).toFixed(2) + ' $';
                                     {% else %}
                                     htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price).toFixed(2) + '</s> ' +
                                         parseFloat(product.price - product.price * product.promo_montant / 100).toFixed(2) + ' TND';
@@ -218,7 +218,7 @@
                                 }
                                 else {
                                     {% if app.request.locale == "en" %}
-                                        parseFloat(product.priceDollar).toFixed(2) + ' $'
+                                        parseFloat(product.price_dollar).toFixed(2) + ' $'
                                     {% else %}
                                         parseFloat(product.price).toFixed(2) + ' TND'
                                     {% endif %}
