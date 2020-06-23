@@ -49,17 +49,17 @@
                                 <td class="price">
                                     {% if item.promo %}
                                         {% if app.request.locale == 'en' %}
-                                            <s style='color: dimgrey; font-size: 80%'>{{ (item.product.price)|number_format(2) }}</s>
-                                            <span>{{ ((item.product.price - item.product.price*item.promo/100)) | number_format(2) }} </span>$
+                                            <s style='color: dimgrey; font-size: 80%'>{{ (item.product.priceDollar)|number_format(2) }}</s>
+                                            <span>{{ ((item.product.priceDollar - item.product.priceDollar*item.promo/100)) | number_format(2) }} </span>$
                                         {% else %}
-                                            <s style='color: dimgrey; font-size: 80%'>{{ (item.product.price * 2.9)|number_format(2) }}</s>
-                                            <span>{{ ((item.product.price - item.product.price*item.promo/100) * 2.9) | number_format(2) }} </span>TND
+                                            <s style='color: dimgrey; font-size: 80%'>{{ (item.product.price)|number_format(2) }}</s>
+                                            <span>{{ (item.product.price - item.product.price*item.promo/100) | number_format(2) }} </span>TND
                                         {% endif %}
                                     {% else %}
                                         {% if app.request.locale == 'en' %}
                                             <span>{{ (item.product.price) | number_format(2) }}</span> $
                                         {% else %}
-                                            <span>{{ (item.product.price*2.9) | number_format(2) }}</span> TND
+                                            <span>{{ (item.product.price) | number_format(2) }}</span> TND
                                         {% endif %}
                                     {% endif %}
                                 </td>
@@ -77,13 +77,13 @@
                                                 {% if app.request.locale == 'en' %}
                                                     {{ (item.quantity*(item.product.price - item.product.price*item.promo/100)) | number_format(2) }} $
                                             {% else %}
-                                                {{ (item.quantity*(item.product.price - item.product.price*item.promo/100)*2.9) | number_format(2) }} TND
+                                                {{ (item.quantity*(item.product.price - item.product.price*item.promo/100)) | number_format(2) }} TND
                                             {% endif %}
                                             {% else %}
                                                 {% if app.request.locale == 'en' %}
-                                                    {{ (item.quantity*item.product.price) | number_format(2) }} $
+                                                    {{ (item.quantity*item.product.priceDollar) | number_format(2) }} $
                                                 {% else %}
-                                                    {{ (item.quantity*item.product.price*2.9) | number_format(2) }} TND
+                                                    {{ (item.quantity*item.product.price) | number_format(2) }} TND
                                                 {% endif %}
                                             {% endif %}
                                         </span>

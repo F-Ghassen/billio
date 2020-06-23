@@ -42,17 +42,17 @@
                             <h4 class="product-price">
                                 {% if p.promoEnabled %}
                                     {% if app.request.locale == 'en' %}
-                                        <s style='color: dimgrey; font-size: 80%'>{{ (p.price)|number_format(2) }}</s>
-                                        {{ (p.price - p.price*p.promoMontant/100)|number_format(2) }} $
+                                        <s style='color: dimgrey; font-size: 80%'>{{ (p.priceDollar)|number_format(2) }}</s>
+                                        {{ (p.priceDollar - p.priceDollar*p.promoMontant/100)|number_format(2) }} $
                                     {% else %}
-                                        <s style='color: dimgrey; font-size: 80%'>{{ (p.price * 2.9)|number_format(2) }}</s>
-                                        {{ ((p.price - p.price*p.promoMontant/100) * 2.9)|number_format(2) }} TND
+                                        <s style='color: dimgrey; font-size: 80%'>{{ (p.price)|number_format(2) }}</s>
+                                        {{ ((p.price - p.price*p.promoMontant/100))|number_format(2) }} TND
                                     {% endif %}
                                 {% else %}
                                     {% if app.request.locale == 'en' %}
-                                        {{ (p.price)|number_format(2) }} $
+                                        {{ (p.priceDollar)|number_format(2) }} $
                                     {% else %}
-                                        {{ (p.price * 2.9)|number_format(2) }} TND
+                                        {{ (p.price)|number_format(2) }} TND
                                     {% endif %}
                                 {% endif %}
 
@@ -147,7 +147,7 @@
                 }
             };
 
-            console.log('{{ path('index_products_page') }}' + '?category=' + getUrlParameter('category'));
+            // console.log('{{ path('index_products_page') }}' + '?category=' + getUrlParameter('category'));
 
             $(window).scroll(function() {
                 var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
@@ -160,10 +160,15 @@
             });
 
             function addMoreElements() {
+                let url = '{{ path('index_products_page') }}';
+                if(getUrlParameter('category')) {
+                    url += '?category=' + getUrlParameter('category')
+                }
+                // console.log(url)
                 is_processing = true;
                 $.ajax({
                     type: "post",
-                    url: '{{ path('index_products_page') }}' + '?category=' + getUrlParameter('category'),
+                    url: url,
                     data: JSON.stringify(offset),
                 }).done( function(response) {
                     response = JSON.parse(response);
@@ -197,20 +202,22 @@
                                     }
                                 }
                                 htmlData += '</a></div><div class="product-description"><h4 class="product-price">';
+                                console.log(product.price)
+                                console.log(product.priceDollar)
                                 if (product.promo_enabled) {
                                     {% if app.request.locale == "en" %}
-                                    htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price).toFixed(2) + '</s> ' +
-                                        parseFloat(product.price - product.price * product.promo_montant / 100).toFixed(2) + ' $';
+                                    htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.priceDollar).toFixed(2) + '</s> ' +
+                                        parseFloat(product.priceDollar - product.priceDollar * product.promo_montant / 100).toFixed(2) + ' $';
                                     {% else %}
-                                    htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price * 2.9).toFixed(2) + '</s> ' +
-                                        parseFloat(product.price * 2.9 - product.price * 2.9 * product.promo_montant / 100).toFixed(2) + ' TND';
+                                    htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price).toFixed(2) + '</s> ' +
+                                        parseFloat(product.price - product.price * product.promo_montant / 100).toFixed(2) + ' TND';
                                     {% endif %}
                                 }
                                 else {
                                     {% if app.request.locale == "en" %}
-                                        parseFloat(product.price).toFixed(2) + ' $'
+                                        parseFloat(product.priceDollar).toFixed(2) + ' $'
                                     {% else %}
-                                        parseFloat(product.price * 2.9).toFixed(2) + ' TND'
+                                        parseFloat(product.price).toFixed(2) + ' TND'
                                     {% endif %}
                                 }
                                 htmlData += '</h4><div style="min-height: 50px;" >' + product.name + '</div>' +

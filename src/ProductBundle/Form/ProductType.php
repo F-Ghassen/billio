@@ -38,6 +38,7 @@ class ProductType extends AbstractType
                 'placeholder' => 'Select',
             ))
             ->add('price', IntegerType::class)
+            ->add('price_dollar', IntegerType::class)
             ->add('promoMontant', IntegerType::class, [
                 'required' => false,
             ])

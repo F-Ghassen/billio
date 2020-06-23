@@ -3,7 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/single-product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/single-product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/EventSubscriber/LocaleSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/EventSubscriber/LocaleSubscriber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Entity/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,16 +119,16 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\hamza\projects\billio\src\AppBundle" />
-      <recent name="C:\Users\hamza\projects\billio\src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\symfony\billio\app\Resources\views\admin\promo" />
       <recent name="C:\wamp64\www\symfony\billio\app\Resources\views\admin\collections" />
       <recent name="C:\wamp64\www\symfony\bilioriche\web\assets" />
       <recent name="C:\wamp64\www\symfony\bilioriche\app\Resources\views\default" />
       <recent name="C:\wamp64\www\symfony\bilioriche\src\OrderBundle" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hamza\projects\billio\src\AppBundle" />
+      <recent name="C:\Users\hamza\projects\billio\src" />
     </key>
   </component>
   <component name="RunManager">
@@ -228,14 +245,7 @@
       <workItem from="1591916942784" duration="29920000" />
       <workItem from="1592046218737" duration="8360000" />
       <workItem from="1592349920727" duration="100000" />
-      <workItem from="1592364130787" duration="10568000" />
-    </task>
-    <task id="LOCAL-00036" summary="change to prod">
-      <created>1587873253212</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1587873253212</updated>
+      <workItem from="1592364130787" duration="16357000" />
     </task>
     <task id="LOCAL-00037" summary="change to prod">
       <created>1587874077622</created>
@@ -573,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592651119377</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="changed locale">
+      <created>1592784254121</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1592784254121</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,7 +609,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="heyo" />
     <MESSAGE value="log request" />
     <MESSAGE value="compressed images" />
     <MESSAGE value="log req" />
@@ -617,7 +633,8 @@
     <MESSAGE value="test fix" />
     <MESSAGE value="added ip" />
     <MESSAGE value="added new tranlations" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new tranlations" />
+    <MESSAGE value="changed locale" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed locale" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -628,6 +645,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="423" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1591807486048" />
+    <state x="476" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1592866377095">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="476" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592866377095" />
     <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587315834637">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -636,10 +657,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592063639537" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592651117518">
+    <state x="91" y="0" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592784253490">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="91" y="69" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1589668788118" />
+    <state x="91" y="0" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1592784253490" />
     <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592651117518" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1592350018124">
       <screen x="0" y="0" width="1366" height="728" />

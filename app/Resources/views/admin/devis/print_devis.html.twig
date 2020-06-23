@@ -4,12 +4,14 @@
     <div class="content-wrapper">
         <div class="content">
             {% set sum1 = 0 %}
-            {% set sum1 = 0 %}
+            {% set sumDollar = 0 %}
             {% for item in c.items %}
                 {% if item.promo %}
                     {% set sum1 = sum1 + item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                    {% set sumDollar = sumDollar + item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100)  %}
                 {% else %}
                     {% set sum1 = sum1 + item.quantity*item.product.price %}
+                    {% set sumDollar = sumDollar + item.quantity*item.product.priceDollar  %}
                 {% endif %}
             {% endfor %}
             <div class="modal-content">
@@ -65,10 +67,16 @@
                                     <span class="text-semibold">
                                         {% if item.promo %}
                                             {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                            {% set totalDollar = item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100) %}
                                         {% else %}
                                             {% set total = item.quantity*item.product.price %}
+                                            {% set totalDollar = item.quantity*item.product.priceDollar %}
                                         {% endif %}
-                                        {{ total }} USD - ({{ total*2.9 }} TND)
+                                        {% if c.orderInfo.pays == 'Tunisie' %}
+                                        {{ total|number_format(2) }} TND
+                                        {% else %}
+                                        {{ totalDollar|number_format(2) }} USD
+                                        {% endif %}
                                     </span>
                                 </td>
                             </tr>
@@ -93,7 +101,15 @@
                                         {% endif %}
                                         <tr>
                                             <th>Total:</th>
-                                            <td class="text-right text-primary"><h5 class="text-semibold" id="total">{{ sum1 }} USD - ({{ sum1*2.9 }} TND)</h5></td>
+                                            <td class="text-right text-primary">
+                                                <h5 class="text-semibold" id="total">
+                                                    {% if c.orderInfo.pays == 'Tunisie' %}
+                                                    {{ sum1|number_format(2) }} TND
+                                                    {% else %}
+                                                    {{ sumDollar|number_format(2) }} USD
+                                                    {% endif %}
+                                                </h5>
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -123,7 +139,7 @@
                 //console.log(initialTotal);
                 console.log($("#country").html())
                 if ($("#country").html() == 'Tunisie') {
-                    if(parseFloat(initialTotal)*2.9 < parseFloat(200)) {
+                     if(parseFloat(initialTotal) < parseFloat(200)) {
                         $('#items').append('<tr>' +
                             '<td><h6 class="no-margin">Livraison</h6></td>' +
                             '<td></td>'+
@@ -133,7 +149,7 @@
                             '</tr>');
                         //console.log(initialTotal);
                         initialTotal = parseFloat(initialTotal);
-                        $("#total").html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9+6).toFixed(2) + " TND)");
+                        $("#total").html(parseFloat(initialTotal+6).toFixed(2) + " TND");
                     }
                 } else {
                     if(parseFloat(initialTotal) < parseFloat(200)) {
@@ -148,7 +164,7 @@
                             '</tr>');
                         //console.log(initialTotal);
                         initialTotal = parseFloat(initialTotal) + parseFloat(10);
-                        $("#total").html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
+                        $("#total").html(initialTotal + " USD");
                     }
                 }
                 //console.log(code);
@@ -161,7 +177,11 @@
                             var s = initialTotal;
                             //console.log(data);
                             var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
-                            $("#total").html(news + " USD - (" + parseFloat(news * 2.9).toFixed(2) + " TND)");
+                            if ($("#country").html() == 'Tunisie') {
+                                $("#total").html(parseFloat(news).toFixed(2) + " TND");
+                            } else {
+                                $("#total").html(parseFloat(news).toFixed(2) + " USD");
+                            }  
                             $('#code').html(JSON.parse(data).montant + "%");
                             //console.log(s);
                         }

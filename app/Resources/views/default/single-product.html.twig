@@ -11,17 +11,17 @@
         <h4 class="product-price">
             {% if p.promoEnabled %}
                 {% if app.request.locale == 'en' %}
-                    <s style='color: dimgrey; font-size: 80%'>{{ (p.price)|number_format(2) }}</s>
-                    {{ (p.price - p.price*p.promoMontant/100)|number_format(2) }} $
+                    <s style='color: dimgrey; font-size: 80%'>{{ (p.priceDollar)|number_format(2) }}</s>
+                    {{ (p.priceDollar - p.priceDollar*p.promoMontant/100)|number_format(2) }} $
                 {% else %}
-                    <s style='color: dimgrey; font-size: 80%'>{{ (p.price * 2.9)|number_format(2) }}</s>
-                    {{ ((p.price - p.price*p.promoMontant/100) * 2.9)|number_format(2) }} TND
+                    <s style='color: dimgrey; font-size: 80%'>{{ (p.price)|number_format(2) }}</s>
+                    {{ ((p.price - p.price*p.promoMontant/100))|number_format(2) }} TND
                 {% endif %}
             {% else %}
                 {% if app.request.locale == 'en' %}
-                    {{ (p.price)|number_format(2) }} $
+                    {{ (p.priceDollar)|number_format(2) }} $
                 {% else %}
-                    {{ (p.price * 2.9)|number_format(2) }} TND
+                    {{ (p.price)|number_format(2) }} TND
                 {% endif %}
             {% endif %}
         </h4>

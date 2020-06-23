@@ -360,26 +360,35 @@
                             } %}
                             <div data-entry-info='{{ entryInfo|json_encode|replace("'", "&#39;")|raw }}'>
                                 {% if item.promo %}
-                                    {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                    {% if app.request.locale == 'en' %}
+                                        {% set total = item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100) %}
+                                    {% else %}
+                                        {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                    {% endif %}
                                     <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
                                         <span style="font-size: 15px !important;">
                                             {% if app.request.locale == 'en' %}
-                                                <s style='color: dimgrey; font-size: 80%'>{{ (item.quantity*item.product.price)|number_format(2) }}</s>
+                                                <s style='color: dimgrey; font-size: 80%'>{{ (item.quantity*item.product.priceDollar)|number_format(2) }}</s>
                                                 {{ (total)|number_format(2) }} <span>$</span>
                                             {% else %}
-                                                <s style='color: dimgrey; font-size: 80%'>{{ (item.quantity*item.product.price * 2.9)|number_format(2) }}</s>
-                                                {{ (total*2.9)|number_format(2) }} <span>TND</span>
+                                                <s style='color: dimgrey; font-size: 80%'>{{ (item.quantity*item.product.price)|number_format(2) }}</s>
+                                                {{ (total)|number_format(2) }} <span>TND</span>
                                             {% endif %}
                                         </span>
                                     </li>
                                 {% else %}
+                                    {% if app.request.locale == 'en' %}
+                                        {{ (total)|number_format(2) }} <span>$</span>
+                                    {% else %}
+                                        {{ (total)|number_format(2) }} <span>TND</span>
+                                    {% endif %}
                                     {% set total = item.quantity*item.product.price %}
                                     <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
                                         <span style="font-size: 15px !important;">
                                             {% if app.request.locale == 'en' %}
                                                 {{ (total)|number_format(2) }} <span>$</span>
                                             {% else %}
-                                                {{ (total*2.9)|number_format(2) }} <span>TND</span>
+                                                {{ (total)|number_format(2) }} <span>TND</span>
                                             {% endif %}
                                         </span>
                                     </li>
@@ -393,7 +402,7 @@
                             {% if app.request.locale == 'en' %}
                                 <span style="font-size: 15px !important;" id="subtotal">{{ (subTotal)|number_format(2) }} $</span>
                             {% else %}
-                                <span style="font-size: 15px !important;" id="subtotal">{{ (subTotal * 2.9)|number_format(2) }} TND</span>
+                                <span style="font-size: 15px !important;" id="subtotal">{{ (subTotal)|number_format(2) }} TND</span>
                             {% endif %}
 
                         </li>
@@ -407,7 +416,7 @@
                                     <span style="font-size: 15px !important;">{{ (10)|number_format(2) }} $</span>
                                 {% endif %}
                             {% else %}
-                                {% if (subTotal * 2.9) > 200 %}
+                                {% if (subTotal) > 200 %}
                                     <b style="font-size: 15px !important;">{{ 'translate.free'|trans }}</b>
                                 {% else %}
                                     {% set subTotal = subTotal + 6 %}
@@ -419,7 +428,7 @@
                             {% if app.request.locale == 'en' %}
                                 <b style="font-size: 20px !important;" id="total">{{ subTotal|number_format(2) }} $</b>
                             {% else %}
-                                <b style="font-size: 20px !important;" id="total">{{ (subTotal*2.9)|number_format(2) }} TND</b>
+                                <b style="font-size: 20px !important;" id="total">{{ (subTotal)|number_format(2) }} TND</b>
                             {% endif %}
                         </li>
                     </ul>
@@ -525,12 +534,12 @@
                 // console.log(orderProducts);
                 // console.log(totalPrice);
                 // console.log(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
-                $("input[name*='Amount']").val(totalPrice * 1000 * 2.9);
+                $("input[name*='Amount']").val(totalPrice * 1000);
                 $("input[name*='AmountSecond']").val(totalPrice * 100);
                 $("input[name*='orderProducts']").val(orderProducts);
                 // TODO prod
-                $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 * 2.9 + "USD"));
-                // $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 2.9 + "USD"));
+                $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 + "USD"));
+                // $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 + "USD"));
                 // console.log(("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 3 + "USD"));
             });
         });

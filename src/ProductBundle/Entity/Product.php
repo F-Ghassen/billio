@@ -53,6 +53,13 @@ class Product
     private $price;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="price_dollar", type="integer")
+     */
+    private $price_dollar;
+
+    /**
      * @ORM\OneToMany(targetEntity="ProductBundle\Entity\ProductVariation", mappedBy="product", cascade={"persist", "remove"})
      */
     private $variations;
@@ -337,5 +344,23 @@ class Product
     {
         $this->promo_montant = $promo_montant;
     }
+
+    /**
+     * @return string
+     */
+    public function getPriceDollar()
+    {
+        return $this->price_dollar;
+    }
+
+    /**
+     * @param string $price_dollar
+     */
+    public function setPriceDollar($price_dollar)
+    {
+        $this->price_dollar = $price_dollar;
+    }
+
+
 }
 

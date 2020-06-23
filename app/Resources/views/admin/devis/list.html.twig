@@ -28,7 +28,6 @@
         <!-- Content area -->
         <div class="content">
             <div class="row">
-                {% set sum1 = 0 %}
                 {% for c in commandes %}
                     {% if (c.items is not empty and c.orderInfo is not null)  %}
                         <div class="col-md-6">
@@ -45,15 +44,24 @@
 
                                     <div class="col-sm-6">
                                         {% set sum1 = 0 %}
+                                        {% set sumDollar = 0 %}
                                         {% for item in c.items %}
                                             {% if item.promo %}
                                                 {% set sum1 = sum1 + item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                                {% set sumDollar = sumDollar + item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100)  %}
                                             {% else %}
                                                 {% set sum1 = sum1 + item.quantity*item.product.price %}
+                                                {% set sumDollar = sumDollar + item.quantity*item.product.priceDollar  %}
                                             {% endif %}
                                         {% endfor %}
                                         <span class="text-semibold">
-                                            <h6 class="text-semibold text-right no-margin-top" id="total1_{{ loop.index0 }}">{{ sum1 }} USD - ({{ sum1*2.9 }} TND)</h6>
+                                            <h6 class="text-semibold text-right no-margin-top" id="total1_{{ loop.index0 }}">
+                                                {% if c.orderInfo.pays == 'Tunisie' %}
+                                                {{ sum1|number_format(2) }} TND
+                                                {% else %}
+                                                {{ sumDollar|number_format(2) }} USD
+                                                {% endif %}
+                                            </h6>
                                         </span>
                                         <div class="text-right">
                                             Status: &nbsp;
@@ -147,10 +155,16 @@
                                                     <span class="text-semibold">
                                                         {% if item.promo %}
                                                             {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                                            {% set totalDollar = item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100) %}
                                                         {% else %}
                                                             {% set total = item.quantity*item.product.price %}
+                                                            {% set totalDollar = item.quantity*item.product.priceDollar %}
                                                         {% endif %}
-                                                        {{ total }} USD - ({{ total*2.9 }} TND)
+                                                        {% if c.orderInfo.pays == 'Tunisie' %}
+                                                        {{ total|number_format(2) }} TND
+                                                        {% else %}
+                                                        {{ totalDollar|number_format(2) }} USD
+                                                        {% endif %}
                                                     </span>
                                                 </td>
                                             </tr>
@@ -175,7 +189,15 @@
                                                         {% endif %}
                                                         <tr>
                                                             <th>Total:</th>
-                                                            <td class="text-right text-primary"><h5 class="text-semibold" id="total_{{ loop.index0 }}">{{ sum1 }} USD - ({{ sum1*2.9 }} TND)</h5></td>
+                                                            <td class="text-right text-primary">
+                                                                <h5 class="text-semibold" id="total_{{ loop.index0 }}">
+                                                                    {% if c.orderInfo.pays == 'Tunisie' %}
+                                                                    {{ sum1|number_format(2) }} TND
+                                                                    {% else %}
+                                                                    {{ sumDollar|number_format(2) }} USD
+                                                                    {% endif %}
+                                                                </h5>
+                                                            </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -220,10 +242,10 @@
                 var code = $('#code'+i).html();
                 // console.log(code);
                 var initialTotal = $("#total_"+i).html();
-                //console.log(initialTotal);
+                console.log(initialTotal);
                 // console.log($("#country_"+i).html())
                 if ($("#country_"+i).html() == 'Tunisie') {
-                    if(parseFloat(initialTotal)*2.9 < parseFloat(200)) {
+                    if(parseFloat(initialTotal) < parseFloat(200)) {
                         $('#items'+i).append('<tr>' +
                             '<td><h6 class="no-margin">Livraison</h6></td>' +
                             '<td></td>'+
@@ -233,8 +255,8 @@
                             '</tr>');
                         //console.log(initialTotal);
                         initialTotal = parseFloat(initialTotal);
-                        $("#total_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9+6).toFixed(2) + " TND)");
-                        $("#total1_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9+6).toFixed(2) + " TND)");
+                        $("#total_"+i).html(parseFloat(initialTotal+6).toFixed(2) + " TND");
+                        $("#total1_"+i).html(parseFloat(initialTotal+6).toFixed(2) + " TND");
                     }
                 } else {
                     if(parseFloat(initialTotal) < parseFloat(200)) {
@@ -249,8 +271,8 @@
                             '</tr>');
                         //console.log(initialTotal);
                         initialTotal = parseFloat(initialTotal) + parseFloat(10);
-                        $("#total_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
-                        $("#total1_"+i).html(initialTotal + " USD - (" + parseFloat(initialTotal*2.9).toFixed(2) + " TND)");
+                        $("#total_"+i).html(initialTotal + " USD");
+                        $("#total1_"+i).html(initialTotal + " USD");
                     }
                 }
 
@@ -263,8 +285,13 @@
                         if(data != "false") {
                             var s = initialTotal;
                             var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
-                            $("#total_"+i).html(news + " USD - (" + parseFloat(news * 2.9).toFixed(2) + " TND)");
-                            $("#total1_"+i).html(news + " USD - (" + parseFloat(news * 2.9).toFixed(2) + " TND)");
+                            if ($("#country_"+i).html() == 'Tunisie') {
+                                $("#total_"+i).html(parseFloat(news).toFixed(2) + " TND");
+                                $("#total1_"+i).html(parseFloat(news).toFixed(2) + " TND");
+                            } else {
+                                $("#total_"+i).html(parseFloat(news).toFixed(2) + " USD");
+                                $("#total1_"+i).html(parseFloat(news).toFixed(2) + " USD");
+                            }  
                             $('#code'+i).html(JSON.parse(data).montant + "%");
                             //console.log(s)
                         }
