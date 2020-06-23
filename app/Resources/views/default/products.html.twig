@@ -164,6 +164,9 @@
                 if(getUrlParameter('category')) {
                     url += '?category=' + getUrlParameter('category')
                 }
+                if(getUrlParameter('collection')) {
+                    url += '?collection=' + getUrlParameter('collection')
+                }
                 // console.log(url)
                 is_processing = true;
                 $.ajax({

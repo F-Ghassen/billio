@@ -23,7 +23,7 @@ class MailingListType extends AbstractType
                 )
             ))
             ->add('save',  SubmitType::class, array(
-                'label' => 'tanslate.sub',
+                'label' => 'translate.sub',
                 'attr' => array (
                     'style' => 'background-color: white; color: black'
                 )

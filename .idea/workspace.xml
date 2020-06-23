@@ -3,24 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/single-product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/single-product.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/EventSubscriber/LocaleSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/EventSubscriber/LocaleSubscriber.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Entity/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MessageBundle/Form/MailingListType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageBundle/Form/MailingListType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/sessions/.gitkeep" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,14 +234,7 @@
       <workItem from="1591916942784" duration="29920000" />
       <workItem from="1592046218737" duration="8360000" />
       <workItem from="1592349920727" duration="100000" />
-      <workItem from="1592364130787" duration="16357000" />
-    </task>
-    <task id="LOCAL-00037" summary="change to prod">
-      <created>1587874077622</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1587874077622</updated>
+      <workItem from="1592364130787" duration="18013000" />
     </task>
     <task id="LOCAL-00038" summary="changed feed">
       <created>1588007337214</created>
@@ -590,7 +572,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592784254121</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="fixes">
+      <created>1592877726525</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1592877726525</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,7 +598,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="log request" />
     <MESSAGE value="compressed images" />
     <MESSAGE value="log req" />
     <MESSAGE value="fix prod allignement" />
@@ -634,7 +622,8 @@
     <MESSAGE value="added ip" />
     <MESSAGE value="added new tranlations" />
     <MESSAGE value="changed locale" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed locale" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -657,11 +646,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592063639537" />
-    <state x="91" y="0" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592784253490">
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592877724565">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="0" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1592784253490" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592651117518" />
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592877724565" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1592350018124">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
