@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app_dev.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app_dev.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,21 +227,7 @@
       <workItem from="1591916942784" duration="29920000" />
       <workItem from="1592046218737" duration="8360000" />
       <workItem from="1592349920727" duration="100000" />
-      <workItem from="1592364130787" duration="21073000" />
-    </task>
-    <task id="LOCAL-00041" summary="changed signature">
-      <created>1588044807363</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1588044807363</updated>
-    </task>
-    <task id="LOCAL-00042" summary="validate payment changes">
-      <created>1589602844293</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1589602844293</updated>
+      <workItem from="1592364130787" duration="21613000" />
     </task>
     <task id="LOCAL-00043" summary="preprod">
       <created>1589605281321</created>
@@ -574,7 +558,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592913181571</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="fixed prices not showing en">
+      <created>1592915041881</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1592915041881</updated>
+    </task>
+    <task id="LOCAL-00091" summary="test">
+      <created>1592915184195</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1592915184196</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +591,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="another get request" />
     <MESSAGE value="notification not appearing" />
     <MESSAGE value="test notif" />
     <MESSAGE value="changed criteo code" />
@@ -602,7 +599,6 @@
     <MESSAGE value="check payment done" />
     <MESSAGE value="check session" />
     <MESSAGE value="print session" />
-    <MESSAGE value="test" />
     <MESSAGE value="fetch command id from notif" />
     <MESSAGE value="added flush" />
     <MESSAGE value="changed prices&#10;gpg back to prod" />
@@ -618,7 +614,9 @@
     <MESSAGE value="fixed translation" />
     <MESSAGE value="my ip" />
     <MESSAGE value="fixed tnu name" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed tnu name" />
+    <MESSAGE value="fixed prices not showing en" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -641,11 +639,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592063639537" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592913180924">
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592915183651">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="0" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1592784253490" />
-    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592913180924" />
+    <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592915183651" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1592350018124">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -666,10 +664,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1585511524404" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1591837580780">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1592915144233">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1591837580780" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1592915144233" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1592068490628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
