@@ -209,17 +209,21 @@
                                 console.log(product.price_dollar)
                                 if (product.promo_enabled) {
                                     {% if app.request.locale == "en" %}
+                                    console.log('t1')
                                     htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price_dollar).toFixed(2) + '</s> ' +
                                         parseFloat(product.price_dollar - product.price_dollar * product.promo_montant / 100).toFixed(2) + ' $';
                                     {% else %}
+                                    console.log('t2')
                                     htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price).toFixed(2) + '</s> ' +
                                         parseFloat(product.price - product.price * product.promo_montant / 100).toFixed(2) + ' TND';
                                     {% endif %}
                                 }
                                 else {
                                     {% if app.request.locale == "en" %}
+                                    console.log('t3')
                                         parseFloat(product.price_dollar).toFixed(2) + ' $'
                                     {% else %}
+                                    console.log('t4')
                                         parseFloat(product.price).toFixed(2) + ' TND'
                                     {% endif %}
                                 }
