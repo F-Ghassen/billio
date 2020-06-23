@@ -57,7 +57,11 @@
                                 {% endif %}
 
                             </h4>
-                            <div style="min-height: 50px;">{{ p.name }}</div>
+                            <div style="overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;">{{ p.name }}</div>
                             <!-- Add to Cart -->
                             <form action="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}" class="cart" method="post">
                                 <button type="submit" class="btn btn-dark mt-2 btn-acheter">{{ 'translate.add_cart'|trans }}</button>
