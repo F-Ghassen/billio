@@ -90,8 +90,15 @@ class DefaultController extends Controller
             ->addSelect('variations');
         $queryBuilder->where('p.enabled = true');
         if($request->query->getAlnum('category')) {
-            $queryBuilder->andWhere('p.category = :category')
-                ->setParameter('category', $request->query->getAlnum('category'));
+            if($request->query->getAlnum('category') == 'Street-Couture') {
+                $queryBuilder->andWhere('p.category = :sweatshirt OR p.category = :sweatpants OR p.category = :veste')
+                    ->setParameter('sweatshirt', 'SweatShirt')
+                    ->setParameter('sweatpants', 'SweatPants')
+                    ->setParameter('vest', 'Veste');
+            } else {
+                $queryBuilder->andWhere('p.category = :category')
+                    ->setParameter('category', $request->query->getAlnum('category'));
+            }
         }
         if($request->query->getAlnum('collection')) {
             $queryBuilder->leftJoin('p.collection', 'collection')
@@ -415,6 +422,11 @@ class DefaultController extends Controller
                             $val = $val - 1;
                             $variation->setXXL($val);
                             break;
+                        case 'XXXL':
+                            $val = $variation->getXXXL();
+                            $val = $val - 1;
+                            $variation->setXXXL($val);
+                            break;
                         case '29':
                             $val = $variation->getSizeJean29();
                             $val = $val - 1;
@@ -461,9 +473,9 @@ class DefaultController extends Controller
                             $variation->setSizeJean38($val);
                             break;
                         case '40':
-                            $val = $variation->getSizeMoc40();
+                            $val = $variation->getSizeJean40();
                             $val = $val - 1;
-                            $variation->setSizeMoc40($val);
+                            $variation->setSizeJean40($val);
                             break;
                         case '41':
                             $val = $variation->getSizeMoc41();
@@ -684,6 +696,11 @@ class DefaultController extends Controller
                         $val = $val - 1;
                         $variation->setXXL($val);
                         break;
+                    case 'XXXL':
+                        $val = $variation->getXXXL();
+                        $val = $val - 1;
+                        $variation->setXXXL($val);
+                        break;
                     case '29':
                         $val = $variation->getSizeJean29();
                         $val = $val - 1;
@@ -730,9 +747,9 @@ class DefaultController extends Controller
                         $variation->setSizeJean38($val);
                         break;
                     case '40':
-                        $val = $variation->getSizeMoc40();
+                        $val = $variation->getSizeJean40();
                         $val = $val - 1;
-                        $variation->setSizeMoc40($val);
+                        $variation->setSizeJean40($val);
                         break;
                     case '41':
                         $val = $variation->getSizeMoc41();

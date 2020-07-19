@@ -1,6 +1,6 @@
 <div class="fixed-top billio-navbar-text">
     <div class="text-center">
-        <span><a style="color: white !important; text-transform: uppercase; text-decoration: none;" href="{{ path('homepage') }}">BILLIORICH</a></span>
+        <span><a style="color: white !important; text-transform: uppercase; text-decoration: none; font-family: 'Dum',serif" href="{{ path('homepage') }}">BILLIORICH</a></span>
     </div>
 </div>
 
@@ -58,6 +58,9 @@
                 <a class="nav-link" href="{{ path('index_products_page') }}?category=Polo">Polo</a>
             </li>
             <li class="nav-item active">
+                <a class="nav-link" href="{{ path('index_products_page') }}?category=Street-Couture">{{ 'translate.street'|trans }}</a>
+            </li>
+            <!--li class="nav-item active">
                 <a class="nav-link" href="{{ path('index_products_page') }}?category=SweatShirt">SweatShirt</a>
             </li>
             <li class="nav-item active">
@@ -65,6 +68,9 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ path('index_products_page') }}?category=Veste">{{ 'translate.veste'|trans }}</a>
+            </li-->
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('index_products_page') }}?category=Maillot">{{ 'translate.swim'|trans }}</a>
             </li>
         </ul>
 
