@@ -39,7 +39,7 @@
                         </div>
                         <!-- Product Description -->
                         <div class="product-description">
-                            <h4 class="product-price">
+                            <h4 style="font-size: 0.9em;" class="product-price">
                                 {% if p.promoEnabled %}
                                     {% if app.request.locale == 'en' %}
                                         <s style='color: dimgrey; font-size: 80%'>{{ (p.priceDollar)|number_format(2) }}</s>
@@ -57,11 +57,7 @@
                                 {% endif %}
 
                             </h4>
-                            <div style="overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 2; /* number of lines to show */
-   -webkit-box-orient: vertical;">{{ p.name }}</div>
+                            <div style="font-size: 0.9em;min-height: 50px; overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* number of lines to show */-webkit-box-orient: vertical;">{{ p.name }}</div>
                             <!-- Add to Cart -->
                             <form action="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}" class="cart" method="post">
                                 <button type="submit" class="btn btn-dark mt-2 btn-acheter">{{ 'translate.add_cart'|trans }}</button>
@@ -132,9 +128,9 @@
 
     <script type="text/javascript">
         $( document ).ready(function() {
-            is_processing = false;
-            last_page = false;
-            offset = 10;
+            let is_processing = false;
+            let last_page = false;
+            let offset = 6;
 
             var getUrlParameter = function getUrlParameter(sParam) {
                 var sPageURL = window.location.search.substring(1),
@@ -208,7 +204,7 @@
                                         htmlData += '<div class="product-stock"><h6 class="heading-uppercase">Out of stock</h6></div>';
                                     }
                                 }
-                                htmlData += '</a></div><div class="product-description"><h4 class="product-price">';
+                                htmlData += '</a></div><div class="product-description"><h4 style="font-size: 0.9em;" class="product-price">';
                                 if (product.promo_enabled) {
                                     {% if app.request.locale == "en" %}
                                     htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price_dollar).toFixed(2) + '</s> ' +
@@ -225,7 +221,7 @@
                                     htmlData += parseFloat(product.price).toFixed(2) + ' TND'
                                     {% endif %}
                                 }
-                                htmlData += '</h4><div style="min-height: 50px;" >' + product.name + '</div>' +
+                                htmlData += '</h4><div style="font-size: 0.9em;min-height: 50px; overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* number of lines to show */-webkit-box-orient: vertical;" >' + product.name + '</div>' +
                                     '<form action="https://billiorich.com/products/' + product.id + '-' + variation.id + '" class="cart" method="post">' +
                                     '<button type="submit" class="btn btn-dark mt-2 btn-acheter">{{ "translate.add_cart"|trans }}</button></form></div></div>';
                             });
@@ -233,7 +229,7 @@
                         // $('.karl-new-arrivals').append(htmlData);
                         $(htmlData).hide().appendTo('#test').fadeIn();
                         $(window).scrollTop($(window).scrollTop()-1);
-                        offset += 10;
+                        offset += 6;
 
                     } else {
                         last_page = true;

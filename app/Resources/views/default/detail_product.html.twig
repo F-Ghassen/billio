@@ -129,6 +129,11 @@
                                         {% else %}
                                             <li><a class="size-option disable-size" data-size="38" href="#">38</a></li>
                                         {% endif %}
+                                        {% if variation.sizeJean40 != 0 %}
+                                            <li><a class="size-option" data-size="40" href="#">40</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="40" href="#">40</a></li>
+                                        {% endif %}
 
                                     {% elseif p.category == "Mocassin" %}
                                         {% if variation.sizeMoc40 != 0 %}
@@ -188,6 +193,11 @@
                                         {% else %}
                                             <li><a class="size-option disable-size" data-size="XXL" href="#">XXL</a></li>
                                         {% endif %}
+                                        {% if variation.xxxl != 0 %}
+                                            <li><a class="size-option" data-size="XXXL" href="#">3XL</a></li>
+                                        {% else %}
+                                            <li><a class="size-option disable-size" data-size="XXXL" href="#">3XL</a></li>
+                                        {% endif %}
                                     {% endif %}
                                 </ul>
                             </div>
@@ -201,6 +211,7 @@
                                 <option value="L">L</option>
                                 <option value="XL">XL</option>
                                 <option value="XXL">XXL</option>
+                                <option value="XXXL">3XL</option>
                                 <option value="29">29</option>
                                 <option value="30">30</option>
                                 <option value="31">31</option>

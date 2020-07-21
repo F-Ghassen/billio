@@ -56,6 +56,7 @@
                                     {{ form_row(tag.l) }}
                                     {{ form_row(tag.xl) }}
                                     {{ form_row(tag.xxl) }}
+                                    {{ form_row(tag.xxxl) }}
                                     {{ form_row(tag.sizeJean29) }}
                                     {{ form_row(tag.sizeJean30) }}
                                     {{ form_row(tag.sizeJean31) }}
@@ -65,6 +66,7 @@
                                     {{ form_row(tag.sizeJean35) }}
                                     {{ form_row(tag.sizeJean36) }}
                                     {{ form_row(tag.sizeJean38) }}
+                                    {{ form_row(tag.sizeJean40) }}
                                     {{ form_row(tag.sizeMoc40) }}
                                     {{ form_row(tag.sizeMoc41) }}
                                     {{ form_row(tag.sizeMoc42) }}
@@ -110,7 +112,7 @@
                 } else if(category === 'Mocassin') {
                     myarray = ['Size moc40', 'Size moc41', 'Size moc42', 'Size moc43', 'Size moc44', 'Size moc45'];
                 } else {
-                    myarray = ['S', 'M', 'L', 'Xl', 'Xxl'];
+                    myarray = ['S', 'M', 'L', 'Xl', 'Xxl', 'Xxxl'];
                 }
                 $.each($('.list-group-item'), function(index, value) {
                     //console.log($(value).find('div.form-group').length);
@@ -134,6 +136,7 @@
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_l').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xl').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xxl').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xxxl').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc40').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc41').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc42').parent().hide();
@@ -150,6 +153,7 @@
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean35').parent().show();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean36').parent().show();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean38').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean40').parent().show();
                     }
                 } else if(category === 'Mocassin') {
                     let rows = $('.tags').children('li.row').length;
@@ -161,6 +165,7 @@
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_l').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xl').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xxl').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xxxl').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean29').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean30').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean31').parent().hide();
@@ -170,6 +175,7 @@
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean35').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean36').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean38').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean40').parent().hide();
 
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc40').parent().show();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc41').parent().show();
@@ -192,6 +198,8 @@
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean35').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean36').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean38').parent().hide();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeJean40').parent().hide();
+
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc40').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc41').parent().hide();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_sizeMoc42').parent().hide();
@@ -204,6 +212,7 @@
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_l').parent().show();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xl').parent().show();
                         $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xxl').parent().show();
+                        $('#product_variations_'+i).children('div.form-group').children('#product_variations_'+i+'_xxxl').parent().show();
                     }
                 }*/
             }

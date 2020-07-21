@@ -3,7 +3,7 @@ translate.subheader: 'Livraison gratuite sur les commandes de plus de 200 TND'
 translate.our_products: 'Nos Produits'
 translate.product_details: 'Détails Produit'
 translate.add_cart: 'Ajouter au panier'
-translate.returns: 'Nous vous fournirons le numéro de suivi du colis dès son expédition, vous pouvez donc suivre la livraison sur le site Web de DHL. Les retours peuvent être demandés dans les 30 jours à partir de la réception de votre commande. Visitez la section Service client pour plus de détails.'
+translate.returns: 'Nous vous fournirons le numéro de suivi du colis dès son expédition, vous pouvez donc suivre la livraison sur le site Web de ARAMEX. Les retours peuvent être demandés dans les 30 jours à partir de la réception de votre commande. Visitez la section Service client pour plus de détails.'
 translate.other_var: 'Autre Variations'
 translate.continue_shopping: 'Continuez vos achats'
 translate.product: Produit
@@ -23,7 +23,7 @@ translate.cash: 'Paiement à la livraison'
 translate.card: 'Carte bancaire'
 translate.order: 'VOTRE COMMANDE'
 translate.billing: 'CONTINUER CHECKOUT'
-translate.jeans: Jean
+translate.jeans: Jeans
 translate.veste: Veste
 translate.shirt: Chemise
 translate.dispo: Disponible
@@ -34,3 +34,4 @@ translate.subscribe: 'S''inscrire a notre newsletter'
 translate.sub: 'S''inscrire'
 translate.swim: 'Maillot de bain'
 translate.street: 'Street couture'
+translate.all: 'Tout les produits'

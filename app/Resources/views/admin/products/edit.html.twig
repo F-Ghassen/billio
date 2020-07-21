@@ -55,6 +55,7 @@
                                     {{ form_row(tag.l) }}
                                     {{ form_row(tag.xl) }}
                                     {{ form_row(tag.xxl) }}
+                                    {{ form_row(tag.xxxl) }}
                                     {{ form_row(tag.sizeJean29) }}
                                     {{ form_row(tag.sizeJean30) }}
                                     {{ form_row(tag.sizeJean31) }}
@@ -64,6 +65,7 @@
                                     {{ form_row(tag.sizeJean35) }}
                                     {{ form_row(tag.sizeJean36) }}
                                     {{ form_row(tag.sizeJean38) }}
+                                    {{ form_row(tag.sizeJean40) }}
                                     {{ form_row(tag.sizeMoc40) }}
                                     {{ form_row(tag.sizeMoc41) }}
                                     {{ form_row(tag.sizeMoc42) }}
@@ -109,7 +111,7 @@
                 } else if(category === 'Mocassin') {
                     myarray = ['Size moc40', 'Size moc41', 'Size moc42', 'Size moc43', 'Size moc44', 'Size moc45'];
                 } else {
-                    myarray = ['S', 'M', 'L', 'Xl', 'Xxl'];
+                    myarray = ['S', 'M', 'L', 'Xl', 'Xxl', 'Xxxl'];
                 }
                 $.each($('.list-group-item'), function(index, value) {
                     //console.log($(value).find('div.form-group').length);

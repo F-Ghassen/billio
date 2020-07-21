@@ -3,7 +3,7 @@ translate.subheader: 'Free shipping on orders over 200 USD'
 translate.our_products: 'Our Products'
 translate.product_details: 'Product Details'
 translate.add_cart: 'Add to cart'
-translate.returns: 'We will provide you with the Tracking Number of the parcel as soon as it is dispatched, so you may follow the delivery on the DHL website. Returns can be requested within 30 days from when you receive your order. Visit Customer Care section for further details.'
+translate.returns: 'We will provide you with the Tracking Number of the parcel as soon as it is dispatched, so you may follow the delivery on the ARAMEX website. Returns can be requested within 30 days from when you receive your order. Visit Customer Care section for further details.'
 translate.other_var: 'Other Variations'
 translate.continue_shopping: 'Continue shooping'
 translate.product: Product
@@ -34,3 +34,4 @@ translate.subscribe: 'Subscribe to our newsletter'
 translate.sub: Subscribe
 translate.swim: Swimsuit
 translate.street: 'Street couture'
+translate.all: 'All products'

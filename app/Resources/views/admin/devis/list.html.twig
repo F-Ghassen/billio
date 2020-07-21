@@ -27,11 +27,20 @@
 
         <!-- Content area -->
         <div class="content">
+            <div class="p-5 m-5">
+                <div class="row">
+                    <form method="get" class="form-inline">
+                        <input type="text" name="search" placeholder="Search" class="form-control">
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </form>
+                </div>
+            </div>
+
             <div class="row">
                 {% for c in commandes %}
                     {% if (c.items is not empty and c.orderInfo is not null)  %}
                         <div class="col-md-6">
-                        <div class="panel invoice-grid">
+                            <div class="panel invoice-grid">
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -67,6 +76,8 @@
                                             Status: &nbsp;
                                             {% if c.state == 'Pending' %}
                                                 <span class="label bg-warning-300 dropdown-toggle" data-toggle="dropdown">{{c.state}}</span>
+                                            {% elseif c.state == 'Confirmed' %}
+                                                <span class="label bg-info-300 dropdown-toggle" data-toggle="dropdown">{{c.state}}</span>
                                             {% elseif c.state == 'Livré' %}
                                                 <span class="label bg-success-300 dropdown-toggle" data-toggle="dropdown">{{c.state}}</span>
                                             {% else %}
@@ -90,7 +101,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                        </div>
 
                         <!-- Modal with invoice -->
                         <div id="invoice{{ loop.index0 }}" class="modal fade">
@@ -132,6 +143,7 @@
                                     <table class="table table-lg">
                                         <thead>
                                         <tr>
+                                            <th class="col-sm-1">ID</th>
                                             <th>Description</th>
                                             <th class="col-sm-1">Size</th>
                                             <th class="col-sm-1">Color</th>
@@ -142,6 +154,7 @@
                                         <tbody id="items{{ loop.index0 }}">
                                         {% for item in c.items %}
                                             <tr>
+                                                <td>{{ item.product.id }}-{{ item.variation.id }}</td>
                                                 <td>
                                                     <h6 class="no-margin"><a href="{{ path('product_details_page', {'id': item.product.id, 'v_id': item.variation.id}) }}" target="_blank">{{ item.product.name }}</a></h6>
                                                     {% if item.promo %}
@@ -210,6 +223,7 @@
                                 <div class="modal-footer">
                                     {% if c.state != "Canceled" %}
                                     <a class="btn btn-warning" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Pending'}) }}">Pending</a>
+                                    <a class="btn btn-info" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Confirmed'}) }}">Confirmed</a>
                                     <a class="btn btn-success" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Livré'}) }}">Livré</a>
                                     <a class="btn btn-danger" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Canceled'}) }}">Canceled</a>
                                     {% endif %}
@@ -221,6 +235,10 @@
                         <!-- /modal with invoice -->
                     {% endif %}
                 {% endfor %}
+            </div>
+
+            <div class="navigation">
+                {{ knp_pagination_render(commandes) }}
             </div>
             {{ include('admin/footer.html.twig') }}
         </div>
@@ -242,11 +260,11 @@
                 var code = $('#code'+i).html();
                 // console.log(code);
                 var initialTotal = $("#total_"+i).html();
-                console.log(initialTotal);
                 // console.log($("#country_"+i).html())
                 if ($("#country_"+i).html() == 'Tunisia') {
                     if(parseFloat(initialTotal) < parseFloat(200)) {
                         $('#items'+i).append('<tr>' +
+                            '<td>#</td>'+
                             '<td><h6 class="no-margin">Livraison</h6></td>' +
                             '<td></td>'+
                             '<td></td>' +
@@ -263,6 +281,7 @@
                         //console.log(i);
                         //console.log(initialTotal);
                         $('#items'+i).append('<tr>' +
+                            '<td>#</td>'+
                             '<td><h6 class="no-margin">Delivery</h6></td>' +
                             '<td></td>'+
                             '<td></td>' +

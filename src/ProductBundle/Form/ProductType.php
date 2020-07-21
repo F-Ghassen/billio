@@ -34,6 +34,7 @@ class ProductType extends AbstractType
                     'SweatShirt' => 'SweatShirt',
                     'SweatPants' => 'SweatPants',
                     'Veste' => 'Veste',
+                    'Maillot' => 'Maillot',
                 ),
                 'placeholder' => 'Select',
             ))

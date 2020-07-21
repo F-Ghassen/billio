@@ -2,6 +2,7 @@
 
 namespace ProductBundle\Controller;
 
+use CollectionBundle\Entity\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use ProductBundle\Entity\Product;
 use ProductBundle\Entity\ProductVariation;
@@ -18,11 +19,44 @@ class DefaultController extends Controller
     /**
      * @Route("/admin/products", name="list_products_page")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findBy(array(), array('id' => 'DESC'));
+        $em = $this->getDoctrine()->getManager();
+        $queryBuilder = $em->getRepository(Product::class)->createQueryBuilder('p');
+
+        if($request->query->getAlnum('category')) {
+            if($request->query->getAlnum('category') == 'StreetCouture') {
+                $queryBuilder->andWhere('p.category = :sweatshirt OR p.category = :sweatpants OR p.category = :veste')
+                    ->setParameter('sweatshirt', 'SweatShirt')
+                    ->setParameter('sweatpants', 'SweatPants')
+                    ->setParameter('veste', 'Veste');
+            } else {
+                $queryBuilder->andWhere('p.category = :category')
+                    ->setParameter('category', $request->query->getAlnum('category'));
+            }
+        }
+
+        if($request->query->getAlnum('collection')) {
+            $queryBuilder->leftJoin('p.collection', 'collection')
+                ->addSelect('collection')
+                ->andWhere('collection.name = :collection')
+                ->setParameter('collection', $request->query->getAlnum('collection'));
+        }
+
+        $queryBuilder->orderBy('p.id', 'DESC');
+        $query = $queryBuilder->getQuery();
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            25
+        );
+
+        $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
+        // $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findBy(array(), array('id' => 'DESC'));
         return $this->render('admin/products/list.html.twig', array(
-            'products' => $products,
+            'products' => $result,
+            'collections' => $collections,
         ));
     }
 
@@ -211,7 +245,7 @@ class DefaultController extends Controller
                 $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
                 $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
                 if ($p->getCategory() == "Jeans") {
-                    if ($v->getSizeJean29() == 0 && $v->getSizeJean30() == 0 && $v->getSizeJean31() == 0 && $v->getSizeJean32() == 0 && $v->getSizeJean33() == 0 && $v->getSizeJean34() == 0 && $v->getSizeJean35() == 0 && $v->getSizeJean36() == 0 && $v->getSizeJean38() == 0) {
+                    if ($v->getSizeJean29() == 0 && $v->getSizeJean30() == 0 && $v->getSizeJean31() == 0 && $v->getSizeJean32() == 0 && $v->getSizeJean33() == 0 && $v->getSizeJean34() == 0 && $v->getSizeJean35() == 0 && $v->getSizeJean36() == 0 && $v->getSizeJean38() == 0 && $v->getSizeJean40() == 0) {
                         $feed .= "Out of stock;";
                     } else {
                         $feed .= "In stock;";
@@ -223,7 +257,7 @@ class DefaultController extends Controller
                         $feed .= "In stock;";
                     }
                 } else {
-                    if ($v->getS() == 0 && $v->getM() == 0 && $v->getL() == 0 && $v->getXl() == 0 && $v->getXxl() == 0) {
+                    if ($v->getS() == 0 && $v->getM() == 0 && $v->getL() == 0 && $v->getXl() == 0 && $v->getXxl() == 0 && $v->getXxxl() == 0) {
                         $feed .= "Out of stock;";
                     } else {
                         $feed .= "In stock;";

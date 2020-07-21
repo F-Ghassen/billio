@@ -34,15 +34,39 @@
                 <div class="row" style="margin: 20px">
                     <a href="{{ path('product_feed') }}" class="btn btn-success"><i class="icon-address-book position-left"></i>Feed</a>
                 </div>
+                <div class="ml-3 container row">
+                    <h5>Filtrage</h5>
+                    <form method="get" id="filter_form" enctype="multipart/form-data">
+                        <select class="form-control" name="category" id="category">
+                            <option value="" disabled selected>Select</option>
+                            <option value="TShirt">T-Shirt</option>
+                            <option value="Polo">Polo</option>
+                            <option value="Chemises">Chemises</option>
+                            <option value="Jeans">Jeans</option>
+                            <option value="SweatShirt">SweatShirt</option>
+                            <option value="SweatPants">SweatPants</option>
+                            <option value="Veste">Veste</option>
+                            <option value="Maillot">Maillot</option>
+                        </select>
+
+                        <select class="form-control" name="collection" id="collection">
+                            <option value="" disabled selected>Select</option>
+                            {% for c in collections %}
+                                <option value="{{ c.name }}">{{ c.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
-                        <tr>
+                            <tr>
                             <th>#</th>
                             <th>Nom</th>
                             <th>Price</th>
                             <th>Price Dollar</th>
-                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Collection</th>
                             <th>Image</th>
                             <th>Promotion</th>
                             <th>Visible</th>
@@ -56,7 +80,12 @@
                                 <td>{{ p.name }}</td>
                                 <td>{{ p.price }} TND</td>
                                 <td>{{ p.priceDollar }} $</td>
-                                <td style="max-width: 200px !important;word-wrap: break-word;">{{ p.description }}</td>
+                                <td>{{ p.category }}</td>
+                                <td>
+                                    {% if p.collection != null %}
+                                    {{ p.collection.name }}
+                                    {% endif %}
+                                </td>
                                 <td><img src="{{ vich_uploader_asset(p,'imageFile') }}" alt="" style="width: 150px;height: 150px;object-fit: cover;"></td>
                                 <td>
                                     {% if p.promoEnabled %}
@@ -86,9 +115,65 @@
                     </table>
                 </div>
             </div>
+
+            <div class="navigation">
+                {{ knp_pagination_render(products) }}
+            </div>
+
             {{ include('admin/footer.html.twig') }}
         </div>
     </div>
     </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            function insertParam(key, value) {
+                key = encodeURIComponent(key);
+                value = encodeURIComponent(value);
+
+                // kvp looks like ['key1=value1', 'key2=value2', ...]
+                var kvp = document.location.search.substr(1).split('&');
+                let i=0;
+
+                for(; i<kvp.length; i++){
+                    if (kvp[i].startsWith(key + '=')) {
+                        let pair = kvp[i].split('=');
+                        pair[1] = value;
+                        kvp[i] = pair.join('=');
+                        break;
+                    }
+                }
+
+                if(i >= kvp.length){
+                    kvp[kvp.length] = [key,value].join('=');
+                }
+
+                // can return this or...
+                let params = kvp.join('&');
+
+                // reload page with new params
+                document.location.search = params;
+            }
+            /*let options = $('#collection option');
+            let values = $.map(options ,function(option) {
+                if(option.value !== '') {
+                    //option.value = encodeURI(option.value);
+                    return option.value;
+                }
+            });
+
+            let values1 = $.map(options ,function(option) {
+                return option.value;
+            });
+            console.log(values, values1);*/
+
+            $("#category").on('change', function ($event) {
+                insertParam('category', $event.target.value);
+            });
+
+            $("#collection").on('change', function ($event) {
+                insertParam('collection', $event.target.value);
+            });
+        });
+    </script>
 {% endblock %}

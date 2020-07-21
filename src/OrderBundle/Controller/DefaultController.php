@@ -15,12 +15,42 @@ class DefaultController extends Controller
     /**
      * @Route("/admin/devis", name="list_devis_page")
      */
-    public function listdevisAction()
+    public function listdevisAction(Request $request)
     {
-        $commandes = $this->getDoctrine()->getManager()->getRepository(Devis::class)
-            ->findBy(array('enabled' => true), array('id' => 'desc'));
+        $em = $this->getDoctrine()->getManager();
+        $queryBuilder = $em->getRepository(Devis::class)->createQueryBuilder('d');
+        $queryBuilder->where('d.enabled = true');
+
+        if($request->query->getAlnum('search')) {
+            $queryBuilder
+                ->leftJoin('d.orderInfo', 'info')
+                ->addSelect('info')
+                ->andWhere('info.customerFirstName like :search')
+                ->orWhere('info.customerLastName like :search')
+                ->orWhere('info.customerPhone like :search')
+                ->orWhere('info.customerEmail like :search')
+                ->orWhere('info.customerCity like :search')
+                ->orWhere('info.customerAddress like :search')
+                ->orWhere('info.postalCode like :search')
+                ->orWhere('info.promo like :search')
+                ->orWhere('info.pays like :search')
+                ->setParameter('search', $request->query->getAlnum('search'));
+        }
+
+        $queryBuilder->orderBy('d.id', 'DESC');
+
+        $query = $queryBuilder->getQuery();
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            24
+        );
+
+        // $commandes = $this->getDoctrine()->getManager()->getRepository(Devis::class)
+            // ->findBy(array('enabled' => true), array('id' => 'desc'));
         return $this->render('admin/devis/list.html.twig', array(
-            'commandes' => $commandes,
+            'commandes' => $result,
         ));
     }
 
@@ -104,6 +134,11 @@ class DefaultController extends Controller
                             $val = $val + $order_item->getQuantity();
                             $order_item->getVariation()->setXXL($val);
                             break;
+                        case 'XXXL':
+                            $val = $order_item->getVariation()->getXXXL();
+                            $val = $val + $order_item->getQuantity();
+                            $order_item->getVariation()->setXXXL($val);
+                            break;
                         case '29':
                             $val = $order_item->getVariation()->getSizeJean29();
                             $val = $val + $order_item->getQuantity();
@@ -150,9 +185,9 @@ class DefaultController extends Controller
                             $order_item->getVariation()->setSizeJean38($val);
                             break;
                         case '40':
-                            $val = $order_item->getVariation()->getSizeMoc40();
+                            $val = $order_item->getVariation()->getSizeJean40();
                             $val = $val + $order_item->getQuantity();
-                            $order_item->getVariation()->setSizeMoc40($val);
+                            $order_item->getVariation()->setSizeJean40($val);
                             break;
                         case '41':
                             $val = $order_item->getVariation()->getSizeMoc41();

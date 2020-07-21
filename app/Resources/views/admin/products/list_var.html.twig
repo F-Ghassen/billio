@@ -59,6 +59,7 @@
                                 <th>Stock L</th>
                                 <th>Stock XL</th>
                                 <th>Stock XXL</th>
+                                <th>Stock 3XL</th>
                             {% endif %}
                             <th>Actions</th>
                         </tr>
@@ -78,6 +79,7 @@
                                     <td>{{ v.sizeJean35 }}</td>
                                     <td>{{ v.sizeJean36 }}</td>
                                     <td>{{ v.sizeJean38 }}</td>
+                                    <td>{{ v.sizeJean40 }}</td>
                                 {% elseif p.category == 'Mocassin' %}
                                     <td>{{ v.sizeMoc40 }}</td>
                                     <td>{{ v.sizeMoc41 }}</td>
@@ -91,6 +93,7 @@
                                     <td>{{ v.l }}</td>
                                     <td>{{ v.xl }}</td>
                                     <td>{{ v.xxl }}</td>
+                                    <td>{{ v.xxxl }}</td>
                                 {% endif %}
                                 {% for img in v.images %}
 

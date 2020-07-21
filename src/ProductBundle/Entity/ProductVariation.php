@@ -65,6 +65,13 @@ class ProductVariation
     private $XXL;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="xxxl", type="string", length=255, nullable=true)
+     */
+    private $XXXL;
+
+    /**
      * @ORM\Column(name="size_jean_29", type="string", length=255, nullable=true)
      */
     private $size_jean_29;
@@ -108,6 +115,11 @@ class ProductVariation
      * @ORM\Column(name="size_jean_38", type="string", length=255, nullable=true)
      */
     private $size_jean_38;
+
+    /**
+     * @ORM\Column(name="size_jean_40", type="string", length=255, nullable=true)
+     */
+    private $size_jean_40;
 
     /**
      * @ORM\Column(name="size_moc_40", type="string", length=255, nullable=true)
@@ -434,6 +446,14 @@ class ProductVariation
     }
 
     /**
+     * @param mixed $size_jean_40
+     */
+    public function setSizeJean40($size_jean_40)
+    {
+        $this->size_jean_40 = $size_jean_40;
+    }
+
+    /**
      * @return mixed
      */
     public function getSizeMoc40()
@@ -543,6 +563,30 @@ class ProductVariation
     public function setSizeJean35($size_jean_35)
     {
         $this->size_jean_35 = $size_jean_35;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSizeJean40()
+    {
+        return $this->size_jean_40;
+    }
+
+    /**
+     * @return string
+     */
+    public function getXXXL()
+    {
+        return $this->XXXL;
+    }
+
+    /**
+     * @param string $XXXL
+     */
+    public function setXXXL($XXXL)
+    {
+        $this->XXXL = $XXXL;
     }
 }
 
