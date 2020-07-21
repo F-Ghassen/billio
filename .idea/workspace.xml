@@ -20,48 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/assets/fonts/dum1.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/fonts/dum13d.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/fonts/dum1ReIt.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/fonts/dum1cud.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/fonts/dum1cup.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/fonts/dum1ital.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/fonts/dum1out.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/fonts/dum1shad.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/fonts/dum1thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/fonts/dum1wide.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/img/bg-img/image00001-min.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bilioriche.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bilioriche.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.en.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/list_var.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/list_var.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/list_products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/list_products.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/slides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/slides.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/symfony_requirements" beforeDir="false" afterPath="$PROJECT_DIR$/bin/symfony_requirements" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Entity/ProductVariation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Entity/ProductVariation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Form/ProductVariationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Form/ProductVariationType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/assets/css/core-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/css/core-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,14 +251,7 @@
       <workItem from="1595108262857" duration="9878000" />
       <workItem from="1595124030638" duration="5415000" />
       <workItem from="1595202097134" duration="2068000" />
-      <workItem from="1595332949651" duration="11105000" />
-    </task>
-    <task id="LOCAL-00046" summary="test2">
-      <created>1589610072561</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1589610072561</updated>
+      <workItem from="1595332949651" duration="11980000" />
     </task>
     <task id="LOCAL-00047" summary="another test">
       <created>1589610646191</created>
@@ -636,7 +589,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595123895501</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="changes done">
+      <created>1595349783788</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1595349783789</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +615,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test trans" />
     <MESSAGE value="test if payment worked" />
     <MESSAGE value="check payment done" />
     <MESSAGE value="check session" />
@@ -680,7 +639,8 @@
     <MESSAGE value="fixed price not showing" />
     <MESSAGE value="fixed multiline bug" />
     <MESSAGE value="changed banner&#10;changed nav&#10;added swimwear" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed banner&#10;changed nav&#10;added swimwear" />
+    <MESSAGE value="changes done" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
