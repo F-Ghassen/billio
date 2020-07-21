@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,14 +251,8 @@
       <workItem from="1595108262857" duration="9878000" />
       <workItem from="1595124030638" duration="5415000" />
       <workItem from="1595202097134" duration="2068000" />
-      <workItem from="1595332949651" duration="11980000" />
-    </task>
-    <task id="LOCAL-00047" summary="another test">
-      <created>1589610646191</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1589610646191</updated>
+      <workItem from="1595332949651" duration="12186000" />
+      <workItem from="1595368946731" duration="919000" />
     </task>
     <task id="LOCAL-00048" summary="test new">
       <created>1589611043444</created>
@@ -596,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595349783789</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="display size 40">
+      <created>1595350484323</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1595350484323</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,7 +616,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test if payment worked" />
     <MESSAGE value="check payment done" />
     <MESSAGE value="check session" />
     <MESSAGE value="print session" />
@@ -640,7 +640,8 @@
     <MESSAGE value="fixed multiline bug" />
     <MESSAGE value="changed banner&#10;changed nav&#10;added swimwear" />
     <MESSAGE value="changes done" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes done" />
+    <MESSAGE value="display size 40" />
+    <option name="LAST_COMMIT_MESSAGE" value="display size 40" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
