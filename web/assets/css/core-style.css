@@ -2257,5 +2257,6 @@ img {
 
 @font-face {
     font-family: 'Dum';
-    url('../fonts/dum1.ttf')  format('truetype'), /* Safari, Android, iOS */
+    src:
+        url('../fonts/dum1.ttf')  format('truetype');
 }

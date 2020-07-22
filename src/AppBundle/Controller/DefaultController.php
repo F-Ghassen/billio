@@ -74,8 +74,16 @@ class DefaultController extends Controller
             $queryBuilder = $em->getRepository(Product::class)->createQueryBuilder('p');
             $queryBuilder->where('p.enabled = true')->orderBy('p.id', 'DESC');
             if($request->query->getAlnum('category')) {
-                $queryBuilder->andWhere('p.category = :category')
-                    ->setParameter('category', $request->query->getAlnum('category'));
+                if($request->query->getAlnum('category') == 'StreetCouture') {
+                    $queryBuilder->andWhere('p.category = :sweatshirt OR p.category = :sweatpants OR p.category = :veste OR p.category = :couture')
+                        ->setParameter('couture', 'StreeCouture')
+                        ->setParameter('sweatshirt', 'SweatShirt')
+                        ->setParameter('sweatpants', 'SweatPants')
+                        ->setParameter('veste', 'Veste');
+                } else {
+                    $queryBuilder->andWhere('p.category = :category')
+                        ->setParameter('category', $request->query->getAlnum('category'));
+                }
             }
             if($request->query->getAlnum('collection')) {
                 $queryBuilder->leftJoin('p.collection', 'collection')
@@ -97,7 +105,8 @@ class DefaultController extends Controller
         $queryBuilder->where('p.enabled = true');
         if($request->query->getAlnum('category')) {
             if($request->query->getAlnum('category') == 'StreetCouture') {
-                $queryBuilder->andWhere('p.category = :sweatshirt OR p.category = :sweatpants OR p.category = :veste')
+                $queryBuilder->andWhere('p.category = :sweatshirt OR p.category = :sweatpants OR p.category = :veste OR p.category = :couture')
+                    ->setParameter('couture', 'StreeCouture')
                     ->setParameter('sweatshirt', 'SweatShirt')
                     ->setParameter('sweatpants', 'SweatPants')
                     ->setParameter('veste', 'Veste');
@@ -641,7 +650,9 @@ class DefaultController extends Controller
             $personal_info->setPays($personal_info_json['CustCountry']);
             $personal_info->setPostalCode($personal_info_json['CustZIP']);
             $personal_info->setPaymentMethod('GPG');
-            $personal_info->setPromo($personal_info_json['promo']);
+            if(isset($personal_info_json['promo'])) {
+                $personal_info->setPromo($personal_info_json['promo']);
+            }
 
             $database_commande->setOrderInfo($personal_info);
             // $database_commande->setEnabled(true);
