@@ -20,20 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/assets/img/bg-img/maillot-cover.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bilioriche.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bilioriche.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.en.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/slides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/slides.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/assets/css/core-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/css/core-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +100,8 @@
       <path value="$PROJECT_DIR$/vendor/phpcollection/phpcollection" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/jsrouting-bundle" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/vendor/egyg33k/csv-bundle" />
+      <path value="$PROJECT_DIR$/vendor/league/csv" />
     </include_path>
   </component>
   <component name="ProjectId" id="1RtjENm9pDI9HgxJy0Estx6Szrd" />
@@ -119,7 +115,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/assets/img/bg-img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -156,6 +152,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -267,14 +264,10 @@
       <workItem from="1595368946731" duration="1464000" />
       <workItem from="1595436046351" duration="91000" />
       <workItem from="1595436165751" duration="175000" />
-      <workItem from="1595436390996" duration="1885000" />
-    </task>
-    <task id="LOCAL-00049" summary="check return">
-      <created>1589611322387</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1589611322387</updated>
+      <workItem from="1595436390996" duration="2111000" />
+      <workItem from="1595786757414" duration="77000" />
+      <workItem from="1596894066369" duration="471000" />
+      <workItem from="1596894605121" duration="22009000" />
     </task>
     <task id="LOCAL-00050" summary="print all request">
       <created>1589611806891</created>
@@ -612,11 +605,18 @@
       <option name="project" value="LOCAL" />
       <updated>1595370322824</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="adding new banner and fix bugs">
+      <created>1595438391563</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1595438391564</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -631,7 +631,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="check session" />
     <MESSAGE value="print session" />
     <MESSAGE value="fetch command id from notif" />
     <MESSAGE value="added flush" />
@@ -656,57 +655,53 @@
     <MESSAGE value="changes done" />
     <MESSAGE value="display size 40" />
     <MESSAGE value="made billio text smaller" />
-    <option name="LAST_COMMIT_MESSAGE" value="made billio text smaller" />
+    <MESSAGE value="adding new banner and fix bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding new banner and fix bugs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="7" key="#PHP/0.0.1366.728@0.0.1366.728" timestamp="1589610915307" />
-    <state x="423" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591807486048">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="476" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596912203960">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="423" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1591807486048" />
+    <state x="476" y="188" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/-1600.0.1600.860@0.0.1536.824" timestamp="1596912203960" />
     <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser" timestamp="1595122622472">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="476" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592866377095" />
     <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595122622471" />
-    <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587315834637">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="126" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1587315834637" />
-    <state x="464" y="135" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595339546627">
+    <state x="464" y="135" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596902750986">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592063639537" />
+    <state x="464" y="135" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824/-1600.0.1600.860@0.0.1536.824" timestamp="1596902750986" />
     <state x="464" y="135" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1595339546627" />
     <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2" timestamp="1592916417554">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="91" y="0" key="CommitChangelistDialog2/0.0.1366.728/-1600.-138.1600.860@0.0.1366.728" timestamp="1592784253490" />
     <state x="375" y="47" width="749" height="659" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592916417554" />
-    <state x="521" y="135" key="FileChooserDialogImpl" timestamp="1595436136575">
+    <state x="521" y="135" key="FileChooserDialogImpl" timestamp="1595786832655">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592350018124" />
-    <state x="521" y="135" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595436136575" />
+    <state x="521" y="135" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1595786832655" />
     <state x="437" y="66" key="RollbackChangesDialog" timestamp="1590045964963">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="437" y="66" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1590045964963" />
-    <state x="184" y="9" key="SettingsEditor" timestamp="1587316327044">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587316327044" />
     <state x="413" y="27" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595336181094">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="413" y="27" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1595336181094" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1592915144233">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="381" y="183" key="run.anything.popup" timestamp="1596908142818">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1592915144233" />
+    <state x="381" y="183" key="run.anything.popup/0.0.1536.824/-1600.0.1600.860@0.0.1536.824" timestamp="1596908142818" />
     <state x="389" y="55" width="756" height="768" key="search.everywhere.popup" timestamp="1595203091526">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

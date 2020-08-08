@@ -12,6 +12,8 @@ use ProductBundle\Form\ProductVariationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends Controller
@@ -58,6 +60,105 @@ class DefaultController extends Controller
             'products' => $result,
             'collections' => $collections,
         ));
+    }
+
+    /**
+     * @Route("/admin/export", name="export_page")
+     */
+    public function exportAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $queryBuilder = $em->getRepository(Product::class)->createQueryBuilder('p');
+
+        if($request->query->getAlnum('category')) {
+            if($request->query->getAlnum('category') == 'StreetCouture') {
+                $queryBuilder->andWhere('p.category = :sweatshirt OR p.category = :sweatpants OR p.category = :veste')
+                    ->setParameter('sweatshirt', 'SweatShirt')
+                    ->setParameter('sweatpants', 'SweatPants')
+                    ->setParameter('veste', 'Veste');
+            } else {
+                $queryBuilder->andWhere('p.category = :category')
+                    ->setParameter('category', $request->query->getAlnum('category'));
+            }
+        }
+
+        if($request->query->getAlnum('collection')) {
+            $queryBuilder->leftJoin('p.collection', 'collection')
+                ->addSelect('collection')
+                ->andWhere('collection.name = :collection')
+                ->setParameter('collection', $request->query->getAlnum('collection'));
+        }
+        $queryBuilder->orderBy('p.id', 'DESC');
+        $export_data = $queryBuilder->getQuery()->getResult();
+
+        $fileName = "export_stock_" . date("d_m_Y") . ".csv";
+        $writer = $this->container->get('egyg33k.csv.writer');
+        $csv = $writer::createFromFileObject(new \SplTempFileObject());
+        $csv->insertOne(['id', 'name', 'color', 'Stock S', 'Stock M', 'Stock L', 'Stock XL', 'Stock XXL', 'Stock XXXL',
+            'Stock 29', 'Stock 30', 'Stock 31', 'Stock 32', 'Stock 33', 'Stock 34', 'Stock 35', 'Stock 36', 'Stock 38', 'Stock 40'
+        ]);
+
+        foreach ($export_data as $p) {
+            $json = array();
+            foreach ($p->getVariations() as $v) {
+                $json['id'] = $p->getId().' - '.$v->getId();
+                $json['name'] = $p->getName();
+                $json['color'] = $v->getColor();
+                $json['s'] = $v->getS();
+                $json['m'] = $v->getM();
+                $json['l'] = $v->getL();
+                $json['xl'] = $v->getXL();
+                $json['xxl'] = $v->getXXL();
+                $json['xxxl'] = $v->getXXXL();
+                $json['size29'] = $v->getSizeJean29();
+                $json['size30'] = $v->getSizeJean30();
+                $json['size31'] = $v->getSizeJean31();
+                $json['size32'] = $v->getSizeJean32();
+                $json['size33'] = $v->getSizeJean33();
+                $json['size34'] = $v->getSizeJean34();
+                $json['size35'] = $v->getSizeJean35();
+                $json['size36'] = $v->getSizeJean36();
+                $json['size38'] = $v->getSizeJean38();
+                $json['size40'] = $v->getSizeJean40();
+                $csv->insertOne($json);
+                // $json_variation['category'] = $p->getCategory();
+                /*switch ($p->getCategory()) {
+                    case 'Jeans':
+                        $json['size29'] = $v->getSizeJean29();
+                        $json['size30'] = $v->getSizeJean30();
+                        $json['size31'] = $v->getSizeJean31();
+                        $json['size32'] = $v->getSizeJean32();
+                        $json['size33'] = $v->getSizeJean33();
+                        $json['size34'] = $v->getSizeJean34();
+                        $json['size35'] = $v->getSizeJean35();
+                        $json['size36'] = $v->getSizeJean36();
+                        $json['size38'] = $v->getSizeJean38();
+                        $json['size40'] = $v->getSizeJean40();
+                        break;
+                    case 'Mocassin':
+                        $json['size40'] = $v->getSizeMoc40();
+                        $json['size41'] = $v->getSizeMoc41();
+                        $json['size42'] = $v->getSizeMoc42();
+                        $json['size43'] = $v->getSizeMoc43();
+                        $json['size44'] = $v->getSizeMoc44();
+                        $json['size45'] = $v->getSizeMoc45();
+                        break;
+                    default:
+                        $json['s'] = $v->getS();
+                        $json['m'] = $v->getM();
+                        $json['l'] = $v->getL();
+                        $json['xl'] = $v->getXL();
+                        $json['xxl'] = $v->getXXL();
+                        $json['xxxl'] = $v->getXXXL();
+                }*/
+            }
+            $export[] = $json;
+        }
+
+        $csv->output($fileName);
+        exit;
+        //dump($export_data);
+        //return $this->render('base.html.twig');
     }
 
     /**

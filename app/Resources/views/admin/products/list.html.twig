@@ -34,6 +34,9 @@
                 <div class="row" style="margin: 20px">
                     <a href="{{ path('product_feed') }}" class="btn btn-success"><i class="icon-address-book position-left"></i>Feed</a>
                 </div>
+                <div class="row" style="margin: 20px">
+                    <a href="{{ path('export_page') }}" id="export" class="btn btn-success"><i class="icon-address-book position-left"></i>Export Stock</a>
+                </div>
                 <div class="ml-3 container row">
                     <h5>Filtrage</h5>
                     <form method="get" id="filter_form" enctype="multipart/form-data">
@@ -128,6 +131,20 @@
     </div>
     <script>
         $(document).ready(function(){
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+            };
             function insertParam(key, value) {
                 key = encodeURIComponent(key);
                 value = encodeURIComponent(value);
@@ -155,18 +172,6 @@
                 // reload page with new params
                 document.location.search = params;
             }
-            /*let options = $('#collection option');
-            let values = $.map(options ,function(option) {
-                if(option.value !== '') {
-                    //option.value = encodeURI(option.value);
-                    return option.value;
-                }
-            });
-
-            let values1 = $.map(options ,function(option) {
-                return option.value;
-            });
-            console.log(values, values1);*/
 
             $("#category").on('change', function ($event) {
                 insertParam('category', $event.target.value);
@@ -175,6 +180,18 @@
             $("#collection").on('change', function ($event) {
                 insertParam('collection', $event.target.value);
             });
+
+            $('#export').on('click', function($event) {
+                $event.preventDefault();
+                let url = '{{ path('export_page') }}?';
+                if(getUrlParameter('category')) {
+                    url += '&category=' + getUrlParameter('category')
+                }
+                if(getUrlParameter('collection')) {
+                    url += '&collection=' + getUrlParameter('collection')
+                }
+                document.location.href = url;
+            })
         });
     </script>
 {% endblock %}

@@ -16,6 +16,7 @@
         "ext-json": "*",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
+        "egyg33k/csv-bundle": "^1.0",
         "friendsofsymfony/jsrouting-bundle": "^2.4",
         "friendsofsymfony/user-bundle": "~2.0",
         "incenteev/composer-parameter-handler": "^2.0",

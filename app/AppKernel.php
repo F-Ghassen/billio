@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Egyg33k\CsvBundle\Egyg33kCsvBundle(),
 
             new AppBundle\AppBundle(),
             new ProductBundle\ProductBundle(),
