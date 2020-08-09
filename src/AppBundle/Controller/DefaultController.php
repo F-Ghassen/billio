@@ -408,6 +408,13 @@ class DefaultController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $database_commande = $this->getDoctrine()->getManager()->getRepository(Devis::class)->find($commande->getId());
                 $database_commande->setEnabled(true);
+
+                $data = $database_commande->getItems();
+                foreach ($data as $devis_item) {
+                    $devis_item->setPrice($devis_item->getProduct()->getPrice());
+                    $devis_item->setPriceDollar($devis_item->getProduct()->getPriceDollar());
+                }
+
                 $em->flush();
                 foreach ($data as $devis_item) {
                     $variation = $em->getRepository(ProductVariation::class)->find(($devis_item->getVariation()->getId()));

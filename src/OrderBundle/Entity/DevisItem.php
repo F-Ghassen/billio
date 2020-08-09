@@ -56,6 +56,20 @@ class DevisItem
     private $variation;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="price", type="integer", nullable=true)
+     */
+    private $price;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="price_dollar", type="integer", nullable=true)
+     */
+    private $price_dollar;
+
+    /**
      * Get id
      *
      * @return int
@@ -159,6 +173,38 @@ class DevisItem
     public function setPromo($promo)
     {
         $this->promo = $promo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param string $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPriceDollar()
+    {
+        return $this->price_dollar;
+    }
+
+    /**
+     * @param string $price_dollar
+     */
+    public function setPriceDollar($price_dollar)
+    {
+        $this->price_dollar = $price_dollar;
     }
 }
 

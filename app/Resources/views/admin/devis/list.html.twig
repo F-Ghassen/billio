@@ -56,11 +56,33 @@
                                         {% set sumDollar = 0 %}
                                         {% for item in c.items %}
                                             {% if item.promo %}
-                                                {% set sum1 = sum1 + item.quantity*(item.product.price - item.product.price*item.promo/100) %}
-                                                {% set sumDollar = sumDollar + item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100)  %}
+
+                                                {% if item.price != null %}
+                                                    {% set sum1 = sum1 + item.quantity*(item.price - item.price*item.promo/100) %}
+                                                {% else %}
+                                                    {% set sum1 = sum1 + item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                                {% endif %}
+
+                                                {% if item.priceDollar != null %}
+                                                    {% set sumDollar = sumDollar + item.quantity*(item.priceDollar - item.priceDollar*item.promo/100)  %}
+                                                {% else %}
+                                                    {% set sumDollar = sumDollar + item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100)  %}
+                                                {% endif %}
+
                                             {% else %}
-                                                {% set sum1 = sum1 + item.quantity*item.product.price %}
-                                                {% set sumDollar = sumDollar + item.quantity*item.product.priceDollar  %}
+
+                                                {% if item.price != null %}
+                                                    {% set sum1 = sum1 + item.quantity*item.price %}
+                                                {% else %}
+                                                    {% set sum1 = sum1 + item.quantity*item.product.price %}
+                                                {% endif %}
+
+                                                {% if item.priceDollar != null %}
+                                                    {% set sumDollar = sumDollar + item.quantity*item.priceDollar  %}
+                                                {% else %}
+                                                    {% set sumDollar = sumDollar + item.quantity*item.product.priceDollar  %}
+                                                {% endif %}
+
                                             {% endif %}
                                         {% endfor %}
                                         <span class="text-semibold">
@@ -167,11 +189,33 @@
                                                 <td>
                                                     <span class="text-semibold">
                                                         {% if item.promo %}
-                                                            {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
-                                                            {% set totalDollar = item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100) %}
+
+                                                            {% if item.price != null %}
+                                                                {% set total = item.quantity*(item.price - item.price*item.promo/100) %}
+                                                            {% else %}
+                                                                {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                                            {% endif %}
+
+                                                            {% if item.priceDollar != null %}
+                                                                {% set totalDollar = item.quantity*(item.priceDollar - item.priceDollar*item.promo/100) %}
+                                                            {% else %}
+                                                                {% set totalDollar = item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100) %}
+                                                            {% endif %}
+
                                                         {% else %}
-                                                            {% set total = item.quantity*item.product.price %}
-                                                            {% set totalDollar = item.quantity*item.product.priceDollar %}
+
+                                                            {% if item.price != null %}
+                                                                {% set total = item.quantity*item.price %}
+                                                            {% else %}
+                                                                {% set total = item.quantity*item.product.price %}
+                                                            {% endif %}
+
+                                                            {% if item.priceDollar != null %}
+                                                                {% set totalDollar = item.quantity*item.priceDollar %}
+                                                            {% else %}
+                                                                {% set totalDollar = item.quantity*item.priceDollar %}
+                                                            {% endif %}
+
                                                         {% endif %}
                                                         {% if c.orderInfo.pays == 'Tunisia' %}
                                                         {{ total|number_format(2) }} TND
