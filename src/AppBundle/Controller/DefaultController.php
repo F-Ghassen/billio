@@ -200,7 +200,7 @@ class DefaultController extends Controller
             } else {
                 $devis = new Devis();
                 $devis->setEnabled(false);
-                $devis->setState('Pending');
+                $devis->setState('VIDE');
                 $devis->setSaleDate(new \DateTime());
                 $em->persist($devis);
                 $em->flush();
@@ -286,7 +286,7 @@ class DefaultController extends Controller
             else{
                 $devis = new Devis();
                 $devis->setEnabled(false);
-                $devis->setState('Pending');
+                $devis->setState('VIDE');
                 $devis->setSaleDate(new \DateTime());
                 $em->persist($devis);
                 $em->flush();

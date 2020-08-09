@@ -102,7 +102,7 @@
                                                 <span class="label bg-info-300 dropdown-toggle" data-toggle="dropdown">{{c.state}}</span>
                                             {% elseif c.state == 'Livré' %}
                                                 <span class="label bg-success-300 dropdown-toggle" data-toggle="dropdown">{{c.state}}</span>
-                                            {% else %}
+                                            {% elseif c.state == 'Canceled' %}
                                                 <span class="label bg-danger-300 dropdown-toggle" data-toggle="dropdown">Canceled</span>
                                             {% endif %}
                                         </div>
@@ -313,7 +313,7 @@
                             '<td></td>'+
                             '<td></td>' +
                             '<td>1</td>' +
-                            '<td class="text-semibold">6 TND</td>' +
+                            '<td class="text-semibold">6.00 TND</td>' +
                             '</tr>');
                         //console.log(initialTotal);
                         initialTotal = parseFloat(initialTotal);

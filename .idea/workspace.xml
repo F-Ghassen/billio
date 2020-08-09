@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,14 +263,7 @@
       <workItem from="1595436390996" duration="2111000" />
       <workItem from="1595786757414" duration="77000" />
       <workItem from="1596894066369" duration="471000" />
-      <workItem from="1596894605121" duration="31842000" />
-    </task>
-    <task id="LOCAL-00053" summary="test notif">
-      <created>1589668789894</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1589668789894</updated>
+      <workItem from="1596894605121" duration="32305000" />
     </task>
     <task id="LOCAL-00054" summary="check if notif works">
       <created>1589849417870</created>
@@ -607,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596938853493</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="filter with devis id">
+      <created>1596939106503</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1596939106503</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +627,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed prices&#10;gpg back to prod" />
     <MESSAGE value="final patch" />
     <MESSAGE value="added event listener" />
     <MESSAGE value="log ip" />
@@ -651,7 +651,8 @@
     <MESSAGE value="export stock done" />
     <MESSAGE value="phone number pages&#10;remove devis id from print" />
     <MESSAGE value="devis sale price saved in devis item to preserve it in case of price change in the future" />
-    <option name="LAST_COMMIT_MESSAGE" value="devis sale price saved in devis item to preserve it in case of price change in the future" />
+    <MESSAGE value="filter with devis id" />
+    <option name="LAST_COMMIT_MESSAGE" value="filter with devis id" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
