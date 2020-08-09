@@ -128,6 +128,12 @@ class OrderInfo
      */
     private $payment_method;
 
+    /**
+     * @ORM\Column(type="boolean", length=255, nullable=true)
+     * @var bool
+     */
+    private $enabled;
+
     public $NumSite;
     public $Password;
     public $orderID;
@@ -332,6 +338,22 @@ class OrderInfo
     public function setPaymentMethod($payment_method)
     {
         $this->payment_method = $payment_method;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
     }
 }
 

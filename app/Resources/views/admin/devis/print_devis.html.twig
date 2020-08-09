@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-md-offset-6 col-md-6 content-group">
                             <div class="invoice-details">
-                                <h5 class="text-uppercase text-semibold">Devis #: &nbsp;{{ "%04d" | format(c.id) }}</h5>
+                                <!--h5 class="text-uppercase text-semibold">Devis #: &nbsp;{{ "%04d" | format(c.id) }}</h5-->
                                 <ul class="list-condensed list-unstyled">
                                     <li>Date: <span class="text-semibold">{{ c.saleDate | date_modify("+1 hours") |date('d/m/Y - H:i') }}</span></li>
                                 </ul>

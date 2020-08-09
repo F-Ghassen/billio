@@ -2,10 +2,10 @@
 
 namespace OrderBundle\Controller;
 
-use OrderBundle\Entity\Commande;
+use MessageBundle\Entity\PhoneNumber;
+use MessageBundle\Form\PhoneType;
 use OrderBundle\Entity\Devis;
-use OrderBundle\Form\FullCommande;
-use PromoCodeBundle\Entity\PromoCode;
+use OrderBundle\Entity\OrderInfo;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -219,5 +219,63 @@ class DefaultController extends Controller
         }
         $em->flush();
         return $this->redirectToRoute('list_devis_page');
+    }
+
+    /**
+     * @Route("/admin/phone-list", name="list_phones_page")
+     */
+    public function mailingAction()
+    {
+        $originals = $this->getDoctrine()->getManager()->getRepository(PhoneNumber::class)->findBy(['enabled'=> true]);
+        $phones = $this->getDoctrine()->getManager()->getRepository(OrderInfo::class)->findPhones();
+        return $this->render('admin/messages/phones.html.twig', array(
+            'phones' => $phones,
+            'originals' => $originals,
+        ));
+    }
+
+    /**
+     * @Route("/admin/phone-list/add", name="add_phone_page")
+     */
+    public function addAction(Request $request)
+    {
+        $phone = new PhoneNumber();
+        $form = $this->get('form.factory')->create(PhoneType::class, $phone);
+        $phone->setEnabled(true);
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($phone);
+            $em->flush();
+            return $this->redirectToRoute('list_phones_page');
+        }
+        return $this->render('admin/messages/add-phone.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * @Route("/admin/phone-list/delete/{id}", name="delete_phone_page")
+     */
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $phone = $em->getRepository(PhoneNumber::class)->find($id);
+        $phone->setEnabled(false);
+        $em->flush();
+        return $this->redirectToRoute('list_phones_page');
+    }
+
+    /**
+     * @Route("/admin/personal-info/delete/{phone}", name="delete_personalinfo_page")
+     */
+    public function deletePersonalInfoAction($phone)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $info = $em->getRepository(OrderInfo::class)->findBy(['customerPhone' => $phone]);
+        foreach ($info as $i){
+            $i->setEnabled(false);
+        }
+        $em->flush();
+        return $this->redirectToRoute('list_phones_page');
     }
 }

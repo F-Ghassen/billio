@@ -1,0 +1,77 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - List Mails {% endblock %}
+
+{% block body %}
+
+    {{ parent() }}
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Page header -->
+        <div class="page-header">
+            <div class="page-header-content">
+                <div class="page-title">
+                    <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Mails</span> - List</h4>
+                </div>
+            </div>
+
+            <div class="breadcrumb-line">
+                <ul class="breadcrumb">
+                    <li><a href="{{ path('index_admin_page') }}"><i class="icon-home2 position-left"></i> Home</a></li>
+                    <li class="active">Phones</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /page header -->
+
+        <!-- Content area -->
+        <div class="content">
+
+            <!-- Table -->
+            <div class="panel panel-flat">
+                <div class="row" style="margin: 20px">
+                    <a href="{{ path('add_phone_page') }}" class="btn btn-success"><i class="icon-plus3 position-left"></i>Ajouter Collection</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Phone Number</th>
+                            <th>action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for p in originals %}
+                            <tr>
+                                <td>{{ p.phone }}</td>
+                                <td><a href="{{ path('delete_phone_page', {'id': p.id}) }}"><i class="icon-cross2" onclick="return confirm('Are you sure you want to Delete this phone?')"></i></a></td>
+                            </tr>
+                        {% endfor %}
+                        {% for phone in phones %}
+                            <tr>
+                                <td>{{ phone.customerPhone }}</td>
+                                <td><a href="{{ path('delete_personalinfo_page', {'phone': phone.customerPhone}) }}"><i class="icon-cross2" onclick="return confirm('Are you sure you want to Delete this phone?')"></i></a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <!-- /table -->
+
+            {{ include('admin/footer.html.twig') }}
+
+        </div>
+        <!-- /content area -->
+    </div>
+    <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
+
+    </div>
+    <!-- /page container -->
+
+{% endblock %}

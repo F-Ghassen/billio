@@ -10,4 +10,10 @@ namespace OrderBundle\Repository;
  */
 class OrderInfoRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findPhones() {
+        $qb = $this->createQueryBuilder('order_info')
+            ->select('DISTINCT order_info.customerPhone')
+            ->where('order_info.enabled = true');
+        return $qb->getQuery()->getResult();
+    }
 }

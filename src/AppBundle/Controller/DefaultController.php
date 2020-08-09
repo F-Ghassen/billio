@@ -653,6 +653,7 @@ class DefaultController extends Controller
             if(isset($personal_info_json['promo'])) {
                 $personal_info->setPromo($personal_info_json['promo']);
             }
+            $personal_info->setEnabled(true);
 
             $database_commande->setOrderInfo($personal_info);
             // $database_commande->setEnabled(true);
