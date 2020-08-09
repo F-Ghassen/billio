@@ -25,7 +25,8 @@ class DefaultController extends Controller
             $queryBuilder
                 ->leftJoin('d.orderInfo', 'info')
                 ->addSelect('info')
-                ->andWhere('info.customerFirstName like :search')
+                ->andWhere('d.id like :search')
+                ->orWhere('info.customerFirstName like :search')
                 ->orWhere('info.customerLastName like :search')
                 ->orWhere('info.customerPhone like :search')
                 ->orWhere('info.customerEmail like :search')
