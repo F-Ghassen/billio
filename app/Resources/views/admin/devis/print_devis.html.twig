@@ -69,7 +69,6 @@
                     <table class="table table-lg">
                         <thead>
                         <tr>
-                            <th class="col-sm-1">ID</th>
                             <th>Description</th>
                             <th class="col-sm-1">Size</th>
                             <th class="col-sm-1">Color</th>
@@ -80,7 +79,6 @@
                         <tbody id="items">
                         {% for item in c.items %}
                             <tr>
-                                <td>{{ item.product.id }}-{{ item.variation.id }}</td>
                                 <td>
                                     <h6 class="no-margin">{{ item.product.name }}</h6>
                                 </td>
@@ -187,7 +185,6 @@
                 if ($("#country").html() == 'Tunisia') {
                      if(parseFloat(initialTotal) < parseFloat(200)) {
                         $('#items').append('<tr>' +
-                            '<td>#</td>'+
                             '<td><h6 class="no-margin">Livraison</h6></td>' +
                             '<td></td>'+
                             '<td></td>' +
@@ -203,7 +200,6 @@
                         //console.log(i);
                         //console.log(initialTotal);
                         $('#items').append('<tr>' +
-                            '<td>#</td>'+
                             '<td><h6 class="no-margin">Delivery</h6></td>' +
                             '<td></td>'+
                             '<td></td>' +
