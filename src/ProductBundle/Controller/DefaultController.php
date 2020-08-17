@@ -70,6 +70,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $queryBuilder = $em->getRepository(Product::class)->createQueryBuilder('p');
+        $queryBuilder->where('p.deleted = false');
 
         if($request->query->getAlnum('category')) {
             if($request->query->getAlnum('category') == 'StreetCouture') {

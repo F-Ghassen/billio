@@ -48,9 +48,6 @@ class DefaultController extends Controller
             $request->query->getInt('page', 1),
             24
         );
-
-        dump($result);
-
         // $commandes = $this->getDoctrine()->getManager()->getRepository(Devis::class)
             // ->findBy(array('enabled' => true), array('id' => 'desc'));
         return $this->render('admin/devis/list.html.twig', array(
