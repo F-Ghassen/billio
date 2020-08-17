@@ -94,6 +94,12 @@ class Product
     private $enabled;
 
     /**
+     * @ORM\Column(type="boolean", length=255, options={"default":false})
+     * @var bool
+     */
+    private $deleted;
+
+    /**
      * @ORM\Column(type="integer", length=255, nullable=true)
      * @var integer
      */
@@ -361,6 +367,20 @@ class Product
         $this->price_dollar = $price_dollar;
     }
 
+    /**
+     * @return bool
+     */
+    public function isDeleted()
+    {
+        return $this->deleted;
+    }
 
+    /**
+     * @param bool $deleted
+     */
+    public function setDeleted($deleted)
+    {
+        $this->deleted = $deleted;
+    }
 }
 

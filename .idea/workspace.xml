@@ -23,6 +23,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/messages/phones.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/messages/phones.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Entity/Product.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,14 +271,9 @@
       <workItem from="1596894066369" duration="471000" />
       <workItem from="1596894605121" duration="33062000" />
       <workItem from="1597412809346" duration="600000" />
-      <workItem from="1597420964004" duration="685000" />
-    </task>
-    <task id="LOCAL-00055" summary="heyo">
-      <created>1589856178712</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1589856178713</updated>
+      <workItem from="1597420964004" duration="1353000" />
+      <workItem from="1597670669860" duration="4000" />
+      <workItem from="1597696930765" duration="4858000" />
     </task>
     <task id="LOCAL-00056" summary="log request">
       <created>1590018828158</created>
@@ -611,7 +611,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596939647725</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="removed id from pring quote&#10;added 216 to phones">
+      <created>1597421966214</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1597421966215</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,7 +637,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added event listener" />
     <MESSAGE value="log ip" />
     <MESSAGE value="remove dump" />
     <MESSAGE value="test fix" />
@@ -655,7 +661,8 @@
     <MESSAGE value="devis sale price saved in devis item to preserve it in case of price change in the future" />
     <MESSAGE value="filter with devis id" />
     <MESSAGE value="no default status for devis" />
-    <option name="LAST_COMMIT_MESSAGE" value="no default status for devis" />
+    <MESSAGE value="removed id from pring quote&#10;added 216 to phones" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed id from pring quote&#10;added 216 to phones" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">
@@ -667,11 +674,11 @@
     </state>
     <state x="423" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1591807486048" />
     <state x="476" y="188" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/-1600.0.1600.860@0.0.1536.824" timestamp="1596912203960" />
-    <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser" timestamp="1596937856622">
+    <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser" timestamp="1597706315642">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="476" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592866377095" />
-    <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1600.0.1600.860@0.0.1536.824" timestamp="1596937856622" />
+    <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1600.0.1600.860@0.0.1536.824" timestamp="1597706315642" />
     <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1595122622471" />
     <state x="464" y="135" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596932867069">
       <screen x="0" y="0" width="1536" height="824" />

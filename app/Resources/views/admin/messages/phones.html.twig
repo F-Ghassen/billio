@@ -44,13 +44,13 @@
                         <tbody>
                         {% for p in originals %}
                             <tr>
-                                <td>216 {{ p.phone }}</td>
+                                <td>216{{ p.phone }}</td>
                                 <td><a href="{{ path('delete_phone_page', {'id': p.id}) }}"><i class="icon-cross2" onclick="return confirm('Are you sure you want to Delete this phone?')"></i></a></td>
                             </tr>
                         {% endfor %}
                         {% for phone in phones %}
                             <tr>
-                                <td>216 {{ phone.customerPhone }}</td>
+                                <td>216{{ phone.customerPhone }}</td>
                                 <td><a href="{{ path('delete_personalinfo_page', {'phone': phone.customerPhone}) }}"><i class="icon-cross2" onclick="return confirm('Are you sure you want to Delete this phone?')"></i></a></td>
                             </tr>
                         {% endfor %}

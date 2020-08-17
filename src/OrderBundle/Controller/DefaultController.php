@@ -20,6 +20,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $queryBuilder = $em->getRepository(Devis::class)->createQueryBuilder('d');
         $queryBuilder->where('d.enabled = true');
+        $queryBuilder->where('d.archived = false');
 
         if($request->query->getAlnum('search')) {
             $queryBuilder
@@ -47,6 +48,8 @@ class DefaultController extends Controller
             $request->query->getInt('page', 1),
             24
         );
+
+        dump($result);
 
         // $commandes = $this->getDoctrine()->getManager()->getRepository(Devis::class)
             // ->findBy(array('enabled' => true), array('id' => 'desc'));
@@ -77,12 +80,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $order = $em->getRepository(Devis::class)->find($id);
-        if($order->isEnabled())
-        {
-            $order->setArchived(false);
-        } else {
-            $order->setArchived(true);
-        }
+        $order->setArchived(true);
         $em->flush();
         return $this->redirectToRoute('list_devis_page');
     }
