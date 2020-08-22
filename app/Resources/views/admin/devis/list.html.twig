@@ -104,6 +104,8 @@
                                                 <span class="label bg-success-300 dropdown-toggle" data-toggle="dropdown">{{c.state}}</span>
                                             {% elseif c.state == 'Canceled' %}
                                                 <span class="label bg-danger-300 dropdown-toggle" data-toggle="dropdown">Canceled</span>
+                                            {% elseif c.state == 'Reported' %}
+                                                <span class="label bg-teal-300 dropdown-toggle" data-toggle="dropdown">Reported</span>
                                             {% endif %}
                                         </div>
                                     </div>
@@ -112,6 +114,9 @@
 
                             <div class="panel-footer">
                                 <ul class="pull-right">
+                                    {% if c.deliveryDate != null %}
+                                        <li>Delivery date: <span class="text-semibold">{{ c.deliveryDate | date_modify("+1 hours") |date('d/m/Y') }}</span></li>
+                                    {% endif %}
                                     <li><a href="#" data-toggle="modal" data-target="#invoice{{ loop.index0 }}"><i class="icon-eye8"></i></a></li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i> <span class="caret"></span></a>
@@ -266,7 +271,11 @@
 
                                 <div class="modal-footer">
                                     {% if c.state != "Canceled" %}
-                                    <a class="btn btn-warning" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Pending'}) }}">Pending</a>
+                                    <form action="{{ path('state_devis_page', {'id': c.id, 'state': 'Reported'}) }}" method="post" class="form-inline" id="report_form">
+                                        <input class="form-control" type="date" name="report" required>
+                                        <input type="submit" class="btn btn-success" value="Reporter">
+                                    </form>
+                                    <a class="btn btn-warning mt-5" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Pending'}) }}">Pending</a>
                                     <a class="btn btn-info" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Confirmed'}) }}">Confirmed</a>
                                     <a class="btn btn-success" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Livré'}) }}">Livré</a>
                                     <a class="btn btn-danger" href="{{ path('state_devis_page', {'id': c.id, 'state': 'Canceled'}) }}">Canceled</a>

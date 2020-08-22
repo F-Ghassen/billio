@@ -3,6 +3,7 @@
 namespace MessageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Message
@@ -23,6 +24,12 @@ class PhoneNumber
 
     /**
      * @var string
+     *
+     * @Assert\Regex(
+     *     pattern="/\d{8}/",
+     *     htmlPattern="/\d{8}/",
+     *     message="Invalid Phone Number",
+     * )
      *
      * @ORM\Column(name="phone", type="string", length=255)
      */

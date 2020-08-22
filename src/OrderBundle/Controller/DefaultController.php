@@ -8,6 +8,7 @@ use OrderBundle\Entity\Devis;
 use OrderBundle\Entity\OrderInfo;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -97,10 +98,15 @@ class DefaultController extends Controller
     /**
      * @Route("/admin/devis/state/{id}/{state}", name="state_devis_page")
      */
-    public function updateState($id, $state)
+    public function updateState($id, $state, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $order = $em->getRepository(Devis::class)->find($id);
+
+        if ($state == 'Reported') {
+            $data = $request->getContent();
+            $order->setDeliveryDate(preg_split('/=/', $data)[1]);
+        }
         $order->setState($state);
         if($state == 'Canceled') {
             foreach ($order->getItems() as $order_item) {
@@ -245,6 +251,39 @@ class DefaultController extends Controller
             return $this->redirectToRoute('list_phones_page');
         }
         return $this->render('admin/messages/add-phone.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * @Route("/admin/phone-list/import", name="import_phone_page")
+     */
+    public function importAction(Request $request)
+    {
+        $form = $this->get('form.factory')->create();
+        if ($request->isMethod('POST')) {
+            $em = $this->getDoctrine()->getManager();
+            $file = $request->files->get('import');
+
+            $row = 1;
+            if (($handle = fopen($file, "r")) !== FALSE) {
+                while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                    $num = count($data);
+                    $row++;
+                    for ($c=0; $c < $num; $c++) {
+                        // dump($data[$c]);
+                        $phone = new PhoneNumber();
+                        $phone->setPhone($data[$c]);
+                        $phone->setEnabled(true);
+                        $em->persist($phone);
+                    }
+                }
+                fclose($handle);
+            }
+            $em->flush();
+            return $this->redirectToRoute('list_phones_page');
+        }
+        return $this->render('admin/messages/import-phone.html.twig', array(
             'form' => $form->createView(),
         ));
     }

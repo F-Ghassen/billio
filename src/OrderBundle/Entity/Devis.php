@@ -61,6 +61,12 @@ class Devis
      */
     private $state;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $delivery_date;
+
 
     /**
      * Get id
@@ -178,6 +184,22 @@ class Devis
     public function setState($state)
     {
         $this->state = $state;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeliveryDate()
+    {
+        return $this->delivery_date;
+    }
+
+    /**
+     * @param string $delivery_date
+     */
+    public function setDeliveryDate($delivery_date)
+    {
+        $this->delivery_date = $delivery_date;
     }
 }
 
