@@ -2260,3 +2260,7 @@ img {
     src:
         url('../fonts/dum1.ttf')  format('truetype');
 }
+
+.disable-link {
+    pointer-events: none;
+}

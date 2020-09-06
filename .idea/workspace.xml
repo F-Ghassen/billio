@@ -20,13 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/admin/messages/import-phone.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/messages/phones.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/messages/phones.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MessageBundle/Entity/PhoneNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageBundle/Entity/PhoneNumber.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Entity/Devis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Entity/Devis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Form/ProductVariationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Form/ProductVariationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app_dev.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app_dev.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/core-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/css/core-style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +129,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -275,14 +278,9 @@
       <workItem from="1597696930765" duration="4934000" />
       <workItem from="1597707529594" duration="103000" />
       <workItem from="1598044932232" duration="341000" />
-      <workItem from="1598103739270" duration="9953000" />
-    </task>
-    <task id="LOCAL-00058" summary="log req">
-      <created>1590045955574</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1590045955574</updated>
+      <workItem from="1598103739270" duration="10708000" />
+      <workItem from="1599350088991" duration="98000" />
+      <workItem from="1599350260417" duration="4690000" />
     </task>
     <task id="LOCAL-00059" summary="fix prod allignement">
       <created>1590048116554</created>
@@ -620,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597707608618</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="added delivery date&#10;import csv phones">
+      <created>1598132514049</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1598132514050</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +644,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test fix" />
     <MESSAGE value="added ip" />
     <MESSAGE value="added new tranlations" />
     <MESSAGE value="changed locale" />
@@ -664,7 +668,8 @@
     <MESSAGE value="removed id from pring quote&#10;added 216 to phones" />
     <MESSAGE value="fixing bugs" />
     <MESSAGE value="export non deleted prods" />
-    <option name="LAST_COMMIT_MESSAGE" value="export non deleted prods" />
+    <MESSAGE value="added delivery date&#10;import csv phones" />
+    <option name="LAST_COMMIT_MESSAGE" value="added delivery date&#10;import csv phones" />
   </component>
   <component name="WindowStateProjectService">
     <state x="390" y="7" key="#PHP" timestamp="1589610915307">

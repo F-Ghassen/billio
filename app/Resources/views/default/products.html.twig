@@ -6,7 +6,16 @@
             {% if p.collection == null or p.collection.enabled==true %}
             <!-- Single gallery Item Start -->
                 {% for v in p.variations %}
-                    <div data-entry-id="{{ p.id }}-{{ v.id }}" class="col-6 col-lg-4 single_gallery_item {{ p.category }} wow fadeInUpBig" data-wow-delay="0.2s">
+                    {%
+                        if (p.category == "Jeans" and v.sizeJean29 == 0 and v.sizeJean30 == 0 and v.sizeJean31 == 0 and v.sizeJean32 == 0 and v.sizeJean33 == 0 and v.sizeJean34 == 0 and v.sizeJean35 == 0 and v.sizeJean36 == 0 and v.sizeJean38 == 0 and v.sizeJean40)
+                        or (p.category == "Mocassin" and v.sizeMoc40 == 0 and v.sizeMoc41 == 0 and v.sizeMoc42 == 0 and v.sizeMoc43 == 0 and v.sizeMoc44 == 0 and v.sizeMoc45 == 0)
+                        or (p.category != "Jeans" and p.category != "Mocassin" and v.s == 0 and v.m == 0 and v.l == 0 and v.xl == 0 and v.xxl == 0 and v.xxxl == 0)
+                    %}
+                        <div data-entry-id="{{ p.id }}-{{ v.id }}" class="col-6 col-lg-4 single_gallery_item {{ p.category }} wow fadeInUpBig disable-link" data-wow-delay="0.2s">
+                    {% else %}
+                            <div data-entry-id="{{ p.id }}-{{ v.id }}" class="col-6 col-lg-4 single_gallery_item {{ p.category }} wow fadeInUpBig" data-wow-delay="0.2s">
+                    {% endif %}
+
                         <!-- Product Image -->
                         <div class="product-img">
                             <a href="{{ path('product_details_page', {'id': p.id, 'v_id': v.id}) }}">
@@ -29,7 +38,7 @@
                                         </div>
                                     {% endif %}
                                 {% else %}
-                                    {% if v.s == 0 and v.m == 0 and v.l == 0 and v.xl == 0 and v.xxl == 0 and v.xxxl %}
+                                    {% if v.s == 0 and v.m == 0 and v.l == 0 and v.xl == 0 and v.xxl == 0 and v.xxxl == 0 %}
                                         <div class="product-stock">
                                             <h6 class="heading-uppercase">Out of stock</h6>
                                         </div>
@@ -151,7 +160,7 @@
 
             $(window).scroll(function() {
                 var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
-                var scrolltrigger = 0.80;
+                var scrolltrigger = 0.50;
                 if (($(window).scrollTop() / (docheight - winheight)) > scrolltrigger) {
                     if (last_page === false && is_processing === false) {
                         addMoreElements();
