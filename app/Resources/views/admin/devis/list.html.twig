@@ -37,8 +37,10 @@
             </div>
 
             <div class="row">
+                {% set i = 0 %}
                 {% for c in commandes %}
                     {% if (c.items is not empty and c.orderInfo is not null)  %}
+                        {% set i = i + 1 %}
                         <div class="col-md-6">
                             <div class="panel invoice-grid">
                             <div class="panel-body">
@@ -86,7 +88,7 @@
                                             {% endif %}
                                         {% endfor %}
                                         <span class="text-semibold">
-                                            <h6 class="text-semibold text-right no-margin-top" id="total1_{{ loop.index0 }}">
+                                            <h6 class="text-semibold text-right no-margin-top" id="total1_{{ i }}">
                                                 {% if c.orderInfo.pays == 'Tunisia' %}
                                                 {{ sum1|number_format(2) }} TND
                                                 {% else %}
@@ -117,7 +119,7 @@
                                     {% if c.deliveryDate != null %}
                                         <li>Delivery date: <span class="text-semibold">{{ c.deliveryDate | date_modify("+1 hours") |date('d/m/Y') }}</span></li>
                                     {% endif %}
-                                    <li><a href="#" data-toggle="modal" data-target="#invoice{{ loop.index0 }}"><i class="icon-eye8"></i></a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#invoice{{ i }}"><i class="icon-eye8"></i></a></li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i> <span class="caret"></span></a>
                                         <ul class="dropdown-menu dropdown-menu-right">
@@ -131,7 +133,7 @@
                         </div>
 
                         <!-- Modal with invoice -->
-                        <div id="invoice{{ loop.index0 }}" class="modal fade">
+                        <div id="invoice{{ i }}" class="modal fade">
                         <div class="modal-dialog modal-full">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -157,7 +159,7 @@
                                                 <li><h5>{{ c.orderInfo.getCustomerFirstName }} {{ c.orderInfo.getCustomerLastName }}</h5></li>
                                                 <li>{{ c.orderInfo.customerPhone }}</li>
                                                 <li>{{ c.orderInfo.customerEmail }}</li>
-                                                <li id="country_{{ loop.index0 }}">{{ c.orderInfo.pays }}</li>
+                                                <li id="country_{{ i }}">{{ c.orderInfo.pays }}</li>
                                                 <li>{{ c.orderInfo.customerCity }}, {{ c.orderInfo.postalCode }}</li>
                                                 <li><span class="text-semibold">{{ c.orderInfo.customerAddress }}</span></li>
 
@@ -178,7 +180,7 @@
                                             <th class="col-sm-1">Total</th>
                                         </tr>
                                         </thead>
-                                        <tbody id="items{{ loop.index0 }}">
+                                        <tbody id="items{{ i }}">
                                         {% for item in c.items %}
                                             <tr>
                                                 <td>{{ item.product.id }}-{{ item.variation.id }}</td>
@@ -246,13 +248,13 @@
                                                         {% if c.orderInfo.promo != null %}
                                                         <tr>
                                                             <th>Promo Code : <span class="label bg-success-400">Actif</span></th>
-                                                            <td class="text-right text-primary"><h5 class="text-semibold" id="code{{ loop.index0 }}">{{ c.orderInfo.promo }}</h5></td>
+                                                            <td class="text-right text-primary"><h5 class="text-semibold" id="code{{ i }}">{{ c.orderInfo.promo }}</h5></td>
                                                         </tr>
                                                         {% endif %}
                                                         <tr>
                                                             <th>Total:</th>
                                                             <td class="text-right text-primary">
-                                                                <h5 class="text-semibold" id="total_{{ loop.index0 }}">
+                                                                <h5 class="text-semibold" id="total_{{ i }}">
                                                                     {% if c.orderInfo.pays == 'Tunisia' %}
                                                                     {{ sum1|number_format(2) }} TND
                                                                     {% else %}
@@ -313,8 +315,8 @@
                 var code = $('#code'+i).html();
                 // console.log(code);
                 var initialTotal = $("#total_"+i).html();
-                // console.log($("#country_"+i).html())
-                if ($("#country_"+i).html() == 'Tunisia') {
+                console.log($("#country_"+i).html())
+                if ($("#country_"+i).html() === 'Tunisia') {
                     if(parseFloat(initialTotal) < parseFloat(200)) {
                         $('#items'+i).append('<tr>' +
                             '<td>#</td>'+
@@ -354,10 +356,10 @@
                     $.ajax({
                         url: path,
                     }).done(function(data) {
-                        if(data != "false") {
+                        if(data !== "false") {
                             var s = initialTotal;
                             var news = parseFloat(s) - parseFloat(s) * parseFloat(JSON.parse(data).montant)/100;
-                            if ($("#country_"+i).html() == 'Tunisia') {
+                            if ($("#country_"+i).html() === 'Tunisia') {
                                 $("#total_"+i).html(parseFloat(news).toFixed(2) + " TND");
                                 $("#total1_"+i).html(parseFloat(news).toFixed(2) + " TND");
                             } else {

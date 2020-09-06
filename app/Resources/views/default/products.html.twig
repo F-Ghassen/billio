@@ -7,13 +7,13 @@
             <!-- Single gallery Item Start -->
                 {% for v in p.variations %}
                     {%
-                        if (p.category == "Jeans" and v.sizeJean29 == 0 and v.sizeJean30 == 0 and v.sizeJean31 == 0 and v.sizeJean32 == 0 and v.sizeJean33 == 0 and v.sizeJean34 == 0 and v.sizeJean35 == 0 and v.sizeJean36 == 0 and v.sizeJean38 == 0 and v.sizeJean40)
+                        if (p.category == "Jeans" and v.sizeJean29 == 0 and v.sizeJean30 == 0 and v.sizeJean31 == 0 and v.sizeJean32 == 0 and v.sizeJean33 == 0 and v.sizeJean34 == 0 and v.sizeJean35 == 0 and v.sizeJean36 == 0 and v.sizeJean38 == 0 and v.sizeJean40 == 0)
                         or (p.category == "Mocassin" and v.sizeMoc40 == 0 and v.sizeMoc41 == 0 and v.sizeMoc42 == 0 and v.sizeMoc43 == 0 and v.sizeMoc44 == 0 and v.sizeMoc45 == 0)
                         or (p.category != "Jeans" and p.category != "Mocassin" and v.s == 0 and v.m == 0 and v.l == 0 and v.xl == 0 and v.xxl == 0 and v.xxxl == 0)
                     %}
                         <div data-entry-id="{{ p.id }}-{{ v.id }}" class="col-6 col-lg-4 single_gallery_item {{ p.category }} wow fadeInUpBig disable-link" data-wow-delay="0.2s">
                     {% else %}
-                            <div data-entry-id="{{ p.id }}-{{ v.id }}" class="col-6 col-lg-4 single_gallery_item {{ p.category }} wow fadeInUpBig" data-wow-delay="0.2s">
+                        <div data-entry-id="{{ p.id }}-{{ v.id }}" class="col-6 col-lg-4 single_gallery_item {{ p.category }} wow fadeInUpBig" data-wow-delay="0.2s">
                     {% endif %}
 
                         <!-- Product Image -->
@@ -26,7 +26,7 @@
                                     </div>
                                 {% endif %}
                                 {% if p.category == "Jeans" %}
-                                    {% if v.sizeJean29 == 0 and v.sizeJean30 == 0 and v.sizeJean31 == 0 and v.sizeJean32 == 0 and v.sizeJean33 == 0 and v.sizeJean34 == 0 and v.sizeJean35 == 0 and v.sizeJean36 == 0 and v.sizeJean38 == 0 and v.sizeJean40 %}
+                                    {% if v.sizeJean29 == 0 and v.sizeJean30 == 0 and v.sizeJean31 == 0 and v.sizeJean32 == 0 and v.sizeJean33 == 0 and v.sizeJean34 == 0 and v.sizeJean35 == 0 and v.sizeJean36 == 0 and v.sizeJean38 == 0 and v.sizeJean40 == 0 %}
                                         <div class="product-stock">
                                             <h6 class="heading-uppercase">Out of stock</h6>
                                         </div>
@@ -186,21 +186,31 @@
                     response = JSON.parse(response);
                     // console.log(response);
                     if (response.length !== 0) {
-                        htmlData = '';
+                        let htmlData = '';
                         $.each(response, function(k, product) {
                             // console.log(htmlData)
                             // console.log(product)
                             $.each(product.variations, function(k, variation) {
                                 // console.log(variation)
-                                htmlData += '<div data-entry-id="' + product.id + '-' + variation.id + '" class="col-6 col-lg-4 single_gallery_item ' + product.category +
-                                ' wow fadeInUpBig" data-wow-delay="0.2s"><div class="product-img"><a href="https://billiorich.com/products/' + product.id + '-' + variation.id + '">' +
+                                    console.log(variation)
+                                if ((product.category == "Jeans" && variation.size_jean29 == 0 && variation.size_jean30 == 0 && variation.size_jean31 == 0 && variation.size_jean32 == 0 && variation.size_jean33 == 0 && variation.size_jean34 == 0 && variation.size_jean35 == 0 && variation.size_jean36 == 0 && variation.size_jean38 == 0 && variation.size_jean40 == 0)
+                                    || (product.category == "Mocassin" && variation.size_moc40 == 0 && variation.size_moc41 == 0 && variation.size_moc42 == 0 && variation.size_moc43 == 0 && variation.size_moc44 == 0 && variation.size_moc45 == 0)
+                                    || (product.category != "Jeans" && product.category != "Mocassin" && variation._s == 0 && variation._m == 0 && variation._l == 0 && variation._x_l == 0 && variation._x_x_l == 0 && variation._x_x_x_l == 0)) {
+                                    htmlData += '<div data-entry-id="' + product.id + '-' + variation.id + '" class="col-6 col-lg-4 single_gallery_item disable-link ' + product.category +
+                                        ' wow fadeInUpBig" data-wow-delay="0.2s">';
+                                } else {
+                                    htmlData += '<div data-entry-id="' + product.id + '-' + variation.id + '" class="col-6 col-lg-4 single_gallery_item ' + product.category +
+                                        ' wow fadeInUpBig" data-wow-delay="0.2s">';
+                                }
+
+                                htmlData += '<div class="product-img"><a href="https://billiorich.com/products/' + product.id + '-' + variation.id + '">' +
                                 '<img src="/uploads/product_images/' + variation.images[0].image + '" alt="">';
                                 if (product.promo_enabled) {
                                     htmlData += '<div class="product-sale"><h6 class="heading-uppercase">-' + product.promo_montant + '%</h6></div>'
                                 }
                                 if (product.category == "Jeans") {
                                     if (variation.size_jean29 == 0 && variation.size_jean30 == 0 && variation.size_jean31 == 0 && variation.size_jean32 == 0 &&
-                                    variation.size_jean33 == 0 && variation.size_jean34 == 0 && variation.size_jean35 == 0 && variation.size_jean36 == 0 && variation.size_jean38 == 0) {
+                                    variation.size_jean33 == 0 && variation.size_jean34 == 0 && variation.size_jean35 == 0 && variation.size_jean36 == 0 && variation.size_jean38 == 0 && variation.size_jean40 == 0) {
                                         htmlData += '<div class="product-stock"><h6 class="heading-uppercase">Out of stock</h6></div>';
                                     }
                                 } else if (product.category == "Mocassin") {
@@ -209,7 +219,7 @@
                                         htmlData += '<div class="product-stock"><h6 class="heading-uppercase">Out of stock</h6></div>';
                                     }
                                 } else {
-                                    if (variation._s == 0 && variation._m == 0 && variation._l == 0 && variation._x_l == 0 && variation._x_x_l == 0) {
+                                    if (variation._s == 0 && variation._m == 0 && variation._l == 0 && variation._x_l == 0 && variation._x_x_l == 0 && variation._x_x_x_l == 0) {
                                         htmlData += '<div class="product-stock"><h6 class="heading-uppercase">Out of stock</h6></div>';
                                     }
                                 }

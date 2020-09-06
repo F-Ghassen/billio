@@ -24,6 +24,61 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $products = $em->getRepository(Product::class)->findAll();
+        foreach ($products as $product) {
+            foreach ($product->getVariations() as $variation) {
+                if ($product->getCategory() == 'Jeans') {
+                    if($variation->getSizeJean29() == null)
+                        $variation->setSizeJean29(0);
+                    if($variation->getSizeJean30() == null)
+                        $variation->setSizeJean30(0);
+                    if($variation->getSizeJean31() == null)
+                        $variation->setSizeJean31(0);
+                    if($variation->getSizeJean32() == null)
+                        $variation->setSizeJean32(0);
+                    if($variation->getSizeJean33() == null)
+                        $variation->setSizeJean33(0);
+                    if($variation->getSizeJean34() == null)
+                        $variation->setSizeJean34(0);
+                    if($variation->getSizeJean35() == null)
+                        $variation->setSizeJean35(0);
+                    if($variation->getSizeJean36() == null)
+                        $variation->setSizeJean36(0);
+                    if($variation->getSizeJean38() == null)
+                        $variation->setSizeJean38(0);
+                    if($variation->getSizeJean40() == null)
+                        $variation->setSizeJean40(0);
+                } else if ($product->getCategory() == 'Mocassin') {
+                    if($variation->getSizeMoc40() == null)
+                        $variation->setSizeMoc40(0);
+                    if($variation->getSizeMoc41() == null)
+                        $variation->setSizeMoc41(0);
+                    if($variation->getSizeMoc42() == null)
+                        $variation->setSizeMoc42(0);
+                    if($variation->getSizeMoc43() == null)
+                        $variation->setSizeMoc43(0);
+                    if($variation->getSizeMoc44() == null)
+                        $variation->setSizeMoc44(0);
+                    if($variation->getSizeMoc45() == null)
+                        $variation->setSizeMoc45(0);
+                } else {
+                    if($variation->getS() == null)
+                        $variation->setS(0);
+                    if($variation->getM() == null)
+                        $variation->setM(0);
+                    if($variation->getL() == null)
+                        $variation->setL(0);
+                    if($variation->getXL() == null)
+                        $variation->setXL(0);
+                    if($variation->getXXL() == null)
+                        $variation->setXXL(0);
+                    if($variation->getXXXL() == null)
+                        $variation->setXXXL(0);
+                }
+                $em->flush();
+            }
+        }
+
         $queryBuilder = $em->getRepository(Product::class)->createQueryBuilder('p');
         $queryBuilder->where('p.deleted = false');
 
