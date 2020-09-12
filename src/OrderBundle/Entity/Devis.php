@@ -50,7 +50,7 @@ class Devis
     private $enabled;
 
     /**
-     * @ORM\Column(type="boolean", length=255, nullable=true)
+     * @ORM\Column(type="boolean", length=255, options={"default":"0"})
      * @var bool
      */
     private $archived;
@@ -66,6 +66,12 @@ class Devis
      * @var string
      */
     private $delivery_date;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $remarque;
 
 
     /**
@@ -200,6 +206,22 @@ class Devis
     public function setDeliveryDate($delivery_date)
     {
         $this->delivery_date = $delivery_date;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRemarque()
+    {
+        return $this->remarque;
+    }
+
+    /**
+     * @param string $remarque
+     */
+    public function setRemarque($remarque)
+    {
+        $this->remarque = $remarque;
     }
 }
 

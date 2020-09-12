@@ -5,6 +5,7 @@ namespace OrderBundle\Controller;
 use MessageBundle\Entity\PhoneNumber;
 use MessageBundle\Form\PhoneType;
 use OrderBundle\Entity\Devis;
+use OrderBundle\Entity\DevisItem;
 use OrderBundle\Entity\OrderInfo;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -20,8 +21,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $queryBuilder = $em->getRepository(Devis::class)->createQueryBuilder('d');
-        $queryBuilder->where('d.enabled = true');
-        $queryBuilder->where('d.archived = false');
+        $queryBuilder->where('d.enabled = true and d.archived = false');
 
         if($request->query->getAlnum('search')) {
             $queryBuilder
@@ -106,6 +106,9 @@ class DefaultController extends Controller
         if ($state == 'Reported') {
             $data = $request->getContent();
             $order->setDeliveryDate(preg_split('/=/', $data)[1]);
+        }
+        if ($state == 'Livré') {
+            $order->setDeliveryDate(date('Y-m-d h:i'));
         }
         $order->setState($state);
         if($state == 'Canceled') {
@@ -219,6 +222,36 @@ class DefaultController extends Controller
                     }
             }
         }
+        $em->flush();
+        return $this->redirectToRoute('list_devis_page');
+    }
+
+    /**
+     * @Route("/admin/devis/remarque/{id}", name="remarque_devis_page")
+     */
+    public function updateRq($id, Request $request)
+    {
+        $remarque = $request->request->get('remarque');
+        $em = $this->getDoctrine()->getManager();
+        $order = $em->getRepository(Devis::class)->find($id);
+        if($remarque == '') {
+            $order->setRemarque(null);
+        } else {
+            $order->setRemarque($remarque);
+        }
+
+        $em->flush();
+        return $this->redirectToRoute('list_devis_page');
+    }
+
+    /**
+     * @Route("/admin/devis/type/{id}/{type}", name="type_devis_item_page", options = { "expose" = true })
+     */
+    public function updateDevisItemType($id, $type, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $order_item = $em->getRepository(DevisItem::class)->find($id);
+        $order_item->setType($type);
         $em->flush();
         return $this->redirectToRoute('list_devis_page');
     }

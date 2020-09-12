@@ -70,6 +70,13 @@ class DevisItem
     private $price_dollar;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="text", nullable=true)
+     */
+    private $type;
+
+    /**
      * Get id
      *
      * @return int
@@ -205,6 +212,22 @@ class DevisItem
     public function setPriceDollar($price_dollar)
     {
         $this->price_dollar = $price_dollar;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 }
 

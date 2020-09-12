@@ -262,11 +262,10 @@ class DefaultController extends Controller
             }
 
             $size = $request->request->get('size-select');
-            if($size != null) {
+            if(($size != null) && ($size == 'S' || $size == 'M' || $size == 'L' || $size == 'XL' || $size == 'XXL' || $size == 'XXXL' ||
+                $size == '29' || $size == '30' || $size == '31' || $size == '32' || $size == '33' || $size == '35' || $size == '36' || $size == '38' ||
+                $size == '40' || $size == '41' || $size == '42' || $size == '43' || $size == '44' || $size == '45')) {
                 $devisItem->setSize($size);
-            }
-            else {
-                $devisItem->setSize('M');
             }
 
             $session = $this->get('session');

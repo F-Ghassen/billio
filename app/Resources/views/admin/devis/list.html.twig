@@ -61,29 +61,45 @@
                                             {% if item.promo %}
 
                                                 {% if item.price != null %}
-                                                    {% set sum1 = sum1 + item.quantity*(item.price - item.price*item.promo/100) %}
+                                                    {% if item.type == 'Normal' or item.type is null %}
+                                                        {% set sum1 = sum1 + item.quantity*(item.price - item.price*item.promo/100) %}
+                                                    {% endif %}
                                                 {% else %}
-                                                    {% set sum1 = sum1 + item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                                    {% if item.type == 'Normal' or item.type is null %}
+                                                        {% set sum1 = sum1 + item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                                    {% endif %}
                                                 {% endif %}
 
                                                 {% if item.priceDollar != null %}
-                                                    {% set sumDollar = sumDollar + item.quantity*(item.priceDollar - item.priceDollar*item.promo/100)  %}
+                                                    {% if item.type == 'Normal' or item.type is null %}
+                                                        {% set sumDollar = sumDollar + item.quantity*(item.priceDollar - item.priceDollar*item.promo/100)  %}
+                                                    {% endif %}
                                                 {% else %}
-                                                    {% set sumDollar = sumDollar + item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100)  %}
+                                                    {% if item.type == 'Normal' or item.type is null %}
+                                                        {% set sumDollar = sumDollar + item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100)  %}
+                                                    {% endif %}
                                                 {% endif %}
 
                                             {% else %}
 
                                                 {% if item.price != null %}
-                                                    {% set sum1 = sum1 + item.quantity*item.price %}
+                                                    {% if item.type == 'Normal' or item.type is null %}
+                                                        {% set sum1 = sum1 + item.quantity*item.price %}
+                                                    {% endif %}
                                                 {% else %}
-                                                    {% set sum1 = sum1 + item.quantity*item.product.price %}
+                                                    {% if item.type == 'Normal' or item.type is null %}
+                                                        {% set sum1 = sum1 + item.quantity*item.product.price %}
+                                                    {% endif %}
                                                 {% endif %}
 
                                                 {% if item.priceDollar != null %}
-                                                    {% set sumDollar = sumDollar + item.quantity*item.priceDollar  %}
+                                                    {% if item.type == 'Normal' or item.type is null %}
+                                                        {% set sumDollar = sumDollar + item.quantity*item.priceDollar  %}
+                                                    {% endif %}
                                                 {% else %}
-                                                    {% set sumDollar = sumDollar + item.quantity*item.product.priceDollar  %}
+                                                    {% if item.type == 'Normal' or item.type is null %}
+                                                        {% set sumDollar = sumDollar + item.quantity*item.product.priceDollar %}
+                                                    {% endif %}
                                                 {% endif %}
 
                                             {% endif %}
@@ -111,6 +127,12 @@
                                                 <span class="label bg-teal-300 dropdown-toggle" data-toggle="dropdown">Reported</span>
                                             {% endif %}
                                         </div>
+                                        {% if c.remarque is not null %}
+                                            <br>
+                                            <div class="text-right">
+                                                <span class="badge badge-danger">RQ</span>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +140,7 @@
                             <div class="panel-footer">
                                 <ul class="pull-right">
                                     {% if c.deliveryDate != null %}
-                                        <li>Delivery date: <span class="text-semibold">{{ c.deliveryDate | date_modify("+1 hours") |date('d/m/Y') }}</span></li>
+                                        <li>Delivery date: <span class="text-semibold">{{ c.deliveryDate | date_modify("+1 hours") |date('d/m/Y h:i') }}</span></li>
                                     {% endif %}
                                     <li><a href="#" data-toggle="modal" data-target="#invoice{{ i }}"><i class="icon-eye8"></i></a></li>
                                     <li class="dropdown">
@@ -179,6 +201,7 @@
                                             <th class="col-sm-1">Color</th>
                                             <th class="col-sm-1">Quantity</th>
                                             <th class="col-sm-1">Total</th>
+                                            <th class="col-sm-1">Type</th>
                                         </tr>
                                         </thead>
                                         <tbody id="items{{ i }}">
@@ -197,40 +220,88 @@
                                                 <td>
                                                     <span class="text-semibold">
                                                         {% if item.promo %}
-
                                                             {% if item.price != null %}
-                                                                {% set total = item.quantity*(item.price - item.price*item.promo/100) %}
+                                                                {% if item.type == 'Normal' or item.type is null %}
+                                                                    {% set total = item.quantity*(item.price - item.price*item.promo/100) %}
+                                                                {% else %}
+                                                                    {% set total = 0 %}
+                                                                {% endif %}
                                                             {% else %}
-                                                                {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                                                {% if item.type == 'Normal' or item.type is null %}
+                                                                    {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                                                {% else %}
+                                                                    {% set total = 0 %}
+                                                                {% endif %}
                                                             {% endif %}
 
                                                             {% if item.priceDollar != null %}
-                                                                {% set totalDollar = item.quantity*(item.priceDollar - item.priceDollar*item.promo/100) %}
+                                                                {% if item.type == 'Normal' or item.type is null %}
+                                                                    {% set totalDollar = item.quantity*(item.priceDollar - item.priceDollar*item.promo/100) %}
+                                                                {% else %}
+                                                                    {% set totalDollar = 0 %}
+                                                                {% endif %}
                                                             {% else %}
-                                                                {% set totalDollar = item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100) %}
+                                                                {% if item.type == 'Normal' or item.type is null %}
+                                                                    {% set totalDollar = item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100) %}
+                                                                {% else %}
+                                                                    {% set totalDollar = 0 %}
+                                                                {% endif %}
                                                             {% endif %}
 
                                                         {% else %}
 
                                                             {% if item.price != null %}
-                                                                {% set total = item.quantity*item.price %}
+                                                                {% if item.type == 'Normal' or item.type is null %}
+                                                                    {% set total = item.quantity*item.price %}
+                                                                {% else %}
+                                                                    {% set total = 0 %}
+                                                                {% endif %}
                                                             {% else %}
-                                                                {% set total = item.quantity*item.product.price %}
+                                                                {% if item.type == 'Normal' or item.type is null %}
+                                                                    {% set total = item.quantity*item.product.price %}
+                                                                {% else %}
+                                                                    {% set total = 0 %}
+                                                                {% endif %}
                                                             {% endif %}
 
                                                             {% if item.priceDollar != null %}
-                                                                {% set totalDollar = item.quantity*item.priceDollar %}
+                                                                {% if item.type == 'Normal' or item.type is null %}
+                                                                    {% set totalDollar = item.quantity*item.priceDollar %}
+                                                                {% else %}
+                                                                    {% set totalDollar = 0 %}
+                                                                {% endif %}
                                                             {% else %}
-                                                                {% set totalDollar = item.quantity*item.priceDollar %}
+                                                                {% if item.type == 'Normal' or item.type is null %}
+                                                                    {% set totalDollar = item.quantity*item.product.priceDollar %}
+                                                                {% else %}
+                                                                    {% set totalDollar = 0 %}
+                                                                {% endif %}
                                                             {% endif %}
 
                                                         {% endif %}
                                                         {% if c.orderInfo.pays == 'Tunisia' %}
-                                                        {{ total|number_format(2) }} TND
+                                                            {{ total|number_format(2) }} TND
                                                         {% else %}
-                                                        {{ totalDollar|number_format(2) }} USD
+                                                            {{ totalDollar|number_format(2) }} USD
                                                         {% endif %}
                                                     </span>
+                                                </td>
+                                                <td>
+                                                    <select class="type_select" data-item-id="{{ item.id }}">
+                                                        {% if item.type == 'RTN' %}
+                                                            <option value="Normal">Normal</option>
+                                                            <option value="RTN" selected>RTN</option>
+                                                            <option value="Offre">Offre</option>
+                                                        {% elseif item.type == 'Offre' %}
+                                                            <option value="Normal">Normal</option>
+                                                            <option value="RTN">RTN</option>
+                                                            <option value="Offre" selected>Offre</option>
+                                                        {% else %}
+                                                            <option value="Normal" selected>Normal</option>
+                                                            <option value="RTN">RTN</option>
+                                                            <option value="Offre">Offre</option>
+                                                        {% endif %}
+                                                    </select>
                                                 </td>
                                             </tr>
                                         {% endfor %}
@@ -270,11 +341,22 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row justify-content-center">
+
+                                        <form action="{{ path('remarque_devis_page', {'id': c.id}) }}" method="post">
+                                            <div class="row">
+                                                <textarea class="col-sm-offset-3 col-sm-6" rows="5" placeholder="Remarque" name="remarque">{% if c.remarque is not null %}{{ c.remarque }}{% endif %}</textarea>
+                                            </div>
+                                            <div class="row">
+                                                <input type="submit" class="col-sm-offset-3 col-sm-6 btn btn-success" value="Ajouter remarque">
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
 
                                 <div class="modal-footer">
                                     {% if c.state != "Canceled" %}
-                                    <form action="{{ path('state_devis_page', {'id': c.id, 'state': 'Reported'}) }}" method="post" class="form-inline" id="report_form">
+                                    <form action="{{ path('state_devis_page', {'id': c.id, 'state': 'Reported'}) }}" method="post" class="form-inline">
                                         <input class="form-control" type="date" name="report" required>
                                         <input type="submit" class="btn btn-success" value="Reporter">
                                     </form>
@@ -309,14 +391,14 @@
     <script>
         $(document).ready(function() {
             let panels = $('.invoice-grid').length;
-            for (let i = 0; i < panels; i++) {
+            for (let i = 1; i < panels; i++) {
                 promo(i);
             }
             function promo(i){
                 var code = $('#code'+i).html();
                 // console.log(code);
                 var initialTotal = $("#total_"+i).html();
-                console.log($("#country_"+i).html())
+                // console.log(panels)
                 if ($("#country_"+i).html() === 'Tunisia') {
                     if(parseFloat(initialTotal) < parseFloat(200)) {
                         $('#items'+i).append('<tr>' +
@@ -325,7 +407,7 @@
                             '<td></td>'+
                             '<td></td>' +
                             '<td>1</td>' +
-                            '<td class="text-semibold">7.00 TND</td>' +
+                            '<td class="text-semibold">7.00 TND</td><td></td>' +
                             '</tr>');
                         //console.log(initialTotal);
                         initialTotal = parseFloat(initialTotal);
@@ -373,6 +455,26 @@
                     });
                 }
             }
+
+            $('.type_select').on('change', function() {
+                let id = $(this).attr('data-item-id');
+                let url = Routing.generate('type_devis_item_page', {'id': id, 'type': this.value});
+                console.log(url);
+                // console.log($(this).attr('data-item-id'));
+                // console.log(this.value);
+
+                $.ajax({
+                    url: url,
+                }).done( function(response) {
+                    // response = JSON.parse(response);
+                    document.location.href = '{{ path('list_devis_page') }}';
+
+                }).fail(function(xhr,textmsg,errorThrown){
+                    /*console.log(xhr.status);
+                    console.log(xhr.responseText);
+                    console.log(errorThrown);*/
+                });
+            });
         });
     </script>
 {% endblock %}
