@@ -191,10 +191,9 @@
                             // console.log(htmlData)
                             // console.log(product)
                             $.each(product.variations, function(k, variation) {
-                                // console.log(variation)
-                                    console.log(variation)
-                                if ((product.category == "Jeans" && variation.size_jean29 == 0 && variation.size_jean30 == 0 && variation.size_jean31 == 0 && variation.size_jean32 == 0 && variation.size_jean33 == 0 && variation.size_jean34 == 0 && variation.size_jean35 == 0 && variation.size_jean36 == 0 && variation.size_jean38 == 0 && variation.size_jean40 == 0)
-                                    || (product.category == "Mocassin" && variation.size_moc40 == 0 && variation.size_moc41 == 0 && variation.size_moc42 == 0 && variation.size_moc43 == 0 && variation.size_moc44 == 0 && variation.size_moc45 == 0)
+                                console.log(product)
+                                if ((product.category === "Jeans" && variation.size_jean_29 == 0 && variation.size_jean_30 == 0 && variation.size_jean_31 == 0 && variation.size_jean_32 == 0 && variation.size_jean_33 == 0 && variation.size_jean_34 == 0 && variation.size_jean_35 == 0 && variation.size_jean_36 == 0 && variation.size_jean_38 == 0 && variation.size_jean_40 == 0)
+                                    || (product.category === "Mocassin" && variation.size_moc_40 == 0 && variation.size_moc_41 == 0 && variation.size_moc_42 == 0 && variation.size_moc_43 == 0 && variation.size_moc_44 == 0 && variation.size_moc_45 == 0)
                                     || (product.category != "Jeans" && product.category != "Mocassin" && variation._s == 0 && variation._m == 0 && variation._l == 0 && variation._x_l == 0 && variation._x_x_l == 0 && variation._x_x_x_l == 0)) {
                                     htmlData += '<div data-entry-id="' + product.id + '-' + variation.id + '" class="col-6 col-lg-4 single_gallery_item disable-link ' + product.category +
                                         ' wow fadeInUpBig" data-wow-delay="0.2s">';
@@ -209,13 +208,13 @@
                                     htmlData += '<div class="product-sale"><h6 class="heading-uppercase">-' + product.promo_montant + '%</h6></div>'
                                 }
                                 if (product.category == "Jeans") {
-                                    if (variation.size_jean29 == 0 && variation.size_jean30 == 0 && variation.size_jean31 == 0 && variation.size_jean32 == 0 &&
-                                    variation.size_jean33 == 0 && variation.size_jean34 == 0 && variation.size_jean35 == 0 && variation.size_jean36 == 0 && variation.size_jean38 == 0 && variation.size_jean40 == 0) {
+                                    if (variation.size_jean_29 == 0 && variation.size_jean_30 == 0 && variation.size_jean_31 == 0 && variation.size_jean_32 == 0 &&
+                                    variation.size_jean_33 == 0 && variation.size_jean_34 == 0 && variation.size_jean_35 == 0 && variation.size_jean_36 == 0 && variation.size_jean_38 == 0 && variation.size_jean_40 == 0) {
                                         htmlData += '<div class="product-stock"><h6 class="heading-uppercase">Out of stock</h6></div>';
                                     }
                                 } else if (product.category == "Mocassin") {
-                                    if (variation.size_moc40 == 0 && variation.size_moc41 == 0 && variation.size_moc42 == 0 && variation.size_moc43 == 0 &&
-                                        variation.size_moc44 == 0 && variation.size_moc45 == 0) {
+                                    if (variation.size_moc_40 == 0 && variation.size_moc_41 == 0 && variation.size_moc_42 == 0 && variation.size_moc_43 == 0 &&
+                                        variation.size_moc_44 == 0 && variation.size_moc_45 == 0) {
                                         htmlData += '<div class="product-stock"><h6 class="heading-uppercase">Out of stock</h6></div>';
                                     }
                                 } else {

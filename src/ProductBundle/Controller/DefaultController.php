@@ -28,52 +28,102 @@ class DefaultController extends Controller
         foreach ($products as $product) {
             foreach ($product->getVariations() as $variation) {
                 if ($product->getCategory() == 'Jeans') {
-                    if($variation->getSizeJean29() == null)
+                    if($variation->getSizeJean29() == null || $variation->getSizeJean29() < 0)
                         $variation->setSizeJean29(0);
-                    if($variation->getSizeJean30() == null)
+                    if($variation->getSizeJean30() == null || $variation->getSizeJean30() < 0)
                         $variation->setSizeJean30(0);
-                    if($variation->getSizeJean31() == null)
+                    if($variation->getSizeJean31() == null || $variation->getSizeJean31() < 0)
                         $variation->setSizeJean31(0);
-                    if($variation->getSizeJean32() == null)
+                    if($variation->getSizeJean32() == null || $variation->getSizeJean32() < 0)
                         $variation->setSizeJean32(0);
-                    if($variation->getSizeJean33() == null)
+                    if($variation->getSizeJean33() == null || $variation->getSizeJean33() < 0)
                         $variation->setSizeJean33(0);
-                    if($variation->getSizeJean34() == null)
+                    if($variation->getSizeJean34() == null || $variation->getSizeJean34() < 0)
                         $variation->setSizeJean34(0);
-                    if($variation->getSizeJean35() == null)
+                    if($variation->getSizeJean35() == null || $variation->getSizeJean35() < 0)
                         $variation->setSizeJean35(0);
-                    if($variation->getSizeJean36() == null)
+                    if($variation->getSizeJean36() == null || $variation->getSizeJean36() < 0)
                         $variation->setSizeJean36(0);
-                    if($variation->getSizeJean38() == null)
+                    if($variation->getSizeJean38() == null || $variation->getSizeJean38() < 0)
                         $variation->setSizeJean38(0);
-                    if($variation->getSizeJean40() == null)
+                    if($variation->getSizeJean40() == null || $variation->getSizeJean40() < 0)
                         $variation->setSizeJean40(0);
+
+                    $variation->setSizeMoc40(null);
+                    $variation->setSizeMoc41(null);
+                    $variation->setSizeMoc42(null);
+                    $variation->setSizeMoc43(null);
+                    $variation->setSizeMoc44(null);
+                    $variation->setSizeMoc45(null);
+                    $variation->setS(null);
+                    $variation->setM(null);
+                    $variation->setL(null);
+                    $variation->setXL(null);
+                    $variation->setXXL(null);
+                    $variation->setXXXL(null);
+
                 } else if ($product->getCategory() == 'Mocassin') {
-                    if($variation->getSizeMoc40() == null)
+                    if($variation->getSizeMoc40() == null || $variation->getSizeMoc40() < 0)
                         $variation->setSizeMoc40(0);
-                    if($variation->getSizeMoc41() == null)
+                    if($variation->getSizeMoc41() == null || $variation->getSizeMoc41() < 0)
                         $variation->setSizeMoc41(0);
-                    if($variation->getSizeMoc42() == null)
+                    if($variation->getSizeMoc42() == null || $variation->getSizeMoc42() < 0)
                         $variation->setSizeMoc42(0);
-                    if($variation->getSizeMoc43() == null)
+                    if($variation->getSizeMoc43() == null || $variation->getSizeMoc43() < 0)
                         $variation->setSizeMoc43(0);
-                    if($variation->getSizeMoc44() == null)
+                    if($variation->getSizeMoc44() == null || $variation->getSizeMoc44() < 0)
                         $variation->setSizeMoc44(0);
-                    if($variation->getSizeMoc45() == null)
+                    if($variation->getSizeMoc45() == null || $variation->getSizeMoc45() < 0)
                         $variation->setSizeMoc45(0);
+
+
+                    $variation->setSizeJean29(null);
+                    $variation->setSizeJean30(null);
+                    $variation->setSizeJean31(null);
+                    $variation->setSizeJean32(null);
+                    $variation->setSizeJean33(null);
+                    $variation->setSizeJean34(null);
+                    $variation->setSizeJean35(null);
+                    $variation->setSizeJean36(null);
+                    $variation->setSizeJean38(null);
+                    $variation->setSizeJean40(null);
+                    $variation->setS(null);
+                    $variation->setM(null);
+                    $variation->setL(null);
+                    $variation->setXL(null);
+                    $variation->setXXL(null);
+                    $variation->setXXXL(null);
+
                 } else {
-                    if($variation->getS() == null)
+                    if($variation->getS() == null || $variation->getS() < 0)
                         $variation->setS(0);
-                    if($variation->getM() == null)
+                    if($variation->getM() == null || $variation->getM() < 0)
                         $variation->setM(0);
-                    if($variation->getL() == null)
+                    if($variation->getL() == null || $variation->getL() < 0)
                         $variation->setL(0);
-                    if($variation->getXL() == null)
+                    if($variation->getXL() == null || $variation->getXL() < 0)
                         $variation->setXL(0);
-                    if($variation->getXXL() == null)
+                    if($variation->getXXL() == null || $variation->getXXL() < 0)
                         $variation->setXXL(0);
-                    if($variation->getXXXL() == null)
+                    if($variation->getXXXL() == null || $variation->getXXXL() < 0)
                         $variation->setXXXL(0);
+
+                    $variation->setSizeMoc40(null);
+                    $variation->setSizeMoc41(null);
+                    $variation->setSizeMoc42(null);
+                    $variation->setSizeMoc43(null);
+                    $variation->setSizeMoc44(null);
+                    $variation->setSizeMoc45(null);
+                    $variation->setSizeJean29(null);
+                    $variation->setSizeJean30(null);
+                    $variation->setSizeJean31(null);
+                    $variation->setSizeJean32(null);
+                    $variation->setSizeJean33(null);
+                    $variation->setSizeJean34(null);
+                    $variation->setSizeJean35(null);
+                    $variation->setSizeJean36(null);
+                    $variation->setSizeJean38(null);
+                    $variation->setSizeJean40(null);
                 }
                 $em->flush();
             }

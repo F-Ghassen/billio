@@ -50,6 +50,7 @@
                                         <ul class="list list-unstyled">
                                             <li>Devis #: &nbsp;{{ "%04d" | format(c.id) }}</li>
                                             <li>Issued on: <span class="text-semibold">{{ c.saleDate | date_modify("+1 hours") |date('d/m/Y - H:i') }}</span></li>
+                                            <li>City: {{ c.orderInfo.customerCity }}</li>
                                         </ul>
                                     </div>
 
