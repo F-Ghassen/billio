@@ -21,13 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Entity/Devis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Entity/Devis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Entity/DevisItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Entity/DevisItem.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,14 +276,7 @@
       <workItem from="1599359190581" duration="337000" />
       <workItem from="1599401448452" duration="10582000" />
       <workItem from="1599868600316" duration="3710000" />
-      <workItem from="1599911100815" duration="19432000" />
-    </task>
-    <task id="LOCAL-00062" summary="test notif">
-      <created>1590049043804</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1590049043804</updated>
+      <workItem from="1599911100815" duration="19894000" />
     </task>
     <task id="LOCAL-00063" summary="test notif">
       <created>1590049078902</created>
@@ -628,7 +614,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599871576032</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="administration devis changes">
+      <created>1599950152256</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1599950152257</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +640,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixes" />
     <MESSAGE value="fixed translation" />
     <MESSAGE value="my ip" />
     <MESSAGE value="fixed tnu name" />
@@ -672,7 +664,8 @@
     <MESSAGE value="new changes" />
     <MESSAGE value="fixed out of stock bugs" />
     <MESSAGE value="corrected a few bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrected a few bugs" />
+    <MESSAGE value="administration devis changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="administration devis changes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="476" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596912203960">
