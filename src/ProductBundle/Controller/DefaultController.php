@@ -275,6 +275,7 @@ class DefaultController extends Controller
     {
         $product = new Product();
         $product->setEnabled(false);
+        $product->setDeleted(false);
         $form = $this->get('form.factory')->create(ProductType::class, $product);
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
