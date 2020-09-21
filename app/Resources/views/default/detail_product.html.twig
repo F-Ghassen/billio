@@ -58,7 +58,9 @@
                     <div class="single_product_desc">
                         <div data-entry-id="{{ p.id }}-{{ variation.id }}">
                         <h4 class="title">{{ p.name }}</h4>
-
+                        {% if p.ref is not null %}
+                            <p class="available">REF: <span class="text-muted">{{ p.ref }}</span></p>
+                        {% endif %}
                         <h4 class="price">
                             {% if p.promoEnabled %}
                                 {% if app.request.locale == 'en' %}

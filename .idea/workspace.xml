@@ -21,6 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Entity/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,20 +282,9 @@
       <workItem from="1599401448452" duration="10582000" />
       <workItem from="1599868600316" duration="3710000" />
       <workItem from="1599911100815" duration="19894000" />
-    </task>
-    <task id="LOCAL-00063" summary="test notif">
-      <created>1590049078902</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1590049078902</updated>
-    </task>
-    <task id="LOCAL-00064" summary="changed criteo code">
-      <created>1590417992614</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1590417992614</updated>
+      <workItem from="1600171850250" duration="69000" />
+      <workItem from="1600353825989" duration="1650000" />
+      <workItem from="1600645394693" duration="3095000" />
     </task>
     <task id="LOCAL-00065" summary="test trans">
       <created>1590419427945</created>
@@ -621,7 +615,21 @@
       <option name="project" value="LOCAL" />
       <updated>1599950152257</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="fix 34 size">
+      <created>1600171904885</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1600171904885</updated>
+    </task>
+    <task id="LOCAL-00113" summary="fix deleted in add product">
+      <created>1600354166757</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1600354166757</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,8 +648,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed translation" />
-    <MESSAGE value="my ip" />
     <MESSAGE value="fixed tnu name" />
     <MESSAGE value="fixed prices not showing en" />
     <MESSAGE value="test" />
@@ -665,20 +671,21 @@
     <MESSAGE value="fixed out of stock bugs" />
     <MESSAGE value="corrected a few bugs" />
     <MESSAGE value="administration devis changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="administration devis changes" />
+    <MESSAGE value="fix 34 size" />
+    <MESSAGE value="fix deleted in add product" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix deleted in add product" />
   </component>
   <component name="WindowStateProjectService">
     <state x="476" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596912203960">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="423" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1591807486048" />
     <state x="476" y="188" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/-1600.0.1600.860@0.0.1536.824" timestamp="1596912203960" />
-    <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser" timestamp="1599933281198">
+    <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser" timestamp="1600647828443">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="476" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592866377095" />
     <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1600.0.1600.860@0.0.1536.824" timestamp="1599933281198" />
-    <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1598114790070" />
+    <state x="535" y="91" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1600647828443" />
     <state x="464" y="135" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598117087451">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

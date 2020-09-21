@@ -23,6 +23,7 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name', TextType::class)
+            ->add('ref', TextType::class)
             ->add('category', ChoiceType::class, array(
                 'choices' => array(
                     'T-Shirt' => 'TShirt',

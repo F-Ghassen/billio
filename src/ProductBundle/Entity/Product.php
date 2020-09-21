@@ -34,6 +34,13 @@ class Product
     /**
      * @var string
      *
+     * @ORM\Column(name="ref", type="string", length=255)
+     */
+    private $ref;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="category", type="string", length=255)
      */
     private $category;
@@ -381,6 +388,22 @@ class Product
     public function setDeleted($deleted)
     {
         $this->deleted = $deleted;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRef()
+    {
+        return $this->ref;
+    }
+
+    /**
+     * @param string $ref
+     */
+    public function setRef($ref)
+    {
+        $this->ref = $ref;
     }
 }
 
