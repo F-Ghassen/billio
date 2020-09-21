@@ -21,11 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Entity/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Form/ProductType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,14 +280,7 @@
       <workItem from="1599911100815" duration="19894000" />
       <workItem from="1600171850250" duration="69000" />
       <workItem from="1600353825989" duration="1650000" />
-      <workItem from="1600645394693" duration="3095000" />
-    </task>
-    <task id="LOCAL-00065" summary="test trans">
-      <created>1590419427945</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1590419427945</updated>
+      <workItem from="1600645394693" duration="3757000" />
     </task>
     <task id="LOCAL-00066" summary="test if payment worked">
       <created>1590420455045</created>
@@ -629,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600354166757</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="added ref to products">
+      <created>1600650352135</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1600650352135</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +644,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed tnu name" />
     <MESSAGE value="fixed prices not showing en" />
     <MESSAGE value="test" />
     <MESSAGE value="fixed price not showing" />
@@ -673,7 +668,8 @@
     <MESSAGE value="administration devis changes" />
     <MESSAGE value="fix 34 size" />
     <MESSAGE value="fix deleted in add product" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix deleted in add product" />
+    <MESSAGE value="added ref to products" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ref to products" />
   </component>
   <component name="WindowStateProjectService">
     <state x="476" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596912203960">

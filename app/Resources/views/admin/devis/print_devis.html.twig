@@ -9,29 +9,45 @@
                 {% if item.promo %}
 
                     {% if item.price != null %}
-                        {% set sum1 = sum1 + item.quantity*(item.price - item.price*item.promo/100) %}
+                        {% if item.type == 'Normal' or item.type is null %}
+                            {% set sum1 = sum1 + item.quantity*(item.price - item.price*item.promo/100) %}
+                        {% endif %}
                     {% else %}
-                        {% set sum1 = sum1 + item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                        {% if item.type == 'Normal' or item.type is null %}
+                            {% set sum1 = sum1 + item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                        {% endif %}
                     {% endif %}
 
                     {% if item.priceDollar != null %}
-                        {% set sumDollar = sumDollar + item.quantity*(item.priceDollar - item.priceDollar*item.promo/100)  %}
+                        {% if item.type == 'Normal' or item.type is null %}
+                            {% set sumDollar = sumDollar + item.quantity*(item.priceDollar - item.priceDollar*item.promo/100)  %}
+                        {% endif %}
                     {% else %}
-                        {% set sumDollar = sumDollar + item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100)  %}
+                        {% if item.type == 'Normal' or item.type is null %}
+                            {% set sumDollar = sumDollar + item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100)  %}
+                        {% endif %}
                     {% endif %}
 
                 {% else %}
 
                     {% if item.price != null %}
-                        {% set sum1 = sum1 + item.quantity*item.price %}
+                        {% if item.type == 'Normal' or item.type is null %}
+                            {% set sum1 = sum1 + item.quantity*item.price %}
+                        {% endif %}
                     {% else %}
-                        {% set sum1 = sum1 + item.quantity*item.product.price %}
+                        {% if item.type == 'Normal' or item.type is null %}
+                            {% set sum1 = sum1 + item.quantity*item.product.price %}
+                        {% endif %}
                     {% endif %}
 
                     {% if item.priceDollar != null %}
-                        {% set sumDollar = sumDollar + item.quantity*item.priceDollar  %}
+                        {% if item.type == 'Normal' or item.type is null %}
+                            {% set sumDollar = sumDollar + item.quantity*item.priceDollar  %}
+                        {% endif %}
                     {% else %}
-                        {% set sumDollar = sumDollar + item.quantity*item.product.priceDollar  %}
+                        {% if item.type == 'Normal' or item.type is null %}
+                            {% set sumDollar = sumDollar + item.quantity*item.product.priceDollar %}
+                        {% endif %}
                     {% endif %}
 
                 {% endif %}
@@ -88,31 +104,62 @@
                                 <td>
                                     <span class="text-semibold">
                                         {% if item.promo %}
-
                                             {% if item.price != null %}
-                                                {% set total = item.quantity*(item.price - item.price*item.promo/100) %}
+                                                {% if item.type == 'Normal' or item.type is null %}
+                                                    {% set total = item.quantity*(item.price - item.price*item.promo/100) %}
+                                                {% else %}
+                                                    {% set total = 0 %}
+                                                {% endif %}
                                             {% else %}
-                                                {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                                {% if item.type == 'Normal' or item.type is null %}
+                                                    {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
+                                                {% else %}
+                                                    {% set total = 0 %}
+                                                {% endif %}
                                             {% endif %}
 
                                             {% if item.priceDollar != null %}
-                                                {% set totalDollar = item.quantity*(item.priceDollar - item.priceDollar*item.promo/100) %}
+                                                {% if item.type == 'Normal' or item.type is null %}
+                                                    {% set totalDollar = item.quantity*(item.priceDollar - item.priceDollar*item.promo/100) %}
+                                                {% else %}
+                                                    {% set totalDollar = 0 %}
+                                                {% endif %}
                                             {% else %}
-                                                {% set totalDollar = item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100) %}
+                                                {% if item.type == 'Normal' or item.type is null %}
+                                                    {% set totalDollar = item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100) %}
+                                                {% else %}
+                                                    {% set totalDollar = 0 %}
+                                                {% endif %}
                                             {% endif %}
 
                                         {% else %}
 
                                             {% if item.price != null %}
-                                                {% set total = item.quantity*item.price %}
+                                                {% if item.type == 'Normal' or item.type is null %}
+                                                    {% set total = item.quantity*item.price %}
+                                                {% else %}
+                                                    {% set total = 0 %}
+                                                {% endif %}
                                             {% else %}
-                                                {% set total = item.quantity*item.product.price %}
+                                                {% if item.type == 'Normal' or item.type is null %}
+                                                    {% set total = item.quantity*item.product.price %}
+                                                {% else %}
+                                                    {% set total = 0 %}
+                                                {% endif %}
                                             {% endif %}
 
                                             {% if item.priceDollar != null %}
-                                                {% set totalDollar = item.quantity*item.priceDollar %}
+                                                {% if item.type == 'Normal' or item.type is null %}
+                                                    {% set totalDollar = item.quantity*item.priceDollar %}
+                                                {% else %}
+                                                    {% set totalDollar = 0 %}
+                                                {% endif %}
                                             {% else %}
-                                                {% set totalDollar = item.quantity*item.priceDollar %}
+                                                {% if item.type == 'Normal' or item.type is null %}
+                                                    {% set totalDollar = item.quantity*item.product.priceDollar %}
+                                                {% else %}
+                                                    {% set totalDollar = 0 %}
+                                                {% endif %}
                                             {% endif %}
 
                                         {% endif %}
