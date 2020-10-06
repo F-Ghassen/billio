@@ -40,6 +40,18 @@ class DefaultController extends Controller
                 ->setParameter('search', $request->query->getAlnum('search'));
         }
 
+        if($request->query->getAlnum('state')) {
+            if($request->query->getAlnum('state') == 'Livr') {
+                $queryBuilder
+                    ->andWhere($queryBuilder->expr()->like('d.state', ':state'))
+                    ->setParameter('state', 'Livré');
+            } else {
+                $queryBuilder
+                    ->andWhere($queryBuilder->expr()->like('d.state', ':state'))
+                    ->setParameter('state', $request->query->getAlnum('state'));
+            }
+        }
+
         $queryBuilder->orderBy('d.id', 'DESC');
 
         $query = $queryBuilder->getQuery();

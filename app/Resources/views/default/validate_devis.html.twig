@@ -319,7 +319,7 @@
                         <!--input type="hidden" name="Password" value="311ca077709871c0a7ba9720ef9f7e46"-->
                         <input type="hidden" name="orderID" value="{{commande.id}}">
                         <input type="hidden" name="Amount" value="">
-                        <input type="hidden" name="Currency" value="USD">
+                        <input type="hidden" name="Currency" value="TND">
                         <input type="hidden" name="Language" value="fr">
                         <input type="hidden" name="PayementType" value="1">
                         <input type="hidden" name="MerchandSession" value="{{commande | json_encode}}">
@@ -530,19 +530,42 @@
                 for (let i=0; i<$entryInfoObjects.length; i++) {
                     // console.log($entryInfoObjects[i]);
                     orderProducts += $entryInfoObjects[i].quantity + " * " + $entryInfoObjects[i].name + "(" + $entryInfoObjects[i].color + "," + $entryInfoObjects[i].size + "),";
-                    totalPrice += parseFloat($entryInfoObjects[i].price);
+                    {% if app.request.locale == "en" %}
+                        totalPrice += parseFloat($entryInfoObjects[i].priceDollar);
+                    {% else %}
+                        totalPrice += parseFloat($entryInfoObjects[i].price);
+                    {% endif %}
+
                 }
-                if(totalPrice < 200) {
-                    totalPrice+=10;
-                }
+
+                {% if app.request.locale == "en" %}
+                    if(totalPrice < 200) {
+                        totalPrice+=10;
+                    }
+                {% else %}
+                    if(totalPrice < 200) {
+                        totalPrice+=7;
+                    }
+                {% endif %}
+
+
                 // console.log(orderProducts);
                 // console.log(totalPrice);
                 // console.log(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
-                $("input[name*='Amount']").val(totalPrice * 1000);
-                $("input[name*='AmountSecond']").val(totalPrice * 100);
-                $("input[name*='orderProducts']").val(orderProducts);
-                // TODO prod
-                $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 + "USD"));
+
+                {% if app.request.locale == "en" %}
+
+                    $("input[name*='Currency']").val('USD');
+                    $("input[name*='Amount']").val(totalPrice * 100);
+                    $("input[name*='AmountSecond']").val(totalPrice * 1000);
+                    $("input[name*='orderProducts']").val(orderProducts);
+                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 100 + "USD"));
+                {% else %}
+                    $("input[name*='Amount']").val(totalPrice * 1000);
+                    $("input[name*='AmountSecond']").val(totalPrice * 100);
+                    $("input[name*='orderProducts']").val(orderProducts);
+                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 + "TND"));
+                {% endif %}
                 // $("input[name*='signature']").val(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 + "USD"));
                 // console.log(("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice * 1000 * 3 + "USD"));
             });
