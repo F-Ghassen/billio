@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -285,14 +284,7 @@
       <workItem from="1601935394702" duration="90000" />
       <workItem from="1601935532068" duration="6743000" />
       <workItem from="1604409630330" duration="1614000" />
-      <workItem from="1606131291236" duration="4041000" />
-    </task>
-    <task id="LOCAL-00068" summary="check session">
-      <created>1590423466893</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1590423466894</updated>
+      <workItem from="1606131291236" duration="6246000" />
     </task>
     <task id="LOCAL-00069" summary="print session">
       <created>1590424542898</created>
@@ -630,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601942930328</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="added export feed">
+      <created>1606140207914</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1606140207915</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,7 +648,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed price not showing" />
     <MESSAGE value="fixed multiline bug" />
     <MESSAGE value="changed banner&#10;changed nav&#10;added swimwear" />
     <MESSAGE value="changes done" />
@@ -674,7 +672,8 @@
     <MESSAGE value="added ref to products" />
     <MESSAGE value="print devis rtn" />
     <MESSAGE value="added state filtering &#10;fixed payment bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="added state filtering &#10;fixed payment bug" />
+    <MESSAGE value="added export feed" />
+    <option name="LAST_COMMIT_MESSAGE" value="added export feed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="476" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596912203960">

@@ -496,52 +496,49 @@ class DefaultController extends Controller
         $fileName = "feed_" . date("d_m_Y") . ".csv";
         $writer = $this->container->get('egyg33k.csv.writer');
         $csv = $writer::createFromFileObject(new \SplTempFileObject());
-        $csv->insertOne([
-            "id","title","description","google_product_category","link","image_link","additional_image_link","availability","price","sale_price","color","shipping"
-        ]);
 
         $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findBy(['enabled' =>  true]);
+        $feed = "id;title;description;google_product_category;link;image_link;additional_image_link;availability;price;sale_price;color;shipping\n";
         foreach ($products as $p) {
-            $json = array();
             foreach ($p->getVariations() as $v) {
-                $json['id'] = $p->getId()."-".$v->getId();
-                $json['title'] = $p->getName();
-                $json['description'] = $p->getDescription();
-                $json['google_product_category'] = $p->getCategory();
-                $json['link'] = "https://billiorich.com/products/" . $p->getId() . "-" . $v->getId();
-                $json['image_link'] = "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage();
-                $json['additional_image_link'] = "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage();
+                // dump($p);
+                $feed .= $p->getId()."-".$v->getId() . ";";
+                $feed .= $p->getName() . ";";
+                $feed .= $p->getDescription() . ";";
+                $feed .= $p->getCategory() . ";";
+                $feed .= "https://billiorich.com/products/" . $p->getId() . "-" . $v->getId() . ";";
+                $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
+                $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
                 if ($p->getCategory() == "Jeans") {
                     if ($v->getSizeJean29() == 0 && $v->getSizeJean30() == 0 && $v->getSizeJean31() == 0 && $v->getSizeJean32() == 0 && $v->getSizeJean33() == 0 && $v->getSizeJean34() == 0 && $v->getSizeJean35() == 0 && $v->getSizeJean36() == 0 && $v->getSizeJean38() == 0 && $v->getSizeJean40() == 0) {
-                        $json['availability'] = "Out of stock";
+                        $feed .= "Out of stock;";
                     } else {
-                        $json['availability'] = "In stock";
+                        $feed .= "In stock;";
                     }
                 } else if ($p->getCategory() == "Mocassin") {
                     if ($v->getSizeMoc40() == 0 && $v->getSizeMoc41() == 0 && $v->getSizeMoc42() == 0 && $v->getSizeMoc43() == 0 && $v->getSizeMoc44() == 0 && $v->getSizeMoc45() == 0) {
-                        $json['availability'] = "Out of stock";
+                        $feed .= "Out of stock;";
                     } else {
-                        $json['availability'] = "In stock";
+                        $feed .= "In stock;";
                     }
                 } else {
                     if ($v->getS() == 0 && $v->getM() == 0 && $v->getL() == 0 && $v->getXl() == 0 && $v->getXxl() == 0 && $v->getXxxl() == 0) {
-                        $json['availability'] = "Out of stock";
+                        $feed .= "Out of stock;";
                     } else {
-                        $json['availability'] = "In stock";
+                        $feed .= "In stock;";
                     }
                 }
-                $json['price'] = number_format($p->getPrice(), 2, '.', '') . " USD";
+                $feed .= number_format($p->getPrice(), 2, '.', '') . " USD;";
                 if ($p->isPromoEnabled()) {
-                    $json['sale_price'] = number_format(($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)), 2, '.', '') . " USD";
+                    $feed .= number_format(($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)), 2, '.', '') . " USD;";
                 } else {
-                    $json['sale_price'] = number_format($p->getPrice(), 2, '.', '') . " USD";
+                    $feed .= number_format($p->getPrice(), 2, '.', '') . " USD;";
                 }
-                $json['color'] = $v->getColor();
-                $json['shipping'] = "INTERNATIONAL::Standard:10.00 USD";
-                $csv->insertOne($json);
+                $feed .= $v->getColor() . ";";
+                $feed .= "INTERNATIONAL::Standard:10.00 USD\n";
             }
         }
-
+        $csv->insertOne($feed);
         $csv->output($fileName);
         exit;
     }
