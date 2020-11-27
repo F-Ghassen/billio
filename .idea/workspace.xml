@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,14 +283,10 @@
       <workItem from="1601935394702" duration="90000" />
       <workItem from="1601935532068" duration="6743000" />
       <workItem from="1604409630330" duration="1614000" />
-      <workItem from="1606131291236" duration="6246000" />
-    </task>
-    <task id="LOCAL-00069" summary="print session">
-      <created>1590424542898</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1590424542898</updated>
+      <workItem from="1606131291236" duration="6411000" />
+      <workItem from="1606148317596" duration="31000" />
+      <workItem from="1606496698549" duration="110000" />
+      <workItem from="1606496865222" duration="2079000" />
     </task>
     <task id="LOCAL-00070" summary="test">
       <created>1590424689359</created>
@@ -629,7 +624,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606140207915</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="feed">
+      <created>1606148176965</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1606148176965</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +650,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed multiline bug" />
     <MESSAGE value="changed banner&#10;changed nav&#10;added swimwear" />
     <MESSAGE value="changes done" />
     <MESSAGE value="display size 40" />
@@ -673,7 +674,8 @@
     <MESSAGE value="print devis rtn" />
     <MESSAGE value="added state filtering &#10;fixed payment bug" />
     <MESSAGE value="added export feed" />
-    <option name="LAST_COMMIT_MESSAGE" value="added export feed" />
+    <MESSAGE value="feed" />
+    <option name="LAST_COMMIT_MESSAGE" value="feed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="476" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596912203960">

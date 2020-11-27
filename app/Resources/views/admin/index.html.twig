@@ -46,11 +46,10 @@
                     <div class="col-lg-4">
                         <div class="panel bg-green-400">
                             <div class="panel-body">
-                                <div class="col-lg-3" style="margin-top: 13px;"><i class="icon-cart2"></i></div>
-                                <div class="col-lg-9">
-                                    <h3 class="no-margin">Produit: {{ prod[0].product.name }}</h3>
-                                    <div class="text-muted text-size-small">Nombre de demande devis: {{ prod['total_quantity'] }}</div>
-                                </div>
+                                <h3 class="no-margin">#ID: {{ prod[0].product.id }}-{{ prod[0].variation.id }}</h3>
+                                <h3 class="no-margin">Name: {{ prod[0].product.name }}</h3>
+                                <h3 class="no-margin">Color: {{ prod[0].variation.color }}</h3>
+                                <div class="text-muted text-size-small">Nombre de demande devis: {{ prod['total_quantity'] }}</div>
                             </div>
                         </div>
                     </div>
