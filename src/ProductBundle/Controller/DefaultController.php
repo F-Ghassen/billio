@@ -542,4 +542,295 @@ class DefaultController extends Controller
         $csv->output($fileName);
         exit;
     }
+
+    /**
+     * @Route("/marketplace/products-feed", name="marketplace_product_feed")
+     */
+    public function marketplace_feed()
+    {
+        $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findBy(['enabled' =>  true]);
+        $feed = "Barcode;Référence;Nom de l'article;Couleur;Taille;prix;prix en promo;Quantité;Marque;Description;image\n";
+        foreach ($products as $p) {
+            foreach ($p->getVariations() as $v) {
+                if ($p->getCategory() == "Jeans") {
+                    $sizes = ['29', '30', '31', '32', '33', '34', '35', '36', '38', '40'];
+                    foreach ($sizes as $size) {
+                        $feed .= $p->getId()."-".$v->getId() . ";";
+                        $feed .= $p->getRef() . ";";
+                        $feed .= $p->getName() . ";";
+                        $feed .= $v->getColor() . ";";
+                        $feed .= $size . ";";
+                        $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        if ($p->isPromoEnabled()) {
+                            $feed .= number_format(($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)), 2, '.', '') . ";";
+                        } else {
+                            $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        }
+                        switch ($size) {
+                            case 'S':
+                                $feed .= $v->getS() . ";";
+                                break;
+                            case 'M':
+                                $feed .= $v->getM() . ";";
+                                break;
+                            case 'L':
+                                $feed .= $v->getL() . ";";
+                                break;
+                            case 'XL':
+                                $feed .= $v->getXL() . ";";
+                                break;
+                            case 'XXL':
+                                $feed .= $v->getXXL() . ";";
+                                break;
+                            case '3XL':
+                                $feed .= $v->getXXXL() . ";";
+                                break;
+                        }
+                        $feed .= "Billiorich" . ";";
+                        $feed .= $p->getDescription() . ";";
+                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                    }
+                } else if ($p->getCategory() == "Mocassin") {
+                    $sizes = ['40', '41', '42', '43', '44', '45'];
+                    foreach ($sizes as $size) {
+                        $feed .= $p->getId()."-".$v->getId() . ";";
+                        $feed .= $p->getRef() . ";";
+                        $feed .= $p->getName() . ";";
+                        $feed .= $v->getColor() . ";";
+                        $feed .= $size . ";";
+                        $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        if ($p->isPromoEnabled()) {
+                            $feed .= number_format(($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)), 2, '.', '') . ";";
+                        } else {
+                            $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        }
+                        switch ($size) {
+                            case '40':
+                                $feed .= $v->getSizeMoc40() . ";";
+                                break;
+                            case '41':
+                                $feed .= $v->getSizeMoc41() . ";";
+                                break;
+                            case '42':
+                                $feed .= $v->getSizeMoc42() . ";";
+                                break;
+                            case '43':
+                                $feed .= $v->getSizeMoc43() . ";";
+                                break;
+                            case '44':
+                                $feed .= $v->getSizeMoc44() . ";";
+                                break;
+                            case '45':
+                                $feed .= $v->getSizeMoc45() . ";";
+                                break;
+                        }
+                        $feed .= "Billiorich" . ";";
+                        $feed .= $p->getDescription() . ";";
+                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                    }
+                } else {
+                    $sizes = ['S', 'M', 'L', 'XL', 'XXL', '3XL'];
+                    foreach ($sizes as $size) {
+                        $feed .= $p->getId()."-".$v->getId() . ";";
+                        $feed .= $p->getRef() . ";";
+                        $feed .= $p->getName() . ";";
+                        $feed .= $v->getColor() . ";";
+                        $feed .= $size . ";";
+                        $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        if ($p->isPromoEnabled()) {
+                            $feed .= number_format(($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)), 2, '.', '') . ";";
+                        } else {
+                            $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        }
+                        switch ($size) {
+                            case '29':
+                                $feed .= $v->getSizeJean29() . ";";
+                                break;
+                            case '30':
+                                $feed .= $v->getSizeJean30() . ";";
+                                break;
+                            case '31':
+                                $feed .= $v->getSizeJean31() . ";";
+                                break;
+                            case '32':
+                                $feed .= $v->getSizeJean32() . ";";
+                                break;
+                            case '33':
+                                $feed .= $v->getSizeJean33() . ";";
+                                break;
+                            case '34':
+                                $feed .= $v->getSizeJean34() . ";";
+                                break;
+                            case '35':
+                                $feed .= $v->getSizeJean35() . ";";
+                                break;
+                            case '36':
+                                $feed .= $v->getSizeJean36() . ";";
+                                break;
+                            case '38':
+                                $feed .= $v->getSizeJean38() . ";";
+                                break;
+                            case '40':
+                                $feed .= $v->getSizeJean40() . ";";
+                                break;
+                        }
+                        $feed .= "Billiorich" . ";";
+                        $feed .= $p->getDescription() . ";";
+                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                    }
+                }
+
+            }
+        }
+        return $this->render('admin/products/product-feed.html.twig', array(
+            'flux' => $feed
+        ));
+    }
+
+    /**
+     * @Route("/products-feed/marketplace/download", name="marketplace_download_feed")
+     */
+    public function marketplace_download_feed() {
+        $fileName = "marketplace_feed_" . date("d_m_Y") . ".csv";
+        $writer = $this->container->get('egyg33k.csv.writer');
+        $csv = $writer::createFromFileObject(new \SplTempFileObject());
+
+        $products = $this->getDoctrine()->getManager()->getRepository(Product::class)->findBy(['enabled' =>  true]);
+        $feed = "Barcode;Référence;Nom de l'article;Couleur;Taille;prix;prix en promo;Quantité;Marque;Description;image\n";
+        foreach ($products as $p) {
+            foreach ($p->getVariations() as $v) {
+                if ($p->getCategory() == "Jeans") {
+                    $sizes = ['29', '30', '31', '32', '33', '34', '35', '36', '38', '40'];
+                    foreach ($sizes as $size) {
+                        $feed .= $p->getId()."-".$v->getId() . ";";
+                        $feed .= $p->getRef() . ";";
+                        $feed .= $p->getName() . ";";
+                        $feed .= $v->getColor() . ";";
+                        $feed .= $size . ";";
+                        $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        if ($p->isPromoEnabled()) {
+                            $feed .= number_format(($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)), 2, '.', '') . ";";
+                        } else {
+                            $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        }
+                        switch ($size) {
+                            case 'S':
+                                $feed .= $v->getS() . ";";
+                                break;
+                            case 'M':
+                                $feed .= $v->getM() . ";";
+                                break;
+                            case 'L':
+                                $feed .= $v->getL() . ";";
+                                break;
+                            case 'XL':
+                                $feed .= $v->getXL() . ";";
+                                break;
+                            case 'XXL':
+                                $feed .= $v->getXXL() . ";";
+                                break;
+                            case '3XL':
+                                $feed .= $v->getXXXL() . ";";
+                                break;
+                        }
+                        $feed .= "Billiorich" . ";";
+                        $feed .= $p->getDescription() . ";";
+                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                    }
+                } else if ($p->getCategory() == "Mocassin") {
+                    $sizes = ['40', '41', '42', '43', '44', '45'];
+                    foreach ($sizes as $size) {
+                        $feed .= $p->getId()."-".$v->getId() . ";";
+                        $feed .= $p->getRef() . ";";
+                        $feed .= $p->getName() . ";";
+                        $feed .= $v->getColor() . ";";
+                        $feed .= $size . ";";
+                        $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        if ($p->isPromoEnabled()) {
+                            $feed .= number_format(($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)), 2, '.', '') . ";";
+                        } else {
+                            $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        }
+                        switch ($size) {
+                            case '40':
+                                $feed .= $v->getSizeMoc40() . ";";
+                                break;
+                            case '41':
+                                $feed .= $v->getSizeMoc41() . ";";
+                                break;
+                            case '42':
+                                $feed .= $v->getSizeMoc42() . ";";
+                                break;
+                            case '43':
+                                $feed .= $v->getSizeMoc43() . ";";
+                                break;
+                            case '44':
+                                $feed .= $v->getSizeMoc44() . ";";
+                                break;
+                            case '45':
+                                $feed .= $v->getSizeMoc45() . ";";
+                                break;
+                        }
+                        $feed .= "Billiorich" . ";";
+                        $feed .= $p->getDescription() . ";";
+                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                    }
+                } else {
+                    $sizes = ['S', 'M', 'L', 'XL', 'XXL', '3XL'];
+                    foreach ($sizes as $size) {
+                        $feed .= $p->getId()."-".$v->getId() . ";";
+                        $feed .= $p->getRef() . ";";
+                        $feed .= $p->getName() . ";";
+                        $feed .= $v->getColor() . ";";
+                        $feed .= $size . ";";
+                        $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        if ($p->isPromoEnabled()) {
+                            $feed .= number_format(($p->getPrice() - $p->getPrice()*($p->getPromoMontant() / 100)), 2, '.', '') . ";";
+                        } else {
+                            $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
+                        }
+                        switch ($size) {
+                            case '29':
+                                $feed .= $v->getSizeJean29() . ";";
+                                break;
+                            case '30':
+                                $feed .= $v->getSizeJean30() . ";";
+                                break;
+                            case '31':
+                                $feed .= $v->getSizeJean31() . ";";
+                                break;
+                            case '32':
+                                $feed .= $v->getSizeJean32() . ";";
+                                break;
+                            case '33':
+                                $feed .= $v->getSizeJean33() . ";";
+                                break;
+                            case '34':
+                                $feed .= $v->getSizeJean34() . ";";
+                                break;
+                            case '35':
+                                $feed .= $v->getSizeJean35() . ";";
+                                break;
+                            case '36':
+                                $feed .= $v->getSizeJean36() . ";";
+                                break;
+                            case '38':
+                                $feed .= $v->getSizeJean38() . ";";
+                                break;
+                            case '40':
+                                $feed .= $v->getSizeJean40() . ";";
+                                break;
+                        }
+                        $feed .= "Billiorich" . ";";
+                        $feed .= $p->getDescription() . ";";
+                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                    }
+                }
+
+            }
+        }
+        $csv->insertOne($feed);
+        $csv->output($fileName);
+        exit;
+    }
 }

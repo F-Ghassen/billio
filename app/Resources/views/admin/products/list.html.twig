@@ -32,13 +32,13 @@
                     <a href="{{ path('add_product_page') }}" class="btn btn-success"><i class="icon-plus3 position-left"></i>Ajouter Produit</a>
                 </div>
                 <div class="row" style="margin: 20px">
-                    <a href="{{ path('product_feed') }}" class="btn btn-success"><i class="icon-address-book position-left"></i>Feed</a>
-                </div>
-                <div class="row" style="margin: 20px">
                     <a href="{{ path('export_page') }}" id="export" class="btn btn-success"><i class="icon-address-book position-left"></i>Export Stock</a>
                 </div>
                 <div class="row" style="margin: 20px">
+                    <a href="{{ path('product_feed') }}" target="_blank" class="btn btn-success"><i class="icon-address-book position-left"></i>Feed</a>
                     <a href="{{ path('download_feed') }}" id="export_feed" class="btn btn-success"><i class="icon-address-book position-left"></i>Export Feed</a>
+                    <a href="{{ path('marketplace_product_feed') }}" target="_blank" class="btn btn-success"><i class="icon-address-book position-left"></i>Marketplace Feed</a>
+                    <a href="{{ path('marketplace_download_feed') }}" id="export_feed" class="btn btn-success"><i class="icon-address-book position-left"></i>Marketplace Export Feed</a>
                 </div>
                 <div class="ml-3 container row">
                     <h5>Filtrage</h5>
