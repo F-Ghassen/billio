@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/products/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -292,14 +291,8 @@
       <workItem from="1607518882675" duration="461000" />
       <workItem from="1607519435167" duration="978000" />
       <workItem from="1607636208212" duration="4622000" />
-      <workItem from="1607722209667" duration="670000" />
-    </task>
-    <task id="LOCAL-00071" summary="fetch command id from notif">
-      <created>1590425202729</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1590425202729</updated>
+      <workItem from="1607722209667" duration="1007000" />
+      <workItem from="1607895234859" duration="738000" />
     </task>
     <task id="LOCAL-00072" summary="added flush">
       <created>1590425626176</created>
@@ -637,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606499635927</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="activated promo &#10;added marketplace data">
+      <created>1607723107295</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1607723107296</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,7 +656,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changes done" />
     <MESSAGE value="display size 40" />
     <MESSAGE value="made billio text smaller" />
     <MESSAGE value="adding new banner and fix bugs" />
@@ -681,7 +680,8 @@
     <MESSAGE value="added export feed" />
     <MESSAGE value="feed" />
     <MESSAGE value="display id in dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="display id in dashboard" />
+    <MESSAGE value="activated promo &#10;added marketplace data" />
+    <option name="LAST_COMMIT_MESSAGE" value="activated promo &#10;added marketplace data" />
   </component>
   <component name="masterDetails">
     <states>

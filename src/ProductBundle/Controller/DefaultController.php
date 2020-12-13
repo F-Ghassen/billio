@@ -567,23 +567,35 @@ class DefaultController extends Controller
                             $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
                         }
                         switch ($size) {
-                            case 'S':
-                                $feed .= $v->getS() . ";";
+                            case '29':
+                                $feed .= $v->getSizeJean29() . ";";
                                 break;
-                            case 'M':
-                                $feed .= $v->getM() . ";";
+                            case '30':
+                                $feed .= $v->getSizeJean30() . ";";
                                 break;
-                            case 'L':
-                                $feed .= $v->getL() . ";";
+                            case '31':
+                                $feed .= $v->getSizeJean31() . ";";
                                 break;
-                            case 'XL':
-                                $feed .= $v->getXL() . ";";
+                            case '32':
+                                $feed .= $v->getSizeJean32() . ";";
                                 break;
-                            case 'XXL':
-                                $feed .= $v->getXXL() . ";";
+                            case '33':
+                                $feed .= $v->getSizeJean33() . ";";
                                 break;
-                            case '3XL':
-                                $feed .= $v->getXXXL() . ";";
+                            case '34':
+                                $feed .= $v->getSizeJean34() . ";";
+                                break;
+                            case '35':
+                                $feed .= $v->getSizeJean35() . ";";
+                                break;
+                            case '36':
+                                $feed .= $v->getSizeJean36() . ";";
+                                break;
+                            case '38':
+                                $feed .= $v->getSizeJean38() . ";";
+                                break;
+                            case '40':
+                                $feed .= $v->getSizeJean40() . ";";
                                 break;
                         }
                         $feed .= "Billiorich" . ";";
@@ -643,35 +655,23 @@ class DefaultController extends Controller
                             $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
                         }
                         switch ($size) {
-                            case '29':
-                                $feed .= $v->getSizeJean29() . ";";
+                            case 'S':
+                                $feed .= $v->getS() . ";";
                                 break;
-                            case '30':
-                                $feed .= $v->getSizeJean30() . ";";
+                            case 'M':
+                                $feed .= $v->getM() . ";";
                                 break;
-                            case '31':
-                                $feed .= $v->getSizeJean31() . ";";
+                            case 'L':
+                                $feed .= $v->getL() . ";";
                                 break;
-                            case '32':
-                                $feed .= $v->getSizeJean32() . ";";
+                            case 'XL':
+                                $feed .= $v->getXL() . ";";
                                 break;
-                            case '33':
-                                $feed .= $v->getSizeJean33() . ";";
+                            case 'XXL':
+                                $feed .= $v->getXXL() . ";";
                                 break;
-                            case '34':
-                                $feed .= $v->getSizeJean34() . ";";
-                                break;
-                            case '35':
-                                $feed .= $v->getSizeJean35() . ";";
-                                break;
-                            case '36':
-                                $feed .= $v->getSizeJean36() . ";";
-                                break;
-                            case '38':
-                                $feed .= $v->getSizeJean38() . ";";
-                                break;
-                            case '40':
-                                $feed .= $v->getSizeJean40() . ";";
+                            case '3XL':
+                                $feed .= $v->getXXXL() . ";";
                                 break;
                         }
                         $feed .= "Billiorich" . ";";
@@ -714,23 +714,35 @@ class DefaultController extends Controller
                             $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
                         }
                         switch ($size) {
-                            case 'S':
-                                $feed .= $v->getS() . ";";
+                            case '29':
+                                $feed .= $v->getSizeJean29() . ";";
                                 break;
-                            case 'M':
-                                $feed .= $v->getM() . ";";
+                            case '30':
+                                $feed .= $v->getSizeJean30() . ";";
                                 break;
-                            case 'L':
-                                $feed .= $v->getL() . ";";
+                            case '31':
+                                $feed .= $v->getSizeJean31() . ";";
                                 break;
-                            case 'XL':
-                                $feed .= $v->getXL() . ";";
+                            case '32':
+                                $feed .= $v->getSizeJean32() . ";";
                                 break;
-                            case 'XXL':
-                                $feed .= $v->getXXL() . ";";
+                            case '33':
+                                $feed .= $v->getSizeJean33() . ";";
                                 break;
-                            case '3XL':
-                                $feed .= $v->getXXXL() . ";";
+                            case '34':
+                                $feed .= $v->getSizeJean34() . ";";
+                                break;
+                            case '35':
+                                $feed .= $v->getSizeJean35() . ";";
+                                break;
+                            case '36':
+                                $feed .= $v->getSizeJean36() . ";";
+                                break;
+                            case '38':
+                                $feed .= $v->getSizeJean38() . ";";
+                                break;
+                            case '40':
+                                $feed .= $v->getSizeJean40() . ";";
                                 break;
                         }
                         $feed .= "Billiorich" . ";";
@@ -790,35 +802,23 @@ class DefaultController extends Controller
                             $feed .= number_format($p->getPrice(), 2, '.', '') . ";";
                         }
                         switch ($size) {
-                            case '29':
-                                $feed .= $v->getSizeJean29() . ";";
+                            case 'S':
+                                $feed .= $v->getS() . ";";
                                 break;
-                            case '30':
-                                $feed .= $v->getSizeJean30() . ";";
+                            case 'M':
+                                $feed .= $v->getM() . ";";
                                 break;
-                            case '31':
-                                $feed .= $v->getSizeJean31() . ";";
+                            case 'L':
+                                $feed .= $v->getL() . ";";
                                 break;
-                            case '32':
-                                $feed .= $v->getSizeJean32() . ";";
+                            case 'XL':
+                                $feed .= $v->getXL() . ";";
                                 break;
-                            case '33':
-                                $feed .= $v->getSizeJean33() . ";";
+                            case 'XXL':
+                                $feed .= $v->getXXL() . ";";
                                 break;
-                            case '34':
-                                $feed .= $v->getSizeJean34() . ";";
-                                break;
-                            case '35':
-                                $feed .= $v->getSizeJean35() . ";";
-                                break;
-                            case '36':
-                                $feed .= $v->getSizeJean36() . ";";
-                                break;
-                            case '38':
-                                $feed .= $v->getSizeJean38() . ";";
-                                break;
-                            case '40':
-                                $feed .= $v->getSizeJean40() . ";";
+                            case '3XL':
+                                $feed .= $v->getXXXL() . ";";
                                 break;
                         }
                         $feed .= "Billiorich" . ";";
