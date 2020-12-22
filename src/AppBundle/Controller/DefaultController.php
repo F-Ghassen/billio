@@ -75,11 +75,10 @@ class DefaultController extends Controller
             $queryBuilder->where('p.enabled = true')->orderBy('p.id', 'DESC');
             if($request->query->getAlnum('category')) {
                 if($request->query->getAlnum('category') == 'StreetCouture') {
-                    $queryBuilder->andWhere('p.category = :sweatshirt OR p.category = :sweatpants OR p.category = :veste OR p.category = :couture')
+                    $queryBuilder->andWhere('p.category = :sweatshirt OR p.category = :sweatpants OR p.category = :couture')
                         ->setParameter('couture', 'StreeCouture')
                         ->setParameter('sweatshirt', 'SweatShirt')
-                        ->setParameter('sweatpants', 'SweatPants')
-                        ->setParameter('veste', 'Veste');
+                        ->setParameter('sweatpants', 'SweatPants');
                 } else {
                     $queryBuilder->andWhere('p.category = :category')
                         ->setParameter('category', $request->query->getAlnum('category'));
@@ -105,11 +104,10 @@ class DefaultController extends Controller
         $queryBuilder->where('p.enabled = true');
         if($request->query->getAlnum('category')) {
             if($request->query->getAlnum('category') == 'StreetCouture') {
-                $queryBuilder->andWhere('p.category = :sweatshirt OR p.category = :sweatpants OR p.category = :veste OR p.category = :couture')
+                $queryBuilder->andWhere('p.category = :sweatshirt OR p.category = :sweatpants OR p.category = :couture')
                     ->setParameter('couture', 'StreeCouture')
                     ->setParameter('sweatshirt', 'SweatShirt')
-                    ->setParameter('sweatpants', 'SweatPants')
-                    ->setParameter('veste', 'Veste');
+                    ->setParameter('sweatpants', 'SweatPants');
             } else {
                 $queryBuilder->andWhere('p.category = :category')
                     ->setParameter('category', $request->query->getAlnum('category'));
