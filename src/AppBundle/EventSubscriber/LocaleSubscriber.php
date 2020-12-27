@@ -13,7 +13,7 @@ class LocaleSubscriber implements EventSubscriberInterface
 
     public function __construct()
     {
-        $this->defaultLocale = 'en';
+        $this->defaultLocale = 'eu';
     }
 
     public function onKernelRequest(GetResponseEvent $event)
@@ -31,7 +31,7 @@ class LocaleSubscriber implements EventSubscriberInterface
             if($ip_data->geoplugin_countryCode == 'TN') {
                 $this->defaultLocale = 'fr';
             } else {
-                $this->defaultLocale = 'en';
+                $this->defaultLocale = 'eu';
             }
             // dump('ip locale: '. $this->defaultLocale);
         } else {

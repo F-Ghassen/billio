@@ -107,7 +107,11 @@
                                 <option value="Faroe Islands">Faroe Islands</option>
                                 <option value="Fiji">Fiji</option>
                                 <option value="Finland">Finland</option>
+                                {% if app.request.locale == 'eu' %}
+                                <option value="France" selected>France</option>
+                                {% else %}
                                 <option value="France">France</option>
+                                {% endif %}
                                 <option value="French Guiana">French Guiana</option>
                                 <option value="French Polynesia">French Polynesia</option>
                                 <option value="French Southern Ter">French Southern Ter</option>
@@ -255,7 +259,11 @@
                                 <option value="Tokelau">Tokelau</option>
                                 <option value="Tonga">Tonga</option>
                                 <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+                                {% if app.request.locale == 'fr' %}
                                 <option value="Tunisia" selected>Tunisia</option>
+                                {% else %}
+                                <option value="Tunisia">Tunisia</option>
+                                {% endif %}
                                 <option value="Turkey">Turkey</option>
                                 <option value="Turkmenistan">Turkmenistan</option>
                                 <option value="Turks & Caicos Is">Turks & Caicos Is</option>
@@ -348,7 +356,7 @@
                             <h5>{{ 'translate.order'|trans }}</h5>
                         </div>
                         <ul class="order-details-form mb-4">
-                            <li><span  style="font-size: 25px !important;">Products</span> <span style="font-size: 25px !important;">Total</span></li>
+                            <li><span  style="font-size: 25px !important;">{{ 'translate.products'|trans }}</span> <span style="font-size: 25px !important;">Total</span></li>
                             {% set subTotal=0 %}
                             {% for item in items1 %}
 
@@ -363,7 +371,7 @@
                                 } %}
                                 <div data-entry-info='{{ entryInfo|json_encode|replace("'", "&#39;")|raw }}'>
                                     {% if item.promo %}
-                                        {% if app.request.locale == 'en' %}
+                                        {% if app.request.locale == 'en' or app.request.locale == 'eu' %}
                                             {% set total = item.quantity*(item.product.priceDollar - item.product.priceDollar*item.promo/100) %}
                                         {% else %}
                                             {% set total = item.quantity*(item.product.price - item.product.price*item.promo/100) %}
@@ -373,6 +381,9 @@
                                             {% if app.request.locale == 'en' %}
                                                 <s style='color: dimgrey; font-size: 80%'>{{ (item.quantity*item.product.priceDollar)|number_format(2) }}</s>
                                                 {{ (total)|number_format(2) }} <span>$</span>
+                                            {% elseif app.request.locale == 'eu' %}
+                                                <s style='color: dimgrey; font-size: 80%'>{{ (item.quantity*item.product.priceDollar)|number_format(2) }}</s>
+                                                {{ (total)|number_format(2) }} <span>€</span>
                                             {% else %}
                                                 <s style='color: dimgrey; font-size: 80%'>{{ (item.quantity*item.product.price)|number_format(2) }}</s>
                                                 {{ (total)|number_format(2) }} <span>TND</span>
@@ -380,12 +391,16 @@
                                         </span>
                                         </li>
                                     {% else %}
-                                        {% set total = item.quantity*item.product.price %}
                                         <li><b style="font-size: 15px !important;">{{ item.product.name }}</b>
                                             <span style="font-size: 15px !important;">
                                             {% if app.request.locale == 'en' %}
+                                                {% set total = item.quantity*item.product.priceDollar %}
                                                 {{ (total)|number_format(2) }} <span>$</span>
+                                            {% elseif app.request.locale == 'eu' %}
+                                                {% set total = item.quantity*item.product.priceDollar %}
+                                                {{ (total)|number_format(2) }} <span>€</span>
                                             {% else %}
+                                                {% set total = item.quantity*item.product.price %}
                                                 {{ (total)|number_format(2) }} <span>TND</span>
                                             {% endif %}
                                         </span>
@@ -399,19 +414,28 @@
                                 <b style="font-size: 15px !important;">Subtotal</b>
                                 {% if app.request.locale == 'en' %}
                                     <span style="font-size: 15px !important;" id="subtotal">{{ (subTotal)|number_format(2) }} $</span>
+                                {% elseif app.request.locale == 'eu' %}
+                                    <span style="font-size: 15px !important;" id="subtotal">{{ (subTotal)|number_format(2) }} €</span>
                                 {% else %}
                                     <span style="font-size: 15px !important;" id="subtotal">{{ (subTotal)|number_format(2) }} TND</span>
                                 {% endif %}
 
                             </li>
                             <li id="shipping">
-                                <b style="font-size: 15px !important;">Express shipping</b>
+                                <b style="font-size: 15px !important;">{{ 'translate.express'|trans }}</b>
                                 {% if app.request.locale == 'en' %}
                                     {% if subTotal > 200 %}
                                         <b style="font-size: 15px !important;">{{ 'translate.free'|trans }}</b>
                                     {% else %}
                                         {% set subTotal = subTotal + 10 %}
                                         <span style="font-size: 15px !important;">{{ (10)|number_format(2) }} $</span>
+                                    {% endif %}
+                                {% elseif app.request.locale == 'eu' %}
+                                    {% if subTotal > 60 %}
+                                        <b style="font-size: 15px !important;">{{ 'translate.free'|trans }}</b>
+                                    {% else %}
+                                        {% set subTotal = subTotal + 10 %}
+                                        <span style="font-size: 15px !important;">{{ (10)|number_format(2) }} €</span>
                                     {% endif %}
                                 {% else %}
                                     {% if (subTotal) > 200 %}
@@ -425,6 +449,8 @@
                             <li><b style="font-size: 15px !important;">Total</b>
                                 {% if app.request.locale == 'en' %}
                                     <b style="font-size: 20px !important;" id="total">{{ subTotal|number_format(2) }} $</b>
+                                {% elseif app.request.locale == 'eu' %}
+                                    <b style="font-size: 20px !important;" id="total">{{ subTotal|number_format(2) }} €</b>
                                 {% else %}
                                     <b style="font-size: 20px !important;" id="total">{{ (subTotal)|number_format(2) }} TND</b>
                                 {% endif %}
@@ -479,9 +505,11 @@
                         let news = parseFloat(s).toFixed(2) - parseFloat(s).toFixed(2) * parseFloat(JSON.parse(data).montant).toFixed(2)/100;
                         let newVal = "<s style='color: dimgrey; font-size: 80%'>" + parseFloat(s).toFixed(2) + "</s>&nbsp;&nbsp;<span style='outline: 2px green'>" + parseFloat(news).toFixed(2);
                         {% if app.request.locale == "en" %}
-                        newVal +=  " $</span>"
+                        newVal +=  " $</span>";
+                        {% elseif app.request.locale == 'eu' %}
+                        newVal +=  " €</span>";
                         {% else %}
-                        newVal +=  " TND</span>"
+                        newVal +=  " TND</span>";
                         {% endif %}
                         $("#total").html(newVal);
                         //console.log($("#total").html());
@@ -530,7 +558,7 @@
                 for (let i=0; i<$entryInfoObjects.length; i++) {
                     // console.log($entryInfoObjects[i]);
                     orderProducts += $entryInfoObjects[i].quantity + " * " + $entryInfoObjects[i].name + "(" + $entryInfoObjects[i].color + "," + $entryInfoObjects[i].size + "),";
-                    {% if app.request.locale == "en" %}
+                    {% if app.request.locale == "en" or app.request.locale == 'eu' %}
                         totalPrice += parseFloat($entryInfoObjects[i].priceDollar);
                     {% else %}
                         totalPrice += parseFloat($entryInfoObjects[i].price);
@@ -538,7 +566,7 @@
 
                 }
 
-                {% if app.request.locale == "en" %}
+                {% if app.request.locale == "en" or app.request.locale == 'eu' %}
                     if(totalPrice < 200) {
                         totalPrice+=10;
                     }
@@ -554,12 +582,17 @@
                 // console.log(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
 
                 {% if app.request.locale == "en" %}
-
                     $("input[name*='Currency']").val('USD');
                     $("input[name*='Amount']").val(totalPrice * 100);
                     $("input[name*='AmountSecond']").val(totalPrice * 1000);
                     $("input[name*='orderProducts']").val(orderProducts);
                     $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 100 + "USD"));
+                {% elseif app.request.locale == 'eu' %}
+                    $("input[name*='Currency']").val('EUR');
+                    $("input[name*='Amount']").val(totalPrice * 100);
+                    $("input[name*='AmountSecond']").val(totalPrice * 1000);
+                    $("input[name*='orderProducts']").val(orderProducts);
+                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 100 + "EUR"));
                 {% else %}
                     $("input[name*='Amount']").val(totalPrice * 1000);
                     $("input[name*='AmountSecond']").val(totalPrice * 100);

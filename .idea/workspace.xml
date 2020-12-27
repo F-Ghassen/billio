@@ -20,8 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Resources/translations/messages.eu.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.en.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/detail_product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/single-product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/single-product.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/slides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/slides.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/EventSubscriber/LocaleSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/EventSubscriber/LocaleSubscriber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/bg-img/1D9FBA77-4979-4CC5-899C-B8BC46F791A3.MP4" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/img/bg-img/1D9FBA77-4979-4CC5-899C-B8BC46F791A3.MP4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/bg-img/bg-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/bg-img/bg-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/bg-img/bg-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/bg-img/bg-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/bg-img/bg-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/bg-img/bg-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/img/bg-img/bg-7.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,21 +315,11 @@
       <workItem from="1607519435167" duration="978000" />
       <workItem from="1607636208212" duration="4622000" />
       <workItem from="1607722209667" duration="1007000" />
-      <workItem from="1607895234859" duration="738000" />
-    </task>
-    <task id="LOCAL-00072" summary="added flush">
-      <created>1590425626176</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1590425626176</updated>
-    </task>
-    <task id="LOCAL-00073" summary="changed prices&#10;gpg back to prod">
-      <created>1590437444127</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1590437444127</updated>
+      <workItem from="1607895234859" duration="1249000" />
+      <workItem from="1608582602014" duration="37000" />
+      <workItem from="1608662759979" duration="4598000" />
+      <workItem from="1608676750895" duration="330000" />
+      <workItem from="1609070504775" duration="15654000" />
     </task>
     <task id="LOCAL-00074" summary="final patch">
       <created>1592011001243</created>
@@ -637,7 +650,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607723107296</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="fixed quantity in feed">
+      <created>1607896021553</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1607896021570</updated>
+    </task>
+    <task id="LOCAL-00122" summary="seperated jackets">
+      <created>1608668624023</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1608668624024</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,8 +683,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="display size 40" />
-    <MESSAGE value="made billio text smaller" />
     <MESSAGE value="adding new banner and fix bugs" />
     <MESSAGE value="export stock done" />
     <MESSAGE value="phone number pages&#10;remove devis id from print" />
@@ -681,7 +706,9 @@
     <MESSAGE value="feed" />
     <MESSAGE value="display id in dashboard" />
     <MESSAGE value="activated promo &#10;added marketplace data" />
-    <option name="LAST_COMMIT_MESSAGE" value="activated promo &#10;added marketplace data" />
+    <MESSAGE value="fixed quantity in feed" />
+    <MESSAGE value="seperated jackets" />
+    <option name="LAST_COMMIT_MESSAGE" value="seperated jackets" />
   </component>
   <component name="masterDetails">
     <states>

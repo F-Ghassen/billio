@@ -13,6 +13,9 @@
                 {% if app.request.locale == 'en' %}
                     <s style='color: dimgrey; font-size: 80%'>{{ (p.priceDollar)|number_format(2) }}</s>
                     {{ (p.priceDollar - p.priceDollar*p.promoMontant/100)|number_format(2) }} $
+                {% elseif app.request.locale == 'eu' %}
+                    <s style='color: dimgrey; font-size: 80%'>{{ (p.priceDollar)|number_format(2) }}</s>
+                    {{ (p.priceDollar - p.priceDollar*p.promoMontant/100)|number_format(2) }} €
                 {% else %}
                     <s style='color: dimgrey; font-size: 80%'>{{ (p.price)|number_format(2) }}</s>
                     {{ ((p.price - p.price*p.promoMontant/100))|number_format(2) }} TND
@@ -20,6 +23,8 @@
             {% else %}
                 {% if app.request.locale == 'en' %}
                     {{ (p.priceDollar)|number_format(2) }} $
+                {% elseif app.request.locale == 'eu' %}
+                    {{ (p.priceDollar)|number_format(2) }} €
                 {% else %}
                     {{ (p.price)|number_format(2) }} TND
                 {% endif %}

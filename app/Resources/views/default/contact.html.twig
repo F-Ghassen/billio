@@ -16,23 +16,37 @@
     <div class="section">
         <div class="container">
             <div class="row">
-                <div class="col-4 col-sm-6 col-md-4 icon-3xl">
+                <div class="col-12 col-sm-6 col-md-3 icon-3xl">
                     <i class="ti ti-email text-dark"></i>
                     <h6 class="heading-uppercase no-margin mt-3">Email</h6>
                     <p>Contact@billiorich.com</p>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 icon-3xl">
+                <div class="col-12 col-sm-6 col-md-3 icon-3xl">
                     <i class="ti ti-mobile text-dark"></i>
                     <h6 class="heading-uppercase no-margin mt-3">Phone</h6>
                     <p>+(216) 55 181 750</p>
                     <p>+(216) 58 931 111</p>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4 icon-3xl">
+                <div class="col-12 col-sm-6 col-md-3 icon-3xl">
                     <i class="ti ti-instagram text-dark"></i>
                     <h6 class="heading-uppercase no-margin mt-3">Instagram</h6>
                     <p>@billiorich</p>
                 </div>
-            </div>
+
+                {% if app.request.locale == 'fr' %}
+                <div class="col-12 col-sm-6 col-md-3 icon-3xl">
+                    <i class="ti ti-facebook text-dark"></i>
+                    <h6 class="heading-uppercase no-margin mt-3">Facebook</h6>
+                    <p>Billiorich</p>
+                </div>
+                {% else %}
+                <div class="col-12 col-sm-6 col-md-3 icon-3xl">
+                    <i class="ti ti-facebook text-dark"></i>
+                    <h6 class="heading-uppercase no-margin mt-3">Facebook</h6>
+                    <p>Billiorich Europe</p>
+                </div>
+                {% endif %}
+
         </div>
     </div>
     <!-- end Contact Info section -->

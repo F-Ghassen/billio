@@ -16,6 +16,14 @@
                 </span>
             </a>
         </span>
+    {% else %}
+        <span class="cart-show-small-screen">
+            <a href="{{ path('cart_page') }}">
+                <span class="icon-shopping-cart custom-icon">
+                    <span class="shopping-cart">0</span>
+                </span>
+            </a>
+        </span>
     {% endif %}
     <!--span class="cart-show-small-screen"><a href="{{ path('contact_page') }}"><i class="fa fa-phone custom-icon"></i></a></span-->
     <!--span class="cart-show-small-screen"><a href="https://www.facebook.com/billiorich96/" target="_blank"> <i class="fa fa-facebook custom-icon"></i></a></span-->
@@ -77,6 +85,8 @@
         <div class="text-right" style="margin-right: 70px;">
             {% if cartLogo!=0 %}
             <span class="cart-show-large-screen"><a href="{{ path('cart_page') }}"><i class="icon-shopping-cart custom-icon"><span class="shopping-cart">{{ cartLogo }}</span></i></a></span>
+            {% else %}
+            <span class="cart-show-large-screen"><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"><i class="icon-shopping-cart custom-icon"><span class="shopping-cart">0</span></i></a></span>
             {% endif %}
             <!--span class="cart-show-large-screen"><a href="{{ path('contact_page') }}"><i class="fa fa-phone custom-icon"></i></a></span-->
             <!--span class="cart-show-large-screen"><a href="https://www.facebook.com/billiorich96/" target="_blank"> <i class="fa fa-facebook custom-icon"></i></a></span-->

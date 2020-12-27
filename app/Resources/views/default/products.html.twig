@@ -53,6 +53,9 @@
                                     {% if app.request.locale == 'en' %}
                                         <s style='color: dimgrey; font-size: 80%'>{{ (p.priceDollar)|number_format(2) }}</s>
                                         {{ (p.priceDollar - p.priceDollar*p.promoMontant/100)|number_format(2) }} $
+                                    {% elseif app.request.locale == 'eu' %}
+                                        <s style='color: dimgrey; font-size: 80%'>{{ (p.priceDollar)|number_format(2) }}</s>
+                                        {{ (p.priceDollar - p.priceDollar*p.promoMontant/100)|number_format(2) }} €
                                     {% else %}
                                         <s style='color: dimgrey; font-size: 80%'>{{ (p.price)|number_format(2) }}</s>
                                         {{ ((p.price - p.price*p.promoMontant/100))|number_format(2) }} TND
@@ -60,6 +63,8 @@
                                 {% else %}
                                     {% if app.request.locale == 'en' %}
                                         {{ (p.priceDollar)|number_format(2) }} $
+                                    {% elseif app.request.locale == 'eu' %}
+                                        {{ (p.priceDollar)|number_format(2) }} €
                                     {% else %}
                                         {{ (p.price)|number_format(2) }} TND
                                     {% endif %}
@@ -227,6 +232,9 @@
                                     {% if app.request.locale == "en" %}
                                     htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price_dollar).toFixed(2) + '</s> ' +
                                         parseFloat(product.price_dollar - product.price_dollar * product.promo_montant / 100).toFixed(2) + ' $';
+                                    {% elseif app.request.locale == 'eu' %}
+                                    htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price_dollar).toFixed(2) + '</s> ' +
+                                        parseFloat(product.price_dollar - product.price_dollar * product.promo_montant / 100).toFixed(2) + ' €';
                                     {% else %}
                                     htmlData += '<s style="color: dimgrey; font-size: 80%">' + parseFloat(product.price).toFixed(2) + '</s> ' +
                                         parseFloat(product.price - product.price * product.promo_montant / 100).toFixed(2) + ' TND';
@@ -234,9 +242,11 @@
                                 }
                                 else {
                                     {% if app.request.locale == "en" %}
-                                    htmlData += parseFloat(product.price_dollar).toFixed(2) + ' $'
+                                    htmlData += parseFloat(product.price_dollar).toFixed(2) + ' $';
+                                    {% elseif app.request.locale == 'eu' %}
+                                    htmlData += parseFloat(product.price_dollar).toFixed(2) + ' €';
                                     {% else %}
-                                    htmlData += parseFloat(product.price).toFixed(2) + ' TND'
+                                    htmlData += parseFloat(product.price).toFixed(2) + ' TND';
                                     {% endif %}
                                 }
                                 htmlData += '</h4><div style="font-size: 0.9em;min-height: 50px; overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* number of lines to show */-webkit-box-orient: vertical;" >' + product.name + '</div>' +

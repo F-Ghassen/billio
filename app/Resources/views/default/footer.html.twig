@@ -17,7 +17,10 @@
                 <div class="single_footer_area">
                     <ul class="footer_widget_menu">
                         <li><a href="{{ path('about-us') }}" style="text-transform: uppercase; color: white">{{ 'translate.aboutus'|trans }}</a></li>
+                        <li><a href="{{ path('about-us') }}" style="text-transform: uppercase; color: white">Conditions générales</a></li>
+                        <li><a href="{{ path('about-us') }}" style="text-transform: uppercase;  color: white">Conditions livraison</a></li>
                         <li><a href="{{ path('contact_page') }}" style="text-transform: uppercase;  color: white">Contact</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -44,7 +47,11 @@
                 <div class="col-12">
                     <div class="footer_social_area text-center">
                         <a href="{{ path('contact_page') }}"><i class="fa fa-phone" style="color: white"></i></a>
-                        <a href="https://www.facebook.com/billiorich96/" target="_blank"><i class="fa fa-facebook" style="color: white" aria-hidden="true"></i></a>
+                        {% if app.request.locale == 'fr' %}
+                            <a href="https://www.facebook.com/billiorich96/" target="_blank"><i class="fa fa-facebook" style="color: white" aria-hidden="true"></i></a>
+                        {% else %}
+                            <a href="https://www.facebook.com/Billiorich-Europe-101319078537020/" target="_blank"><i class="fa fa-facebook" style="color: white" aria-hidden="true"></i></a>
+                        {% endif %}
                         <a href="https://www.instagram.com/billiorich/" target="_blank"><i class="fa fa-instagram" style="color: white" aria-hidden="true"></i></a>
                     </div>
                 </div>
