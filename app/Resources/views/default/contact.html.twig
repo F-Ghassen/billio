@@ -19,13 +19,21 @@
                 <div class="col-12 col-sm-6 col-md-3 icon-3xl">
                     <i class="ti ti-email text-dark"></i>
                     <h6 class="heading-uppercase no-margin mt-3">Email</h6>
-                    <p>Contact@billiorich.com</p>
+                    {% if app.request.locale == 'eu' %}
+                    <p>contact-eu@billiorich.com</p>
+                    {% else %}
+                    <p>contact@billiorich.com</p>
+                    {% endif %}
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 icon-3xl">
                     <i class="ti ti-mobile text-dark"></i>
                     <h6 class="heading-uppercase no-margin mt-3">Phone</h6>
+                    {% if app.request.locale == 'eu' %}
+                    <p>+(33) 9 88 49 78 72</p>
+                    {% else %}
                     <p>+(216) 55 181 750</p>
                     <p>+(216) 58 931 111</p>
+                    {% endif %}
                 </div>
                 <div class="col-12 col-sm-6 col-md-3 icon-3xl">
                     <i class="ti ti-instagram text-dark"></i>

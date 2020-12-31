@@ -1,12 +1,15 @@
 <div class="fixed-top billio-navbar-text">
+    <a href="{{ path('homepage') }}" style="position: absolute; top: 10px !important; left: 10px !important;" id="large_logo">
+        <img class="img-fuild billio-logo" style="width: 77px; height: 77px;" src="{{ asset('assets/img/core-img/billio.jpg') }}" alt="logo">
+    </a>
     <div class="text-center">
         <span><a style="color: white !important; text-transform: uppercase; text-decoration: none; font-family: Dum,serif" href="{{ path('homepage') }}">BILLIORICH</a></span>
     </div>
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="margin-top: 50px !important; padding: 0 5px 5px 5px !important;">
-    <a class="navbar-brand" href="{{ path('homepage') }}">
-        <img class="img-fuild billio-logo" style="width: 40px; height: 40px;" src="{{ asset('assets/img/core-img/billio.jpg') }}" alt="logo">
+    <a class="navbar-brand" href="/fr/">
+        <div class="img-fuild billio-logo" style="width: 40px; height: 40px;"></div>
     </a>
     {% if cartLogo!=0 %}
         <span class="cart-show-small-screen">
@@ -33,8 +36,8 @@
         <i class="fa fa-bars"></i>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse row justify-content-center" id="navbarSupportedContent">
+        <ul class="navbar-nav">
             {#
             <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownA" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,7 +85,7 @@
             </li>
         </ul>
 
-        <div class="text-right" style="margin-right: 70px;">
+        <div class="text-right ml-sm-5" style="margin-right: 70px;">
             {% if cartLogo!=0 %}
             <span class="cart-show-large-screen"><a href="{{ path('cart_page') }}"><i class="icon-shopping-cart custom-icon"><span class="shopping-cart">{{ cartLogo }}</span></i></a></span>
             {% else %}
