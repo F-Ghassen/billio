@@ -20,19 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/assets/img/bg-img/image00002.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/img/bg-img/image00003.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/img/core-img/logo-horizontal-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/assets/img/core-img/logo-horizontal.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/cart-page.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/products.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/slides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/slides.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/assets/img/bg-img/image00001.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/img/bg-img/image00001.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/assets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,14 +296,7 @@
       <workItem from="1608662759979" duration="4598000" />
       <workItem from="1608676750895" duration="330000" />
       <workItem from="1609070504775" duration="16779000" />
-      <workItem from="1609374614161" duration="3129000" />
-    </task>
-    <task id="LOCAL-00075" summary="added event listener">
-      <created>1592011022219</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1592011022219</updated>
+      <workItem from="1609374614161" duration="4261000" />
     </task>
     <task id="LOCAL-00076" summary="added event listener">
       <created>1592046285795</created>
@@ -653,7 +634,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609101098624</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="fixes and changes">
+      <created>1609377856649</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1609377856649</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,7 +660,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="export stock done" />
     <MESSAGE value="phone number pages&#10;remove devis id from print" />
     <MESSAGE value="devis sale price saved in devis item to preserve it in case of price change in the future" />
     <MESSAGE value="filter with devis id" />
@@ -697,7 +684,8 @@
     <MESSAGE value="fixed quantity in feed" />
     <MESSAGE value="seperated jackets" />
     <MESSAGE value="europe version" />
-    <option name="LAST_COMMIT_MESSAGE" value="europe version" />
+    <MESSAGE value="fixes and changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes and changes" />
   </component>
   <component name="masterDetails">
     <states>
