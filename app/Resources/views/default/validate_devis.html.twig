@@ -336,7 +336,13 @@
                         <input type="hidden" name="AmountSecond" value="">
                         <input type="hidden" name="vad" value="767400003">
                         <!--input type="hidden" name="vad" value="815600003"-->
-                        <input type="hidden" name="Terminal" value="004">
+                        {% if app.request.locale == 'en' %}
+                            <input type="hidden" name="Terminal" value="004">
+                        {% elseif app.request.locale == 'eu' %}
+                            <input type="hidden" name="Terminal" value="003">
+                        {% else %}
+                            <input type="hidden" name="Terminal" value="001">
+                        {% endif %}
                         <input type="hidden" name="TauxConversion" value="3">
                     </form>
                     <div class="mt-3">

@@ -297,13 +297,7 @@
       <workItem from="1608676750895" duration="330000" />
       <workItem from="1609070504775" duration="16779000" />
       <workItem from="1609374614161" duration="4261000" />
-    </task>
-    <task id="LOCAL-00076" summary="added event listener">
-      <created>1592046285795</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1592046285796</updated>
+      <workItem from="1609618008312" duration="1360000" />
     </task>
     <task id="LOCAL-00077" summary="log ip">
       <created>1592063807607</created>
@@ -641,7 +635,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609377856649</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="remove logo on small screens">
+      <created>1609618058652</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1609618058653</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,7 +661,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="phone number pages&#10;remove devis id from print" />
     <MESSAGE value="devis sale price saved in devis item to preserve it in case of price change in the future" />
     <MESSAGE value="filter with devis id" />
     <MESSAGE value="no default status for devis" />
@@ -685,7 +685,8 @@
     <MESSAGE value="seperated jackets" />
     <MESSAGE value="europe version" />
     <MESSAGE value="fixes and changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes and changes" />
+    <MESSAGE value="remove logo on small screens" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove logo on small screens" />
   </component>
   <component name="masterDetails">
     <states>
