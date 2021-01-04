@@ -298,13 +298,8 @@
       <workItem from="1609070504775" duration="16779000" />
       <workItem from="1609374614161" duration="4261000" />
       <workItem from="1609618008312" duration="1360000" />
-    </task>
-    <task id="LOCAL-00077" summary="log ip">
-      <created>1592063807607</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1592063807607</updated>
+      <workItem from="1609766647223" duration="250000" />
+      <workItem from="1609766954264" duration="626000" />
     </task>
     <task id="LOCAL-00078" summary="log ip">
       <created>1592065127999</created>
@@ -642,7 +637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609618058653</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="change terminal based on locale">
+      <created>1609766858824</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1609766858825</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -661,7 +663,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="devis sale price saved in devis item to preserve it in case of price change in the future" />
     <MESSAGE value="filter with devis id" />
     <MESSAGE value="no default status for devis" />
     <MESSAGE value="removed id from pring quote&#10;added 216 to phones" />
@@ -686,7 +687,8 @@
     <MESSAGE value="europe version" />
     <MESSAGE value="fixes and changes" />
     <MESSAGE value="remove logo on small screens" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove logo on small screens" />
+    <MESSAGE value="change terminal based on locale" />
+    <option name="LAST_COMMIT_MESSAGE" value="change terminal based on locale" />
   </component>
   <component name="masterDetails">
     <states>

@@ -589,16 +589,16 @@
 
                 {% if app.request.locale == "en" %}
                     $("input[name*='Currency']").val('USD');
-                    $("input[name*='Amount']").val(totalPrice * 100);
-                    $("input[name*='AmountSecond']").val(totalPrice * 1000);
+                    $("input[name*='Amount']").val(totalPrice * 1000 * 3);
+                    $("input[name*='AmountSecond']").val(totalPrice * 100);
                     $("input[name*='orderProducts']").val(orderProducts);
-                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 100 + "USD"));
+                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 * 3 + "USD"));
                 {% elseif app.request.locale == 'eu' %}
                     $("input[name*='Currency']").val('EUR');
-                    $("input[name*='Amount']").val(totalPrice * 100);
-                    $("input[name*='AmountSecond']").val(totalPrice * 1000);
+                    $("input[name*='Amount']").val(totalPrice * 1000 * 3);
+                    $("input[name*='AmountSecond']").val(totalPrice * 100);
                     $("input[name*='orderProducts']").val(orderProducts);
-                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 100 + "EUR"));
+                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 * 3 + "EUR"));
                 {% else %}
                     $("input[name*='Amount']").val(totalPrice * 1000);
                     $("input[name*='AmountSecond']").val(totalPrice * 100);
