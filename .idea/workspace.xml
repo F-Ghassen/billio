@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -299,14 +297,7 @@
       <workItem from="1609374614161" duration="4261000" />
       <workItem from="1609618008312" duration="1360000" />
       <workItem from="1609766647223" duration="250000" />
-      <workItem from="1609766954264" duration="626000" />
-    </task>
-    <task id="LOCAL-00078" summary="log ip">
-      <created>1592065127999</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1592065127999</updated>
+      <workItem from="1609766954264" duration="1135000" />
     </task>
     <task id="LOCAL-00079" summary="remove dump">
       <created>1592065287064</created>
@@ -644,7 +635,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609766858825</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="test payment international">
+      <created>1609767677143</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1609767677143</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,7 +661,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="filter with devis id" />
     <MESSAGE value="no default status for devis" />
     <MESSAGE value="removed id from pring quote&#10;added 216 to phones" />
     <MESSAGE value="fixing bugs" />
@@ -688,7 +685,8 @@
     <MESSAGE value="fixes and changes" />
     <MESSAGE value="remove logo on small screens" />
     <MESSAGE value="change terminal based on locale" />
-    <option name="LAST_COMMIT_MESSAGE" value="change terminal based on locale" />
+    <MESSAGE value="test payment international" />
+    <option name="LAST_COMMIT_MESSAGE" value="test payment international" />
   </component>
   <component name="masterDetails">
     <states>

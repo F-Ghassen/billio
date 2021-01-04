@@ -338,12 +338,14 @@
                         <!--input type="hidden" name="vad" value="815600003"-->
                         {% if app.request.locale == 'en' %}
                             <input type="hidden" name="Terminal" value="004">
+                            <input type="hidden" name="TauxConversion" value="3">
                         {% elseif app.request.locale == 'eu' %}
                             <input type="hidden" name="Terminal" value="003">
+                            <input type="hidden" name="TauxConversion" value="3">
                         {% else %}
                             <input type="hidden" name="Terminal" value="001">
+                            <input type="hidden" name="TauxConversion" value="1">
                         {% endif %}
-                        <input type="hidden" name="TauxConversion" value="3">
                     </form>
                     <div class="mt-3">
                         <label>Code promo</label>
@@ -576,6 +578,10 @@
                     if(totalPrice < 200) {
                         totalPrice+=10;
                     }
+                {% elseif app.request.locale == 'eu' %}
+                    if(totalPrice < 60) {
+                        totalPrice+=10;
+                    }
                 {% else %}
                     if(totalPrice < 200) {
                         totalPrice+=7;
@@ -589,16 +595,16 @@
 
                 {% if app.request.locale == "en" %}
                     $("input[name*='Currency']").val('USD');
-                    $("input[name*='Amount']").val(totalPrice * 1000 * 3);
-                    $("input[name*='AmountSecond']").val(totalPrice * 100);
+                    $("input[name*='Amount']").val(totalPrice * 100);
+                    $("input[name*='AmountSecond']").val(totalPrice * 1000 * 3);
                     $("input[name*='orderProducts']").val(orderProducts);
-                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 * 3 + "USD"));
+                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 100 + "USD"));
                 {% elseif app.request.locale == 'eu' %}
                     $("input[name*='Currency']").val('EUR');
-                    $("input[name*='Amount']").val(totalPrice * 1000 * 3);
-                    $("input[name*='AmountSecond']").val(totalPrice * 100);
+                    $("input[name*='Amount']").val(totalPrice * 100);
+                    $("input[name*='AmountSecond']").val(totalPrice * 1000 * 3);
                     $("input[name*='orderProducts']").val(orderProducts);
-                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 * 3 + "EUR"));
+                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 100 + "EUR"));
                 {% else %}
                     $("input[name*='Amount']").val(totalPrice * 1000);
                     $("input[name*='AmountSecond']").val(totalPrice * 100);
