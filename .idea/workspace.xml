@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -301,14 +298,7 @@
       <workItem from="1609618008312" duration="1360000" />
       <workItem from="1609766647223" duration="250000" />
       <workItem from="1609766954264" duration="4511000" />
-      <workItem from="1609846116713" duration="3016000" />
-    </task>
-    <task id="LOCAL-00081" summary="added new tranlations">
-      <created>1592571679283</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1592571679285</updated>
+      <workItem from="1609846116713" duration="3387000" />
     </task>
     <task id="LOCAL-00082" summary="added ip">
       <created>1592573157276</created>
@@ -646,7 +636,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609771951578</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="payment fix">
+      <created>1609870803353</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1609870803353</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,7 +662,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="no default status for devis" />
     <MESSAGE value="removed id from pring quote&#10;added 216 to phones" />
     <MESSAGE value="fixing bugs" />
     <MESSAGE value="export non deleted prods" />
@@ -690,7 +686,8 @@
     <MESSAGE value="remove logo on small screens" />
     <MESSAGE value="change terminal based on locale" />
     <MESSAGE value="test payment international" />
-    <option name="LAST_COMMIT_MESSAGE" value="test payment international" />
+    <MESSAGE value="payment fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="payment fix" />
   </component>
   <component name="masterDetails">
     <states>
