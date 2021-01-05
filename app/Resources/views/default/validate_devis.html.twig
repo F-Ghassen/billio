@@ -524,13 +524,29 @@
                         $('#personal_info_promo').addClass('input-success');
 
                         let s = $("#total").html();
+                        let subtotal = $('#subtotal').html();
                         let news;
                         {% if app.request.locale == "en" %}
-                            news = parseFloat(s).toFixed(2) - ((parseFloat(s).toFixed(2) - 10) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
+                            if(parseFloat(subtotal) < 200) {
+                                news = parseFloat(subtotal).toFixed(2) - (parseFloat(subtotal).toFixed(2) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
+                                news += 10;
+                            } else {
+                                news = parseFloat(s).toFixed(2) - ((parseFloat(s).toFixed(2)) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
+                            }
                         {% elseif app.request.locale == 'eu' %}
-                            news = parseFloat(s).toFixed(2) - ((parseFloat(s).toFixed(2) - 10) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
+                            if(parseFloat(subtotal) < 60) {
+                                news = parseFloat(subtotal).toFixed(2) - (parseFloat(subtotal).toFixed(2) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
+                                news += 10;
+                            } else {
+                                news = parseFloat(s).toFixed(2) - ((parseFloat(s).toFixed(2)) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
+                            }
                         {% else %}
-                            news = parseFloat(s).toFixed(2) - ((parseFloat(s).toFixed(2) - 7) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
+                            if(parseFloat(subtotal) < 200) {
+                                news = parseFloat(subtotal).toFixed(2) - (parseFloat(subtotal).toFixed(2) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
+                                news += 10;
+                            } else {
+                                news = parseFloat(s).toFixed(2) - ((parseFloat(s).toFixed(2)) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
+                            }
                         {% endif %}
                         let newVal = "<s style='color: dimgrey; font-size: 80%'>" + parseFloat(s).toFixed(2) + "</s>&nbsp;&nbsp;<span style='outline: 2px green'>" + parseFloat(news).toFixed(2);
                         {% if app.request.locale == "en" %}
@@ -541,7 +557,25 @@
                         newVal +=  " TND</span>";
                         {% endif %}
                         $("#total").html(newVal);
-                        //console.log($("#total").html());
+
+                        // console.log($("#total").html());
+
+                        // console.log(parseFloat(s).toFixed(2) * 1000);
+                        {% if app.request.locale == "en" %}
+                        $("input[name*='Amount']").val(news * 3 * 1000);
+                        $("input[name*='AmountSecond']").val(news * 100);
+                        $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + news * 3 * 1000 + "USD"));
+                        {% elseif app.request.locale == 'eu' %}
+                        $("input[name*='Amount']").val(news * 3 * 1000);
+                        $("input[name*='AmountSecond']").val(news * 100);
+                        $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + news * 3 * 1000 + "EUR"));
+                        {% else %}
+                        $("input[name*='Amount']").val(news * 1000);
+                        $("input[name*='AmountSecond']").val(news * 100);
+                        $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + news * 1000 + "TND"));
+                        {% endif %}
+
+                        // console.log($("input[name*='AmountSecond']").val());
                     }
                 });
             }
@@ -613,10 +647,11 @@
 
 
                 // console.log(orderProducts);
-                console.log(totalPrice);
+                // console.log(totalPrice);
                 // console.log(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
 
                 let s = $("#total").html();
+                // console.log(parseFloat(s).toFixed(2) * 1000);
                 {% if app.request.locale == "en" %}
                     $("input[name*='Currency']").val('USD');
                     $("input[name*='Amount']").val(parseFloat(s).toFixed(2) * 3 * 1000);
