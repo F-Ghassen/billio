@@ -35,7 +35,7 @@ class LocaleSubscriber implements EventSubscriberInterface
             }
             // dump('ip locale: '. $this->defaultLocale);
         } else {
-            $this->defaultLocale = 'fr';
+            $this->defaultLocale = 'eu';
         }
 
         // try to see if the locale has been set as a _locale routing parameter

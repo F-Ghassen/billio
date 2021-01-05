@@ -375,8 +375,8 @@
                                         name: item.product.name,
                                         color: item.variation.color,
                                         size: item.size,
-                                        price: (item.product.price-item.product.price*item.promo/100),
-                                        priceDollar: (item.product.price-item.product.priceDollar*item.promo/100),
+                                        price: item.product.price - item.product.price * (item.promo/100),
+                                        priceDollar: item.product.priceDollar - (item.product.priceDollar * (item.promo/100)),
                                         quantity: item.quantity
                                     } %}
                                 {% else %}
@@ -386,8 +386,8 @@
                                         name: item.product.name,
                                         color: item.variation.color,
                                         size: item.size,
-                                        price: (item.product.price-item.product.price),
-                                        priceDollar: (item.product.price-item.product.priceDollar),
+                                        price: item.product.price,
+                                        priceDollar: item.product.priceDollar,
                                         quantity: item.quantity
                                     } %}
                                 {% endif %}
@@ -578,7 +578,7 @@
                 let totalPrice = 0;
                 let orderProducts = "";
                 for (let i=0; i<$entryInfoObjects.length; i++) {
-                    // console.log($entryInfoObjects[i]);
+                    console.log($entryInfoObjects[i]);
                     orderProducts += $entryInfoObjects[i].quantity + " * " + $entryInfoObjects[i].name + "(" + $entryInfoObjects[i].color + "," + $entryInfoObjects[i].size + "),";
                     {% if app.request.locale == "en" or app.request.locale == 'eu' %}
                         totalPrice += parseFloat($entryInfoObjects[i].priceDollar);
@@ -603,8 +603,8 @@
                 {% endif %}
 
 
-                // console.log(orderProducts);
-                // console.log(totalPrice);
+                console.log(orderProducts);
+                console.log(totalPrice);
                 // console.log(SHA1("MAR788" + "ro#ybG30" + {{ commande.id }} + totalPrice + "USD"));
 
                 {% if app.request.locale == "en" %}
@@ -615,10 +615,10 @@
                     $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 3 * 1000 + "USD"));
                 {% elseif app.request.locale == 'eu' %}
                     $("input[name*='Currency']").val('EUR');
-                    $("input[name*='Amount']").val(totalPrice * 1000);
+                    $("input[name*='Amount']").val(totalPrice * 3 * 1000);
                     $("input[name*='AmountSecond']").val(totalPrice * 100);
                     $("input[name*='orderProducts']").val(orderProducts);
-                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 1000 + "EUR"));
+                    $("input[name*='signature']").val(SHA1("MAR747" + "wv$vyY61" + {{ commande.id }} + totalPrice * 3 * 1000 + "EUR"));
                 {% else %}
                     $("input[name*='Amount']").val(totalPrice * 1000);
                     $("input[name*='AmountSecond']").val(totalPrice * 100);
