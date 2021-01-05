@@ -38,6 +38,7 @@ class DevisItemRepository extends \Doctrine\ORM\EntityRepository
             ->leftJoin('d.orderInfo', 'info')
             ->addSelect('info')
             ->where("info.promo = '".$code."'")
+            ->andWhere("d.state != 'Canceled'")
             ->andWhere('d.enabled = true');
         return $qb->getQuery()->getResult();
     }
