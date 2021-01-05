@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -301,21 +298,7 @@
       <workItem from="1609618008312" duration="1360000" />
       <workItem from="1609766647223" duration="250000" />
       <workItem from="1609766954264" duration="4511000" />
-      <workItem from="1609846116713" duration="11993000" />
-    </task>
-    <task id="LOCAL-00086" summary="fixes">
-      <created>1592877726525</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1592877726525</updated>
-    </task>
-    <task id="LOCAL-00087" summary="fixed translation">
-      <created>1592911447753</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1592911447753</updated>
+      <workItem from="1609846116713" duration="12743000" />
     </task>
     <task id="LOCAL-00088" summary="my ip">
       <created>1592912708690</created>
@@ -646,7 +629,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609876575709</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="fixed prices">
+      <created>1609880957987</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1609880957987</updated>
+    </task>
+    <task id="LOCAL-00136" summary="don't show cancelled orders">
+      <created>1609881156449</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1609881156449</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,7 +662,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added delivery date&#10;import csv phones" />
     <MESSAGE value="new changes" />
     <MESSAGE value="fixed out of stock bugs" />
     <MESSAGE value="corrected a few bugs" />
@@ -690,7 +686,8 @@
     <MESSAGE value="fixed signatuer" />
     <MESSAGE value="prices" />
     <MESSAGE value="fixed prices" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed prices" />
+    <MESSAGE value="don't show cancelled orders" />
+    <option name="LAST_COMMIT_MESSAGE" value="don't show cancelled orders" />
   </component>
   <component name="masterDetails">
     <states>
