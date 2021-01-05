@@ -368,15 +368,29 @@
                             {% set subTotal=0 %}
                             {% for item in items1 %}
 
-                                {% set entryInfo = {
-                                    id: item.product.id,
-                                    idv: item.variation.id,
-                                    name: item.product.name,
-                                    color: item.variation.color,
-                                    size: item.size,
-                                    price: (item.product.price-item.product.price*item.promo/100),
-                                    quantity: item.quantity
-                                } %}
+                                {% if item.promo %}
+                                    {% set entryInfo = {
+                                        id: item.product.id,
+                                        idv: item.variation.id,
+                                        name: item.product.name,
+                                        color: item.variation.color,
+                                        size: item.size,
+                                        price: (item.product.price-item.product.price*item.promo/100),
+                                        priceDollar: (item.product.price-item.product.priceDollar*item.promo/100),
+                                        quantity: item.quantity
+                                    } %}
+                                {% else %}
+                                    {% set entryInfo = {
+                                        id: item.product.id,
+                                        idv: item.variation.id,
+                                        name: item.product.name,
+                                        color: item.variation.color,
+                                        size: item.size,
+                                        price: (item.product.price-item.product.price),
+                                        priceDollar: (item.product.price-item.product.priceDollar),
+                                        quantity: item.quantity
+                                    } %}
+                                {% endif %}
                                 <div data-entry-info='{{ entryInfo|json_encode|replace("'", "&#39;")|raw }}'>
                                     {% if item.promo %}
                                         {% if app.request.locale == 'en' or app.request.locale == 'eu' %}
