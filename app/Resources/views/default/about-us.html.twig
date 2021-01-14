@@ -4,33 +4,92 @@
     <div id="wrapper">
         {% include 'default/header.html.twig' %}
 
-        <!-- ****** Cart Area Start ****** -->
-        <div class="cart_area section_padding_100 clearfix" style="margin-top: 50px;">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 text-center mt-5">
-                        <div class="section_heading text-center mt-5">
-                            <h3>About us</h3>
-                            <p class="mt-5">Billiorich tunisian brand founded 2017.</p>
+        {% if app.request.locale == 'en' %}
+            <div class="cart_area section_padding_100 clearfix" style="margin-top: 50px;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center mt-5">
+                            <div class="section_heading text-center mt-5">
+                                <h3>About us</h3>
+                                <p class="mt-5">Billiorich tunisian brand founded 2017.</p>
 
-                            <p>The brand has created a complete range of high-quality items.</p>
+                                <p>The brand has created a complete range of high-quality items.</p>
 
-                            <p>Billiorich products bring the luxurious lifestyle.</p>
+                                <p>Billiorich products bring the luxurious lifestyle.</p>
 
-                            <p>Billiorich puts the presence of Swarovski crystals on these items in integration with the design.</p>
+                                <p>Billiorich puts the presence of Swarovski crystals on these items in integration with the design.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="cart-footer mt-5">
-                        <div class="back-to-shop">
-                            <a href="{{ path('index_products_page') }}">Continue shooping</a>
+                    <div class="row justify-content-center">
+                        <div class="cart-footer mt-5">
+                            <div class="back-to-shop">
+                                <a href="{{ path('index_products_page') }}">Continue shooping</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- ****** Cart Area End ****** -->
+        {% elseif app.request.locale == 'eu' %}
+            <div class="cart_area section_padding_100 clearfix" style="margin-top: 50px;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center mt-5">
+                            <div class="section_heading text-center mt-5">
+                                <h3>About us</h3>
+                                <p class="mt-5">Billiorich est une Marque Internationale fondée en 2017 en Tunisie</p>
+
+                                <p>Billiorich a évolué sa chaine de livraison en Europe et surtout en France, Suisse et Belgique.</p>
+
+                                <p>L’objectif 2021 est d’élargir encore plus notre réseaux clientèle en Europe.</p>
+
+                                <p>La marque a créé une gamme complète d'articles de haute qualité.</p>
+
+                                <p>Les produits Billiorich apportent un style de vie luxueux.</p>
+
+                                <p>Billiorich met la présence de cristaux Swarovski sur ces articles en intégration avec le design.</p>
+
+                                <p>Grâce à vous et à votre confiance que nous réussissons.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="cart-footer mt-5">
+                            <div class="back-to-shop">
+                                <a href="{{ path('index_products_page') }}">Continue shooping</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="cart_area section_padding_100 clearfix" style="margin-top: 50px;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center mt-5">
+                            <div class="section_heading text-center mt-5">
+                                <h3>About us</h3>
+                                <p class="mt-5">Billiorich tunisian brand founded 2017.</p>
+
+                                <p>The brand has created a complete range of high-quality items.</p>
+
+                                <p>Billiorich products bring the luxurious lifestyle.</p>
+
+                                <p>Billiorich puts the presence of Swarovski crystals on these items in integration with the design.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="cart-footer mt-5">
+                            <div class="back-to-shop">
+                                <a href="{{ path('index_products_page') }}">Continue shooping</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
 
         {% include 'default/footer.html.twig' %}
     </div>

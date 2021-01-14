@@ -838,4 +838,62 @@ class DefaultController extends Controller
             'collections' => $collections,
         ));
     }
+
+    /**
+     * @Route("/conditions-generales", name="conditions_gen")
+     */
+    public function conditions_gen(Request $request)
+    {
+        $serializer = $this->get('jms_serializer');
+        $session = $this->get('session');
+        $cartLogo = 0;
+        if ($session->has('cartElements')) {
+            $commandeJson = $session->get('cartElements');
+            $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
+            $cartLogo = count($commande->getItems());
+        }
+        $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
+        $mailing = new MailingList();
+        $mailing_form = $this->get('form.factory')->create(MailingListType::class, $mailing);
+        if ($request->isMethod('POST') && $mailing_form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($mailing);
+            $em->flush();
+            return $this->redirectToRoute('homepage');
+        }
+        return $this->render('default/general_conditions.html.twig', array(
+            'cartLogo' => $cartLogo,
+            'mailing_form' => $mailing_form->createView(),
+            'collections' => $collections,
+        ));
+    }
+
+    /**
+     * @Route("/conditions-livraisons", name="conditions_liv")
+     */
+    public function conditions_liv(Request $request)
+    {
+        $serializer = $this->get('jms_serializer');
+        $session = $this->get('session');
+        $cartLogo = 0;
+        if ($session->has('cartElements')) {
+            $commandeJson = $session->get('cartElements');
+            $commande = $serializer->deserialize($commandeJson, Devis::class, 'json');
+            $cartLogo = count($commande->getItems());
+        }
+        $collections = $this->getDoctrine()->getManager()->getRepository(Collection::class)->findBy(['enabled' => true]);
+        $mailing = new MailingList();
+        $mailing_form = $this->get('form.factory')->create(MailingListType::class, $mailing);
+        if ($request->isMethod('POST') && $mailing_form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($mailing);
+            $em->flush();
+            return $this->redirectToRoute('homepage');
+        }
+        return $this->render('default/conditions_livraisons.html.twig', array(
+            'cartLogo' => $cartLogo,
+            'mailing_form' => $mailing_form->createView(),
+            'collections' => $collections,
+        ));
+    }
 }

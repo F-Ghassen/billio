@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        {% include 'default/header.html.twig' %}
+
+        {% if app.request.locale == 'en' %}
+            <div class="cart_area section_padding_100 clearfix" style="margin-top: 50px;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center mt-5">
+                            <div class="section_heading text-center mt-5">
+                                <h3>About us</h3>
+                                <p class="mt-5">Billiorich tunisian brand founded 2017.</p>
+
+                                <p>The brand has created a complete range of high-quality items.</p>
+
+                                <p>Billiorich products bring the luxurious lifestyle.</p>
+
+                                <p>Billiorich puts the presence of Swarovski crystals on these items in integration with the design.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="cart-footer mt-5">
+                            <div class="back-to-shop">
+                                <a href="{{ path('index_products_page') }}">Continue shooping</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% elseif app.request.locale == 'eu' %}
+            <div class="cart_area section_padding_100 clearfix" style="margin-top: 50px;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center mt-5">
+                            <div class="section_heading text-center mt-5">
+                                <h4>Conditions Générales</h4>
+                                <p class="mt-5">
+                                    <h5>POLITIQUE DE CONFIDENTIALITÉ</h5>
+                                    Nous ne partageons ni ne vendons jamais vos informations personnelles à des tiers. Vos
+                                    coordonnées ne sont utilisées que pour vous contacter au sujet de votre
+                                    commande. Vous pouvez choisir de recevoir nos e-mails de newsletter en vous
+                                    inscrivant sur notre site ou à la caisse après avoir passé une commande. Toutes les
+                                    transactions sont traitées à l'aide du cryptage SSL 256 bits standard de l'industrie. Les
+                                    informations de votre carte de crédit ne sont jamais stockées.
+                                </p>
+
+                                <p>
+                                    <h5>GARANTIE</h5>
+                                    Dans le cas peu probable où vous pensez que votre produit présente un défaut de
+                                    fabrication, vous devez nous en informer dans les 5 jours ouvrables suivant la
+                                    livraison. Si votre produit développe un problème notable à tout moment, contactez nous et nous vous aiderons à trouver une solution.
+                                </p>
+
+                                <p>
+                                    <h5>COMMANDES</h5>
+                                    Lorsque vous passez une commande, votre adresse de livraison et vos produits sont
+                                    confirmés avec notre logiciel d'expédition. À ce stade, nous ne pouvons pas modifier ou
+                                    annuler la commande. Si vous avez passé une commande par erreur, vous aurez la
+                                    possibilité de la retourner après la livraison.
+                                </p>
+
+                                <p>
+                                <h5>RETOUR</h5>
+                                Si vous souhaitez retourner quelque chose, vous avez 14 jours à compter de la date de
+                                livraison pour demander et expédier un retour . Vous aurez besoin de votre numéro de
+                                commande et de la même adresse e-mail que vous avez utilisée pour passer la
+                                commande. Les frais d'expédition d'origine ne sont pas remboursables et les frais de
+                                retour sont à votre charge. Si votre retour est timbré, vous n'êtes éligible qu'à un crédit
+                                magasin.
+                                <br><br>
+                                Si vous souhaitez retourner quelque chose, vous avez 14 jours à compter de la date de
+                                livraison pour demander et expédier un retour. Vous pouvez demander un retour ici.
+                                Vous aurez besoin de votre numéro de commande et de la même adresse e-mail que
+                                vous avez utilisée pour passer la commande. Les frais d'expédition d'origine ne sont pas
+                                remboursables.
+                                <br><br>
+                                Pour les crédits magasin, nous sommes actuellement en mesure de proposer des
+                                étiquettes de retour à 50 € avec DHL ou ARAMEX. Si vous manquez la collecte de retour,
+                                vous devrez contacter DHL ou ARAMEX directement pour convenir d'une heure qui vous
+                                convient.
+                                <br><br>
+                                Si les produits sont renvoyés plus de 14 jours après leur réception, vous ne pourrez
+                                bénéficier que d'un crédit magasin.
+                                <br><br>
+                                Si vous choisissez de retourner avec votre propre transporteur, vous devez vous assurer
+                                que les droits d'importation sont facturés à l'expéditeur. Tous les droits d'importation
+                                dus à la livraison ou après la livraison retarderont votre retour et seront déduits de
+                                votre remboursement ou de votre crédit magasin.
+                                </p>
+
+                                <p>
+                                <h5>DROIT D'IMPORTATION ET TAXE</h5>
+                                Les commandes expédiées au sein de l'UE ne sont pas facturées à la caisse. Les
+                                commandes en France ont une TVA de 20% incluse dans le prix final. Les commandes
+                                vers toutes les autres destinations n'incluent pas les taxes. Toutes les autres commandes
+                                internationales en dehors du Royaume-Uni peuvent être soumises à des taxes et des
+                                frais d'importation à la livraison. Les taux d'imposition sont basés sur le taux de votre
+                                pays. Les commandes aux États-Unis d'une valeur inférieure à 800 $ n'entraîneront pas
+                                de droits d'importation.
+                                </p>
+
+                                <p>
+                                <h5>COPYRIGHTS</h5>
+                                Ce site et tout son contenu sont détenus et exploités par Billiorich une société
+                                enregistrée en Tunisie.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="cart-footer mt-5">
+                            <div class="back-to-shop">
+                                <a href="{{ path('index_products_page') }}">Continue shooping</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="cart_area section_padding_100 clearfix" style="margin-top: 50px;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center mt-5">
+                            <div class="section_heading text-center mt-5">
+                                <h3>About us</h3>
+                                <p class="mt-5">Billiorich tunisian brand founded 2017.</p>
+
+                                <p>The brand has created a complete range of high-quality items.</p>
+
+                                <p>Billiorich products bring the luxurious lifestyle.</p>
+
+                                <p>Billiorich puts the presence of Swarovski crystals on these items in integration with the design.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="cart-footer mt-5">
+                            <div class="back-to-shop">
+                                <a href="{{ path('index_products_page') }}">Continue shooping</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% include 'default/footer.html.twig' %}
+    </div>
+{% endblock %}

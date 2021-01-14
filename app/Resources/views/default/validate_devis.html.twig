@@ -449,15 +449,15 @@
                                     {% if subTotal > 200 %}
                                         <b style="font-size: 15px !important;">{{ 'translate.free'|trans }}</b>
                                     {% else %}
-                                        {% set subTotal = subTotal + 10 %}
-                                        <span style="font-size: 15px !important;">{{ (10)|number_format(2) }} $</span>
+                                        {% set subTotal = subTotal + 12.99 %}
+                                        <span style="font-size: 15px !important;">{{ (12.99)|number_format(2) }} $</span>
                                     {% endif %}
                                 {% elseif app.request.locale == 'eu' %}
                                     {% if subTotal > 60 %}
                                         <b style="font-size: 15px !important;">{{ 'translate.free'|trans }}</b>
                                     {% else %}
-                                        {% set subTotal = subTotal + 10 %}
-                                        <span style="font-size: 15px !important;">{{ (10)|number_format(2) }} €</span>
+                                        {% set subTotal = subTotal + 12.99 %}
+                                        <span style="font-size: 15px !important;">{{ (12.99)|number_format(2) }} €</span>
                                     {% endif %}
                                 {% else %}
                                     {% if (subTotal) > 200 %}
@@ -529,21 +529,21 @@
                         {% if app.request.locale == "en" %}
                             if(parseFloat(subtotal) < 200) {
                                 news = parseFloat(subtotal).toFixed(2) - (parseFloat(subtotal).toFixed(2) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
-                                news += 10;
+                                news += 12.99;
                             } else {
                                 news = parseFloat(s).toFixed(2) - ((parseFloat(s).toFixed(2)) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
                             }
                         {% elseif app.request.locale == 'eu' %}
                             if(parseFloat(subtotal) < 60) {
                                 news = parseFloat(subtotal).toFixed(2) - (parseFloat(subtotal).toFixed(2) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
-                                news += 10;
+                                news += 12.99;
                             } else {
                                 news = parseFloat(s).toFixed(2) - ((parseFloat(s).toFixed(2)) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
                             }
                         {% else %}
                             if(parseFloat(subtotal) < 200) {
                                 news = parseFloat(subtotal).toFixed(2) - (parseFloat(subtotal).toFixed(2) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
-                                news += 10;
+                                news += 12.99;
                             } else {
                                 news = parseFloat(s).toFixed(2) - ((parseFloat(s).toFixed(2)) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
                             }
@@ -633,11 +633,11 @@
 
                 {% if app.request.locale == "en" %}
                     if(totalPrice < 200) {
-                        totalPrice+=10;
+                        totalPrice+=12.99;
                     }
                 {% elseif app.request.locale == 'eu' %}
                     if(totalPrice < 60) {
-                        totalPrice+=10;
+                        totalPrice+=12.99;
                     }
                 {% else %}
                     if(totalPrice < 200) {
