@@ -24,7 +24,6 @@ class DefaultController extends Controller
         $queryBuilder->where('d.enabled = true and d.archived = false');
 
         $userType = $this->get('security.token_storage')->getToken()->getUser()->getCountry();
-        dump($userType);
         if ($userType == 'EU') {
             $queryBuilder
                 ->leftJoin('d.orderInfo', 'info')
