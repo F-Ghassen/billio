@@ -21,12 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/devis/print_devis.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserBundle/Form/EditUserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Form/EditUserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserBundle/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Form/UserType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,14 +304,7 @@
       <workItem from="1609846116713" duration="12743000" />
       <workItem from="1609883411470" duration="668000" />
       <workItem from="1610644202872" duration="7618000" />
-      <workItem from="1610709865909" duration="7335000" />
-    </task>
-    <task id="LOCAL-00091" summary="test">
-      <created>1592915184195</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1592915184196</updated>
+      <workItem from="1610709865909" duration="7955000" />
     </task>
     <task id="LOCAL-00092" summary="fixed price not showing">
       <created>1592915605530</created>
@@ -654,7 +642,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610753362641</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="remove dump">
+      <created>1610754006972</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1610754006972</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -673,7 +668,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="administration devis changes" />
     <MESSAGE value="fix 34 size" />
     <MESSAGE value="fix deleted in add product" />
     <MESSAGE value="added ref to products" />
@@ -698,7 +692,8 @@
     <MESSAGE value="conversion" />
     <MESSAGE value="changed delivery price&#10;added conditions" />
     <MESSAGE value="new user type" />
-    <option name="LAST_COMMIT_MESSAGE" value="new user type" />
+    <MESSAGE value="remove dump" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove dump" />
   </component>
   <component name="masterDetails">
     <states>

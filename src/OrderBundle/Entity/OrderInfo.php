@@ -51,12 +51,6 @@ class OrderInfo
     /**
      * @var int
      *
-     * @Assert\Regex(
-     *     pattern="/\d{8}/",
-     *     htmlPattern="/\d{8}/",
-     *     message="Invalid Phone Number",
-     * )
-     *
      * @ORM\Column(name="customerPhone", type="integer")
      */
     private $customerPhone;
