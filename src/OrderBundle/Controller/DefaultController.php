@@ -23,6 +23,15 @@ class DefaultController extends Controller
         $queryBuilder = $em->getRepository(Devis::class)->createQueryBuilder('d');
         $queryBuilder->where('d.enabled = true and d.archived = false');
 
+        $userType = $this->get('security.token_storage')->getToken()->getUser()->getCountry();
+        dump($userType);
+        if ($userType == 'EU') {
+            $queryBuilder
+                ->leftJoin('d.orderInfo', 'info')
+                ->addSelect('info')
+                ->andWhere("info.pays != 'Tunisia'");
+        }
+
         if($request->query->getAlnum('search')) {
             $queryBuilder
                 ->leftJoin('d.orderInfo', 'info')

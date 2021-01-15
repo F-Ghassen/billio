@@ -166,7 +166,7 @@
                                         {% if c.orderInfo.pays == 'Tunisia' %}
                                         {{ total|number_format(2) }} TND
                                         {% else %}
-                                        {{ totalDollar|number_format(2) }} USD
+                                        {{ totalDollar|number_format(2) }} EUR
                                         {% endif %}
                                     </span>
                                 </td>
@@ -197,7 +197,7 @@
                                                     {% if c.orderInfo.pays == 'Tunisia' %}
                                                     {{ sum1|number_format(2) }} TND
                                                     {% else %}
-                                                    {{ sumDollar|number_format(2) }} USD
+                                                    {{ sumDollar|number_format(2) }} EUR
                                                     {% endif %}
                                                 </h5>
                                             </td>
@@ -243,7 +243,7 @@
                         $("#total").html(parseFloat(initialTotal+7).toFixed(2) + " TND");
                     }
                 } else {
-                    if(parseFloat(initialTotal) < parseFloat(200)) {
+                    if(parseFloat(initialTotal) < parseFloat(60)) {
                         //console.log(i);
                         //console.log(initialTotal);
                         $('#items').append('<tr>' +
@@ -251,11 +251,11 @@
                             '<td></td>'+
                             '<td></td>' +
                             '<td>1</td>' +
-                            '<td class="text-semibold">12.99 USD</td>' +
+                            '<td class="text-semibold">12.99 EUR</td>' +
                             '</tr>');
                         //console.log(initialTotal);
                         initialTotal = parseFloat(initialTotal) + parseFloat(12.99);
-                        $("#total").html(initialTotal + " USD");
+                        $("#total").html(initialTotal + " EUR");
                     }
                 }
                 //console.log(code);
@@ -271,7 +271,7 @@
                             if ($("#country").html() == 'Tunisia') {
                                 $("#total").html(parseFloat(news).toFixed(2) + " TND");
                             } else {
-                                $("#total").html(parseFloat(news).toFixed(2) + " USD");
+                                $("#total").html(parseFloat(news).toFixed(2) + " EUR");
                             }  
                             $('#code').html(JSON.parse(data).montant + "%");
                             //console.log(s);

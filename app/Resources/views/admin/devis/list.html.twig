@@ -6,9 +6,7 @@
 
     {{ parent() }}
 
-    <!-- Main content -->
     <div class="content-wrapper">
-        <!-- Page header -->
         <div class="page-header">
             <div class="page-header-content">
                 <div class="page-title">
@@ -23,9 +21,7 @@
                 </ul>
             </div>
         </div>
-        <!-- /page header -->
 
-        <!-- Content area -->
         <div class="content">
             <div class="p-5 m-5">
                 <div class="row">
@@ -121,7 +117,7 @@
                                                 {% if c.orderInfo.pays == 'Tunisia' %}
                                                 {{ sum1|number_format(2) }} TND
                                                 {% else %}
-                                                {{ sumDollar|number_format(2) }} USD
+                                                {{ sumDollar|number_format(2) }} EUR
                                                 {% endif %}
                                             </h6>
                                         </span>
@@ -294,7 +290,7 @@
                                                         {% if c.orderInfo.pays == 'Tunisia' %}
                                                             {{ total|number_format(2) }} TND
                                                         {% else %}
-                                                            {{ totalDollar|number_format(2) }} USD
+                                                            {{ totalDollar|number_format(2) }} EUR
                                                         {% endif %}
                                                     </span>
                                                 </td>
@@ -342,7 +338,7 @@
                                                                     {% if c.orderInfo.pays == 'Tunisia' %}
                                                                     {{ sum1|number_format(2) }} TND
                                                                     {% else %}
-                                                                    {{ sumDollar|number_format(2) }} USD
+                                                                    {{ sumDollar|number_format(2) }} EUR
                                                                     {% endif %}
                                                                 </h5>
                                                             </td>
@@ -436,12 +432,12 @@
                             '<td></td>'+
                             '<td></td>' +
                             '<td>1</td>' +
-                            '<td class="text-semibold">12.99  USD</td>' +
+                            '<td class="text-semibold">12.99  EUR</td>' +
                             '</tr>');
                         //console.log(initialTotal);
-                        initialTotal = parseFloat(initialTotal) + parseFloat(12.99);
-                        $("#total_"+i).html(initialTotal + " USD");
-                        $("#total1_"+i).html(initialTotal + " USD");
+                        initialTotal = parseFloat(initialTotal) + parseFloat('12.99');
+                        $("#total_"+i).html(initialTotal + " EUR");
+                        $("#total1_"+i).html(initialTotal + " EUR");
                     }
                 }
 
@@ -458,8 +454,8 @@
                                 $("#total_"+i).html(parseFloat(news).toFixed(2) + " TND");
                                 $("#total1_"+i).html(parseFloat(news).toFixed(2) + " TND");
                             } else {
-                                $("#total_"+i).html(parseFloat(news).toFixed(2) + " USD");
-                                $("#total1_"+i).html(parseFloat(news).toFixed(2) + " USD");
+                                $("#total_"+i).html(parseFloat(news).toFixed(2) + " EUR");
+                                $("#total1_"+i).html(parseFloat(news).toFixed(2) + " EUR");
                             }  
                             $('#code'+i).html(JSON.parse(data).montant + "%");
                             //console.log(s)
