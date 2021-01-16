@@ -526,7 +526,7 @@
                         let s = $("#total").html();
                         let subtotal = $('#subtotal').html();
                         let news;
-                        console.log(data);
+                        // console.log(data);
                         {% if app.request.locale == "en" %}
                         if(parseFloat(subtotal) < 200) {
                             news = parseFloat(subtotal).toFixed(2) - (parseFloat(subtotal).toFixed(2) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
