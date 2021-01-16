@@ -30,5 +30,6 @@ security:
 
     access_control:
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/code/check, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/devis$, role: ROLE_USER }
         - { path: ^/admin/, role: ROLE_ADMIN }
