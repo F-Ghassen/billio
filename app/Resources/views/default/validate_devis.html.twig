@@ -535,7 +535,7 @@
                         }
                         {% elseif app.request.locale == 'eu' %}
                         if(parseFloat(subtotal) < 60) {
-                            console.log(JSON.parse(data).montant);
+                            console.log(data);
                             news = parseFloat(subtotal).toFixed(2) - (parseFloat(subtotal).toFixed(2) * (parseFloat(JSON.parse(data).montant).toFixed(2)/100));
                             news += 12.99;
                         } else {
