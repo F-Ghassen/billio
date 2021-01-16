@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -305,21 +302,7 @@
       <workItem from="1609883411470" duration="668000" />
       <workItem from="1610644202872" duration="7618000" />
       <workItem from="1610709865909" duration="8364000" />
-      <workItem from="1610796133702" duration="9429000" />
-    </task>
-    <task id="LOCAL-00094" summary="changed banner&#10;changed nav&#10;added swimwear">
-      <created>1595123895500</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1595123895501</updated>
-    </task>
-    <task id="LOCAL-00095" summary="changes done">
-      <created>1595349783788</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1595349783789</updated>
+      <workItem from="1610796133702" duration="9954000" />
     </task>
     <task id="LOCAL-00096" summary="display size 40">
       <created>1595350484323</created>
@@ -650,7 +633,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610805256263</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="check promo code">
+      <created>1610812085674</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1610812085675</updated>
+    </task>
+    <task id="LOCAL-00144" summary="check promo code">
+      <created>1610812216154</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1610812216154</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -669,7 +666,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added ref to products" />
     <MESSAGE value="print devis rtn" />
     <MESSAGE value="added state filtering &#10;fixed payment bug" />
     <MESSAGE value="added export feed" />
@@ -694,7 +690,8 @@
     <MESSAGE value="remove dump" />
     <MESSAGE value="removed restriction for phone number" />
     <MESSAGE value="seperated eu user roles&#10;changed header font&#10;smaller image" />
-    <option name="LAST_COMMIT_MESSAGE" value="seperated eu user roles&#10;changed header font&#10;smaller image" />
+    <MESSAGE value="check promo code" />
+    <option name="LAST_COMMIT_MESSAGE" value="check promo code" />
   </component>
   <component name="masterDetails">
     <states>
