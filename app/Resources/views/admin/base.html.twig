@@ -103,6 +103,8 @@
                         <ul class="navigation navigation-main navigation-accordion">
 
                             <!-- Main -->
+                            {% if is_granted('ROLE_ADMIN') %}
+
                             <li {% if app.request.attributes.get('_route') == 'index_admin_page' %} class="active"{% endif %}>
                                 <a href="{{ path('index_admin_page') }}">
                                     <i class="icon-home4"></i>
@@ -133,14 +135,17 @@
                             <li {% if app.request.attributes.get('_route') == 'list_messages_page' %} class="active"{% endif %}>
                                 <a href="{{ path('list_messages_page') }}"><i class=" icon-mail5"></i> <span>Messages</span></a>
                             </li>
-
+                            {% endif %}
+                            {% if is_granted('ROLE_USER') %}
                             <li {% if app.request.attributes.get('_route') == 'list_devis_page' %} class="active"{% endif %}>
                                 <a href="{{ path('list_devis_page') }}"><i class=" icon-cart"></i> <span>Devis</span></a>
                             </li>
-
+                            {% endif %}
+                            {% if is_granted('ROLE_ADMIN') %}
                             <li {% if app.request.attributes.get('_route') == 'list_users_page' %} class="active"{% endif %}>
                                 <a href="{{ path('list_users_page') }}"><i class="icon-user"></i> <span>Utilisateurs</span></a>
                             </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>

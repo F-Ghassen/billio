@@ -2261,6 +2261,8 @@ img {
         url('../fonts/dum1.ttf')  format('truetype');
 }
 
+@font-face {font-family: "Timeless"; src: url("//db.onlinewebfonts.com/t/1aee265066f0abf357b138e6eba36b2a.eot"); src: url("//db.onlinewebfonts.com/t/1aee265066f0abf357b138e6eba36b2a.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/1aee265066f0abf357b138e6eba36b2a.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/1aee265066f0abf357b138e6eba36b2a.woff") format("woff"), url("//db.onlinewebfonts.com/t/1aee265066f0abf357b138e6eba36b2a.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/1aee265066f0abf357b138e6eba36b2a.svg#Timeless") format("svg"); }
+
 .disable-link {
     pointer-events: none;
 }

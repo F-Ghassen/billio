@@ -21,7 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OrderBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/categories.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/validate_devis.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserBundle/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/core-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/css/core-style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,14 +310,8 @@
       <workItem from="1609846116713" duration="12743000" />
       <workItem from="1609883411470" duration="668000" />
       <workItem from="1610644202872" duration="7618000" />
-      <workItem from="1610709865909" duration="7955000" />
-    </task>
-    <task id="LOCAL-00092" summary="fixed price not showing">
-      <created>1592915605530</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1592915605530</updated>
+      <workItem from="1610709865909" duration="8364000" />
+      <workItem from="1610796133702" duration="5605000" />
     </task>
     <task id="LOCAL-00093" summary="fixed multiline bug">
       <created>1592916418208</created>
@@ -649,7 +649,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610754006972</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="removed restriction for phone number">
+      <created>1610754241346</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1610754241346</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -668,7 +675,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix 34 size" />
     <MESSAGE value="fix deleted in add product" />
     <MESSAGE value="added ref to products" />
     <MESSAGE value="print devis rtn" />
@@ -693,7 +699,8 @@
     <MESSAGE value="changed delivery price&#10;added conditions" />
     <MESSAGE value="new user type" />
     <MESSAGE value="remove dump" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove dump" />
+    <MESSAGE value="removed restriction for phone number" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed restriction for phone number" />
   </component>
   <component name="masterDetails">
     <states>

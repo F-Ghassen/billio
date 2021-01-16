@@ -41,6 +41,14 @@ class UserController extends Controller
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
 
+            if ($user->getCountry() == 'TN') {
+                $user->removeRole('ROLE_EU');
+                $user->addRole('ROLE_ADMIN');
+            } else {
+                $user->removeRole('ROLE_ADMIN');
+                $user->addRole('ROLE_EU');
+            }
+
             $encoder_service = $this->get('security.encoder_factory');
             $encoder = $encoder_service->getEncoder($user);
             $encoded_pass = $encoder->encodePassword($user->getPassword(), $user->getSalt());
@@ -68,6 +76,13 @@ class UserController extends Controller
 
         if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
         {
+            if ($user->getCountry() == 'TN') {
+                $user->removeRole('ROLE_EU');
+                $user->addRole('ROLE_ADMIN');
+            } else {
+                $user->removeRole('ROLE_ADMIN');
+                $user->addRole('ROLE_EU');
+            }
             $userManger->updateUser($user);
             return $this->redirectToRoute('list_users_page');
         }
