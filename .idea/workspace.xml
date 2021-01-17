@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="722bf5b2-186c-43a3-a382-a1a2008c9051" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +110,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../workflow/flow_back" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -305,28 +304,7 @@
       <workItem from="1609883411470" duration="668000" />
       <workItem from="1610644202872" duration="7618000" />
       <workItem from="1610709865909" duration="8364000" />
-      <workItem from="1610796133702" duration="10640000" />
-    </task>
-    <task id="LOCAL-00097" summary="made billio text smaller">
-      <created>1595370322824</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1595370322824</updated>
-    </task>
-    <task id="LOCAL-00098" summary="adding new banner and fix bugs">
-      <created>1595438391563</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1595438391564</updated>
-    </task>
-    <task id="LOCAL-00099" summary="export stock done">
-      <created>1596929345627</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1596929345627</updated>
+      <workItem from="1610796133702" duration="11678000" />
     </task>
     <task id="LOCAL-00100" summary="phone number pages&#10;remove devis id from print">
       <created>1596936730133</created>
@@ -650,7 +628,28 @@
       <option name="project" value="LOCAL" />
       <updated>1610812890443</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="fixed code permission">
+      <created>1610813256703</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1610813256703</updated>
+    </task>
+    <task id="LOCAL-00147" summary="fixed code permission">
+      <created>1610813269398</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1610813269398</updated>
+    </task>
+    <task id="LOCAL-00148" summary="fixed code permission">
+      <created>1610813354666</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1610813354667</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -669,7 +668,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="print devis rtn" />
     <MESSAGE value="added state filtering &#10;fixed payment bug" />
     <MESSAGE value="added export feed" />
     <MESSAGE value="feed" />
@@ -694,7 +692,8 @@
     <MESSAGE value="removed restriction for phone number" />
     <MESSAGE value="seperated eu user roles&#10;changed header font&#10;smaller image" />
     <MESSAGE value="check promo code" />
-    <option name="LAST_COMMIT_MESSAGE" value="check promo code" />
+    <MESSAGE value="fixed code permission" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed code permission" />
   </component>
   <component name="masterDetails">
     <states>
