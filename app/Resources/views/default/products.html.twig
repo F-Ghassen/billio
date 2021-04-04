@@ -207,7 +207,7 @@
                                         ' wow fadeInUpBig" data-wow-delay="0.2s">';
                                 }
 
-                                htmlData += '<div class="product-img"><a href="https://billiorich.com/products/' + product.id + '-' + variation.id + '">' +
+                                htmlData += '<div class="product-img"><a href="https://billiorich.tn/products/' + product.id + '-' + variation.id + '">' +
                                 '<img src="/uploads/product_images/' + variation.images[0].image + '" alt="">';
                                 if (product.promo_enabled) {
                                     htmlData += '<div class="product-sale"><h6 class="heading-uppercase">-' + product.promo_montant + '%</h6></div>'
@@ -250,7 +250,7 @@
                                     {% endif %}
                                 }
                                 htmlData += '</h4><div style="font-size: 0.9em;min-height: 50px; overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* number of lines to show */-webkit-box-orient: vertical;" >' + product.name + '</div>' +
-                                    '<form action="https://billiorich.com/products/' + product.id + '-' + variation.id + '" class="cart" method="post">' +
+                                    '<form action="https://billiorich.tn/products/' + product.id + '-' + variation.id + '" class="cart" method="post">' +
                                     '<button type="submit" class="btn btn-dark mt-2 btn-acheter">{{ "translate.add_cart"|trans }}</button></form></div></div>';
                             });
                         });

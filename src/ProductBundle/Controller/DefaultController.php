@@ -450,9 +450,9 @@ class DefaultController extends Controller
                 $feed .= $p->getName() . ";";
                 $feed .= $p->getDescription() . ";";
                 $feed .= $p->getCategory() . ";";
-                $feed .= "https://billiorich.com/products/" . $p->getId() . "-" . $v->getId() . ";";
-                $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
-                $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
+                $feed .= "https://billiorich.tn/products/" . $p->getId() . "-" . $v->getId() . ";";
+                $feed .= "https://billiorich.tn/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
+                $feed .= "https://billiorich.tn/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
                 if ($p->getCategory() == "Jeans") {
                     if ($v->getSizeJean29() == 0 && $v->getSizeJean30() == 0 && $v->getSizeJean31() == 0 && $v->getSizeJean32() == 0 && $v->getSizeJean33() == 0 && $v->getSizeJean34() == 0 && $v->getSizeJean35() == 0 && $v->getSizeJean36() == 0 && $v->getSizeJean38() == 0 && $v->getSizeJean40() == 0) {
                         $feed .= "Out of stock;";
@@ -506,9 +506,9 @@ class DefaultController extends Controller
                 $feed .= $p->getName() . ";";
                 $feed .= $p->getDescription() . ";";
                 $feed .= $p->getCategory() . ";";
-                $feed .= "https://billiorich.com/products/" . $p->getId() . "-" . $v->getId() . ";";
-                $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
-                $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
+                $feed .= "https://billiorich.tn/products/" . $p->getId() . "-" . $v->getId() . ";";
+                $feed .= "https://billiorich.tn/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
+                $feed .= "https://billiorich.tn/uploads/product_images/" . $v->getImages()[0]->getImage() . ";";
                 if ($p->getCategory() == "Jeans") {
                     if ($v->getSizeJean29() == 0 && $v->getSizeJean30() == 0 && $v->getSizeJean31() == 0 && $v->getSizeJean32() == 0 && $v->getSizeJean33() == 0 && $v->getSizeJean34() == 0 && $v->getSizeJean35() == 0 && $v->getSizeJean36() == 0 && $v->getSizeJean38() == 0 && $v->getSizeJean40() == 0) {
                         $feed .= "Out of stock;";
@@ -600,7 +600,7 @@ class DefaultController extends Controller
                         }
                         $feed .= "Billiorich" . ";";
                         $feed .= $p->getDescription() . ";";
-                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                        $feed .= "https://billiorich.tn/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
                     }
                 } else if ($p->getCategory() == "Mocassin") {
                     $sizes = ['40', '41', '42', '43', '44', '45'];
@@ -638,7 +638,7 @@ class DefaultController extends Controller
                         }
                         $feed .= "Billiorich" . ";";
                         $feed .= $p->getDescription() . ";";
-                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                        $feed .= "https://billiorich.tn/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
                     }
                 } else {
                     $sizes = ['S', 'M', 'L', 'XL', 'XXL', '3XL'];
@@ -676,7 +676,7 @@ class DefaultController extends Controller
                         }
                         $feed .= "Billiorich" . ";";
                         $feed .= $p->getDescription() . ";";
-                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                        $feed .= "https://billiorich.tn/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
                     }
                 }
 
@@ -747,7 +747,7 @@ class DefaultController extends Controller
                         }
                         $feed .= "Billiorich" . ";";
                         $feed .= $p->getDescription() . ";";
-                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                        $feed .= "https://billiorich.tn/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
                     }
                 } else if ($p->getCategory() == "Mocassin") {
                     $sizes = ['40', '41', '42', '43', '44', '45'];
@@ -785,7 +785,7 @@ class DefaultController extends Controller
                         }
                         $feed .= "Billiorich" . ";";
                         $feed .= $p->getDescription() . ";";
-                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                        $feed .= "https://billiorich.tn/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
                     }
                 } else {
                     $sizes = ['S', 'M', 'L', 'XL', 'XXL', '3XL'];
@@ -823,7 +823,7 @@ class DefaultController extends Controller
                         }
                         $feed .= "Billiorich" . ";";
                         $feed .= $p->getDescription() . ";";
-                        $feed .= "https://billiorich.com/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
+                        $feed .= "https://billiorich.tn/uploads/product_images/" . $v->getImages()[0]->getImage() . "\n";
                     }
                 }
 
